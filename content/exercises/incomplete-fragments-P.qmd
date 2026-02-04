@@ -1,0 +1,7 @@
+a. Let $\Hp^*$ be the proof system obtained from $\Hp$ by replacing the axiom schema P$3$ with the schema:
+$$
+(\ph\imp\psi)\imp(\neg\psi\imp\neg\ph)
+$$
+Show that not every instance of P$3$ is a theorem of $\Hp^*$. 
+
+b. Let $\Hp^i$ ($i=1,2$) be the deductive system obtained from $\Hp$ by omitting the axiom schema P$i$. Show that not every instance of P$i$ is a theorem of $\Hp^i$. 

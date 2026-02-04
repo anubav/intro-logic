@@ -1,0 +1,106 @@
+::: {.hidden}
+<!-- Greek letters -->
+\newcommand{\al}{\alpha}
+\newcommand{\Al}{\Alpha}
+\newcommand{\be}{\beta}
+\newcommand{\Be}{\Beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\Phi}
+\newcommand{\ps}{\psi}
+\newcommand{\Ps}{\Psi}
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+
+<!-- set operations -->
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\newcommand{\inter}{\cap}
+\newcommand{\Inter}{\bigcap}
+
+<!-- script letters -->
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+<!-- bold letters -->
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vy}{\vec{y}}
+\newcommand{\vz}{\vec{z}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\p}{\mathbf{P}}
+\newcommand{\q}{\mathbf{Q}}
+\renewcommand{\v}{\mathbf{v}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\g}{\mathbf{g}}
+\newcommand{\h}{\mathbf{h}}
+\renewcommand{\r}{\mathbf{R}}
+\newcommand{\s}{\mathbf{S}}
+\newcommand{\ss}{\mathbf{S}^*}
+\newcommand{\provess}{\proves_{\s}}
+\newcommand{\rprovess}{\rproves_{\ss}}
+\newcommand{\provesp}{\proves_{\p}}
+\newcommand{\proveshp}{\proves_{\Hp}}
+\renewcommand{\t}{\mathbf{T}}
+\newcommand{\provest}{\proves_{\t}}
+\newcommand{\rprovest}{\leftrightarrow_{\t}}
+\renewcommand{\c}{\mathbf{c}}
+
+<!-- logic -->
+\newcommand{\m}{\models}
+\newcommand{\proves}{\vdash}
+\newcommand{\rproves}{\Vdash}
+\newcommand{\peq}{\dashv \vdash}
+\newcommand{\nec}{\Box}
+\newcommand{\pos}{\Diamond}
+\newcommand{\true}{\mathbf{T}}
+\newcommand{\false}{\mathbf{F}}
+\newcommand{\ind}{\Perp}
+
+<!-- propositional logic -->
+\newcommand{\P}{\mathbf{P}}
+\newcommand{\Lp}{L_{\p}}
+\newcommand{\Hp}{\mathbf{HP}}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\into}{\rightarrow}
+\newcommand{\conj}{\wedge}
+\newcommand{\Conj}{\bigwedge}
+\newcommand{\disj}{\vee}
+\newcommand{\Disj}{\bigvee}
+\newcommand{\cond}{\rightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\M}{\mathcal{M}}
+
+<!-- syllogistic logic -->
+\newcommand{\con}[1]{\sim\!#1}
+\newcommand{\S}{\mathbf{S}}
+\newcommand{\Ts}{T_{\s}}
+\newcommand{\Ls}{L_{\s}}
+\newcommand{\acop}{\textbf{a}}
+\newcommand{\ecop}{\textbf{e}}
+\newcommand{\icop}{\textbf{i}}
+\newcommand{\ocop}{\textbf{o}}
+\newcommand{\cop}[2]{#1\!\ast\!#2}
+\newcommand{\all}[2]{#1\textrm{\acop}#2}
+\newcommand{\no}[2]{#1\textrm{\ecop}#2}
+\newcommand{\some}[2]{#1\textrm{\icop}#2}
+\newcommand{\somenot}[2]{#1\textrm{\ocop}#2}
+
+<!-- miscellaneous -->
+\newcommand{\smallblank}{\,\underline{\hspace{0.5cm}}\,}
+\newcommand{\largeblank}{\,\underline{\hspace{1cm}}\,}
+:::
+

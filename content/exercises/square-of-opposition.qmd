@@ -1,0 +1,26 @@
+Let $\ph$ and $\psi$ be any two categorical sentences. We introduce the following semantic terminology:[^categorical-semantic-relations]
+
+[^categorical-semantic-relations]: The semantic relations of contradictoriness, contrariness, and subcontrariness originate with Aristotle. Aristotle provides examples of propositions standing in these relations in his work _De interpretatione_ (On Interpretation), chapters 6–7 (17b17–26).
+
+1. $\ph$ and $\psi$ are _contradictories_ if, for every model $\M$: $val^\M(\ph)\neq val^\M(\psi)$.
+
+2. $\ph$ and $\psi$ are _contraries_ if the following conditions both hold:
+
+    i. For every model $\M$: it is not the case that $val^\M(\ph)= val^\M(\psi)=\true$    
+    ii. For some model $\M$: $val^\M(\ph)= val^\M(\psi)=\false$.
+
+3. $\ph$ and $\psi$ are _subcontraries_ if the following conditions both hold:
+
+    i. For every model $\M$: it is not the case that $val^\M(\ph)= val^\M(\psi)=\false$    
+    ii. For some model $\M$: $val^\M(\ph)= val^\M(\psi)=\true$.
+
+Let $A$ and $B$ be any distinct terms. Add arrows where appropriate to the following diagram.[^square-of-opposition] Use a solid arrow ($\rightarrow$) to point from a proposition to its contradictory; a dashed arrow($\dashrightarrow$) to point from a proposition to its contrary; and a double arrow ($\Rightarrow$) to point from a proposition to its subcontrary.
+
+![](/content/static/images/empty-square-of-opposition.svg){width=200 fig-align="center" fig-alt="Empty Square of Opposition"}
+
+[^square-of-opposition]: The diagram that you are asked to produce in this exercise to visually represent these relations was first constructed by the Roman philosopher Boethius (c. 480–524 CE), who labeled it the “square of opposition”. The square of opposition became a fixtue of medieval logic and was the standard logical diagram utilized in scholastic education. It was widely reproduced (and, in some cases elaborated) by later authors such as Peter Abelard, William of Sherwood, Peter of Spain, and John Buridan. 
+
+
+
+
+ 

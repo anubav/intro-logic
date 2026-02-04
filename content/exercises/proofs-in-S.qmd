@@ -1,0 +1,13 @@
+Establish the following claims:
+
+a. $\some{A}{B}\provess\some{B}{A}$
+
+b. $\all{A}{B}\provess\some{B}{A}$
+
+c. $\no{A}{B}, \some{B}{A}\provess\somenot{D}{C}$
+
+d. $\all{A}{B}, \some{C}{A}\provess\some{C}{B}$
+
+e. $\somenot{A}{B}, \all{C}{B}\provess\somenot{A}{C}$
+
+f. $\no{A}{B}, \some{C}{A}, \all{D}{B}\provess\somenot{C}{D}$

@@ -1,0 +1,45 @@
+---
+bibliography: "argument-validity-proof.bib"
+number-sections: true
+crossref: 
+    chapters: true
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# Argument, Validity & Proof {#sec-argument-validity-proof .chapter}
+
+:::{.content-hidden when-profile="lecture-1"}
+{{< include introduction.qmd >}}
+:::
+
+:::{.content-hidden when-profile="lecture-1"}
+{{< include arguments.qmd >}}
+:::
+ 
+:::{.content-hidden when-profile="lecture-1"}    
+:::{.content-hidden when-profile="lecture-2"}  
+{{< include validity.qmd >}}
+:::
+:::     
+   
+:::{.content-hidden when-profile="lecture-1"}
+:::{.content-hidden when-profile="lecture-2"}
+:::{.content-hidden when-profile="lecture-3"} 
+{{< include proof.qmd >}} 
+:::
+:::
+::: 
+
+:::{.content-hidden when-profile="lecture-1"}
+:::{.content-hidden when-profile="lecture-2"}
+:::{.content-hidden when-profile="lecture-3"}  
+:::{.content-hidden when-profile="lecture-4"} 
+{{< include soundness-completeness.qmd >}}
+:::  
+:::        
+:::  
+::: 
+
+## References {.unnumbered}     
+        

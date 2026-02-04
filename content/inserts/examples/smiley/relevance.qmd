@@ -1,0 +1,67 @@
+### Relevant Proofs
+
+Aristotle defines a syllogism as an argument '... in which, certain things, having been supposed, something different from the things supposed results of necessity because these things are so'.[^prA-syllogism] This definition comports with the view that a valid argument is one in which the truth of the premises necessitate the truth of the conclusion. But it says something more. The definition also says that it must be _because_ of the truth of the premises that the conclusion holds. 
+
+[^prA-syllogism]: _Prior Analytics_ 24b18-20
+
+Some have interpreted this further requirement to mean that, for Aristotle, a valid argument must not contain any redundant or _irrelevant_ premises. In a valid argument, _all_ of the premises must, in some way, contribute to the truth of the conclusion. Now, the notion of validity specified in @def-validity-S clearly does not satisfy this requirement, for, as we have seen, in accordance with this definition, validity is preserved under the arbitrary addition of premises. Thus, for example, since, for any terms $A,B,C$:
+$$
+\all{A}{B}, \all{B}{C}\models \all{A}{C}
+$$
+it follows that, for any terms $A,B,C,D,E$: 
+$$
+\all{A}{B}, \all{B}{C}, \all{D}{E}\models \all{A}{C}
+$$
+If $D$ and $E$ are randomly chosen terms, however, the premise  $\all{D}{E}$ may be wholly irrelevant to the truth of the conclusion $\all{A}{C}$. 
+
+The same irrelevancies, resulting from the arbitrary introduction of new premises, are admitted by our proof system $\S$, for provability in this system is also monotonic (see @exr-S-monotonicity). So, in order to capture Aristotle's relevancy requirement, we must formulate a proof system for syllogistic logic that is nonmonotonic. In doing so, we will leave unchanged our definition of a proof system (@def-hyp-proof-system) except that now we will deal with exact arguments (the premises of which comprise a multiset) as specified in @def-exact-argument. Hypothetical rules of inference will now be understood to state that certain exact arguments can be inferred from others. We will call such a proof system an exact proof system. 
+
+If we examine @def-hyp-proof, it is not difficult to see where our prior notion of proof goes wrong. Clauses 2.i and 2.ii of the definition allow us to include in our proofs any argument of the form $\Ga\proves\ph$, so long as $\ph$ is either an axiom or a member of $\Ga$. But the set $\Ga$ itself may include any number of redundant or irrelevant premises. These irrelevant premises will then get passed along in the proof as the sentence $\ph$ gets utilized in the subsequent reasoning.
+
+The following notion of a relevant proof precludes this initial introduction of irrelevancies, thus ensuring that, in a proof, every hypothesis must be utilized if it is to be included among the premises of the proven argument. 
+
+::: {#def-hyp-relevant-proof .definition}
+
+Let $\mathbf{D}$ be an exact proof system for the language $L$. Let $\Ga$ be a multiset of sentences of $L$ and let $\ph$ be a sentence of $L$. A _relevant proof_ of $\ph$ from $\Ga$ in $\mathbf{D}$ is a finite sequence of exact arguments $\Ga_1\proves\ph_1,\Ga_2\proves\ph_2,\ldots,\Ga_n\proves\ph_n$ such that:
+
+1. $\Ga_n\proves\ph_n$ is the exact argument $\Ga\proves\ph$. 
+
+2. For $i=1,\ldots,n$, at least one of the following conditions holds:
+
+    i. $\Ga_i=\{\ph_i\}$
+    
+    ii. $\Ga_i$ is the empty multiset and $\ph_i$ is an axiom of $\mathbf{D}$
+
+    iii. $\ph_i$ follows from one of the rules of $\mathbf{D}$ applied to sentences $\ph_{j_1},\ldots,\ph_{j_m}$ among $\ph_1,\ldots,\ph_{i-1}$ and:
+    $$
+    \Ga_i = \Ga_{j_1}\cup\cdots\cup\Ga_{j_m}
+    $$
+
+    iv. $\Ga_i\proves\ph_i$ follows from one of the hypotethetical rules of $\mathbf{D}$ applied to exact arguments among $\Ga_1\proves\ph_1,\ldots,\Ga_{i-1}\proves\ph_{i-1}$. 
+
+We write $\Ga\rproves_{\mathbf{D}}\ph$ to indicate that there exists a relevant proof of $\ph$ from $\Ga$ in $\mathbf{D}$.  
+:::
+
+We now introduce an exact proof system for syllogistic logic, which we will call $\ss$. The axioms and direct rules of $\ss$ will be the same as those of the proof system $\S$. But the hypothetical rules licensing proofs by contradiction and contrariety will be reformulated as follows:
+
+(Contradiction$^*$):
+$$
+\frac{\Ga,\ph\proves\psi}{\Ga,\neg\psi\proves\neg\ph}
+$$
+
+(Contrariety$^*$):
+$$
+\frac{\Ga,\ph\proves\no{A}{B}}{\Ga,\all{A}{B}\proves\neg\ph}
+$$
+
+
+::: {#exr-S-monotonicity .exercise}
+{{< include /content/exercises/S-monotonicity.qmd >}}
+:::
+
+::: {#exr-syllogism-constraints .exercise}
+{{< include /content/exercises/syllogism-constraints.qmd >}}
+:::
+
+
+ 

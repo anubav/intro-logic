@@ -1,0 +1,15 @@
+Provide a direct characterization of the set $S$, where $S$ is the set of natural numbers defined inductively as follows:
+
+a. 
+    (1) $1\in S$
+    
+    (2) If $n\in S$, then $2n\in S$.
+
+b. 
+    1. $2\in S$
+
+    2. If $n,m\in S$, then $n\times m\in S$.
+
+c.  1. $\{n: n\textrm{ is prime}\}\subset S$. 
+
+    2. If $n,m\in S$, then $n\times m\in S$. 

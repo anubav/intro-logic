@@ -1,0 +1,14 @@
+a. Show that the number of non-atoms appearing in a sentence is a multiple of
+$3$.
+
+b. What is the smallest number $n$, such that there exists both a negation and a
+binary compound of length $n$?
+
+c. For any sentence $\ph$, let $a(\ph)$ be the number of distinct occurrences of
+atoms in $\ph$ and let $c(\ph)$ be the number of distinct occurrences of
+connectives in $\ph$. Show that, for any sentence $\ph$, $a(\ph)-c(\ph)\leq 1$.
+
+d. For any sentence $\ph$, let $c^*(\ph)$ be the number of distinct occurrences
+of connectives in $\ph$ that occur prior to any occurrence of the right
+parenthesis symbol, $)$ (when read from left to right). Show that, for any
+sentence $\ph$, $c^*(\ph)\leq c(\ph)-a(\ph)+1$.

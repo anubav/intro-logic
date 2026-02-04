@@ -1,0 +1,75 @@
+### Multiplying 0's and 1's - Semantics {.unnumbered}
+
+In this example, we introduce a semantics in which to assess the validity of arguments expressed in the language $L_\times$ introduced in @exm-0x1-syntax. 
+
+The only non-logical element of the syntax is the numeral $x$. We stipulate that
+the possible semantic values of this symbol are given by the set of symbols
+$\{0,1\}$.[^autonomic] Thus, there are only two possible interpretations of
+the language, one in which $x$ is assigned the value $0$ and one in which $x$ is
+assigned the value $1$. We refer to these interpretations as $\sigma_0$ and
+$\sigma_1$, respectively.
+
+[^autonomic]: It may seem odd to allow the semantic value of a symbol in the
+language to be another symbol in the language, but, formally, there is nothing
+to prevent us from doing so. Moreover, such an 'autonymic' semantics will allow us to speak intelligibly of the expression which results from substituting the
+semantic value of the expression $x$ for all occurrences of $x$ in a given expression.
+
+The semantic rules for the language must define a unique valuation for each of
+these two interpretations. In formulating these rules, we will take for granted
+that we know what it is for a sentence in the language which only involves the
+numerals '0' and '1' to be a true (or false) arithmetical claim. The one and
+only semantic rule for the language is as follows:
+
+For $i=0,1$, $val^{\sigma_i}(\ph)=\true$ iff the sentence which results from
+subtituting $\sigma_i(x)$ for all occurrences of $x$ in $\ph$ expresses a true
+arithmetical claim.
+
+To see how this rule is to be applied, let $\ph$ be the sentence:
+$$
+    x\times 1 = 1\times 0
+$$
+
+According to the rule, $val^{\sigma_0}(\ph)=\true$
+just in case the sentence which results from substituting $\sigma_0(x)$ for
+every occurrence of $x$ in $\ph$ is a true arithmetical claim. In this instance,
+since $\sigma_0(x)$ is the symbol $0$, the sentence resulting from this
+substitution is:
+$$
+0\times 1 = 1\times 0
+$$
+
+This, of course, is a true arithmetical claim, hence
+$val^{\sigma_0}(\ph)=\true$. On the other hand, $val^{\sigma_1}(\ph)=\false$,
+since
+$$
+1\times 1 = 1\times 0
+$$
+
+is arithmetically false.  
+
+In this semantics, it is easy to verify that
+
+$$
+x\times 0 = 0\times 1,\hspace{0.1in} 1\times x\times 1 = 1\models 1=x,
+$$
+
+for the only intepretation under which all the premises of the argument are true
+is $\sigma_1$, and the sentence $1=x$ is true under this interpretation as well.
+
+ It will often be convenient to assign semantic values not just to the
+ non-logical elements of the syntax but also to certain expressions containing
+ these elements (or, equivalently, to treat these expressions themselves as the
+ non-logical elements of the syntax). Thus, for example, with respect to the
+ language $L_\times$, it will be convenient to be able to refer not just to the
+ semantic value of the numeral $x$ under a given interpretation, but, more
+ generally, to the value of any numerical expression under a given
+ interpretation.
+ 
+Let $\al$ be a numerical expression. For $i=0,1$, let $\sigma_i(\al)=0$ if
+the result of substituting $\sigma_i(x)$ for each occurrence of $x$ in $\al$ is
+an arithmetical expression which evaluates to $0$. Otherwise, $\sigma_i(\al)=1$.
+Adopting this notation, the above semantic rule can now be expressed as
+follows:
+
+For $i=0,1$, $val^{\sigma_i}(\al=\be)=\true$ iff $\sigma_i(\al)=\sigma_i(\be)$.
+  

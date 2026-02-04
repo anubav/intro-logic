@@ -1,0 +1,14 @@
+Aristotle claims that an argument is not valid if 'certain withdrawals from the premises could effect the same conclusion; for sometimes people invoke more premises than are necessary, so that it is not through them that the syllogism comes about'.[^aristotle-nonmonoticity] Many scholars interpret this passage as a rejection of monotonicity. 
+
+a. Prove that the system $\S$ is monotonic: if $\Ga\provess\ph$, then $\Ga,\De\provess\ph$. 
+
+Scholars also maintain that Aristotle denied the so-called principle of explosion, which asserts that from a pair of contradictory sentences, anything follows. 
+
+b. Show that, for any sentences $\ph,\psi$: 
+$$
+\ph,\neg\ph\provess\psi
+$$
+
+c. Show that the rules (Contradiction$^*$) and (Contrariety$^*$) both hold in the proof system $\s$.
+
+[^aristotle-nonmonoticity]: _Topics_ 161b28--30. 

@@ -1,0 +1,27 @@
+---
+bibliography: "syllogistic-logic.bib"
+number-sections: true
+crossref: 
+    chapters: true
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# Syllogistic Logic 
+      
+{{< include introduction.qmd >}}      
+  
+{{< include syntax-semantics.qmd >}} 
+
+:::{.content-hidden when-profile="lecture-6"}
+{{< include proofs.qmd >}}
+:::    
+
+:::{.content-hidden when-profile="lecture-6"}
+:::{.content-hidden when-profile="lecture-7"}
+{{< include soundness-completeness.qmd >}}     
+:::
+:::  
+                                                          
+## References {.unnumbered}             
+                    

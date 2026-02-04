@@ -1,0 +1,1 @@
+Let $\mathbf{D}$ be a proof system as specified in @def-hyp-proof-system, and let $\ph_1,\ldots,\ph_n$ be a proof of $\ph$ from $\Ga$ in $\mathbf{D}$ of the simple sort described in @def-proof. Show that $\Ga\proves_{\mathbf{D}}\ph$. 

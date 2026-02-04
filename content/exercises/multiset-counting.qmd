@@ -1,0 +1,7 @@
+a. How many distinct subsets are there of the set $\{a,b,c\}$? How many distinct submultisets are there of the multiset $\{a,b,c\}$?
+
+b. How many distinct subsets are there of the set $\{a,a,b,b,c\}$? How many distinct submultisets are there of the multiset $\{a,a,b,b,c\}$?
+
+c. How many distinct subsets of size 2 are there of the set $\{a,a,b,b,c\}$? How many distinct submultisets of size 2 are there of the multiset $\{a,a,b,b,c\}$?
+
+d. How many distinct multisets are there of size 5 where each item belongs to the set $\{a, b, c\}$? 

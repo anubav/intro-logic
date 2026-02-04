@@ -1,0 +1,15 @@
+We refer to the number of symbols in an expression of $L_\times$ as the _length_
+of that expression. 
+
+(a). Show that the length of every sentence of $L_\times$ is odd.
+
+(b). Show that the number of numerals in a sentence is exactly one greater than
+the number of non-numerals in that sentence.
+
+(c). Write down a formula expressing the length of any given
+sentence as a function of the number of times the symbol $\times$ occurs in it.
+
+(d).$^*$ If $k$ is an odd number greater than 2, how many distinct expressions
+are there of length $k$? How many distinct sentences are there of length $k$?
+Show that the probability that a randomly chosen expression of length $k$ is a
+sentence approaches $0$ as $k$ grows increasingly large.

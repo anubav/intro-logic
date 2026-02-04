@@ -1,0 +1,26 @@
+## Introduction
+
+It is impossible to overstate the influence of Aristotle's theory of the syllogism on the study of formal logic. Not only did it mark the first significant contribution to the field, but it was the starting point for nearly all subsequent investigations into logic for over two millenia.[^aristotle]  Indeed, throughout much of the history of logic---and even still today, albeit only colloquially---the phrases 'valid argument' and 'syllogism' were treated as synonymous.
+
+The core of Aristotle's logic is presented in the opening chapters of his _Prior Analytics_, written around 350 BCE.[^prior-analytics] There, Aristotle develops a system of logic designed to capture the inferential relations that obtain between propositions of the following form:
+
+[^aristotle]: Immanuel Kant pronounced, in the preface to the 1787 second edition of his _Critique of Pure Reason_, that "since the time of Aristotle, [logic] has not had to go a single step backwards, unless we count the abolition of a few dispensible subtleties or the more distinct determination of its presentation... What is further remarkable about logic is that until now it has also been unable to take a single step forward, and therefore seems to all appearance to be finished and complete" (@Kant1999-pr, p. 106).
+
+[^prior-analytics]: For a summary of the _Prior Analytics_, including a reconstruction of Aristotle's proof system, see the introduction to @Smith1989-gf and @Malink2013-kc, part I.
+
+$$
+\begin{align*}
+&\textrm{Every $A$ is $B$}\\
+&\textrm{No $A$ is $B$}\\
+&\textrm{Some $A$ is $B$}\\
+&\textrm{Some $A$ is not $B$}
+\end{align*}
+$$
+
+In this chapter, we will introduce a formal language in which to represent
+arguments of syllogistic logic, a semantic framework in which to assess their
+validity, and a proof system for this language in which to carry out reasoning.
+We will then proceed to show that this proof system is both sound and
+complete. Along the way, we will have occasion to revisit the simple notion of
+proof introduced in the previous chapter, generalizing it so as to allow for so-called hypothetical methods of proof, such as the method of
+_reductio ad absurdum_, or proof by contradiction.

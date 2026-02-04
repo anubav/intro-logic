@@ -1,0 +1,2 @@
+Rewrite @def-sentences-p so that the sentences of the language $\Lp$ are exactly
+as before with the one exception that the outermost pair of parentheses in a sentence is omitted.

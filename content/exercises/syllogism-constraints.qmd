@@ -1,0 +1,14 @@
+a. Aristotle asserts that, in a syllogism, it is not possible for a universal proposition to follow from particular premises, nor for an affirmative proposition to follow from negative premises.[^syllogism-constraints] Confirm that Aristotle's claim is true of the system $\ss$ by showing that, if $\Ga\rprovess\ph$, then:
+
+    1. $\Ga$ contains at most one particular proposition and at most one negative proposition. 
+
+    2. If $\Ga$ contains a particular sentence, then $\ph$ is particular.  
+
+    3. If $\Ga$ contains a negative sentence, then $\ph$ is negative. 
+
+b. Conclude from part (a) above that $\ss$ is nonmonotonic. 
+
+c. Show that if $\ss$ were formulated not as an exact proof system, but as a proof system (treating arguments with sets rather than multisets of premises), then the claim established in part (a) would not hold.   
+
+[^syllogism-constraints]: _Prior Analytics_ 41b23--29.
+

@@ -1,0 +1,24 @@
+For any $n$-ary truth function $g$, we refer to the function:
+$$
+g^d(\al_1,\ldots,\al_n) = f_{\neg}(g(f_\neg(\al_1),\ldots,f_\neg(\al_n)))
+$$
+as the _dual_ of $g$. With each sentence $\ph$ expressible in $\{\neg,\conj,\disj\}$ we associate a sentence $\ph_d$, referred to as the
+_dual_ of $\ph$, as follows:
+
+1. If $\ph$ is an atomic sentence, then $\ph^d=\ph$. 
+
+2. $(\neg\ph)^d = \neg(\ph^d)$
+
+3. $(\ph\conj\psi)^d = \ph^d\disj\psi^d$
+
+4. $(\ph\disj\psi)^d = \ph^d\conj\psi^d$
+
+a. 
+    Show that if $g$ is the $n$-ary truth function for some sentence $\ph$ expressible in
+    $\{\neg,\conj,\disj\}$, then $g^d$ is the $n$-ary truth function for $\ph^d$. Convince yourself
+    that for any sentences $\ph$ and $\psi$ expressible in $\{\neg,\conj,\disj\}$, $\ph\equiv \psi$ if and only if $\ph^d\equiv \psi^d$.\vspace{2mm}
+
+b. 
+    A sentence $\ph$ expressible in  $\{\neg,\conj,\disj\}$ is _self-dual_ if
+    $\ph\equiv\ph^d$. Provide an example of a self-dual sentence containing more than one atom that is expressible in
+    $\{\conj,\disj\}$.

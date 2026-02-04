@@ -1,0 +1,317 @@
+### Multiplying 0's and 1's - Soundness and Completeness {.unnumbered}
+
+In this example, we will prove the soundness and completeness of the proof system $\t$ introduced in @exm-0x1-proof. We begin with soundness:
+
+:::{#thm-soundness-T .theorem}
+If $\Gamma\provest\ph$, then $\Gamma\models \ph$.
+
+:::{.proof}
+As argued above, it suffices to establish soundness to show that:
+
+1. If $\ph$ is an axiom of $\t$, then $\Ga\models\ph$. 
+
+2. If $\psi$ follows from $\ph_1,\ldots,\ph_n$ by some rule of inference of $\t$, then $\ph_1,\ldots,\ph_n\models\psi$. 
+
+For 1, we must show that each of the three axioms of $\t$ are logical truths. To see, for example, that the sentence $x=x$ is a logical truth, we simply note that, for $i=0,1$:
+$$
+val^{\si_i}(x = x) = \left\{\begin{array}{ll}
+        \true  & \si_i(x) = \si_i(x) \\
+        \false & \textrm{otherwise}
+      \end{array}\right. = \true
+$$
+That $0=0$ and $1=1$ are also logical truths is equally straightforward to establish.
+
+For 2, we must show that each of the rules of inference of $\t$ expresses a
+valid argument. For example, for the rule ($1-$), it must be shown that, for any
+numerical expressions $\al$ and $\be$: 
+$$ 
+1\times \al = \be \models\al=\be 
+$$ 
+To see this, suppose that $val^{\sigma_i}(1\times\al=\be)=\true$. This means that $\sigma_i(1\times \al)=\sigma_i(\be)$. But since $\sigma_i(1\times\al)=\sigma_i(\al)$, it follows that $\sigma_i(\al)=\sigma_i(\be)$. Hence, $val^{\sigma_i}(\al=\be)=\true$, and so the argument is valid.
+
+The corresponding arguments for the rest of the rules are equally straightforward:
+
+($1+$):
+Suppose that $val^{\sigma_i}(\al=\be)=\true$. Then: 
+$$
+\sigma_i(1\times \al)=\sigma_i(\al)=\sigma_i(\be)
+$$
+Hence, $val^{\sigma_i}(1\times\al=\be)=\true$. So $\al = \be \models 1\times \al=\be$.
+
+($0-$):
+Suppose that $val^{\sigma_i}(0\times \al=\be)=\true$. Then:
+$$
+\sigma_i(0)=\sigma_i(0\times \al)=\sigma_i(\be)
+$$
+Hence, $val^{\sigma_i}(0=\be)=\true$. So $0\times \al = \be \models 0 =\be$.
+
+($0+$):
+Suppose that $val^{\sigma_i}(0 =\al)=\true$. Then:
+$$
+\sigma_i(0\times \be)=\sigma_i(0)=\sigma_i(\al)
+$$
+Hence, $val^{\sigma_i}(0\times \be=\al)=\true$. So $0 = \al\models 0\times\be = \al$.
+
+($x-$):
+Suppose that $val^{\sigma_i}(x\times \al=\be)=\true$. If $x$ occurs in $\alpha$, then:
+$$
+\sigma_i(x\times \al)=\sigma_i(\al)=\sigma_i(\be)
+$$
+Hence, $val^{\sigma_i}(\al=\be)=\true$. So, if $x$ occurs in $\alpha$: $x\times\alpha =\beta\models\alpha = \beta$. 
+
+($x+$):
+Suppose that $val^{\sigma_i}(\al=\be)=\true$. If $x$ occurs in $\alpha$, then:
+$$
+\sigma_i(\al)=\sigma_i(x\times\al)=\sigma_i(\be)
+$$
+Hence, $val^{\sigma_i}(x\times \al=\be)=\true$. So, if $x$ occurs in $\alpha$: $\alpha =\beta\models x\times\alpha = \beta$. 
+
+(S):
+Suppose that $val^{\sigma_i}(\al=\be)=\true$. Then:
+$$
+\sigma_i(\be)=\sigma_i(\al)
+$$
+Hence, $val^{\sigma_i}(\be=\al)=\true$. So, $\al = \be\models\be = \al$. 
+
+(T):
+Suppose that $val^{\sigma_i}(\al=\be)=\true$ and $val^{\sigma_i}(\be=\ga)=\true$. Then:
+$$
+\sigma_i(\al)=\sigma_i(\be)=\sigma_i(\ga)
+$$
+Hence, $val^{\sigma_i}(\al=\ga)=\true$. So, $\al=\be, \be=\ga\models \al=\ga$. 
+
+($\neq$):
+Since there is no interpretation under which $0=1$ is true, $0=1\models \ph$, for any sentence $\ph$. 
+
+($\times$):
+Suppose that $val^{\sigma_i}(\al\times\be =\ga)=\true$. Then:
+$$
+\sigma_i(\be\times\al)=\sigma_i(\al\times\be)=\sigma_i(\ga)
+$$
+Hence, $val^{\sigma_i}(\be\times\al=\ga)=\true$. So, $\al\times\be=\ga\models\be\times\al=\ga$. 
+
+This completes the proof of the soundness of $\t$
+---
+:::
+:::
+
+Next, we turn to the completeness of $\t$:
+
+:::{#thm-completeness-T .theorem}
+If $\Gamma\models\ph$, then $\Gamma\provest \ph$.
+:::
+
+Our proof of completeness will leverage the fact that the expressive power of our language is extremely limited. There are, in fact, up to logical equivalence, only four distinct claims that can be made in our language (see @exr-0x1-expressive-power). Which of these claims a given sentence expresses will be referred to as its reduced form:
+
+:::{#def-reduced-form .definition}
+For any sentence $\ph$, the _reduced form_ of $\ph$, denoted
+$\ph^*$, is the unique sentence among (i) $x=0$, (ii) $x=1$, (iii) $0=0$, and
+(iv) $0=1$, that is logically equivalent to $\ph$. If $\Ga$ is a set of sentences, we write $\Gamma^*$ for the set of all reduced forms of sentences in $\Gamma$, i.e.:
+$$
+    \Gamma^*=\{\ph^*:\ph\in\Gamma\}
+$$
+:::
+
+Our proof of the completeness theorem for $\t$ will proceed in three
+distinct stages: 
+
+1. First, we will show that if an argument is valid, so
+   too is the argument that results from substituting for each of the premises
+   and conclusion of the argument, its reduced form.
+
+2. Next, we will show that for any valid argument consisting of only sentences
+   in reduced form, there exists a proof of its conclusion from its premises.
+
+3. Lastly, we will show that if there exists a proof of the reduced form of the
+   conclusion of an argument from the reduced forms of its premises, then the
+   conclusion of the argument is provable from its premises.
+
+Claims 1 and 3 together show that the completeness of $\t$ can be reduced
+to its completeness on the small fragment of the language consisting only of
+sentences in reduced form. Claim 2 then shows that $\t$ is complete for
+this fragment of the language. Our overall proof strategy can be represented schematically as follows:
+
+![](/content/static/images/completeness-T-strategy.svg){width=30% fig-align="center"}
+
+The first stage of the argument involves establishing the following lemma:[^lemma]
+
+[^lemma]: The term lemma derives from the Ancient Greek λῆμμα (lêmma), meaning "something taken" or "assumed", from λαμβάνω (lambánō), "to take" or "to grasp". In mathematics, a lemma denotes a subsidiary or "helper" theorem, that is, a proposition established to aid in proving a larger result. Despite their derivative significance, many claims first established as lemmas (such as Zorn’s lemma or Fatou’s lemma) have come to be regarded as central theorems in their own right. This will not be so of the lemmas proven below. 
+
+:::{#lem-validity-reduced .lemma}
+If $\Gamma\models \ph$, then $\Gamma^*\models \ph^*$.
+
+:::{.proof} 
+Suppose $\Gamma\models \ph$. Let $\sigma_i$ be an interpretation such that
+$val^{\sigma_i}(\psi)=\true$, for all $\psi\in\Gamma^*$. Since, for every
+sentence $\chi\in\Gamma$, there exists some $\psi\in\Gamma^*$ such that
+$\psi\equiv \chi$, it follows that $val^{\si_i}(\chi)=\true$, for all $\chi\in\Ga$. So, $val^{\si_i}(\ph)=\true$. But since $\ph\equiv\ph^*$, $val^{\si_i}(\ph^*)=\true$ as well. Hence $\Ga^*\models\ph^*$. 
+::: 
+:::
+
+Next, we must show that the proof system $\mathbf{D}$ is complete on the small fragment of the language consisting of only the reduced forms of sentences. Since there only a handful of arguments in this fragment of the language, we can confirm that this is so by a manual, "brute force" accounting. 
+
+:::{#lem-completeness-reduced .lemma}
+If $\Gamma^*\models \ph^*$, then $\Gamma^*\provest\ph^*$.
+
+:::{.proof}
+
+If $\ph^*$ is $0=0$, then, since $0=0$ is an axiom of $\t$,
+$\Gamma^*\provest\ph^*$. If $0=1$ is in $\Gamma^*$, then, by ($\neq$),
+$\Gamma^*\provest\ph^*$. Thus, we may assume without loss of
+generality that (i) $\ph^*$ is not $0=0$, and (ii) $0=1$ is not in $\Gamma^*$.
+
+Now, suppose that $0=0$ is in $\Gamma^*$, and let $\De^*$ be the set which
+results from omitting $0=0$ from $\Gamma^*$. Since the interpretations under
+which all of the sentences in $\Gamma^*$ are true are exactly those in which all
+of the sentences in $\De^*$ are true, $\Gamma^*\models\ph^*$ iff
+$\De^*\models \ph^*$. Moreover, since $0=0$ is an axiom, every sentence that
+is provable from $\Ga^*$ is also provable from $\De^*$, and vice-versa, and
+so $\Gamma^*\provest\ph^*$ iff $\De^*\provest \ph^*$.
+Thus, for every instance of the claim, there is an equivalent instance in which
+the sentence $0=0$ is not in $\Ga^*$, and so we may assume without loss of
+generality that this is the case.
+
+All that is left to show, then, is that the claim holds whenever
+$\Gamma^*\subset\{x=0,x=1\}$ and $\ph^*\in \{x=0,x=1,0=1\}$. If
+$\ph^*\in\Gamma^*$, then $\Gamma^*\provest \ph^*$, and so the claim
+holds. This leaves us with four cases left to consider:
+
+1. $\Gamma^*=\emptyset$.
+2. $\Gamma^*$ is the set $\{x=0\}$ and $\ph^*\in\{x=1,0=1\}$.
+3. $\Gamma^*$ is the set $\{x=1\}$ and $\ph^*\in\{x=0,0=1\}$.
+4. $\Gamma^*$ is the set $\{x=0, x=1\}$ and $\ph^*$ is $0=1$.
+
+In cases 1--3, $\Gamma^*\not\models \ph^*$, and so the claim holds. In case 4,
+$\{x=0, x=1\}\models 0=1$. We must therefore show that $\{x=0, x=1\}\provest 0=1$. The proof is as follows:
+
+:::{.lproof}
+    1. x = 0    [Premise]
+    2. 0 = x    [S: 1]
+    3. x = 1    [Premise]
+    4. 0 = 1    [T: 2, 3]
+:::
+:::
+This completes the proof. 
+::: 
+
+The final step of our proof is to show that an argument is provable in $\t$ iff and only if the reduced form of the argument is provable in $\t$. This amounts to showing that the proof system $\t$ is capable of carrying out both the reduction by which a sentence is transformed into its reduced form, and also the corresponding expansion of the reduced form back into the original sentence. 
+
+Let us begin by observing a certain fact about the proof system $\t$,
+namely, that with the exception of (T) and ($\neq$) all of its rules are
+'reversible', in the sense that if $\psi$ follows from $\ph$ by one of these
+rules, then $\ph$ follows from $\psi$ by one of these rules as well. This fact
+motivates the following definition, which will prove useful in the sequel:
+
+:::{#def-reversible-proof .definition}
+A _reversible proof_ of $\psi$ from $\ph$ in $\t$ is a sequence of sentences $\ph_1,\ldots,\ph_n$, such that:
+    
+1. $\ph_1=\ph$
+      
+2. $\ph_n=\psi$
+   
+3. For $i=1,\ldots,n-1$, $\ph_{i+1}$ follows from $\ph_{i}$ by one of the rules
+   $(1-)$, $(1+)$, $(0-)$, $(0+)$, $(x-)$, $(x+)$, (S), or $(\times)$.
+
+To indicate that there exists a reversible proof of $\psi$ from $\ph$ in $\t$, we write $\ph\rprovest\psi$. 
+:::
+
+:::{#thm-reversible-proof .theorem}
+If $\ph\rprovest\psi$, then $\ph^*=\psi^*$. 
+
+:::{.proof}
+Clearly, every reversible proof is a proof. Moreover, if
+$\ph_1,\ph_2,\ldots,\ph_n$ is a reversible proof of $\psi$ from $\ph$, then
+$\ph_n,\ph_{n-1},\ldots,\ph_1$ is a reversible proof of $\ph$ from $\psi$.
+Hence, if $\ph\rprovest\psi$, then $\ph$ and
+$\psi$ are provably equivalent. By the soundness of $\t$, it follows that $\ph\equiv\psi$, and so $\ph$ and $\psi$ have the same reduced form, i.e., $\ph^*=\psi^*$. 
+:::
+:::
+
+This thoerem will help us to show that the reduced form of a sentence is provable from that sentence (and vice versa) in $\t$. 
+
+:::{#lem-T-reduction .lemma}
+$\ph\provest\ph^*$, for any sentence $\ph$.
+
+:::{.proof}
+
+The proof proceeds by induction on the number of numerals in the sentence $\ph$.
+If $\ph$ contains only two numerals, then either (i) $\ph$ is equal to $\ph^*$;
+(ii) $\ph^*$ can be obtained from $\ph$ by a single application of the rule (S);
+or (iii) $\ph$ is either $1=1$ or $x=x$. In cases (i) and (ii), the claim
+obviously holds. In case (iii), $\ph^*$ is $0=0$, and so, since $0=0$ is an
+axiom of $\t$, the claim holds as well.
+
+Now, suppose that $\ph$ contains $n$ numerals, where $n > 2$, and that the claim
+holds for all sentences with fewer than $n$ numerals. To show that the claim
+holds for $\ph$, it is sufficient to show that $\ph\rprovest\psi$ for some
+sentence $\psi$ which contains fewer numerals than $\ph$. For, if this is so, by
+@thm-reversible-proof, $\ph^*=\psi^*$ and so, by the induction hypothesis,
+$\psi\provest\ph^*$. But since $\ph\provest \psi$, it follows, by
+@thm-proof-structure.(iii), that $\ph\provest \ph^*$.
+
+Let $\ph$ be the sentence $\al=\be$. Since, by rule (S), there is a direct proof
+of $\psi$ from $\al=\be$ iff there is a direct proof of $\psi$ from $\be=\al$,
+we may assume without loss of generality that $\al$ contains at least as many
+numerals as $\beta$. Thus, we may assume that $\al$ contains at least two
+numerals.
+
+If one of the numerals in $\al$ is 1, then, for some numerical expression $\ga$,
+we have the following proof:
+
+:::{.lproof}
+
+    1. \alpha = \beta            [Premise]
+    2. 1 \times \gamma = \beta   [$\times$: 1]
+    3. \gamma = \beta            [$1-$: 2]
+:::
+This is a reversible proof of $\ga=\be$ from $\al=\be$, and $\ga=\be$ contains fewer numerals than $\al=\be$.
+
+If one of the numerals in $\al$ is $0$, then, for some numerical expression $\ga$, we have the following proof:
+
+:::{.lproof}
+
+    1. \alpha = \beta            [Premise]
+    2. 0 \times \gamma = \beta   [$\times$: 1]
+    3. 0 = \beta                 [$0-$: 2]
+:::
+This is a reversible proof of $0=\be$ from $\al=\be$, and $0=\be$ contains fewer numerals than $\al=\be$.
+
+Finally, suppose that neither $0$ nor $1$ appear in $\al$. Then, $\al$ is a numerical expression of the form $x\times\ga$, where $\ga$ is a numerical expression containing at least one occurrence of the numeral $x$. Thus, we have the following proof:
+
+:::{.lproof}
+    1. \alpha = \beta            [Premise]
+    2. \gamma = \beta            [$x-$: 1]
+:::
+This is a reversible proof of $\ga=\be$ from $\al=\be$, and $\ga=\be$ contains fewer numerals than $\al=\be$.
+
+We have thus shown that, for any sentence $\ph$, $\ph\rprovest\psi$, for some sentence $\psi$ with fewer numerals than $\ph$. This completes the proof.
+:::
+:::
+
+
+ We leave the proof of the following lemma as an exercise for the reader:
+
+:::{#lem-T-expansion .lemma}
+$\ph^*\provest\ph$, for any sentence $\ph$.
+:::
+ 
+:::{#exr-T-expansion .exercise}
+Prove @lem-T-expansion.
+:::
+
+We are now in a position to carry through with the third and final step in our strategy to establish the completeness of $\t$. This consists in proving the following lemma:
+
+:::{#lem-T-reduced .lemma}
+If $\Ga^*\provest \ph^*$, then $\Ga\provest\ph$.
+
+:::{.proof}
+Suppose that $\Ga^*\provest \ph^*$, and consider a proof of $\ph^*$ from $\Ga^*$. Since proofs are finite, only finitely many sentences in $\Ga^*$ are appealed to as premises in this proof. If these sentences are $\ph_1^*,\ldots,\ph_n^*$, then $\ph_1^*,\ldots,\ph_n^*\provest\ph^*$. Now, by @lem-T-reduction, we have $\ph_i\provest\ph_i^*$, for $i=1,\ldots,n$. Hence, $\ph_1,\ldots,\ph_n\provest\ph^*$. But since $\ph_1,\ldots,\ph_n$ are all in $\Ga$ it follows that $\Ga\provest\ph^*$. But, by @lem-T-expansion, $\ph^*\provest \ph$. Hence,
+$\Ga\provest \ph$.
+:::
+:::
+
+The completeness of $\t$ follows directly from @lem-validity-reduced, @lem-completeness-reduced, and @lem-T-reduced.
+
+:::{#exr-T-incompleteness .exercise}
+{{< include /content/exercises/T-incompleteness.qmd >}}
+:::

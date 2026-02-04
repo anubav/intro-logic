@@ -1,0 +1,7 @@
+Suppose we omit the semantic requirement that every term must have a nonempty extension by revising @def-model-S as follows: 
+
+ A _model_ of the language $\Ls$ is an ordered pair $(\W,\si)$, where $\W$ is a nonempty set and $\si$ is a function which assigns to each term a **possibly empty** subset of $\W$. 
+
+a. Show that this modification of the semantics for $\Ls$ entails that there is no valid argument in which all of the premises are universal and the conclusion particular. Give an example of such an argument that _is_ valid in the original, unmodified semantics for $\Ls$. 
+
+b. Show that, on this modified semantics, the hypothetical rule of inference (Contrariety) is unsound, i.e., $\Ga,\ph\models\all{A}{B}$ and $\Ga,\ph\models\no{A}{B}$ does _not_ entail $\Ga\models\neg\ph$. 

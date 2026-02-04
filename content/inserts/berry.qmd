@@ -1,0 +1,40 @@
+
+### Berry's Paradox[^berry] 
+
+There are twenty-six letters in the English alphabet. Ignoring letter case and punctuation, and admitting one additional character to mark both the space between words and leading and trailing spaces, there are $27^{79}$ expressions with fewer than eighty characters. The vast majority of these expressions will be nonsense expressions like:
+$$
+\textrm{asdlkjsdl goiwejrkwmfw sdsf se asfsd f}
+$$
+A few will be intelligible noun phrases, such as:
+$$
+\textrm{The tallest building in Chicago}
+$$
+or:
+$$
+\textrm{The present king of France}
+$$
+A much smaller selection still will be noun phrases denoting positive integers, for example:
+$$
+\textrm{The sum of twelve and seventeen}
+$$
+or:
+$$
+\textrm{The first prime number which exceeds the number of stars in the Milky Way}
+$$
+
+Now, consider the class of all the positive integers denoted by expressions with
+fewer than eighty characters. Since the number of such expressions is finite, so
+too must be the class of positive integers they collectively denote. Hence, this
+class of positive integers, being finite, must have a largest member. Let this
+number be $N$. It follows that $N+1$ is the smallest positive integer not
+describable with fewer than eighty characters. But, if so, then $N+1$ _is_
+describable with fewer than eighty characters, namely, by the phrase: $$
+\textrm{The smallest positive integer not describable with fewer than eighty
+characters} $$
+
+Thus, it seems, the number $N+1$ is both describable and not describable with
+fewer than eighty characters, which is a contradiction.
+
+[^berry]: The first presentation of Berry's Paradox appears in @Russell1908-fs.
+@Boolos1989-cs presents a concise proof of Gödel's incompleteness result based
+on a formalization of Berry's Paradox.

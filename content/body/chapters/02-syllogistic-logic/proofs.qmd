@@ -1,0 +1,360 @@
+## Proofs in Syllogistic Logic
+
+### Direct Proofs
+
+In the _Prior Analytics_, Aristotle draws a distinction between valid arguments which he regards as 'perfect' and those which he regards as imperfect. While the validity of perfect arguments is self-evident and requires no further justification, the validity of imperfect arguments stands in need of proof. To provide such proofs, Aristotle introduces a proof system by which imperfectly valid arguments can be derived by means of certain rules of inference. 
+
+In what follows, we will present a version of Aristotle's proof system, which we refer to as $\S$.[^corcoran] Just like the proof systems introduced in Chapter 1, $\S$ includes both axioms and rules of inference by which certain sentences can be inferred from others. The axioms of the system are all sentences of the form:
+$$
+\all{A}{A}
+$$
+where $A$ is any term. The rules of inference of the proof system $\S$ are as follows:[^barbara]
+
+[^corcoran]:
+    The system $\S$ was first proposed as a formalization of Aristotle's theory of the syllogism by @Corcoran1972-wl.
+
+[^barbara]: 
+    The names here given to the rules are taken from the following Latin poem created in the 13th century to help medieval logic students memorize the valid syllogistic forms:
+
+    > _Barbara, Celarent, Darii, Ferioque_ prioris (first);
+    > _Cesare, Camestres, Festino, Baroco_ secundae (second);
+    > Tertia (third) _Darapti, Disamis, Datisi, Felapton,_
+    > _Bocardo, Ferison_; Quartae (fourth) sunt _Bramantip, Camenes,_
+    > _Dimaris, Fesapo, Fresison_.
+
+    In the entry on "Traditional Logic" in @Brody2006-dz _Glossary of Logical Terms_, the key for the mnemonic employed in this poem is described as follows: "The three vowels respectively indicate the three constituent propositions of the syllogism as $\acop$, $\ecop$, $\icop$, or $\ocop$. For first-figure syllogisms the initial consonants are arbitrarily the first four consonants; for the other figures the initial consonants indicate to which of the first-figure syllogisms the syllogism in question may be reduced. Other consonants occurring in second-, third-, and fourth-figure mnemonics indicate the operation that must be performed on the proposition indicated by the preceding vowel in order to reduce the syllogism to a first-figure syllogism". 
+
+(Barbara):
+$$
+\frac{\all{A}{B}\qquad\all{B}{C}}{\all{A}{C}}
+$$
+
+(Celarent):
+$$
+\frac{\all{A}{B}\qquad\no{B}{C}}{\no{A}{C}}
+$$
+
+(e-conversion):
+$$
+\frac{\no{A}{B}}{\no{B}{A}}
+$$
+
+By means of these axioms and rules, we can give proofs of arguments in syllogistic logic. For example, we can show:
+$$
+\all{A}{B}, \all{B}{C}, \no{D}{C} \provess \no{D}{A}
+$$
+
+The proof is as follows:
+
+:::{.lproof}
+    1. A\textrm{\textbf{a}}B    [Premise]
+    2. B\textrm{\textbf{a}}C    [Premise]
+    3. A\textrm{\textbf{a}}C    [Barbara: 1, 2]
+    4. D\textrm{\textbf{e}}C    [Premise]
+    5. C\textrm{\textbf{e}}D    [e-conversion: 4]
+    6. A\textrm{\textbf{e}}D    [Celarent: 3, 5]
+    7. D\textrm{\textbf{e}}A    [e-conversion: 6]
+:::
+
+While the axioms and rules of inference listed above allow us to prove a number of arguments in syllogistic logic, taken together, the resulting proof system is clearly incomplete with respect to the extensional semantics introduced above. For instance, this system does not allow us to prove any non-circular arguments with a particular conclusion. For none of the axioms are particular sentences and none of the rules of inference license the inference of a particular sentence from other sentences. Thus, the only way that a particular sentence can appear in a proof, is if that sentence appears among the premises, that is, if the argument is circular. It is easy to verify, however, that there exist valid non-circular arguments with a particular conclusion, one example being the argument considered above:
+$$
+\some{A}{B}, \all{B}{C}\proves\some{A}{C}
+$$
+To enable the proof of such arguments, we could strengthen the system $\S$ by adding to it additional rules of inference. Perhaps surprisingly, however, this is not the primary approach adopted by Aristotle. To prove such arguments, Aristotle instead employs a new method of proof which he have not yet considered, the method of _reductio ad absurdum_ or proof by contradiction. To formalize proofs by contradiction, we have to revisit our original definition of a proof system and expand it so as to
+accommodate what we shall refer to as 'hypothetical' methods of proof.  
+
+### Hypothetical Methods of Proof
+
+The proofs that we have considered so far have had a very simple structure. They
+have consisted of sequences of sentences, each of which is either an axiom, a
+premise, or the result of applying a rule of inference to sentences previously
+appearing in the proof. In such simple proofs, every claim put forward in the
+course of the reasoning is flatly asserted on the grounds of its being a
+logical consequence of the premises. In everyday reasoning, however, it is often
+convenient to posit a claim which we do not take ourselves to have established---and so do not wish to assert---but which instead serves as a supposition to be utilized indirectly in some hypothetical mode of reasoning.
+ 
+Consider, for example, the method of _reductio ad absurdum_, or proof by
+contradiction. When we give a proof by contradiction, we suppose that a certain
+claim is true for the sake of deriving a contradiction. Having done so, we then
+discharge our supposition and conclude that the claim that we supposed to be
+true is, in fact, false. In such proofs, we posit a claim and reason from
+it despite the fact that this claim has not been shown to follow from the
+premises. Instead the claim serves as a _hypothesis_, introduced for the
+specific purpose of deriving a contradiction.
+
+In syllogistic logic, the method of proof by contradiction can be implemented by appealing to the fact that for every categorical sentence there exists another categorical sentence which, on the extensional semantics introduced above, is its contradictory opposite (see @exr-square-of-opposition):
+
+:::{#def-contradictory .definition}
+The _contradictory_ of $\all{A}{B}$ is $\somenot{A}{B}$ and vice versa. The contradictory of $\no{A}{B}$ is $\some{A}{B}$ and vice versa. For any categorical sentence $\ph$, we write $\neg\ph$ for the contradictory of $\ph$.       
+:::
+
+Note that the symbol '$\neg$' is not in the alphabet of the language $\Ls$. We introduce it here as a  metalinguistic device for referring to one sentence by means of another. Thus, for example, $\neg\some{A}{B}$ is not a new sentence of the language $\Ls$. It is simply another name for the sentence $\no{A}{B}$.
+
+Appealing to the notion of the contradictory of a sentence, we can describe the
+method of proof by contradiction as follows: (1) first, posit, as a hypothesis,
+a sentence $\ph$; (2) next, derive from this hypothesis, together with the
+premises, a contradictory pair of sentences of the form $\psi$ and $\neg\psi$;
+(3) finally, having done so, discharge the hypothesis, and conclude that the
+premises entail the contradictory of the hypothesis, $\neg\ph$.
+
+As an illustration of this procedure, let us see how one might try to utilize the method of proof by contradiction to establish the validity of the following argument: 
+$$
+\somenot{A}{B}, \all{A}{C}\proves\somenot{C}{B}
+$$
+In accordance with the description of the method just given, we would like our proof system to license the following sort of reasoning:
+
+:::{.lproof}
+    1. C\textrm{\textbf{a}}B    [Hypothesis]
+    2. A\textrm{\textbf{a}}C    [Premise]
+    3. A\textrm{\textbf{a}}B    [Barbara: 1, 2]
+    4. A\textrm{\textbf{o}}B    [Premise]
+    5. C\textrm{\textbf{o}}B    [Contradiction: 3,4]
+:::
+
+Line 1 of this proof introduces $\all{C}{B}$ as a hypothesis; lines 2--4 deduce
+various consequences of this hypothesis in combination with the premises; lines
+3 and 4 contain the desired contradiction; and line 5 concludes the proof by
+discharging the hypothesis and asserting its contradictory, which is the desired result. 
+
+This, of course, is not a proof in the sense of the term specified in
+@def-proof, for $\all{C}{B}$ is neither a premise nor an axiom of the system. In
+the simple proofs that we have thus far considered, there is simply no mechanism
+for introducing a new hypothesis not included among the premises, nor for
+discharging that same hypothesis at some later stage of the reasoning.
+Consequently, there is no way of indicating that the hypothesis $\all{C}{B}$ is
+meant to be in effect in lines 1--4, but not in line 5. The most straightforward
+way of indicating this would be to state explicitly, in each line of the proof,
+the sentences which are being presupposed at that specific stage of the
+reasoning. Proofs would then not be sequences of sentences, but rather sequences
+of sentences each of which is asserted with respect to a given set of
+hypotheses.
+
+A natural way to model such proofs is as a sequence of arguments, where the
+premises of the argument appearing in this sequence indicate the
+hypotheses in effect at that stage of the reasoning. On this modeling, the above
+proof by contradiction can be rewritten as follows:
+
+:::{.lproof}
+    1. A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C, C\textrm{\textbf{a}}B \vdash C\textrm{\textbf{a}}B    [Hypothesis]
+    2. A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}C     [Premise]
+    3. A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}B    [Barbara: 1, 2]
+    4. A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{o}}B    [Premise]
+    5. A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C \vdash C\textrm{\textbf{o}}B    [Contradiction: 3,4]
+:::
+
+This proof makes it clear that the hypothesis $\all{C}{B}$ is added to the
+premises in line 1, and that it is in effect through line 4, after which point
+it is discharged. Line 5 of the proof, which asserts that $\somenot{C}{B}$
+follows from the premises, can now be viewed as the result of an inference from
+lines 3 and 4, which together state that from the hypothesis $\all{C}{B}$, in
+combination with the premises, a contradiction follows.
+
+The specific inference from lines 3 and 4 to line 5 is:
+
+$$
+\frac{\somenot{A}{B}, \all{A}{C}, \all{C}{B}\proves\all{A}{B} \qquad\qquad \somenot{A}{B}, \all{A}{C},\all{C}{B}\proves\somenot{A}{B}}{\somenot{A}{B}, \all{A}{C}\proves\somenot{C}{B}}
+$$
+
+This can be seen as an instance of the following general rule of inference which
+underwrites the method of proof by contradiction:
+
+(Contradiction):
+$$
+\frac{\Ga,\ph\proves\psi \qquad\qquad \Ga,\ph\proves\neg\psi}{\Ga\proves\neg\ph}
+$$
+
+Treating $\Ga$ as a set of background assumptions in effect throughout the entire proof, this rule states that if, on the assumption that $\ph$, one can derive a contradiction, one may conclude that $\neg\ph$. 
+
+ As this example illustrates, in order to license hypothetical methods of proof,
+ such as proof by contradiction, our original notion of a proof system must be
+ expanded so as to include not only simple rules of inference, whereby certain
+ sentences can be directly inferred from others, but also 'hypothetical' rules
+ of inference whereby certain arguments can be inferred from others. This
+ expanded notion of a proof system can be defined as follows:
+
+:::{#def-hyp-proof-system .definition} 
+A _proof system_ for a formal language $L$ consists of (i) a set of
+sentences of $L$, the members of which are referred to as _axioms_; (ii)
+a set of _direct rules of inference_, each of which states that certain
+sentences can be inferred from others; and (iii) a set of _hypothetical
+rules of inference_, each of which states that certain arguments can be inferred
+from others.
+:::
+
+Consider again the proof by contradiction given above. In this proof, line 5
+follows from lines 3 and 4 by the hypothetical rule (Contradiction). How do we
+justify lines 1--4? In the case of lines 1, 2, and 4, the answer is clear: the
+sentence asserted in each of these lines is among the hypotheses being
+presupposed at that stage of the reasoning. In other words, the arguments
+appearing in these lines are all of the form $\Ga\proves\ph$, where $\ph\in\Ga$.
+This, however, is not the case for line 3. In this case, $\all{A}{B}$ is
+intended to follow from $\all{A}{C}$ and $\all{C}{B}$, which are the conclusions
+of the arguments given in lines 1 and 2, by the direct rule of inference
+(Barbara). This raises the question of how direct rules of inference are to be
+applied not to sentences but to entire arguments.
+
+Suppose in a proof, one has established the arguments $\Ga\proves\all{A}{B}$ and
+$\De\proves\all{B}{C}$. In the context of this proof,  what hypotheses must be in effect in order to infer $\all{A}{C}$? Clearly, one can only infer this
+sentence if one posits _all_ of the sentences in both $\Ga$ and
+$\De$, for these are the sentences that are needed to establish both
+$\all{A}{B}$ and $\all{B}{C}$. Hence, the rule (Barbara), in this case, should
+license an inference from $\Ga\proves\all{A}{B}$ and $\De\proves\all{B}{C}$ to
+the argument $\Ga,\De\proves\all{A}{C}$. More generally, a direct rule of
+inference which asserts that the sentence $\ph$ follows from the sentences
+$\psi_1,\ldots,\psi_n$ licenses an inference from the arguments $\Ga_1\proves
+\psi_1,\ldots,\Ga_n\proves\psi_n$ to the argument
+$\Ga_1,\ldots,\Ga_n\proves\ph$.
+
+We are now in a position to define the more general notion of proof according
+to which the above sequence of arguments constitutes a proof.
+
+::: {#def-hyp-proof .definition}
+
+Let $\mathbf{D}$ be a proof system for the language $L$ (as defined in @def-hyp-proof-system). Let $\Ga$ be a set of sentences of $L$ and let $\ph$ be a sentence of $L$. A _proof_ of $\ph$ from $\Ga$ in $\mathbf{D}$ is a finite sequence of arguments $\Ga_1\proves\ph_1,\Ga_2\proves\ph_2,\ldots,\Ga_n\proves\ph_n$ such that:
+
+1. $\Ga_n\proves\ph_n$ is the argument $\Ga\proves\ph$. 
+
+2. For $i=1,\ldots,n$, at least one of the following conditions holds:
+
+    i. $\ph_i\in\Ga_i$
+    
+    ii. $\ph_i$ is an axiom of $\mathbf{D}$
+
+    iii. $\ph_i$ follows from one of the direct rules of $\mathbf{D}$ applied to sentences $\ph_{j_1},\ldots,\ph_{j_m}$ among $\ph_1,\ldots,\ph_{i-1}$ and:
+    $$
+    \Ga_i = \Ga_{j_1}\cup\cdots\cup\Ga_{j_m}
+    $$
+
+    iv. $\Ga_i\proves\ph_i$ follows from one of the hypothetical rules of $\mathbf{D}$ applied to arguments among $\Ga_1\proves\ph_1,\ldots,\Ga_{i-1}\proves\ph_{i-1}$. 
+
+We write $\Ga\proves_{\mathbf{D}}\ph$ to indicate that there exists a proof of $\ph$ from $\Ga$ in $\mathbf{D}$.  
+:::
+
+The following exercise confirms that the notion of proof specified in @def-hyp-proof is, indeed, a generalization of that specified in @def-proof. 
+
+:::{#exr-proof-generalization .exercise}
+{{< include /content/exercises/proof-generalization.qmd >}}
+:::
+
+In addition to the three direct rules of inference, Barbara, Celarent, and
+e-conversion, the deductive system $\S$ also includes the following two
+hypothetical rules of inference:
+
+(Contradiction):
+$$
+\frac{\Ga,\ph\proves\psi \qquad\qquad \Ga,\ph\proves\neg\psi}{\Ga\proves\neg\ph}
+$$
+
+(Contrariety):
+$$
+\frac{\Ga,\ph\proves\all{A}{B} \qquad\qquad \Ga,\ph\proves\no{A}{B}}{\Ga\proves\neg\ph}
+$$
+
+:::{#exr-proofs-in-S .exercise}
+{{< include /content/exercises/proofs-in-S.qmd >}}
+:::
+
+:::{#exr-existential-import .exercise}
+{{< include /content/exercises/existential-import.qmd >}}
+::: 
+
+### Fitch Notation
+
+Consider the argument:
+
+$$
+\all{D}{B}, \somenot{A}{B}, \all{A}{C}\proves\somenot{C}{D}
+$$
+
+One strategy for proving this argument is to first establish, by means of a
+proof by contradiction, that $\somenot{C}{B}$ follows from the premises
+$\somenot{A}{B}$ and $\all{A}{C}$. One could then show, again using a proof by
+contradiction, that $\somenot{C}{D}$ follows from the sentence $\somenot{C}{B}$
+just established, and the remaining premise $\all{D}{B}$. 
+
+For the sake of brevity, let $\Ga$ be the premise set $\{\all{D}{B}, \somenot{A}{B}, \all{A}{C}\}$. This strategy, utilizing two consecutive proofs by contradiction, can be implemented as follows:
+
+:::{.lproof}
+    1. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}D      [Hypothesis]
+    2. \Gamma, C\textrm{\textbf{a}}D, C\textrm{\textbf{a}}B \vdash C\textrm{\textbf{a}}B    [Hypothesis]
+    3. \Gamma, C\textrm{\textbf{a}}D, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}C     [Hypothesis]
+    4. \Gamma, C\textrm{\textbf{a}}D, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}B    [Barbara: 2, 3]
+    5. \Gamma, C\textrm{\textbf{a}}D, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{o}}B    [Hypothesis]
+    6. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{o}}B    [Contradiction: 4,5]
+    7. \Gamma, C\textrm{\textbf{a}}D \vdash D\textrm{\textbf{a}}B      [Hypothesis]
+    8. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}B      [Barbara: 1, 7]
+    9. \Gamma \vdash C\textrm{\textbf{o}}D      [Contradiction: 6, 8]
+:::
+
+While this is a correct proof, it is does not perspicuously convey the structure of the reasoning.  One of its more confusing features is that the hypothesis $\all{C}{D}$, which is the target of the second proof by contradiction (lines 1 and 6--8), also appears as a hypothesis in the first proof by contradiction (lines 2--5). Since $\all{C}{D}$ plays no role in the latter subproof, it seems more natural to introduce this hypothesis only after the first proof by contradiction has been completed:
+
+:::{.lproof}
+    1. \Gamma, C\textrm{\textbf{a}}B \vdash C\textrm{\textbf{a}}B    [Hypothesis]
+    2. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}C     [Hypothesis]
+    3. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}B    [Barbara: 1, 2]
+    4. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{o}}B    [Hypothesis]
+    5. \Gamma \vdash C\textrm{\textbf{o}}B    [Contradiction: 3,4]
+    6. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}D      [Hypothesis]
+    7. \Gamma, C\textrm{\textbf{a}}D \vdash D\textrm{\textbf{a}}B      [Hypothesis]
+    8. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}B      [Barbara: 6, 7]
+    9. \Gamma \vdash C\textrm{\textbf{o}}D      [Contradiction: 5, 8]
+:::
+
+While this better captures the intended structure of the reasoning, it is no longer strictly correct as a proof. In particular, the rule (Contradiction) cannot be applied to lines 5 and 8 since different hypotheses are being assumed at these two stages of the proof. What we would like to be able to do is repeat or  'reiterate' the sentence $\somenot{C}{D}$ in the context of the new proof by contradiction, so that the proof would now read:
+
+:::{.lproof}
+    1. \Gamma, C\textrm{\textbf{a}}B \vdash C\textrm{\textbf{a}}B    [Hypothesis]
+    2. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}C     [Hypothesis]
+    3. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{a}}B    [Barbara: 1, 2]
+    4. \Gamma, C\textrm{\textbf{a}}B \vdash A\textrm{\textbf{o}}B    [Hypothesis]
+    5. \Gamma \vdash C\textrm{\textbf{o}}B    [Contradiction: 3,4]
+    6. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}D      [Hypothesis]
+    7. \Gamma, C\textrm{\textbf{a}}D \vdash D\textrm{\textbf{a}}B      [Hypothesis]
+    8. \Gamma, C\textrm{\textbf{a}}D \vdash C\textrm{\textbf{a}}B      [Barbara: 6, 7]
+    9. \Gamma, C\textrm{\textbf{a}}D  \vdash C\textrm{\textbf{o}}B    [Reiteration: 5]
+    10. \Gamma \vdash C\textrm{\textbf{o}}D      [Contradiction: 8, 9]
+:::
+ 
+What justifies us in reiterating already established sentences in the context of new subproofs is the fact that the system $\S$ is monotonic, that is, if $\Ga\provess\ph$, then $\Ga,\De\provess\ph$ (see Exercise @exr-S-monotonicity). We can thus treat reiteration as a derived rule of inference.  
+
+
+One commonly used notation for giving more streamlined representations of proofs involving hypothetical methods of reasoning is referred to as Fitch notation.[^fitch] As with the simple direct proofs discussed in Chapter 1, Fitch-style proofs are displayed as sequences of sentences rather than arguments. Instead of stating the premises of the argument explicitly they are treated as background context. To add a sentence to the set of hypotheses one writes down the sentence and increments the level of indentation by one. This same hypothesis is then later discharged by restoring the indentation of the proof to its previous level. Levels of indentation are explicitly marked using vertical lines and new hypotheses are highlighted by underlining them. The proof terminates with the desired conclusion appearing on the last line of the proof without indentation, signaling that all introduced hypotheses have been discharged.  
+
+In Fitch notation, the initial version of the above proof, in which the second proof by contradiction appears as a subproof nested within the first, is written:
+
+:::{.lproof}
+    1. |    |_       C\textrm{\textbf{a}}D   [Hypothesis]
+    2. |    |    |_  C\textrm{\textbf{a}}B   [Hypothesis]
+    3. |    |    |   A\textrm{\textbf{a}}C   [Premise]
+    4. |    |    |   A\textrm{\textbf{a}}B   [Barbara: 2, 3]
+    5. |    |    |   A\textrm{\textbf{o}}B   [Premise]
+    6. |    |        C\textrm{\textbf{o}}B   [Contradiction: 4, 5]
+    7. |    |        D\textrm{\textbf{a}}B   [Premise]
+    8. |    |        C\textrm{\textbf{a}}B   [Barbara: 1, 7]
+    9.          C\textrm{\textbf{o}}D   [Contradiction: 6, 8]            
+:::
+
+The alternative version of the proof, in which the conclusion of the first proof by contradiction is reiterated in a subsequent subproof, is written: 
+
+:::{.lproof}
+    1. |    |_  C\textrm{\textbf{a}}B   [Hypothesis]
+    2. |    |   A\textrm{\textbf{a}}C   [Premise]
+    3. |    |   A\textrm{\textbf{a}}B   [Barbara: 1, 2]
+    4. |    |   A\textrm{\textbf{o}}B   [Premise]
+    5.          C\textrm{\textbf{o}}B   [Contradiction: 3, 4]
+    6. |    |_  C\textrm{\textbf{a}}D   [Hypothesis]
+    7. |    |   D\textrm{\textbf{a}}B   [Premise]
+    8. |    |   C\textrm{\textbf{a}}B   [Barbara: 6, 7]
+    9. |    |   C\textrm{\textbf{o}}B   [Reiteration, 5]
+    10.          C\textrm{\textbf{o}}D   [Contradiction: 8, 9]            
+:::
+
+:::{#exr-fitch-proofs-in-S .exercise}
+{{< include /content/exercises/fitch-proofs-in-S.qmd >}}
+:::
+
+[^fitch]: Named after Frederic Brenton Fitch, who developed the notational scheme in the 1930s during his doctoral studies at Princeton under Alonzo Church.
+
+:::{#exm-smiley-relevance .example}
+{{< include /content/inserts/examples/smiley/relevance.qmd >}}
+:::

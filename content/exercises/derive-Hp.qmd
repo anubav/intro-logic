@@ -1,0 +1,9 @@
+Establish each of the following claims:
+
+a. $\proves_{\p^-} \ph\imp(\psi\imp\ph)$
+
+b. $\proves_{\p^-} (\ph\imp(\psi\imp\chi))\imp((\ph\imp\psi)\imp(\ph\imp\chi))$
+
+c. $\proves_{\p^-} (\neg\ph\imp\neg\psi)\imp(\psi\imp\ph)$
+
+Conclude from (a)-(c) above that if $\Ga\proveshp\ph$, then $\Ga\proves_{\p^-}\ph$. 

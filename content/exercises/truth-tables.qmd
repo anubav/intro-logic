@@ -1,0 +1,19 @@
+Use truth tables to establish the following claims, where $\ph$, $\psi$, and $\chi$ are any sentences:
+
+a. $\ph\conj\ph \equiv \ph$
+
+b. $\ph\disj\ph \equiv \ph$
+
+c. $\ph\conj\psi \equiv \psi\conj\ph$
+d. $\ph\disj\psi\equiv \psi\disj\ph$
+e. $(\ph\conj\psi)\conj\chi \equiv \ph\conj(\psi\conj\chi)$
+f. $(\ph\disj\psi)\disj\chi \equiv \ph\disj(\psi\disj\chi)$
+g. $\ph\conj(\psi\disj\chi) \equiv (\ph\conj\psi)\disj(\ph\conj\chi)$
+h. $\ph\disj(\psi\conj\chi) \equiv (\ph\disj\psi)\conj(\ph\disj\chi)$
+i. $\neg(\ph\conj\psi) \equiv \neg\ph\disj\neg\psi$
+j. $\neg(\ph\disj\psi) \equiv \neg\ph\conj\neg\psi$
+k. $(\ph\disj\neg\ph)\conj\psi\equiv \psi$
+l. $(\ph\conj\neg\ph)\disj\psi\equiv \psi$
+m. $\neg\neg\ph\equiv \ph$
+n. $\ph\imp\psi\equiv\neg\psi\imp\neg\ph$
+o. $\ph\imp(\psi\imp\chi)\equiv (\ph\conj\psi)\imp\chi$

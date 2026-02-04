@@ -1,0 +1,12 @@
+Let $\ph_1,\ldots,\ph_n$ $(n\geq 2)$ and $\psi$ be distinct sentences. 
+
+(a). Construct a two-member set of truth valuations $V$ such that (i) $\ph_1,\ldots\ph_n\models_V\psi$; and (ii) $\ph_i\not\models_V\psi$, for $i=1,\ldots,n$. 
+
+(b). Among the $n^2$ distinct arguments of the form
+$$
+\ph_i\proves\ph_j
+$$
+
+what is the most number that can be valid with respect to a single truth valuation (i.e., a singleton set of truth valuations)? What is the most that can be invalid with respect to a single truth valuation?
+
+(c).$^*$  Show that if $V$ is a set consisting of exactly $n-1$ truth valuations, then $\ph_i\models\ph_j$ for some $i\neq j$.

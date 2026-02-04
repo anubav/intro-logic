@@ -1,0 +1,9 @@
+a. Write down a sentence which is a logical truth iff $\ph_1,\ldots,\ph_n\models\psi$. 
+
+b. Write down a sentence which is a logical truth iff $\ph\equiv\psi$. 
+
+c. Confirm that, for any sentences $\ph$ and $\psi$:
+    $$
+    \models (\ph\imp\psi)\disj(\psi\imp\ph)
+    $$
+    Does it follow that, for any two sentences $\ph$ and $\psi$, either $\ph\models\psi$ or $\psi\models\ph$?

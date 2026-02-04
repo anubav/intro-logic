@@ -1,0 +1,34 @@
+project:
+  type: book
+
+book:
+  title: Introduction to Logic
+  author: Anubav Vasudevan
+  comments:
+    hypothesis: true
+  page-navigation: true
+  back-to-top-navigation: true
+
+  chapters:
+    - index.qmd
+    - content/front-matter/00-introduction/introduction.qmd
+
+  sidebar:
+    style: "floating"
+    border: true
+    collapse-level: 1
+    
+filters:
+  - lproof
+
+format:
+  html:
+    theme: flatly
+    css:
+      - assets/styles/fonts.css
+      - assets/styles/environments.css
+      - assets/styles/tweaks.css
+      - assets/styles/custom.css
+    toc: true
+    include-in-header:
+      - assets/includes/scripts.html

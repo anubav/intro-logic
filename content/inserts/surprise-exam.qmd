@@ -1,0 +1,28 @@
+### The Surprise Exam Paradox[^surprise-exam]
+
+A teacher announces to one of his students prior to the first meeting of class
+that at some point during the term the student will be given a surprise exam.
+The student replies to the teacher's announcement by giving the following
+argument purporting to show that what the teacher has said cannot be true:
+
+> The surprise exam cannot be given on the last day of class. For if this
+> were so then just prior to the last class, having attended all but the
+> last day of class without receiving the exam, I would know that the exam
+> will be administered that day, in which case it will not be a surprise.
+> Neither, however, can the exam be given on the next-to-last day of class.
+> For if this were so then just prior to the next-to-last class, having
+> attended all but the last two days of class without receiving the exam and
+> having already concluded that the exam cannot be given on the last day, I
+> would know that the exam will be administered that day, in which case it
+> will not be a surprise. Continuing in this way, it follows that no matter
+> when the exam is given it cannot be a surprise.
+
+The conclusion of the student's argument is absurd since it is clearly possible
+for the teacher to administer one and only one surprise exam (on, say, the third
+day of class).
+
+[^surprise-exam]: The surprise exam paradox, originally described as the paradox
+of the "unexpected hanging", first appeared in Martin Gardner's March 1963
+Mathematical Games column in Scientific American magazine (reprinted in
+@Gardner1991-un). Philosophical discussions of the paradox appear in
+@Quine1953-cz and @Kripke2011-ny.

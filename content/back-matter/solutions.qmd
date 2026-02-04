@@ -1,0 +1,127 @@
+---
+crossrefs-hover: false
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# Solutions to Selected Exercises {.unnumbered}
+ 
+## Chapter 1 - Argument, Validity & Proof  
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+@exr-expressions
+
+{{< include /content/solutions/expressions.qmd >}}
+:::
+:::
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+@exr-relative-validity
+
+{{< include /content/solutions/relative-validity.qmd >}}
+::: 
+ 
+:::{.content-hidden when-profile="lecture-4"} 
+@exr-0x1-expressive-power 
+ 
+{{< include /content/solutions/0x1-expressive-power.qmd >}}
+::: 
+  
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+@exr-proofs-in-T
+ 
+{{< include /content/solutions/proofs-in-T.qmd >}}
+:::
+:::
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+@exr-relative-soundness-completeness
+ 
+{{< include /content/solutions/relative-soundness-completeness.qmd >}}
+::: 
+:::
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+@exr-T-incompleteness
+ 
+{{< include /content/solutions/T-incompleteness.qmd >}}
+::: 
+:::
+:::
+
+## Chapter 2 - Syllogistic Logic
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+:::{.content-hidden when-profile="lecture-7"}
+@exr-square-of-opposition
+ 
+{{< include /content/solutions/square-of-opposition.qmd >}}
+::: 
+:::
+:::
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+:::{.content-hidden when-profile="lecture-7"}
+@exr-multiplicity-function      
+ 
+{{< include /content/solutions/multiplicity-function.qmd >}}
+::: 
+:::
+:::
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+:::{.content-hidden when-profile="lecture-5"}
+:::{.content-hidden when-profile="lecture-6"}
+:::{.content-hidden when-profile="lecture-7"}
+@exr-S-monotonicity
+ 
+{{< include /content/solutions/S-monotonicity.qmd >}}
+::: 
+:::
+:::
+::: 
+
+## Appendix A - General Notation 
+ 
+@exr-denoting-sets 
+
+{{< include /content/solutions/denoting-sets.qmd >}}
+
+@exr-characteristic-function
+
+{{< include /content/solutions/characteristic-function.qmd >}}
+
+@exr-power-set 
+ 
+{{< include /content/solutions/power-set.qmd >}} 
+
+## Appendix B - Induction 
+
+:::{.content-hidden when-profile="lecture-4"}
+@exr-binary-strings
+
+{{< include /content/solutions/binary-strings.qmd >}}
+:::
+
+:::{.content-hidden when-profile="lecture-4"}
+@exr-making-change
+
+{{< include /content/solutions/making-change.qmd >}}
+:::

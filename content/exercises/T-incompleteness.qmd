@@ -1,0 +1,5 @@
+Let $\t^-$ be the proof system that results from omitting the rule (T) from the proof system $\t$. 
+
+a. Show that $x=0, x=1\proves_{\t^-} 0 = 1$ only if there exists a reversible proof of $0 = 1$ from either $x = 0$, $x = 1$, or some axiom of $\t^-$. 
+
+b. Explain how the fact stated in part (a) implies that the proof system $\t^-$ is incomplete.  

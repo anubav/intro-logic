@@ -1,0 +1,36 @@
+A syllogism, for Aristotle, is not just any valid argument, but one with a restricted form. In particular, syllogisms must satisfy the following two conditions:
+
+1. A syllogism must have exactly two premises. 
+
+2. A syllogism must involve three distinct terms:
+
+    i. the _minor_ term, which is the subject of the conclusion. 
+
+    ii. the _major_ term, which is the predicate of the conclusion.
+    
+    iii.  the _middle_ term, which must appear in both premises. 
+
+The premise of a syllogism containing the major term was called the _major_ premise of the syllogism, and that containing the minor term the _minor_ premise. 
+
+Aristotle adopted a classification of syllogisms into what he called _figures_ based on the internal arrangement of their terms. According to this classification, first figure arguments are those of the form: 
+$$
+A\!\ast_1\!B , B\!\ast_2\!C \proves A\!\ast_3\!C 
+$$
+where $A$, $B$, and $C$ are distinct terms. Second figure arguments are those of the form:
+$$
+A\!\ast_1\!B, C\!\ast_2\!B \proves A\!\ast_3\!C 
+$$
+Third figure arguments are those of the form:
+$$
+B\!\ast_1\!A, B\!\ast_2\!C \proves A\!\ast_3\!C 
+$$
+And fourth figure argument are those of the form:[^fourth-figure]
+$$
+B\!\ast_1\!A, C\!\ast_2\!B \proves A\!\ast_3\!C 
+$$
+
+[^fourth-figure]: Aristotle himself did not include fourth figure syllogisms in his own classificatory scheme. This is not because he did not recognize that there were valid arguments in this figure, but because he did not think that the premises of a fourth figure argument stood in a suitably explanatory relation to the conclusion. Syllogisms in the fourth figure were acknowledged by Aristotle's pupil Theophrastus and eventually became accepted as part of the orthodox terminology used to discuss Aristotle's syllogistic by scholastic logicians in the later middle ages. 
+
+a. For each of the four figures, identify one set of copulas that makes any argument in that figure valid. Then identify another set of copulas that makes any argument in that figure invalid. In the latter case, show this by providing a partially specified model (similar to that depicted in @fig-model-S) which is a counterexample to the argument.
+
+b. Identify a single set of copulas, $\ast_1$, $\ast_2$, and $\ast_3$, with respect to which any argument in any of the four figures is valid.  

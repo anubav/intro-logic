@@ -1,0 +1,95 @@
+## Arguments 
+
+In psychological terms, an inference can be characterized as a rational
+transition in thought. We think certain thoughts and, for reason of thinking
+these thoughts, we are led to think something else. It is natural to regard the
+thoughts involved in an inference as non-linguistic abstractions, distinct from
+the specific sentences that may be used to express these thoughts in a
+particular language. Thus, for example, one may wish to allow that one and the same thought, say, the thought that 'snow is white', can be
+expressed in German and French by the sentences 'schnee ist weiß' and 'la neige est blanche',
+respectively. Moreover, if two thinkers, one in German and one in French, were each to conclude from this that 'something is white'---'etwas ist weiß' or 'quelque chose est blanc'---then, it may well be said, that, despite their linguistic differences, both reasoners have drawn one and the same inference. 
+
+Nevertheless, for the purpose of representing inferences as
+mathematical objects, we will disregard the intuitive difference between an
+inference in thought and its linguistic formulation and construe inferences as purely
+syntactic constructs. In other words, we will represent an inference by a
+particular collection of grammatically well-formed sentences expressed in a
+given language.
+
+We will refer to the syntactic objects representing inferences as _arguments_. An
+argument is a collection of sentences, one of which is distinguished as that for
+the sake of which the others are set forth. The distinguished sentence is
+referred to as the argument's _conclusion_ and the sentences offered in its
+support as the argument's _premises_. The specific syntax in which we will
+formulate arguments will not be that of a natural language such as English but
+instead that of an artificial language devised for the express purpose of
+representing certain patterns of inference. 
+
+We adopt this approach so as to minimize the syntactic complexity of the
+arguments that we consider. The rules determining when a sequence of symbols in
+the English alphabet (or a sequence of words in the English lexicon) constitute
+a grammatically well-formed sentence are exceedingly complex, and much of this
+complexity is unnecessary for capturing the differences in meaning that are
+relevant for assessing the validity of the particular inferences with which we
+will be concerned. For example, while there may be some subtle difference in
+meaning between the sentences "John gave the letter to Mary" and "Mary was given
+the letter by John", this difference in meaning, while relevant perhaps for
+producing a desired literary effect, is altogether irrelevant for judging
+whether or not it follows from this claim that, say, "Mary was given something
+by someone". Consequently, to avoid overcomplicating the syntax, we will study
+such inferential relations in a language whose grammar ignores the distinction
+between active and passive voice constructions.
+
+In each of the artificial languages that we will consider, the syntax of the
+language will be introduced in two distinct stages:
+
+1. First, we will specify an _alphabet_ for the language, i.e., a set of symbols. Any finite string of symbols from this alphabet will be referred to as an _expression_ of the language.
+2. Second, we will specify _grammatical rules_ determining when a given expression is well-formed. A grammaticaly well-formed expression will be called a _sentence_ of the language.
+
+Sentences, thus defined, are purely syntactic constructs. They are strings of
+symbols devoid of any meaning. Of course, our choice of the syntax for a
+language will in all cases be guided by semantic considerations. In other words,
+we will always have in mind a certain conception of how various linguistic items
+are to be interpreted and we will choose our syntax so as to ensure that the
+sentences in the language consist only of expressions which, when given such an
+interpretation, express meaningful claims. 
+
+We are now ready for our first official definition, that of an _argument_:
+
+::: {#def-argument data-re="arguments?" data-flags="gi"}
+ An _argument in the language $L$ _ consists of (i) a possibly empty set of sentences of $L$, whose members are referred to as the argument's _premises_; and (ii) a sentence of $L$ referred to as the argument's _conclusion_. We denote the argument whose premises comprise the set of sentences $\Gamma$ and whose conclusion is the sentence $\varphi$, as follows:
+  $$
+    \Gamma\proves\ph 
+  $$
+:::
+
+For the sake of readability, when expressing arguments, we will often omit the
+outer braces from the premise set. Thus, for example, the argument whose
+premises comprise the set $\{\ph_1,\ldots,\ph_n\}$ and whose conclusion is
+$\psi$ may be written:
+
+$$
+ \ph_1,\ldots,\ph_n\proves\psi 
+$$
+
+More generally, if $\Ga_1,\ldots,\Ga_n$ are sets of sentences and $\ph_1,\ldots,\ph_m$ are sentences, we will write:
+
+$$
+\Ga_1,\ldots,\Ga_n,\ph_1,\ldots,\ph_m\proves\psi
+$$
+
+for the argument whose premises comprise the set $\Ga_1\cup\cdots\cup\Ga_n\cup\{\ph_1,\ldots,\ph_m\}$ and whose conclusion is $\psi$. In addition, we adopt the convention that if the premise set of an argument is the empty set, we will omit reference to it altogether, writing $\proves\ph$ in
+place of $\emptyset\proves\ph$.
+
+
+:::{#exm-0x1-syntax .example}
+{{< include /content/inserts/examples/0s-x-1s/syntax.qmd >}}
+
+:::{#exr-expressions}
+{{< include /content/exercises/expressions.qmd >}}
+::: 
+
+:::{#exr-expression-trees}
+{{< include /content/exercises/expression-trees.qmd >}}
+::: 
+:::

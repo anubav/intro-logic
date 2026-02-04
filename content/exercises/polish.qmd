@@ -1,0 +1,27 @@
+If we wish to omit the parentheses from our language in a manner which preserves unique
+decomposability, we can adopt what is called a prefix (rather than the standard infix) notation for expressing
+propositional compounds. This prefix notation is sometimes referred to as Polish
+notation. 
+
+In Polish notation, we define the sentences of the language inductively as follows:
+
+1. Any expression consisting of a single atom is an (atomic) sentence.
+    
+2. If $\ph$ is a sentence then $\neg \ph$ is a sentence.
+
+3. If $\ph$ and $\psi$ are sentences and $*$ is a binary connective, then the expression $\ast \ph
+\psi$ is a sentence.
+
+a. Show that no sentence in Polish notation is a proper prefix of any other.
+
+b. 
+
+    Use part (a) to show that the sentences expressed in Polish notation satisfy the unique
+    decomposition theorem, i.e., for each sentence $\ph$ exactly one of the following holds:
+
+    1. $\ph$ is an atomic sentence.
+
+    2. There exists a unique sentence $\psi$, such that $\ph=\neg\psi$.
+
+    3. There exist unique sentences $\psi$ and $\chi$ and a unique binary connective $*$, such that $\ph=*\psi\chi$.
+

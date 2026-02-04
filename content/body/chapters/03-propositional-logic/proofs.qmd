@@ -1,0 +1,615 @@
+## Proofs in Propositional Logic
+
+### Natural Deduction in Propositional Logic
+
+In this section, we introduce a proof system for reasoning in propositional logic. The initial version of this system will be set
+up with the aim of ensuring that proofs follow intuitively recognizable
+patterns of reasoning, and thus are relatively easy to devise. The naturalness of proofs in the
+system is owing, in large part, to the following two facts: (1) the proof system emphasizes
+rules of inference over axioms; and (2) in addition to direct proofs, the system will also license various hypothetical methods of proof,
+including the method of proof by contradiction, introduced in Chapter 2. While these two features of the system will greatly simplify the
+construction of proofs, as we shall see, neither of these features is essential to formulating a sound and complete proof system for
+propositional logic. Accordingly, once we have introduced the full system, we will explore how it can be simplified and streamlined while
+preserving its full deductive power. 
+
+We refer to the proof system for propositional logic as $\p$. As with the proof systems that we have already considered, $\p$ will include both
+direct rules of inference, which license the inference of sentences from sentences, and hypothetical rules of inferences, which license
+the inference
+of arguments from arguments. The direct rules of inference of the system are as follows:[^modus-ponens]
+
+($\neg-$):
+$$
+\frac{\neg\neg\ph}{\ph}
+$$
+
+($\conj+$):
+$$
+\frac{\ph\,,\,\psi}{\ph\conj\psi}
+$$
+
+(L$\conj-$):
+$$
+\frac{\ph\conj\psi}{\ph}
+$$
+
+(R$\conj-$):
+$$
+\frac{\ph\conj\psi}{\psi}
+$$
+
+(L$\disj+$):
+$$
+\frac{\ph}{\ph\disj\psi}
+$$
+
+(R$\disj+$):
+$$
+\frac{\ph}{\psi\disj\ph}
+$$
+
+($\imp-$):
+$$
+\frac{\ph\,,\,\ph\imp\psi}{\psi}
+$$
+
+By means of these direct rules of inference, we can establish such claims as:
+$$
+  \ph\conj\psi, \ph\imp\chi \provesp \chi\vee\psi
+$$
+where $\ph,\psi$, and $\chi$ are any sentences of $\Lp$. The proof is as follows:
+
+:::{.lproof}
+    1.  \varphi\wedge\psi           [Premise]
+    2.  \varphi                     [L$\wedge-$: 1]
+    3.  \varphi\rightarrow\chi      [Premise]
+    4.  \chi                        [$\rightarrow-$: 4, 3]
+    5.  \chi\vee\psi                [L$\vee+$: 4]
+:::
+
+The system $\p$ has no axioms. Given this fact, it would seem to
+follow that $\p$ also has no theorems. For, without axioms, there are no starting points from
+which theorems can be derived. But if $\p$ has no theorems, then it certainly is not complete, for
+completeness requires that every logical truth is a theorem, and there are many sentences of
+$\Lp$ which are logical truths, e.g., $\p_1\imp\p_1$. Thus, on pain of incompleteness, we need to ensure that the system is capable of proving all
+such logical truths. This will be achieved by adding to the system the following three hypothetical rules of
+inference:
+
+($\neg+$):
+$$
+\frac{\Ga,\ph\proves\psi\qquad \Ga,\ph\proves\neg\psi}{\Ga\proves\neg\ph}
+$$
+
+($\imp+$):
+$$
+\frac{\Ga,\ph\proves\psi}{\Ga\proves\ph\imp\psi}
+$$
+
+($\vee-$):
+$$
+\frac{\Ga\proves\ph\vee\psi \qquad  \Ga,\ph\proves\chi \qquad \Ga,\psi\proves\chi}{\Ga\proves\chi}
+$$
+
+The first of these rules, ($\neg+$), licenses the method of proof by contradiction. The following proof illustrates how this rule can be used to
+show that $\neg\psi, \ph\imp\psi\provesp\neg\ph$:
+
+:::{.lproof}
+    1.  \neg\psi, \varphi\rightarrow\psi, \varphi \vdash \varphi                    [Hypothesis]
+    2.  \neg\psi, \varphi\rightarrow\psi, \varphi \vdash \varphi\rightarrow \psi    [Hypothesis]
+    3.  \neg\psi, \varphi\rightarrow\psi, \varphi \vdash \psi                [$\rightarrow-$: 1]
+    4.  \neg\psi, \varphi\rightarrow\psi, \varphi \vdash \neg\psi                   [Hypothesis]
+    5.  \neg\psi, \varphi\rightarrow\psi \vdash \neg\varphi                      [$\neg+$: 3, 4]
+:::
+
+In Fitch notation, this proof can be expressed as follows:
+
+:::{.lproof}
+    1.  | |_  \varphi        
+    2.  | |   \varphi\rightarrow\psi      [Premise]
+    3.  | |   \psi                        [$\rightarrow-$: 1, 2]
+    4.  | |   \neg\psi                    [Premise]
+    5.  \neg\varphi                       [$\neg+$: 3, 4] 
+:::
+
+Another straighforward consequence of the rule $(\neg+)$ is the law of explosion, which asserts that from a sentence and its negation, anything
+follows:
+
+:::{#thm-p-explosion .theorem}
+$\ph,\neg\ph\provesp\psi$
+:::
+
+:::{.lproof}
+    1.  | |_  \neg\psi        
+    2.  | |   \varphi               [Premise]
+    3.  | |   \neg\varphi           [Premise]
+    4.  \neg\neg\psi                [$\neg+$: 2, 3] 
+    5. \psi                         [$\neg-$: 4]
+:::
+
+The hypothetical rule of inference ($\rightarrow -$) is meant to capture the method of suppositional
+reasoning. In order to prove a conditional of the form $\ph\imp\psi$, we posit the antecedent $\ph$
+as a hypothesis and deduce the consequent $\psi$. The following theorem illustrates how this method
+can be used to show that certain sentences are theorems of $\P$.
+
+:::{#thm-conditional-theorems .theorem}
+i. $\provesp \ph\imp\ph$
+
+ii. $\provesp \ph\imp(\ph\imp\ph)$ 
+
+iii. $\provesp (\neg\ph\imp\ph)\imp\ph$
+:::
+
+_Proof_.
+
+i. 
+
+:::{.lproof}
+    1.  \varphi\vdash\varphi               [Hypothesis]
+    2.  \vdash\varphi\rightarrow\varphi    [$\rightarrow+$: 1]
+:::
+
+In Fitch notation, the proof is simply:
+
+:::{.lproof}
+    1.  |   |_  \varphi             
+    2.  \varphi\rightarrow\varphi           [$\rightarrow+$: 1]
+:::
+
+ii. 
+
+:::{.lproof}
+    1. \varphi\vdash\varphi                                   [Hypothesis]
+    2. \varphi\vdash\varphi\rightarrow\varphi                 [$\rightarrow+$: 1]
+    3. \vdash\varphi\rightarrow(\varphi\rightarrow\varphi)    [$\rightarrow+$: 2] 
+:::
+
+Note that in the application of the rule ($\imp+$) to line 1, we appeal to the fact that $\{\ph\}=\{\ph\}\cup\{\ph\}$, whereas in the
+application of this rule to line 2,
+we appeal to the fact that $\{\ph\}=\emptyset\cup\{\ph\}$. In Fitch notation this difference shows up in the depth of the subproof:
+
+:::{.lproof}
+    1.      |   |_  \varphi
+    2.      |   |   |_  \varphi
+    3.      |   |   \varphi\rightarrow\varphi               [$\rightarrow+$: 2]
+    4.      \varphi\rightarrow(\varphi\rightarrow\varphi)   [$\rightarrow+$: 3]
+:::
+
+iii. 
+
+:::{.lproof}
+    1.      |   |_ \neg\varphi\rightarrow\varphi    
+    2.      |   |   |_  \neg\varphi
+    3.      |   |   |   \neg\varphi\rightarrow\varphi           [Reiteration: 1]
+    4.      |   |   |   \varphi                                 [$\rightarrow-$: 2, 3]
+    5.      |   |   \neg\neg\varphi                             [$\neg+$: 2, 4]
+    6.      |   |   \varphi                                     [$\neg-$: 5]
+    7.      (\neg\varphi\rightarrow\varphi)\rightarrow\varphi   [$\rightarrow+$: 6]
+:::
+
+The hypothetical rule of inference ($\disj$-) is intended to capture the method of reasoning by
+cases. Given a disjunction $\ph\disj\psi$, it suffices to prove the sentence $\chi$ to show that
+$\chi$ follows, first, in the case where $\ph$ is supposed true and, second, in the case where
+$\psi$ is supposed true. The following theorem illustrates how this method can be used to establish
+one direction of De Morgan's law equating a disjunction with the negation of the conjunction of the
+negations of its disjuncts:
+
+:::{#thm-demorgan .theorem}
+$\ph\vee\psi\provesp\neg(\neg\ph\conj\neg\psi)$
+:::
+
+:::{.lproof}
+    1.  \varphi\vee\psi                         [Premise]
+    2.  |   |_  \varphi
+    3.  |   |   |_  \neg\varphi\wedge\neg\psi
+    4.  |   |   |   \neg\varphi                 [L$\wedge-$: 3]
+    5.  |   |   |   \varphi                     [Reiteration: 2]
+    6.  |   |   \neg(\neg\varphi\wedge\neg\psi) [$\neg+$: 4, 5]
+    7.  |   |_  \psi
+    8.  |   |   |_  \neg\varphi\wedge\neg\psi
+    9.  |   |   |   \neg\psi                    [R$\wedge$-: 8]
+    10. |   |   |   \psi                        [Reiteration: 7]
+    11. |   |   \neg(\neg\varphi\wedge\neg\psi) [$\neg+$: 9, 10]
+    12. \neg(\neg\varphi\wedge\neg\psi)         [$\vee-$: 1, 6, 11]
+:::
+
+Note that in Fitch notation, the application of the rule ($\disj\textrm{-}$) appeals to two distinct subproofs, one initiated by the left
+disjunct of the proven disjunction, and the other by the right.
+
+In addition to the rules of inference included in the proof system $\p$, to shorten and streamline proofs, it is also sometime useful to introduce new 'derived' rules of inference. To introduce a new derived rule, we must establish that
+the sentence that results from applying the rule does, in fact, follow from the sentences to which
+the rule is applied. So, for instance, given @thm-p-explosion, we can treat explosion as a derived rule of inference, and employ it as in the following proof:
+
+:::{#thm-demorgan-2 .theorem}
+$\ph\conj\psi\provesp\neg(\neg\ph\disj\neg\psi)$
+:::
+
+:::{.lproof}
+    1.  |   |_  \neg\varphi\vee\neg\psi
+    2.  |   |   |_  \neg\varphi         
+    3.  |   |   |   \varphi\wedge\psi           [Premise]
+    4.  |   |   |   \varphi                     [L$\wedge-$: 3]
+    5.  |   |   |   \varphi\wedge\neg\varphi    [$\wedge+$: 2, 4]
+    6.  |   |   |_  \neg\psi
+    7.  |   |   |   \varphi\wedge\psi           [Premise]
+    8.  |   |   |   \psi                        [R$\wedge-$: 7]
+    9.  |   |   |   \varphi\wedge\neg\varphi    [Explosion: 6, 8]
+    10. |   |   \varphi\wedge\neg\varphi        [$\vee+$: 1, 5, 9]
+    11. |   |   \varphi                         [L$\wedge-$: 10]
+    12. |   |   \neg\varphi                     [R$\wedge-$: 11]
+    13. \neg(\neg\varphi\vee\neg\psi)           [$\neg$+: 11, 12]
+:::
+
+:::{#exr-proofs-in-p .exercise}
+{{< include /content/exercises/proofs-in-p.qmd >}}
+:::
+
+### The Negation-Conditional Fragment of $\p$
+
+As we noted earlier, from a semantic point of view, we can omit from the language $\Lp$ all the propositional connectives apart from the
+negation operator ($\neg$) and the conditional operator ($\imp$), without any loss of expressive power. We now observe, in similar fashion, that
+all the rules of inference of $\p$ excepting those that involve these two connectives can likewise be omitted from the system without any loss
+of deductive power.
+
+Let $\Lp^-$ be the language whose alphabet consists of all the atoms, the left and right parenthesis
+symbols, and the propositional connectives $\neg$ and $\imp$. The sentences of $\Lp^-$ are defined
+inductively as follows:
+
+1. If $\ph$ is an atomic sentence, then $\ph$ is a sentenceof $\Lp^-$.
+
+2. If $\ph$ is a sentence of $\Lp^-$, then $(\neg\ph)$ is a sentence of $\Lp^-$.
+  
+3. If $\ph$ and $\psi$ are sentences of $\Lp^-$, then $(\ph\imp\psi)$ is a sentence of $\Lp^-$.
+
+Let $\p^-$ be the proof system for the language $\Lp^-$ which has no axioms, and which includes
+the two direct rules of inference:
+
+($\neg-$):
+$$
+\frac{\neg\neg\ph}{\ph}
+$$
+
+
+($\imp-$):
+$$
+\frac{\ph\,,\,\ph\imp\psi}{\psi}
+$$
+
+and the two hypothetical rules of inference:
+
+($\neg+$):
+$$
+\frac{\Ga,\ph\proves\psi\qquad \Ga,\ph\proves\neg\psi}{\Ga\proves\neg\ph}
+$$
+
+($\imp+$):
+$$
+\frac{\Ga,\ph\proves\psi}{\Ga\proves\ph\imp\psi}
+$$
+
+Conjunctions and disjunctions are not a part of the syntax of the language $\Lp^-$.
+Nevertheless, we may introduce the connectives $\conj$ and $\disj$ into the language as
+metalinguistic shorthand. In particular, for any sentences $\ph$ and $\psi$ of $\Lp^-$, we will
+stipulate that:
+$$
+  \ph\conj\psi\textrm{ stands for the sentence }\neg(\ph\imp\neg\psi)
+$$
+$$
+  \ph\disj\psi\textrm{ stands for the sentence }\neg\ph\imp\psi
+$$
+Adopting this shorthand, it can be shown that all of the rules of inference, both direct and
+hypothetical, of the proof system $\p$ are derivable in its negation-conditional fragment. For example, consider the rule:
+
+($\conj+$):
+$$
+\frac{\ph\,,\,\psi}{\ph\conj\psi}
+$$
+
+In accordance with the shorthand introduced above, this rule asserts:
+($\conj+$):
+$$
+\frac{\ph\,,\,\psi}{\neg(\ph\imp\neg\psi)}
+$$
+The validity of this rule in the system $\p^-$ can be established as follows:
+
+:::{.lproof}
+    1.  |   |_  \varphi\rightarrow\neg\psi
+    2.  |   |   \varphi                         [Premise]
+    3.  |   |   \neg\psi                        [$\rightarrow-$: 1, 2]
+    4.  |   |   \psi                            [Premise]
+    5.  \neg(\varphi\rightarrow\neg\psi)        [$\neg+$: 3, 4]       
+:::
+
+Likewise, the rule (L$\vee+$) asserts:
+
+(L$\vee+$):
+$$
+\frac{\ph}{\neg\ph\imp\psi}
+$$
+
+The validity of this rule in $\p^-$ can be established as follows: 
+
+:::{.lproof}
+    1. |    |_  \neg\varphi          
+    2. |    |   |_  \neg\psi
+    3. |    |   |   \neg\varphi         [Reiteration: 1]
+    4. |    |   |   \varphi             [Premise]
+    5. |    |   \neg\neg\psi            [$\neg+$: 3, 4]
+    6. |    |   \psi                    [$\neg-$: 5]
+    7. \neg\varphi\rightarrow\psi       [$\rightarrow+$: 6]   
+:::
+
+:::{#exr-negation-conditional-fragment .exercise}
+{{< include /content/exercises/negation-conditional-fragment.qmd >}}
+:::
+
+Next, consider the hypothetical rule of inference ($\vee-$). In accordance with the metalinguistic
+shorthand introduced above, this rule asserts:
+
+($\vee-$):
+$$
+\frac{\Ga\proves\neg\ph\imp\psi \qquad \Ga,\ph\proves\psi \qquad \Ga,\psi\proves\chi}{\Ga\proves\chi}
+$$
+
+To help derive this rule, we first establish that the following direct rules of inference are valid in $\p^-$:
+
+(Transitivity):
+$$
+\frac{\ph\imp\psi\,,\,\psi\imp\chi}{\ph\imp\chi}
+$$
+
+:::{.lproof}
+    1. |    |_  \varphi    
+    2. |    |   \varphi\rightarrow\psi      [Premise]
+    3. |    |   \psi                        [$\rightarrow-$: 1, 2]
+    4. |    |   \psi\rightarrow\chi         [Premise]
+    5. |    |   \chi                        [$\rightarrow-$: 3, 4]
+    6. \varphi\rightarrow\chi               [$\rightarrow+$: 5]
+:::
+
+(Contraposition):
+$$
+\frac{\neg\ph\imp\psi}{\neg\psi\imp\ph}
+$$
+
+:::{.lproof}
+    1.  |   |_  \neg\psi
+    2.  |   |   |_  \neg\varphi
+    3.  |   |   |   \neg\varphi\rightarrow\psi      [Premise]
+    4.  |   |   |   \psi                            [$\rightarrow-$: 2, 3]
+    5.  |   |   |   \neg\psi                        [Reiteration: 1]
+    6.  |   |   \neg\neg\varphi                     [$\neg+$: 4, 5]
+    7.  |   |   \varphi                             [$\neg-$: 6]
+    8.  \neg\psi\rightarrow\varphi                  [$\rightarrow+$: 7]
+:::
+
+Utilizing these derived rules of inference, the validity of the hypothetical rule ($\vee-$) can be established as follows:
+
+:::{.lproof}
+    1. \Gamma\vdash\neg\varphi\rightarrow\psi           [Assumption]
+    2. \Gamma,\psi\vdash\chi                            [Assumption]
+    3. \Gamma\vdash\psi\rightarrow\chi                  [$\rightarrow+$: 2]
+    4. \Gamma\vdash\neg\varphi\rightarrow\chi           [Transitivity: 1, 3]
+    5. \Gamma\vdash\neg\chi\rightarrow\varphi           [Contraposition: 4]
+    6. \Gamma,\varphi\vdash\chi                         [Assumption]
+    7. \Gamma\vdash\varphi\rightarrow\chi               [$\rightarrow+$: 6]
+    8. \Gamma\vdash\neg\chi\rightarrow\chi              [Transitivity: 5, 7]
+    9. \Gamma,\neg\chi\vdash\neg\chi                    [Hypothesis]
+    10. \Gamma, \neg\chi\vdash\chi                      [$\rightarrow-$: 8, 9]
+    11. \Gamma\vdash\neg\neg\chi                        [$\neg+$: 9, 10]
+    12. \Gamma\vdash\chi                                [$\neg-$: 11]
+:::
+
+Since all the direct and hypothetical rules of the proof system $\p$ can be derived in
+the system $\p^{-}$, every proof in the former system can be carried out in the latter. Thus, we can limit our attention to the negation-conditional fragment of $\p$ without any loss of deductive power.  
+
+### A Hilbert-Style Proof System for Propositional Logic
+
+The system $\p^{-}$ represents a significant streamlining of the proof system $\p$. Nevertheless, it still licenses proofs that utilize hypothetical methods of reasoning, as captured by the rules ($\imp$+) and ($\neg$+). Can we formulate an even simpler deductive system, which avoids any appeal to such hypothetical rules of inference, but which remains equivalent in deductive power to $\p^{-}$? As we shall see in this section, the answer to this question is yes.
+
+Let $\Hp$ be a proof system for the language $\Lp^{-}$ of the simple sort defined in Chapter 1, admitting only axioms and direct rules of inference. The axioms of $\Hp$ will be infinite in number, but will each conform to one of a few schematic forms. To demarcate the set of axioms, we will specify these schemas and stipulate that every sentence which is an instance of one of these schemas is an axiom of the system. The three axiom schemas for $\Hp$ are:
+
+(P$1$): $\ph\imp(\psi\imp\ph)$
+
+(P$2$): $(\ph\imp(\psi\imp\chi))\imp((\ph\imp\psi)\imp(\ph\imp\chi))$
+
+(P$3$): $(\neg\ph\imp\neg\psi)\imp(\psi\imp\ph)$
+
+The system has only one rule of inference, namely, ($\imp-$):
+
+($\imp-$):
+$$
+\frac{\ph\,,\,\ph\imp\psi}{\psi}
+$$
+
+Proof systems of this simple sort, in which proofs are represented by finite sequences of
+sentences rather than arguments, are sometimes referred to as Hilbert-style
+proof systems, in honor of the mathematician David Hilbert, who was among the first logicians to
+propose their study.\footnote{The specific Hilbert-style proof system for propositional
+  logic referred to here as $\Hp$ was first introduced by the Polish logician Jan \L ukasiewicz.}
+While Hilbert-style proof systems are simpler in structure than the systems for natural
+deduction that we have been considering so far, this structural simplicity comes at a cost. With
+only a single direct rule of inference at our disposal, proofs in the system are much more difficult
+to construct. Consider, for example, the claim $\proves\ph\imp\ph$. In the natural deduction system
+$\p$, this claim is trivial, however, in the Hilbert-style
+deductive system $\Hp$ this claim is not so easy to establish:
+
+:::{#thm-reflexivity-Hp .theorem}
+$\proveshp\ph\imp\ph$
+:::
+
+:::{.lproof}
+    1.  \varphi\rightarrow((\psi\rightarrow\varphi)\rightarrow\varphi)  [P$1$]
+    2.  (\varphi\rightarrow((\psi\rightarrow\varphi)\rightarrow\varphi))\rightarrow((\varphi\rightarrow(\psi\rightarrow\varphi))\rightarrow(\varphi\rightarrow\varphi)) [P$2$]
+    3.  (\varphi\rightarrow(\psi\rightarrow\varphi))\rightarrow(\varphi\rightarrow\varphi)  [$\rightarrow-$: 1, 2]
+    4.  \varphi\rightarrow(\psi\rightarrow\varphi)          [P$1$]
+    5.  \varphi\rightarrow\varphi                           [$\rightarrow-$: 4, 3]
+:::
+
+:::{#exr-derive-Hp .exercise}
+{{< include /content/exercises/derive-Hp.qmd >}}
+:::
+
+In the remainder of this section, we will show that the
+proof system $\Hp$ is, in fact, equivalent in deductive power to the system $\p^{-}$---and
+hence to the system $\p$. To show this, we must establish that the rules of inference ($\imp$+),
+($\neg$-), and ($\neg$+) are all derivable in $\Hp$. We begin with the rule ($\imp$+). In the
+context of a Hilbert-style proof system, the fact that this rule holds is referred to as the
+'deduction theorem':
+
+:::{#thm-deduction-theorem .theorem}
+If $\Ga,\ph\proveshp\psi$, then $\Ga\proveshp\ph\imp\psi$. 
+
+:::{.proof}
+Let $\ph_1,\ldots,\ph_n$ be a proof of $\psi$ from $\Gamma\cup\{\ph\}$ in $\Hp$. Since
+$\psi=\ph_n$, to prove that $\Gamma\proveshp \ph\imp\psi$ it will suffice to show that for all
+$i=1,\ldots,n$: $\Gamma\proveshp\ph\imp\ph_i$.
+
+We prove this claim by induction on $i$. We first note that since $\ph_i$ appears in a proof of
+$\psi$ from $\Ga\cup\{\ph\}$, either: (i) $\ph_i\in\Gamma$; (ii) $\ph_i=\ph$; (iii) $\ph_i$ is an axiom of $\Hp$; or (iv) $\ph_i$ results from applying the rule ($\imp$-) to previous lines in the
+proof. In cases (i) and (iii), we have $\Gamma\proveshp\ph\imp\ph_i$ by the following
+proof:
+
+:::{.lproof}
+    1.  \varphi_{i}\rightarrow(\varphi\rightarrow\varphi_{i})    [P$1$]
+    2.  \varphi_{i}                                              [Premise or Axiom]
+    3.  \varphi\rightarrow\varphi_{i}                            [$\rightarrow-$: 1, 2] 
+:::
+
+Here, the inclusion of $\ph_i$ in the second step of the proof is justified on the
+grounds of its being either a premise or an axiom, depending on the case under consideration. In
+case (ii), $\Gamma\proveshp\ph\imp\ph_i$ follows from @thm-reflexivity-Hp. For case
+(iv), suppose that $\ph_i$ is the result of applying ($\imp$-) to $\ph_j$ and
+$\ph_k=\ph_j\imp\ph_i$, where $j,k<i$. By the induction hypothesis, we have:
+
+1. $\Gamma\proveshp\ph\imp\ph_{j}$
+
+2. $\Gamma\proveshp\ph\imp(\ph_{j}\imp\ph_i)$
+
+The proof of $\ph\imp\ph_i$ from $\Ga$ is as follows:
+
+:::{.lproof}
+    1.  (\varphi\rightarrow(\varphi_{j}\rightarrow\varphi_{i}))\rightarrow((\varphi\rightarrow\varphi_{j})\rightarrow(\varphi\rightarrow\varphi_{i})) [P2]
+    2. \varphi\rightarrow(\varphi_{j}\rightarrow\varphi_{i})                    [by (2) above]
+    3. (\varphi\rightarrow\varphi_{j})\rightarrow(\varphi\rightarrow\varphi_{i}) [$\rightarrow-$: 1, 2]
+    4. \varphi\rightarrow\varphi_{j}                                            [by (1) above]
+    5. \varphi\rightarrow\varphi_{i}                                            [$\rightarrow-$: 4, 3]
+:::
+This completes the induction. 
+:::
+:::
+
+The deduction theorem holds in any Hilbert-style proof system for $\Lp$ which has P$1$
+and P$2$ as axiom schemas and ($\imp$-) as its only rule of inference. Indeed, the principal reason
+for including these axiom schemas in our system is to
+facilitate the proof of this theorem, which is very useful for establishing claims about provability
+in $\Hp$. For example, the following two derived rules of inference, which will be useful in the
+sequel, are straightforward consequencs of the deduction theorem:
+
+:::{#thm-transitivity-hp .theorem}
+## Transitivity
+$\ph\imp\psi, \psi\imp\chi\proveshp\ph\imp\chi$
+
+:::{.proof}
+By two applications of ($\imp-$), we have $\ph,\ph\imp\psi,\psi\imp\chi\proves_{\Hp}\chi$. Hence,
+the desired result follows by the deduction theorem.
+:::
+:::
+
+:::{#thm-transmission-hp .theorem}
+## Transmission
+$\ph\proveshp(\ph\imp\psi)\imp\psi$
+
+:::{.proof}
+By ($\imp-$), we have $\ph,\ph\imp\psi\proves_{\Hp}\psi$. Hence,
+the desired result follows by the deduction theorem.
+:::
+:::
+
+The significance of the axiom schema P$3$ can be best understood by considering the role
+that it plays in deriving the rules ($\neg$-) and ($\neg$+) in $\Hp$. Let us begin with
+the rule ($\neg$-), which asserts that if $\Ga\proves\neg\neg\ph$, then $\Ga\proves\ph$. The
+following theorem suffices to show that this rule is valid in $\Hp$:
+
+:::{#thm-double-negation .theorem}
+$\neg\neg\ph\proveshp\ph$
+
+:::{.proof}
+Let $\psi$ be any axiom of $\Hp$. Then, the following is a proof of $\ph$ from $\neg\neg\ph$ in $\Hp$:
+
+:::{.lproof}
+    1.  \psi                                             [Axiom]
+    2.  (\neg\neg\psi\rightarrow\neg\neg\varphi)\rightarrow(\neg\varphi\rightarrow\neg\psi) [P$3$]
+    3.  (\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)                 [P$3$]
+    4.  (\neg\neg\psi\rightarrow\neg\neg\varphi)\rightarrow(\psi\rightarrow\varphi)         [Transitivity: 2, 3]
+    5.  \neg\neg\varphi\rightarrow(\neg\neg\psi\rightarrow\neg\neg\varphi)              [P$1$]
+    6.  \neg\neg\varphi\rightarrow(\psi\rightarrow\varphi)                              [Transitivity: 5, 4]
+    7.  (\neg\neg\varphi\rightarrow(\psi\rightarrow\varphi))\rightarrow((\neg\neg\varphi\rightarrow\psi)\rightarrow(\neg\neg\varphi\rightarrow\varphi))     [P$2$]
+    8.  (\neg\neg\varphi\rightarrow\psi)\rightarrow(\neg\neg\varphi\rightarrow\varphi)  [$\rightarrow-$: 6, 7]
+    9.  \psi\rightarrow(\neg\neg\varphi\rightarrow\psi)                     [P$1$]
+    10. \neg\neg\varphi\rightarrow\psi                                      [$\rightarrow-$: 1, 9]
+    11. \neg\neg\varphi\rightarrow\varphi                                   [$\rightarrow-$: 8, 10]
+    12. \neg\neg\varphi                                                     [Premise]
+    13. \varphi                                                             [$\rightarrow-$: 11, 12]
+:::
+:::
+:::
+
+It only remains to show that the hypothetical rule of inference ($\neg$+) is valid in $\Hp$. This fact is stated in @thm-reductio-Hp, the proof of which makes use of the following three claims:
+
+:::{#thm-contraposition-Hp .theorem}
+$\ph\imp\neg\psi\proveshp\psi\imp\neg\ph$
+
+:::{.proof}
+By transitivity, we have $\neg\neg\ph\imp\ph,\ph\imp\neg\psi\proveshp\neg\neg\ph\imp\neg\psi$. But, by P3 and ($\rightarrow-$), $\neg\neg\ph\imp\neg\psi\proveshp\psi\imp\neg\ph$. Hence, $\neg\neg\ph\imp\ph,\ph\imp\neg\psi\proveshp\psi\imp\neg\ph$. But, by @thm-double-negation and the deduction theorem, it follows that $\proveshp\neg\neg\ph\imp\ph$. Hence, $\ph\imp\neg\psi\proveshp\psi\imp\neg\ph$.
+:::
+:::
+
+:::{#thm-dn-intro .theorem}
+$\proveshp(\ph\imp\psi)\imp(\neg\neg\ph\imp\psi)$
+
+:::{.proof}
+By transitivity, we have $\neg\neg\ph\imp\ph, \ph\imp\psi\proveshp\neg\neg\ph\imp\psi$. Hence,
+by the deduction theorem, $\neg\neg\ph\imp\ph\proveshp(\ph\imp\psi)\imp(\neg\neg\ph\imp\psi)$. But, by @thm-double-negation and the deduction theorem, it follows that $\proveshp\neg\neg\ph\imp\ph$.
+Hence, $\proveshp(\ph\imp\psi)\imp(\neg\neg\ph\imp\psi)$.
+:::
+:::
+
+:::{#thm-clavius .theorem}
+$\ph\imp\neg\ph\proveshp\neg\ph$
+
+:::{.proof}
+By @thm-double-negation and ($\imp-$), we have $\neg\neg\ph, \ph\imp\psi\proves\psi$. Hence, by
+the deduction theorem, we have $\proveshp(\ph\imp\psi)\imp(\neg\neg\ph\imp\psi)$. We will take this as given in our proof below. Let $\psi$ be any axiom of $\Hp$. Then, the followig is a proof of $\ph$ from $\ph\imp\neg\ph$ in $\Hp$:
+
+:::{.lproof}
+    1.  \neg\neg\varphi\rightarrow(\neg\neg\psi\rightarrow\neg\neg\varphi)  [P$1$]
+    2.  (\neg\neg\psi\rightarrow\neg\neg\varphi)\rightarrow(\neg\varphi\rightarrow\neg\psi) [P$3$]
+    3.  \neg\neg\varphi\rightarrow(\neg\varphi\rightarrow\neg\psi)          [Transitivity: 1, 2]
+    4.  (\neg\neg\varphi\rightarrow(\neg\varphi\rightarrow\neg\psi))\rightarrow((\neg\neg\varphi\rightarrow\neg\varphi)\rightarrow(\neg\neg\varphi\rightarrow\neg\psi)) [P$2$]
+    5.  (\neg\neg\varphi\rightarrow\neg\varphi)\rightarrow(\neg\neg\varphi\rightarrow\neg\psi) [$\rightarrow-$: 3, 4]
+    6.  (\neg\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\neg\varphi)     [P$3$]
+    7.  (\neg\neg\varphi\rightarrow\neg\varphi)\rightarrow(\psi\rightarrow\neg\varphi)  [Transitivity: 5, 6]
+    8. \psi               [Axiom]
+    9. (\psi\rightarrow\neg\varphi)\rightarrow\neg\varphi               [Transmission: 8]
+    10.  (\neg\neg\varphi\rightarrow\neg\varphi)\rightarrow\neg\varphi  [Transitivity: 7, 9]
+    11.  (\varphi\rightarrow\neg\varphi)\rightarrow(\neg\neg\varphi\rightarrow\neg\varphi)  [@thm-dn-intro]
+    12. (\varphi\rightarrow\neg\varphi)\rightarrow\neg\varphi           [Transitivity: 11, 10]
+    13. \varphi\rightarrow\neg\varphi                                   [Premise]
+    14. \neg\varphi                                                     [$\rightarrow-$: 12, 13]
+:::
+:::
+:::
+
+:::{#thm-reductio-Hp .theorem}
+If $\Ga,\ph\proveshp\psi$ and $\Ga,\ph\proveshp\neg\psi$, then $\Ga\proveshp\neg\ph$.
+
+:::{.proof}
+By the deduction theorem, we have both $\Ga\proveshp\ph\imp\psi$ and
+  $\Ga\proveshp\ph\imp\neg\psi$. By @thm-contraposition-Hp, it follows from the latter that
+  $\Ga\proveshp\psi\imp\neg\ph$. Hence, by transitivity, $\Ga\proveshp\ph\imp\neg\ph$, which, by
+  @thm-clavius, implies $\Ga\proveshp\neg\ph$.
+:::
+:::
+
+Thus, it turns out that the deductive system $\Hp$ is no less powerful than the deductive system
+$\p^{-}$, and hence no less powerful than $\p$. If needed, we can therefore utilize the full
+machinery of natural deduction in $\p$ to establish claims about provability in $\Hp$. 

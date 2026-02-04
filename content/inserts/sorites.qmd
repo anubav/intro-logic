@@ -1,0 +1,15 @@
+### The Sorites Paradox[^sorites]
+
+Some aggregations of sand are sufficiently numerous to constitute a heap, while
+others are not. And yet it is a feature of the property of being a heap that
+whether or not a particular aggregation of sand is a heap is unchanged by the
+addition or removal of a single grain. Now, consider a numerous enough
+aggregation of sand as to clearly constitute a heap. Remove from this heap one
+grain of sand at a time and ask at each stage of the process whether what
+remains is still a heap. If being a heap is always unchanged by the removal of a
+single grain of sand, then at each stage of the process, the heap remains a heap
+and the question ought to be answered in the affirmative. But, if we
+continue such reasoning for long enough, it will follow that even a few grains
+of sand constitute a heap, which is absurd.
+
+[^sorites]: The name _sorites_ derives from the Greek σωρός meaning "heap" (as in a heap of sand). The paradox is attributed to Eubulides (4th c. BCE) of Miletus, a philosopher of the Megarian school. It has since become a central topic of discussion in the philosophy of language and logic, and has inspired a vast literature on the issue of conceptual vagueness. 

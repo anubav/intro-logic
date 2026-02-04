@@ -1,0 +1,11 @@
+Let $S = \{2, 4, 8, 16, 32\}$. Fill in the blanks, assuming that all sets are sets of natural numbers:
+
+(a). $S = \{4, 4, 2, 16, 32, 2, 4, \smallblank\}$
+
+(b). $S \subset \{2n: 1 \leq n < \smallblank\}$
+
+(c). $\{n: 1\leq n\leq 5\} = \{\largeblank: n\in S\}$
+
+(d). $S = \{\largeblank: 1\leq n \leq 5\}$
+
+(e).$^*$ Let $c(n)$ be the function which maps $n$ to the maximum number of disjoint regions into which a circle can be divided by the interior segments connecting $n + 1$ points on its circumference (this maximum is achieved when no three such segments intersect at a single point). Is $c(n)$ a correct answer to part (d) above? 

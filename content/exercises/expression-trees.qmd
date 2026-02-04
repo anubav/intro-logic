@@ -1,0 +1,26 @@
+A _binary tree_ is a finite tree structure in which every node in the tree has
+either exactly two direct descendants (referred to as its 'left' and 'right'
+children, respectively), or is a terminal node (i.e., a node with no direct
+descendants). By a _formation tree_ for an expression $\ph$ of $L_\times$, we
+mean a binary tree the nodes of which are all expressions, and which is such
+that:
+
+1. The root node of the tree (i.e., the unique node with no parents) is $\ph$. 
+
+2. If $\psi_l$ and $\psi_r$ are the left and right children of the node $\psi$, then $\psi$ is the expression $\psi_l \times \psi_r$. 
+
+3. Every terminal node is an expression consisting of a single numeral.
+
+For example, the following tree is a formation tree for the expression: $1\times x \times 0$:
+
+![](/content/static/images/binary-tree-example.svg){width=100 fig-align="center" fig-alt="Set Operations"}
+
+(a). An expression $\ph$ is a numerical expression iff there is a formation tree for $\ph$, but a single numerical expression can have multiple distinct formation trees. Give three distinct formation trees for the numerical expression $0\times 1\times x\times 0$.
+
+(b). Suppose we extend the language $L_\times$ by adding to its alphabet the left and right parentheses, '(' and '')'. Rewrite the definitions of a numerical expression and a formation tree so as to ensure that every numerical expression has exactly one formation tree.
+
+(c).$^*$ Show that the number of distinct formation trees for a numerical expression containing $k$ numerals is exactly
+$$
+\frac{(2k-2)!}{k!(k-1)!}=\frac{(2k-2)\cdot(2k-3)\cdots(k+1)}{(k-1)\cdot(k-2)\cdots
+1} 
+$$

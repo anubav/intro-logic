@@ -1,0 +1,10 @@
+The _power set_ of the set $X$, written $P(X)$, is the set of all subsets of $X$, i.e.:
+$$
+P(X) = \{Y: Y\subset X\}
+$$
+
+(a). Let $S = \{1, 2, 3, 4, 5, 6, 7\}$. How many members does $P(S)$ have? 
+
+(b). How many members does $P(P(S))$ have?
+
+(c). How many members does the power set of the empty set have?

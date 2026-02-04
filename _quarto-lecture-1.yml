@@ -1,0 +1,7 @@
+project:
+  output-dir: _course/lecture-1
+
+book:
+  chapters:
+    - index.qmd
+    - content/front-matter/00-introduction/introduction.qmd

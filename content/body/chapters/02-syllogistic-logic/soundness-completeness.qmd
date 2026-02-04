@@ -1,0 +1,366 @@
+## The Extensional Soundness and Completeness of $\s$
+
+### The Soundness of $\s$
+
+In the remainder of this chapter, we will show that the proof system $\s$ is both sound and complete with respect to the extensional semantics for syllogistic logic introduced above. As usual, the soundness of the system $\s$ can be straightforwardly established by means of induction. To do so, it suffices to show that:
+
+1. Every axiom of $\s$ is a logical truth. 
+
+2. Every direct rule of inference of $\s$ expresses a valid argument. 
+
+3. Every hypothetical rule of inference of $\s$ preserves validity. 
+
+The semantic facts required to establish these claims are collected together in the following theorem:
+
+:::{#thm-soundness-facts .theorem}
+i. $\models \all{A}{A}$
+
+ii. $\all{A}{B},\all{B}{C}\models\all{A}{C}$
+
+iii. $\all{A}{B}, \no{B}{C}\models\no{A}{C}$
+
+iv. $\no{A}{B}\models\no{B}{A}$
+
+v. If $\Ga,\ph\models\psi$ and $\Ga,\ph\models\neg\psi$, then $\Ga\models \neg\ph$.
+
+vi. If $\Ga,\ph\models\all{A}{B}$ and $\Ga,\ph\models\no{A}{B}$, then $\Ga\models\neg\ph$. 
+
+:::{.proof}
+
+In what follows, let $\mathcal{M} = (\W,\si)$ be an arbitrary model of $\Ls$. 
+
+i. Since, for any term $A$, $\si(A)\subset\si(A)$, it follows that $val^\mathcal{M}(\all{A}{A})=\true$. Hence, $\models\all{A}{A}$.
+
+ii. Suppose $val^\mathcal{M}(\all{A}{B})=val^\mathcal{M}(\all{B}{C})=\true$. Then, $\si(A)\subset\si(B)$ and $\si(B)\subset\si(C)$. It follows that $\si(A)\subset\si(C)$, and so $val^\mathcal{M}(\all{A}{C})=\true$. Hence, $\all{A}{B}, \all{B}{C}\models \all{A}{C}$.
+
+iii.  Suppose $val^\mathcal{M}(\all{A}{B})=val^\mathcal{M}(\no{B}{C})=\true$. Then, $\si(A)\subset\si(B)$ and $\si(B)\inter\si(C)=\emptyset$. It follows that $\si(A)\inter\si(C)=\emptyset$, and so $val^\mathcal{M}(\no{A}{C})=\true$. Hence, $\all{A}{B}, \no{B}{C}\models \no{A}{C}$
+
+iv. Suppose $val^\mathcal{M}(\no{A}{B})=\true$. Then, $\si(A)\inter\si(B)=\emptyset$. It follows that $\si(B)\inter\si(A)=\emptyset$, and so $val^\mathcal{M}(\no{B}{A})=\true$. Hence, $\no{A}{B}\models\no{B}{A}$.
+
+v. Suppose $\Ga,\ph\models\psi$ and $\Ga,\ph\models\neg\psi$. This means that, for every interpretation under which all of the sentences in $\Ga\cup\{\ph\}$ are true, $\psi$ and $\neg\psi$ are both true. But since there are no interpretations under which $\psi$ and $\neg\psi$ are both true, it follows that there is no interpretation under which all of the sentences in $\Ga\cup\{\ph\}$ are true. Thus, if $val^\mathcal{M}(\chi)=\true$, for all $\chi\in\Ga$, then $val^\mathcal{M}(\ph)=\false$. But from the latter claim it follows that  $val^\mathcal{M}(\neg\ph)=\true$. Hence $\Ga\models\neg\ph$.  
+
+vi. Suppose $\Ga,\ph\models\all{A}{B}$ and $\Ga,\ph\models\no{A}{B}$. This means that, for every interpretation under which all of the sentences in $\Ga\cup\{\ph\}$ are true, $\all{A}{B}$ and $\no{A}{B}$ are both true. But since there are no interpretations under which $\all{A}{B}$ and $\no{A}{B}$ are both true, it follows that there is no interpretation under which all of the sentences in $\Ga\cup\{\ph\}$ are true. Thus, if $val^\mathcal{M}(\psi)=\true$, for all $\psi\in\Ga$, then $val^\mathcal{M}(\ph)=\false$. But from the latter claim it follows that  $val^\mathcal{M}(\neg\ph)=\true$. Hence $\Ga\models\neg\ph$.  
+
+:::
+:::
+
+It follows from this theorem, by induction, that the proof system $\s$ is sound, i.e.:
+
+:::{#thm-soundness-s .theorem}
+If $\Ga\provess\ph$, then $\Ga\models\ph$. 
+:::
+
+### An Alternative Formulation of Completeness 
+
+<!-- Explain the technique of Henkin-style proofs of completeness better. Semantics and proof
+systems can be viewed as standard for joint assertability -->
+
+We will begin our proof of the completeness of $\s$ by first offering an alternative, but equivalent formulation, of the completeness theorem, which states:
+
+:::{#thm-soundness-s .theorem}
+If $\Ga\models\ph$, then $\Ga\provess\ph$. 
+:::
+
+Our reformulation of this theorem will be in terms of two new notions: satisfiability and consistency.
+
+:::{#def-s-satisfiability .definition}
+ 
+  Let $\Gamma$ be any set of categorical sentences. We say that $\Gamma$ is
+  _satisfiable_ iff there exists a model $\mathcal{M}=(\W,\si)$ of $\Ls$, such that $val^\mathcal{M}(\ph)=\true$, for all $\ph\in\Gamma$. We say that $\Gamma$ is _unsatisfiable_ if it is not satisfiable.
+
+:::
+
+:::{#def-s-consistency .definition} 
+
+Let $\Gamma$ be any set of categorical sentences. We say that $\Gamma$ is
+_consistent_ iff there is no sentence $\ph$, such that $\Gamma\provess
+\ph$, and $\Gamma\provess\neg\ph$. We say that $\Gamma$ is _inconsistent_
+if it is not consistent.
+
+:::
+
+We may first observe that if $\s$ is complete, then every consistent set of categorical sentences is satisfiable. To see this, suppose that $\Gamma$ is unsatisfiable. Since there is no model under which every sentence in $\Gamma$ is true, it follows trivially that for every $\ph$, both $\Gamma\models \ph$ and $\Gamma \models \neg\ph$. Thus, if the system $\s$ is complete, both $\Gamma\provess\ph$ and $\Gamma\provess\neg\ph$. But this means that $\Gamma$
+is inconsistent. 
+
+As we shall see, the converse of this claim holds as well, that is: if every
+consistent set of sentences is satisfiable, then the system $\s$ is complete. We begin by observing the following two facts:
+
+:::{#thm-s-sat .theorem}
+$\Gamma\not\models \ph$ iff $\Gamma\cup\{\neg\ph\}$ is satisfiable.
+
+:::{.proof}
+ 
+$\Gamma\cup\{\neg\ph\}$ is satisfiable iff there exists a model $\mathcal{M}$,
+such that $val^{\mathcal{M}}(\psi)=\true$, for all $\psi\in\Ga\cup\{\neg\ph\}$.
+But this is true iff there exists a model $\mathcal{M}$, such that
+$val^\mathcal{M}(\psi)=\true$, for all $\psi\in\Ga$, and
+$val^\mathcal{M}(\ph)=\false$, i.e., $\Gamma\not\models \ph$.
+
+:::
+:::
+
+:::{#thm-s-con .theorem}
+$\Gamma\not\provess\ph$ iff $\Gamma\cup\{\neg\ph\}$ is consistent.
+
+:::{.proof}
+
+First, suppose that $\Ga\provess\ph$. Then, by monotonicity, $\Ga\cup\{\neg\ph\}\provess\ph$. But since $\Gamma\cup\{\neg\ph\}\provess
+\neg\ph$, $\Gamma\cup\{\neg\ph\}$ is inconsistent. 
+
+Next, suppose that $\Gamma\cup\{\neg\ph\}$ is inconsistent. Then there exists
+a sentence $\psi$ such that $\Gamma\cup\{\neg\ph\}\provess\psi$ and
+$\Gamma\cup\{\neg\ph\}\provess\neg\psi$. By (Contradiction), we have
+$\Ga\provess\ph$.
+
+:::
+:::
+
+In its contrapositive form, the completeness theorem asserts that if
+$\Gamma\not\provess \ph$, then $\Gamma\not\models \ph$. So, by @thm-s-sat and
+@thm-s-con, completeness is equivalent to the claim: if $\Gamma\cup\{\neg\ph\}$
+is consistent, then $\Gamma\cup\{\neg\ph\}$ is satisfiable. Hence, if every
+consistent set of sentences is satisfiable, the completeness theorem holds.
+
+All told, then, the completeness theorem for $\s$ can be reformulated as follows:
+
+:::{#thm-s-alt-completeness .theorem}
+Every consistent set of categorical sentences is satisfiable.
+:::
+
+### The Completeness of $\s$
+
+To show that the completeness theorem for $\s$ holds, we will explain how one can construct, for any consistent set of categorical sentences, a model of the language under which every sentence in this
+set is true. Our construction will proceed as follows: we will consider the
+sentences of the language, one by one, and determine, for each such sentence,
+whether or not it can be consistently added to the sentences already in the set.
+If so, we will add it to the set, if not, we will add its contradictory opposite
+to the set. In this way, we will extend the original set to a 'maximal' set of
+sentences which can be used to decide, in a consistent manner, the truth or
+falsity of every sentence in the language.
+
+As we shall see, such a maximally consistent set amounts to an explicit
+characterization of a truth valuation of the language $\Ls$, with the members of
+the set indicating which of the sentences are true under this valuation. By
+reference to this maximal set, we will be able to construct a model of the language that satisfies exactly the sentences that are included in the set. Since the original set is contained in this maximal set, it too will be satisfied by this model.
+
+:::{#def-s-max-con .definition} 
+ A set of categorical sentences $\Gamma$ is _maximally consistent_ if the following two conditions hold:
+
+1. $\Gamma$ is consistent.
+
+2. For every categorical sentence $\ph$: if $\ph\not\in\Ga$, then $\Ga\cup\{\ph\}$ is  inconsistent.
+
+:::
+
+We will now establish various facts concerning maximally consistent sets. The first states that a maximally consistent set contains all and only its own deductive consequences.
+
+:::{#thm-max-con-s-char .theorem}
+If $\Ga$ is a maximally consistent set, then $\Ga\provess\ph$ iff $\ph\in\Ga$. 
+
+:::{.proof}
+The right-to-left direction of the claim is obvious. For the left-to-right direction, suppose $\ph\not\in\Ga$. Since $\Ga$ is maximally consistent, $\Ga\cup\{\ph\}$ is inconsistent. But this means that, for some sentence $\psi$, $\Ga,\ph\provess\psi$ and $\Ga,\ph\provess\neg\psi$. Hence, by (Contradiction), we have $\Ga\provess\neg\ph$. But since $\Ga$ is consistent, it follows that $\Ga\not\provess\ph$.  
+:::
+:::
+
+The following two theorems state that maximally consistent sets properly encode the semantic relations of contradictoriness and contrariety:
+
+:::{#thm-max-con-1 .theorem}
+If $\Gamma$ is maximally consistent, then, for every sentence $\ph$, exactly one of the two sentences $\ph$ and $\neg\ph$ is a member of $\Gamma$.
+
+:::{.proof}  
+That at most one of these two sentences belongs to $\Gamma$ follows from the
+fact that $\Gamma$ is consistent. Now, suppose that neither sentence is in the
+set, i.e., $\ph\not\in\Gamma$ and $\neg\ph\not\in\Ga$. By the definition of
+maximal consistency, $\Gamma\cup\{\ph\}$ and $\Gamma\cup\{\neg\ph\}$ are both
+inconsistent. But then, by @thm-s-con, we have both $\Ga\provess\neg\ph$ and  $\Ga\provess\ph$, which contradicts the assumption that $\Gamma$ is consistent.
+:::
+:::
+
+:::{#thm-max-con-2 .theorem}
+If $\Gamma$ is maximally consistent, then at most one of the sentences $\all{A}{B}$ and $\no{A}{B}$ is a member of $\Gamma$.
+ 
+:::{.proof}  
+We first observe that $\all{A}{B},\no{A}{B}\provess\ph$, for any sentence $\ph$. The proof is as follows:
+
+:::{.lproof}
+    1.  |   |_  \neg\varphi   
+    2.  |   |   A\mathbf{a}B    [Premise]
+    3.  |   |   A\mathbf{e}B    [Premise]
+    4.  \varphi                 [Contrariety: 2, 3]         
+:::
+
+Thus, if $\Ga$ contains both $\all{A}{B}$ and $\no{A}{B}$, by @thm-max-con-s-char, $\Ga\provess\ph$, for any proposition $\ph$, which contradicts the assumption that $\Ga$ is consistent. 
+:::
+:::
+
+How can we extract from a maximally consistent set of sentences $\Ga$ a model of the language which satisfies $\Ga$? One straightforward way to do so is to intepret the language autonymically, using the terms of the language themselves to represent the objects in the model's domain. An object will be modeled as a set of terms. This set may be thought of as that containing all and only those terms which can be truly predicated of that object which the set represents. To begin, we will treat every set of terms as a possible object. However, we will then systematically exclude certain objects from the domain based on the sentences in the maximally consistent set $\Ga$. If, for example, $\Ga$ the sentence $\all{A}{B}$, expressing the fact that every $A$ is a $B$, we will exclude from the domain every object that is an $A$ but not a $B$ (i.e., every set of terms which contains $A$ but not $B$). As we will see, the resulting model will satisfy $\Ga$.  
+
+:::{#def-maxcon-s-int .definition}
+
+Let $\Theta$ be the set of all terms, and let $\W$ be the set of all subsets of $\Theta$. For any categorical sentence $\ph$, we write:
+
+$$
+\mu(\ph) = \left\{\begin{array}{ll} \{S\in \W: A\in S\textrm{ and }B\not\in S\} & \textrm{ if }\ph\textrm{ is }\all{A}{B} \\
+\{S\in \W: A\in S\textrm{ and }B\in S\} & \textrm{ if }\ph\textrm{ is }\no{A}{B}\\
+\emptyset & \textrm{otherwise} \end{array}\right.
+$$
+$$
+  \mu(\all{A}{B}) = \{S\in \W: A\in S\textrm{ and }B\not\in S\} 
+$$
+$$
+  \mu(\no{A}{B}) = \{S\in \W: A\in S\textrm{ and }B\in S\}
+$$
+If $S\in\mu(\ph)$, we say that $S$ is _excluded by $\ph$_. Let $\Ga$ be a maximally consistent set. We write:
+$$
+\W_\Ga = \W - \bigcup_{\ph\in\Ga} \mu(\ph) 
+$$
+In other words, $\W_\Ga$ is the set of all objects that are _not_ excluded by any sentence in $\Ga$. We write $\si_\Ga$ for the function assigning to each term a subset of $\W_\Ga$, defined by: 
+$$
+\si_\Ga(A) = \{S\in \W_\Ga: A\in S\}
+$$
+:::
+
+To confirm that $(\W_\Ga,\si_\Ga)$ is a model of the language $\Ls$, we must show that the function $\si_\Ga$ assigns to every term a nonempty extension:
+
+:::{#thm-nonempty-ext .theorem}
+Let $\Ga$ be a maximally consistent set. For any term $A$, $\si_\Ga(A)$ is nonempty. 
+
+:::{.proof}
+
+Suppose, for contradiction, that $\si_\Ga(A)$ is empty. This means that there is
+no set $S$ in $\W_\Ga$ such that $A\in S$. Let 
+$$ 
+A_\Ga = \{B: \all{A}{B}\in \Ga\} 
+$$ 
+
+Since $\Ga\provess\all{A}{A}$, by @thm-max-con-s-char, $\all{A}{A}\in\Ga$ and so $A\in A_{\Ga}$. But since, by assumption, $\si_\Ga(A)$ is empty, it follows that $A_\Ga\not\in\W_\Ga$. This means that $A_\Ga$ must be excluded by some
+sentence $\ph\in\Ga$. First suppose that $\ph$ is the sentence $\all{C}{D}$.
+To say that $A_\Ga$ is excluded by $\all{C}{D}$ means that $C\in A_\Ga$ and $D\not\in A_\Ga$. By the definition of $A_\Ga$, this
+means that $\all{A}{C}\in\Ga$ and $\all{A}{D}\not\in\Ga$. But since
+$\all{C}{D}\in \Ga$, by (Barbara), we have $\all{A}{D}\in\Ga$. Contradiction. Next suppose
+that $\ph$ is the sentence $\no{C}{D}$. To say that $A_\Ga$ is excluded by $\no{C}{D}$ means that $C\in A_\Ga$ and $D\in A_\Ga$. By
+the definition of $A_\Ga$, this means that $\all{A}{C}\in\Ga$ and
+$\all{A}{D}\in\Ga$. But since $\no{C}{D}\in \Ga$, by (Celarent), we have
+$\no{A}{D}\in\Ga$. Contradiction, by @thm-max-con-2. 
+
+:::
+:::
+
+Thus, $(\W_\Ga,\si_\Ga)$ is indeed a model. We will next show that this model satisfies the set of sentences $\Ga$:
+
+:::{#thm-max-con-model .theorem}
+Let $\Ga$ be a maximally consistent set and let $\mathcal{M}_\Ga$ be the model $(\W_\Ga,\si_\Ga)$. Then, for any sentence $\ph$: $\ph\in\Ga$ iff $val^{\mathcal{M}_\Ga}(\ph)=\true$
+
+:::{.proof}
+We consider each of the four kinds of categorical sentence in turn:
+
+1. $\ph$ is $\all{A}{B}$
+
+    The left-to-right direction of the claim follows directly from @def-maxcon-s-int. For the right-to-left direction, suppose, for contradiction, that $\all{A}{B}\not\in \Ga$ but that $val^{\si_\Ga}(\all{A}{B})=\true$. The latter implies that there is no set $S\in\W_\Ga$ such that $A\in S$ and $B\not\in S$. Let
+    $$
+        A_\Ga = \{C: \all{A}{C}\in \Ga\}
+    $$
+    Since $\all{A}{A}\in\Ga$, $A\in A_{\Ga}$, and since $\all{A}{B}\not\in\Ga$, $B\not\in A_{\Ga}$. Hence, $A_\Ga\not\in\W_\Ga$. From this we derive a contradiction following exactly the proof of @thm-nonempty-ext.
+
+2. $\ph$ is $\no{A}{B}$
+
+    The left-to-right direction of the claim follows directly from @def-maxcon-s-int. For the right-to-left direction, suppose, for contradiction, that $\no{A}{B}\not\in \Ga$ but that $val^{\si_\Ga}(\no{A}{B})=\true$. The latter implies that there is no set $S\in\W_\Ga$ such that $A\in S$ and $B\in S$. Let
+    $$
+            AB_\Ga = \{C: \all{A}{C}\in \Ga\textrm{ or }\all{B}{C}\in \Ga\}
+    $$
+    Since $\all{A}{A}, \all{B}{B}\in\Ga$, $A,B\in AB_{\Ga}$. Hence, $AB_\Ga\not\in\W_\Ga$. This means that $AB_\Ga$ must be excluded by some  sentence $\ph\in\Ga$. First suppose that $\ph$ is the sentence $\all{C}{D}$. To say that $\all{C}{D}$ excludes $AB_\Ga$ means that $C\in AB_\Ga$ and $D\not\in AB_\Ga$. By the definition of $AB_\Ga$, this means that either (i) $\all{A}{C}\in\Ga$ and $\all{A}{D}\not\in\Ga$; or (ii) $\all{B}{C}\in\Ga$ and $\all{B}{D}\not\in\Ga$. Since $\all{C}{D}\in \Ga$, by (Barbara), in either case, we get a contradiction. Next suppose that $\ph$ is the sentence $\no{C}{D}$. To say that $\no{C}{D}$ excludes $AB_\Ga$ means that $C\in AB_\Ga$ and $D\in AB_\Ga$. By the definition of $AB_\Ga$, there are four cases to consider:
+
+    i. $\all{A}{C}, \all{A}{D}\in \Ga$
+    ii. $\all{A}{C}, \all{B}{D}\in \Ga$
+    iii. $\all{B}{C}, \all{A}{D}\in \Ga$
+    iv. $\all{B}{C}, \all{B}{D}\in \Ga$
+
+    Since $\no{C}{D}\in \Ga$, in cases (i) and (iv) we have a contradiction by (Celarent) and @thm-max-con-2. Since $\no{C}{D}, \all{A}{C}, \all{B}{D}\provess\no{A}{B}$ and $\no{C}{D}, \all{B}{C}, \all{A}{D}\provess\no{A}{B}$, cases (ii) and (iii) contradict the assumption that $\no{A}{B}\not\in\Ga$. 
+
+3. $\ph$ is $\some{A}{B}$
+
+    This follows from @thm-max-con-1 and 2 above. 
+        
+4.  $\ph$ is $\somenot{A}{B}$
+
+    This follows from @thm-max-con-1 and 1 above. 
+:::
+:::
+
+An immediate corollary of this theorem is that every maximally consistent set of
+categorical sentences is satisfiable. Thus, it only remains to show that
+every consistent set of sentences can be extended to a maximally consistent one.
+From this, it will follow that every consistent set of sentences is satisfiable, which, as we have seen, is equivalent to the claim that $\s$ is complete.
+
+:::{#thm-con-choice .theorem}
+If $\Gamma$ is a consistent set, then for any sentence $\ph$,
+either $\Gamma\cup\{\ph\}$ or $\Gamma\cup\{\neg\ph\}$ is consistent.
+
+:::{.proof}
+
+Suppose that both $\Gamma\cup\{\ph\}$ and $\Gamma\cup\{\neg\ph\}$ are
+inconsistent. By @thm-s-con, it follows that both $\Gamma\provess\neg\ph$ and
+$\Gamma\provess\ph$. This, however, contradicts the assumption that $\Gamma$ is
+consistent.
+
+:::
+:::
+
+:::{#thm-extension .theorem}
+
+ If $\Gamma$ is a consistent set, then there exists a maximally consistent set
+ $\Gamma^*$ such that $\Gamma\subset\Gamma^*$.
+
+:::{.proof}
+
+Let $\ph_1,\ph_2,\ldots$ be an enumeration of all of the sentences of
+$\Ls$. We construct an increasing sequence of sets $\Gamma_1\subset
+\Gamma_2\subset\ldots$ as follows: first, let $\Gamma_1=\Gamma$. Now, suppose
+that $\Gamma_n$ ($n\geq 1$) has been constructed and that it is consistent. Let:
+ 
+$$
+    \Gamma_{n+1}=\left\{\begin{array}{ll} \Gamma_n\cup\{\ph_n\} & \textrm{ if }\Gamma_n\cup\{\ph_n\}
+             \textrm{ is consistent.}                                        \\
+             \Gamma_n\cup\{\neg\ph_n\}  & \textrm{otherwise}\end{array}\right.
+$$
+
+By @thm-con-choice, $\Gamma_{n+1}$ is consistent, and so the
+construction can continue. Let $\Gamma^*$ be the set of all sentences which
+appear in some set in the sequence $\Ga_1,\Ga_2,\ldots$. Since $\Ga=\Ga_1$, clearly $\Ga\subset \Ga^*$. 
+
+We will now show that $\Gamma^*$
+is a maximally consistent set. First suppose, for contradiction, that $\Gamma^*$ is
+inconsistent. Then for some $\ph$, $\Gamma^*\provess\ph$ and
+$\Gamma^*\provess\neg\ph$. Given a proof of $\ph$ from $\Gamma^*$ and a proof of
+$\neg\ph$ from $\Gamma^*$, let $\Delta$ be the set of all sentences in
+$\Gamma^*$ that are appealed to in one or the other of these proofs. For each
+$\psi\in\Delta$, let $n(\psi)$ be the smallest $n$ such that $\psi\in\Gamma_n$.
+Since proofs are, by definition, of finite length, $\Delta$ is a finite set.
+Thus, the number
+  
+$$
+    m=\max\{n(\psi):\psi\in\Delta\}
+$$
+
+is a finite number, and every sentence in $\Delta$ is a member of $\Gamma_m$.
+But then the aforementioned proofs of $\ph$ and $\neg\ph$ from $\Ga^*$ are also
+proofs from $\Gamma_m$. But this means that $\Gamma_m$ is inconsistent, which
+contradicts the definition of how this set was constructed. Thus, $\Gamma^*$ is
+consistent. Now, to show that $\Ga^*$ is maximal, let $\ph$ be any sentence such that $\ph\not\in\Ga^*$. By the definition of
+$\Gamma^*$, it follows that $\neg\ph\in\Ga^*$. Hence, adding $\ph$ to $\Ga^*$
+would render the set inconsistent. Thus, $\Ga^*$ is a maximally consistent
+set such that $\Ga\subset\Ga^*$.
+
+:::
+:::
+
+We are now at last in a position to prove completeness. Let $\Ga$ be any
+consistent set. By @thm-extension, there exists a maximally consistent set
+$\Ga^*$ such that $\Ga\subset\Ga^*$. As we have seen, $\Ga^*$ is satisfiable by
+the model $(\W_{\Ga^*},\si_{\Ga^*})$. But any model that satisfies $\Gamma^*$
+also satisfies $\Ga$, and so $\Ga$ too is satisfiable.
+
+Hence, every consistent set of sentences is satisfiable, and this, as we have
+seen, is equivalent to the completeness of $\s$. Thus, the proof system $\s$ is a sound and complete deductive system with respect to the extensional semantics for syllogistic logic.
+
+<!-- TODO: Add Insert on Smiley Completeness with Chains --> 

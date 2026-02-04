@@ -1,0 +1,71 @@
+### Multisets and Exact Arguments
+
+Thus far, we have assumed that the premises of an argument comprise a _set_ of sentences in a formal language. While this may seem like an innocuous assumption, as we shall see, it has important implications for the shape of the logical systems that we study. 
+
+One such implication is that we cannot discriminate between two arguments simply on account of the number of times that a sentence occurs among the premises. For example, in accordance with our previous definition of an argument (@def-argument), the arguments $\ph,\ph\proves\psi$ and $\ph\proves\psi$ are identical, since $\{\ph,\ph\}$ and $\{\ph\}$ are one and the same set. In order to distinguish between these arguments, we must think of the premises not as comprising a set of sentences but rather as making up the sort of collection whose members are allowed to have multiple distinct occurrences within the collection. We will refer to such a collection of items as a _multiset_.[^multiset] 
+
+To avoid the needless introduction of new terminology, we will reuse the standard set-theoretic notation to denote multisets, leaving it up to the context to determine whether, in any particular case, we intend to refer to a set or to a multiset. Thus, we may refer directly to a multiset by enclosing a comma-separated list of items between curly braces. So, for example:
+$$
+\{a,a,b,b,b\}
+$$
+is a multiset. When denoting a multiset in this way, we assume that the number of times that an item appears in the multiset is the same as the number of times it appears in the enclosed comma-separated list. Thus, the above multiset is that in which $a$ appears twice and $b$ three times. The multiset:
+$$
+\{a,a,a,b,b\}
+$$
+is that in which $a$ occurs three times and $b$ occurs twice. 
+
+If $X$ is a multiset, we write $x\in X$ to indicate that the item $x$ occurs at least once in $X$. We write $x\not\in X$ to indicate that $x$ does not occur (even once) in $X$. If $X$ and $Y$ are both multisets, then $X$ is a submultiset of $Y$, written $X\subset Y$, if, for all $x\in X$, $x$ occurs at least as many times in $Y$ as it does in $X$. Thus, neither of the above two multisets is a submultiset of the other, but both are submultisets of:
+$$
+\{a,a,a,b,b,b,c,d\}
+$$
+
+
+[^multiset]: The label 'multiset' (which is short for multiple-membership set) is now the standardly accepted term for a collection of this sort. It is an unfortunate choice of label since it suffers from the appearance of being derivative on the prior notion of a set. Other labels that have been used to refer to multisets that avoid this defect are 'bag', 'bunch', heap', and 'sample'. For a brief history of the role that multisets have played in mathematics, and computer science, see @Blizard1988-re, Section 1. 
+
+If need be, we may also use a set that is denoted by means of some defining condition to refer to a multiset. In this case, the denoted multiset is that in which every item in the denoting set occurs exactly once. Thus, the multiset denoted by:
+$$
+    \{n\in \mathbb{N}: n \textrm{ is odd and }1\leq n\leq 10\}
+$$
+is:
+$$
+    \{1, 3, 5, 7, 9\}
+$$
+
+:::{#exr-multiset-counting .exercise}
+{{< include /content/exercises/multiset-counting.qmd >}}
+:::
+
+The set-theoretic operations of union, intersection, and relative complement (or set difference) all have natural multiset analogs. For example, the union of $X$ and $Y$ can be taken to be the multiset in which each item occurs as many times as it occurs in both $X$ and $Y$, taken together. Thus:
+$$
+\{a,a,b,c\}\cup\{a,b,b,d\} = \{a,a,a,b,b,b,c,d\}
+$$
+Similarly:
+$$
+\{a,a,b,c\}\inter\{a,b,b,d\} = \{a,b\}
+$$
+and:
+$$
+\{a,a,b,c\}-\{a,b,b,d\} = \{a,c\}
+$$ 
+
+As was the case with sets, we assume that there exists a unique empty multiset, denoted $\emptyset$. When the domain of quantification is the empty multiset, universally quantified statements of the form 'for all $x\in\emptyset$, ...' are trivially true, and existentially quantified statements of the form 'for some $x\in\emptyset$, ...' are trivially false. Thus, $\emptyset\subset X$, for any multiset $X$. The result of performing multiset operations on the empty multiset yields the expected results, for example, $X\cup\emptyset = X$ and $X\inter\emptyset=\emptyset$. 
+
+::: {#exr-multiplicity-function .exercise}
+{{< include /content/exercises/multiplicity-function.qmd >}}
+:::
+
+In what follows, we will refer to an argument whose premises are represented by a multiset of sentences as an exact argument: 
+
+::: {#def-exact-argument}
+ An _exact argument in the language $L$ _ consists of (i) a possibly empty multiset of sentences of $L$, whose members are referred to as the argument's _premises_; and (ii) a sentence of $L$ referred to as the argument's _conclusion_.
+:::
+
+ Just as before, if $\Ga_1,\ldots,\Ga_n$ are multisets of sentences and $\ph_1,\ldots,\ph_m$ are sentences, we will write:
+
+$$
+\Ga_1,\ldots,\Ga_n,\ph_1,\ldots,\ph_m\proves\psi
+$$
+
+for the exact argument whose premises comprise the multiset $\Ga_1\cup\cdots\cup\Ga_n\cup\{\ph_1,\ldots,\ph_m\}$ and whose conclusion is $\psi$ (here $\cup$ is the operation of multiset union). 
+
+As we shall see in the next example, there is reason to think that Aristotle's theory of the syllogism is best understood as a logic of exact arguments. 

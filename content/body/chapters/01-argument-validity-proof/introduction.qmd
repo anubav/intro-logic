@@ -1,0 +1,97 @@
+## Introduction
+
+### In What Sense is Logic Mathematical?
+
+_Logic_, in the most general sense of the term, refers to the study of the norms
+that govern the activity of reasoning. In this sense, logic concerns not only
+the sort of reasoning expressed in mathematical proofs but also such reasoning
+as underwrites a statistical inference or the confirmation of a scientific
+theory. If we further countenance informal methods of reasoning, the scope of
+logic grows wider still, comprehending such rhetorical forms of argumentation as
+one might encounter in a philosophy text or a newspaper editorial and even those
+vague heuristics and patterns of inference summarized by the phrase "common
+sense". Given such a wide scope of application, any introduction to logic must begin with a suitably delimited statement of its intended subject
+matter. 
+
+Notwithstanding the generic title of this course, the topic of our inquiry can more aptly be termed _deductive_ logic, or, to use a less technical term,
+_mathematical_ logic. What exactly is meant by this phrase? The most obvious
+function of the qualifier 'mathematical' when prefixed to the term logic is to
+restrict the subject matter of the inquiry to the particular sort of reasoning
+that is done in mathematics. Mathematical logic, in this sense of the phrase, is
+exclusively concerned with reasoning of the sort which ensures that the truth of
+a conclusion follows from various assumptions in just the way that the truth of
+a theorem in geometry follows from more basic claims, or axioms, characterizing
+elementary geometrical notions such as points, lines, planes, and the like. In
+fact, it turns out that the systems of logic that we will examine in this course
+are remarkably well-suited to the study of such reasoning. Indeed, among the
+many impressive achievements of the landmark investigations into the
+foundations of mathematics conducted in the first half of the 20th century was
+the discovery that a single system of what shall later be introduced as
+first-order quantificational logic, involving only a handful of axiom schemas,
+is sufficient to comprehend all but a small fraction of the proofs that have
+ever been given in mathematics!
+
+There is, however, a second sense of the phrase 'mathematical logic' that will
+be equally relevant for our purposes. In this alternative sense, the phrase
+'mathematical' functions as an adverbial modifier, indicating something about
+the methodology by which the study of logic is to be pursued rather than
+delimiting its material. Specifically, it implies that the methods to be
+employed in this study are themselves mathematical in nature. Thus, just
+as mathematical psychology does not refer to the psychological study of
+mathematicians but instead to the deploy of mathematical techniques to
+investigate formal models of psychological processes, mathematical logic, in
+this latter sense of the phrase, does not refer to the study of such reasoning
+as is done by mathematicians but instead to the study of logic _done
+mathematically_. In line with this approach, the systems of logic that we will consider in this course will
+themselves be represented as mathematically well-defined structures, and the
+claims that we will make about these systems will be established using standard
+mathematical techniques.
+
+"Logic", as the phrase will be used in this course, is to be understood as mathematical in both of the
+above senses of the term. In fact, it is this duality of meaning which endows the subject not only with its peculiar charm, but also with no small part of its
+philosophical value. For, if logic is concerned to study the sort of
+reasoning done in mathematics and if, at the same time, it is itself just a
+branch of mathematics, then one may meaningfully ask what follows when the
+claims established in the study of logic are applied to itself. The answer, as
+it turns out, is quite a lot! The essentially self-reflective nature of
+logic is what allows for the precise formulation of such
+provocative theses as "arithmetical truth cannot be defined arithmetically", and
+"if a computer can simulate all of our mathematical reasonings, then, in
+principle, we cannot fully grasp how it works".
+
+In order to reflect seriously on the philosophical import of such
+claims, one must first understand what exactly they mean. And, for this, we
+require a thorough understanding of the basic concepts of logic. Let us begin, then, by considering in more detail how the study of logic can be made mathematical.
+
+### Making Logic Mathematical
+
+Logic seeks to investigate the norms that govern the activity of _reasoning_. An
+act of reasoning proceeds from certain claims that one takes to be true. One
+then applies to these claims some prescribed set of rules or rational
+methodology, in accordance with which one is led to infer that something else is
+true.
+
+Logic, then, is concerned to investigate the general conditions under
+which reasoning leads to good---or, to use the logician's preferred approbative, _valid_---inferences. It is thus concerned with questions of the following form:
+
+1. Is a given method of reasoning such as to result in only valid inferences or, by employing that method, can one sometimes be led to draw invalid inferences as well?
+
+2. Are there some valid inferences in a given domain which, in principle, cannot result from applying a given method of reasoning, or are all such inferences invalid?
+
+To render such questions mathematically precise, the following tasks must first
+be performed:
+
+1. Inferences must be represented as mathematical objects.
+
+2. The standard of assessment by which a given inference is judged to
+   be valid or invalid must be expressed in terms of the possession by that
+   inference of a mathematically well-defined property.
+
+3. A method of reasoning must be described in such a way that it becomes a
+   mathematical question whether or not a given inference can result from that
+   method.
+
+Once these tasks have been performed, the two questions listed above become no
+less mathematically well-defined than the question: is $4,\!753,\!234,\!127$ a
+prime number? In the remainder of this chapter, we take up each of these three
+tasks in turn.

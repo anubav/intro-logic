@@ -1,0 +1,15 @@
+---
+crossrefs-hover: false
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# Index of Defined Terms {.unnumbered}
+
+## Chapter 1 - Argument, Validity & Proof
+
+[@def-argument]
+: Argument 
+
+[@def-numerical-expression]
+: Numerical Expression

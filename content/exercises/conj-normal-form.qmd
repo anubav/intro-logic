@@ -1,0 +1,15 @@
+a. 
+    Let $\ph_1,\ldots,\ph_n$ and $\psi_1,\ldots,\psi_m$ be any sentences of $\Lp$. Show that the sentence:
+    $$
+        (\ph_1\conj\cdots\conj\ph_n)\disj(\psi_1\conj\cdots\conj\psi_m)
+    $$
+    is logically equivalent to a conjunction of disjunctions of these sentences.
+
+b. 
+    Deduce from the fact that every sentence in $\Lp$ has a disjunctive normal form, that
+    every sentence also has a _conjunctive_ normal form, i.e., that every sentence is
+    equivalent to some sentence of the form:
+    $$  
+    (\ph_{1,1}\disj\cdots\disj \ph_{1,k})\conj \cdots \conj (\ph_{n,1}\disj\cdots\disj \ph_{n,k}),
+    $$
+    where $\ph_{i,j}$ is a literal.

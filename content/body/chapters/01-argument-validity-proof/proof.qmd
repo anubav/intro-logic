@@ -1,0 +1,207 @@
+## Proofs 
+
+A method of reasoning is any method or procedure by which one proposes to assess
+the validity of an argument. Given the definition of validity offered in the
+previous section, it may be thought that the most direct method of reasoning
+consists in evaluating the truth values of the sentences comprising that
+argument under all the possible interpretations of the language. Having done so, one can then conclude that the argument is valid just in case no interpretation is found under which all of the premises are true and the conclusion false. 
+
+While the correctness of this procedure follows immediately from our definition
+of argumentative validity, it clearly does not represent the way in which
+reasoning ordinarily proceeds. Take, for example, the arithmetical argument:
+
+$$
+x + 2y = -2, y > 1 \proves 8 < -2x
+$$
+
+When we assess this argument arithmetically, we stipulate that its validity is
+to be assessed relative to the ordinary semantics for arithmetic. This means
+that the numerals '1', '2' and '8' refer to the numbers 1, 2 and 8,
+respectively; the symbol '+' denotes the operation of addition; and the symbols
+'=', '<' and '>' stand for the relations of equality, being less than, and being
+greater than, respectively. These are the logical elements of the syntax
+appearing in the argument. The non-logical elements are the variables $x$ and
+$y$, which may stand for any numbers. The argument is valid just in
+case no matter what numbers the variables $x$ and $y$ stand for: if it is true
+that $x+2y=-2$ and $y>1$, then it is also true that $8<-2x$.
+
+Of course, if one were charged with the task of assessing the validity of this
+argument---say, in a mathematics class---one would most certainly _not_
+proceed by substituting in particular numerical values for $x$ and $y$ in an
+effort to ascertain whether or not there exists a particular interpretation of
+these variables under which the premises of the argument are true and its
+conclusion false. For one, there are, infinitely many such intepretations. Instead, to assess this argument's validity, a more feasible
+approach would be to attempt to _derive_ the conclusion from the premises using the basic rules of algebra.
+
+In the typical language in which algebraic derivations are expressed, a demonstration of this argument's validity could take the following form:
+
+:::{.proof}
+Since $y>1$, it follows that $2y>2$ and therefore that $x+2y>x+2$. But since
+$x+2y=-2$, we have:
+$$
+  - 2 > x + 2
+$$
+Subtracting $2$ from both sides of the above inequality gives us:
+$$
+  - 4 > x
+$$
+Multiplying both sides of this inequality by $-2$ yields $8 < - 2x$, which is the desired conclusion.
+:::
+
+Taking this example as our model, when we speak of a method of reasoning, we
+will henceforth have in mind methods which employ as a standard for
+argumentative validity the existence or non-existence of a derivation---or
+proof---of an argument's conclusion from its premises. In order to
+make precise this idea we must begin by formulating in
+mathematically precise terms what we mean by a _proof_.
+
+To begin, let us reconsider the above algebraic derivation
+and try to express the reasoning in slightly more detail. In the abbreviated
+form of the proof given above, the algebraic rules that we appealed to were left tacit and a number of intermediate steps skipped over. To bring out these steps, let us, for the sake of
+illustration, impose strict constraints on what we are allowed to take for
+granted in the reasoning. In particular, we will assume only that:
+
+1. Given any two numbers, we are able to judge which of the two is the greater---and so judge true such simple inequalities as $4>2$ and $-3>-6$.
+
+2. We are able to evaluate simple arithmetical expressions---and so judge true such simple equalities as $2+3=5$ and $-2\cdot 3 = -6$. 
+
+Every other law or principle appealed to in the reasoning must be stated explicitly. To carry out the proof we will need to appeal to the following
+rules of algebraic reasoning. For any numerical expressions $\alpha$, $\beta$, $\gamma$:
+
+R1: If $\alpha>0$ and $\beta>\gamma$, then $\alpha\beta>\alpha\gamma$.
+
+R2: If $\alpha<0$ and $\beta>\gamma$, then $\alpha\beta<\alpha\gamma$.
+
+R3: If $\alpha>\beta$, then both $\gamma +\alpha>\gamma+\beta$ and $\alpha+\gamma>\beta +\gamma$.
+
+R4: $\alpha+0=\alpha$
+
+R5: 
+    If $\psi$ is the result of substituting $\beta$ for $\alpha$ in $\ph$, then from $\alpha=\beta$ and $\ph$, one may infer $\psi$.
+
+Utilizing these principles, the more detailed formulation of the reasoning involved in the above proof is as follows:
+
+1. Since $2>0$ and (by assumption) $y>1$, it follows by R1 that $2y>2\cdot 1$.
+
+2. Since $2\cdot 1=2$ and (by 1) $2y>2\cdot 1$, it follows by R5 that $2y>2$.
+
+3. Since (by 2) $2y>2$, it follows by R3 that $x+2y>x+2$.
+
+4. Since (by assumption) $x+2y=-2$ and (by 3) $x+2y>x+2$, it follows by R5 that $-2>x+2$.
+
+5. Since (by 4) $-2>x+2$, it follows by R3 that $-2+(-2)>x+2+(-2)$.
+
+6. Since $-2+(-2)=-4$ and (by 5) $-2+(-2)>x+2+(-2)$, it follows by R5 that $-4>x+2+(-2)$.
+
+7. Since $2+(-2)=0$ and (by 6) $-4>x+2+(-2)$, it follows by R5 that $-4>x+0$.
+
+8. Since (by R4) $x+0=x$ and (by 7) $-4>x+0$, it follows by R5 that $-4>x$.
+
+9. Since $-2<0$ and (by 8) $-4>x$, it follows by R2 that $-2\cdot -4<-2x$.
+
+10. Since $-2\cdot -4=8$ and (by 9) $-2\cdot -4<-2x$, it follows by R5 that $8<-2x$.
+
+What is important to note about this proof is that all of the claims that are
+asserted in the course of the reasoning fall into one of the following three
+categories:
+
+i. Premises of the argument (e.g., $x+2y=-2$).
+
+ii. Elementary facts of arithmetic (e.g., $2>0$ or $-2\cdot -4=8$).
+  
+iii. The result of applying one of the principles R1--R5 to claims already established in the proof.
+
+This can be emphasized by omitting from the proof such inferential markers as
+'since $\ldots$ it follows that $\smallblank$', etc. and instead simply listing the claims that are asserted in the proof one after another in sequence, indicating, for each such claim, into which of the above three categories it falls:
+
+:::{.lproof}
+    1. 2 > 0                    [Arithmetic]
+    2. y > 1                    [Premise]
+    3. 2y > 2\cdot 1            [R1: 1, 2]
+    4. 2\cdot 1 = 2             [Arithmetic]
+    5. 2y > 2                   [R5: 4, 3]
+    6. x + 2y > x + 2           [R3: 5]
+    7. x + 2y = -2              [Premise]
+    8. -2 > x + 1               [R5: 7, 6]
+    9. -2 + (-2) > x + 2 + (-2) [R3: 8]
+    10. -2 + (-2) = -4          [Arithmetic]
+    11. -4 > x + 2 + (-2)       [R5: 10, 9]
+    12. 2 + (-2) = 0            [Arithmetic]
+    13. -4 > x + 0              [R5: 12, 11]
+    14. x + 0 = x               [R4]
+    15. -4 > x                  [R5: 14, 13]
+    16. -2 < 0                  [Arithmetic]
+    17. -2\cdot -4 < -2x        [R2: 16, 15]
+    18. -2\cdot -4 = 8          [Arithmetic]
+    19. 8 < -2x                 [R5: 18, 17]
+:::
+
+We will take this expanded arithmetical derivation as a model for the simplest
+sort of proofs that we will consider in the context of our formal languages.
+Later on in the course, we will consider other kinds of proofs with a
+more complicated structure.
+
+We first observe that a proof of the above sort is always given relative to both
+a set of elementary, or axiomatic, truths, which we can freely take for granted in our reasoning, and a system of rules by which we can derive new sentences from sentences already established in the proof. Taken together, these axioms and rules form what we shall call a proof system:
+
+::: {#def-proof-system .definition} 
+
+A _proof system_ for a language $L$ consists of (i) a set of sentences of $L$, the members of which are referred to as _axioms_; and (ii) a set of rules of inference, each of which states that certain sentences can be inferred from others.
+
+:::
+
+We can now define what we mean by a proof:
+
+::: {#def-proof .definition}
+
+Let $\mathbf{D}$ be a proof system for the language $L$. Let $\Ga$ be a set of sentences of $L$ and let $\ph$ be a sentence of $L$. A _proof_ of $\ph$ from $\Ga$ in $\mathbf{D}$ is a finite sequence of sentences $\ph_1,\ph_2,\ldots,\ph_n$ such that:
+
+1. $\ph_n$ is the sentence $\ph$. 
+
+2. For $i=1,\ldots,n$, at least one of the following conditions holds:
+
+    i. $\ph_i\in\Ga$
+    
+    ii. $\ph_i$ is an axiom of $\mathbf{D}$
+
+    iii. $\ph_i$ follows from one of the rules of $\mathbf{D}$ applied to sentences among $\ph_1,\ldots,\ph_{i-1}$. 
+
+We write $\Ga\proves_{\mathbf{D}}\ph$ to indicate that there exists a proof of $\ph$ from $\Ga$ in $\mathbf{D}$. In this case, we also say that $\ph$ is _provable_ from $\Ga$ in $\mathbf{D}$ or that the argument $\Ga\proves\ph$ is _provable_ in $\mathbf{D}$, or that $\ph$ is a _deductive consequence_ of $\Ga$ in $\mathbf{D}$. 
+
+:::
+
+It is important to stress that this definition of proof makes no reference whatsoever to the various semantic notions introduced in @sec-validity. Concepts such as truth and falsehood, meaning, interpretation, etc., nowhere figure in our formal understanding of proof. Rather, a proof is a purely syntactic construct, which can be thought of as the output of an abstract calculus which operates on symbolic expressions in complete ignorance as to how they are to interpreted. As such, the standard of provability is, at a conceptual level, entirely distinct from that of validity. The former is syntactic, the latter semantic. It will be crucial to keep this distinction in mind as we proceed. 
+
+Henceforth, by a 'method of reasoning' we will simply mean a system of proof. To
+say that an inference can result from a given method of reasoning is just to say
+that the conclusion of the corresponding argument is provable from its premises
+in the relevant proof system. It might be supposed that this notion of proof is sufficiently abstract that it entails nothing of substance concerning which arguments are provable and which are not. Not so. Already we have said enough to ensure that provability satisfies the same general claims that were shown to hold of validity in @thm-semantic-structure.
+
+:::{#thm-proof-structure .theorem}
+Let $\mathbf{D}$ be any proof system. For any sentences $\ph, \psi$ and any sets of sentences $\Ga, \De$, the following claims hold:
+
+i. $\Ga,\ph\proves_{\mathbf{D}}\ph$
+
+ii. If $\Ga\proves_{\mathbf{D}}\ph$, then $\Ga,\De\proves_{\mathbf{D}}\ph$. 
+
+iii. If $\Ga,\ph\proves_{\mathbf{D}}\psi$ and $\De\proves_{\mathbf{D}}\ph$, then $\Ga,\De\proves_{\mathbf{D}}\psi$. 
+:::
+
+We leave the proof of this theorem as an exercise for the reader. 
+
+Some standard proof-theoretic terminology: if a
+sentence is provable from the empty set in a given proof system, we refer to it
+as a _theorem_ of that system. If two sentences are each provable from the
+other, we refer to them as _provably equivalent_.
+
+:::{#exr-proof-structure}
+{{< include /content/exercises/proof-structure.qmd >}}
+:::
+
+:::{#exm-0x1-proof .example}
+{{< include /content/inserts/examples/0s-x-1s/proof.qmd >}}
+
+:::{#exr-proofs-in-T}
+{{< include /content/exercises/proofs-in-T.qmd >}}
+:::
+:::

@@ -1,0 +1,16 @@
+The various ways of making change for a dollar using pennies, nickels, dimes,
+and quarters may be represented by the members of the following set of 4-tuples
+of non-negative integers: 
+
+$$
+\{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
+$$
+
+a. Provide an inductive definition of this set.
+
+b. Using this definition, prove by induction each of the following claims: 
+
+    i.  There is no way to make change for a dollar from exactly five coins.
+
+    ii. There is no way to make change for a dollar from an assortment of coins
+    in which the total number of non-dimes is odd.

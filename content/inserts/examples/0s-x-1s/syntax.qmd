@@ -1,0 +1,51 @@
+### Multiplying 0's and 1's - Syntax
+
+In this example, we introduce a formal language $L_\times$ suitable for
+expressing a very simple class of arithmetical arguments, namely, those which
+only consist of equations involving a single variable $x$ and in which both
+sides of the equality are expressed as the product of numbers belonging to the
+set $\{1,0\}$.
+
+The alphabet for our language consists of the five symbols:
+$$
+x, 1, 0, \times, = 
+$$
+
+ We refer to the symbols $x$, $1$, and $0$ as
+_numerals_. 
+
+::: {#def-numerical-expression data-re="numerical\s+expressions" data-flags="gi"} 
+A _numerical expression_ is any expression which can be proven to be so by appeal to the following two facts:[^inductive]
+
+1. Every expression consisting of a single numeral is a numerical expression.
+
+2. If $\al$ and $\be$ are numerical expressions, then the expression $\al \times \be$ is a numerical expression.
+:::
+
+[^inductive]: This is our first example of an inductive definition. For more on inductive definitions and the proofs by induction that they facilitate, see @sec-induction. 
+
+It follows from this definition that the numerical expressions are all and only the expressions of the form:
+$$
+n_1 \times n_2 \times \cdots \times n_k
+$$
+where $n_1,\ldots,n_k$ are numerals.
+
+The sole grammatical rule for the language is as follows: an expression is a _sentence_ of the language if it is of the form $\al=\be$, where $\al$ and $\be$ are numerical expressions. In accordance with this rule, the following expressions are all sentences of the language:
+
+:::: {.columns}
+::: {.column width="50%"}
+(i) $x=0$
+(ii) $1= x$
+(iii) $1\times 0=0\times 1$
+:::
+::: {.column width="50%"}
+(iv) $x\times x=1$
+(v) $x \times 0 \times 1 \times x = 1$
+(vi) $x \times 1\times 1 \times 1 = 1\times x\times 0$
+:::
+::::
+
+An example of an argument expressed in this language is:
+$$
+x\times 0 = 0\times 1,\hspace{0.1in} 1\times x\times 1 = 1\proves 1=x
+$$

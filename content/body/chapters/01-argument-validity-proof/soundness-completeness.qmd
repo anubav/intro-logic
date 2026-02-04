@@ -1,0 +1,110 @@
+## Soundness and Completeness
+
+We have now completed the three tasks involved in formalizing the central notions of logic that we set for ourselves at the beginning of this chapter. Accordingly, we are now in a position to express the two questions that we raised there in purely mathematical terms. These questions, recall, were:
+
+1. Is a given method of reasoning such as to result in only valid inferences or, by employing that method, can one sometimes be led to draw invalid inferences as well?
+
+2. Are there some valid inferences in a given domain which, in principle, cannot result from applying a given method of reasoning, or are all such inferences invalid?
+
+Having made mathematically precise the various notions implicated in these
+questions, we can interpret them in strictly mathematical terms. When
+we ask, for example, 'does a given method of reasoning ever lead to invalid
+inferences?', we are asking of a given proof system whether it is possible for a
+sentence $\ph$ to be provable from $\Gamma$ in that system, despite the fact
+that $\ph$ is not a logical consequence of $\Gamma$. We refer to the property of
+a proof system which denies this possibility as soundness.
+
+:::{#def-soundness data-re="sound" data-flags="gi"}
+A proof system $\mathbf{D}$ is _sound_ if, for any set of sentences $\Gamma$ and any sentence $\ph$: if $\Gamma\proves_\mathbf{D} \ph$, then $\Gamma\models \ph$.
+:::
+
+Conversely, when we ask 'do there exist valid inferences which cannot result
+from a given method of reasoning?', we are asking of a given proof system
+whether it is possible for a sentence $\ph$ to be a logical consequence of
+$\Gamma$ despite the fact that $\ph$ is not provable from $\Gamma$ in that
+system. The property which denies this possibility is referred to as
+_completeness_.
+
+:::{#def-completeness data-re="completeness" data-flags="gi"} 
+A proof system $\mathbf{D}$ is _complete_ if, for any set of sentences $\Gamma$
+and any sentence $\ph$: if $\Gamma\models \ph$, then
+$\Gamma\proves_\mathbf{D}\ph$.
+:::
+
+Taken together, the soundness and completeness of a proof system means
+that an argument is valid if and only if its conclusion is provable in that
+system from its premises. When we have shown this, we know that the proof system codifies exactly the system of inferences validated by the intended meanings of the logical elements of the syntax. Thus, when we reason by giving proofs in this system, we can be sure that, in so doing, there is no principled threat of error or omission.[^Godel]
+
+[^Godel]: The existence of a sound and complete proof system for first-order
+quantificational logic was proven by Kurt Gödel in his doctoral dissertation
+of 1929. This is often regarded as one of the first foundational results in
+mathematical logic.
+
+In upcoming chapters, we will be studying proof systems across a wide variety of
+syntactic and semantic contexts and we will show that these systems are both
+sound and complete. In the course of doing so, it will quickly become evident
+that there exists a stark asymmetry in the relative difficulty of these two tasks. To show that a proof system is sound is, in general, a rather easy
+task, but to show that it is complete is often quite difficult and requires some
+degree of mathematical ingenuity. Why this asymmetry? 
+
+The soundness of a proof system $\mathbf{D}$ asserts that, for any arbitrary set of sentences $\Ga$, every sentence that is
+a deductive consequence of $\Ga$ in $\mathbf{D}$ is a logical consequence of
+$\Ga$. Completeness, on the other hand, asserts that every logical consequence
+of $\Ga$ is a deductive consequence of $\Ga$. The relative ease with which
+soundness results can be proven when compared to completeness results is owing
+to the fact that, unlike the set of all logical consequences of $\Ga$, that is:
+$$
+\{\ph: \Ga\models\ph\}
+$$
+the set of all deductive consequences of $\Ga$:
+$$
+\{\ph: \Ga\proves_{\mathbf{D}}\ph\}
+$$
+can be given a straightforward inductive definition, as follows:  
+
+1. If $\ph\in\Ga$, then $\Ga\proves_\mathbf{D}\ph$.
+
+2. If $\ph$ is an axiom of $\mathbf{D}$, then $\Ga\proves_\mathbf{D}\ph$. 
+
+3. If $\Ga\proves_\mathbf{D}\ph_i$, for $i=1,\ldots,n$, and $\psi$ follows from $\ph_1,\ldots,\ph_n$ by some rule of inference of $\mathbf{D}$, then $\Ga\proves_\mathbf{D}\psi$. 
+
+<!-- TODO: Add exercise on converting trees to proofs -->
+
+Accordingly, the soundness of a proof system can generally be established by the method of [proof by induction](@sec-proof-by-induction). To establish soundness we must show that every sentence in the set $\{\ph: \Ga\proves_{\mathbf{D}}\ph\}$ has the property of being a logical consequence of $\Ga$. Appealing to the above inductive definition of this set, it suffices to show:
+
+1. If $\ph\in\Ga$, then $\Ga\models\ph$.
+
+2. If $\ph$ is an axiom of $\mathbf{D}$, then $\Ga\models\ph$. 
+
+3. If $\Ga\models\ph_i$, for $i=1,\ldots,n$, and $\psi$ follows from $\ph_1,\ldots,\ph_n$ by some rule of inference of $\mathbf{D}$, then $\Ga\models\psi$. 
+
+Clause 1 is a direct consequence of our definition of validity, and so may be taken for granted---see @thm-semantic-structure.(i). Moreover, it suffices to establish clause 3 to show that if $\psi$ follows from $\ph_1,\ldots,\ph_n$, by some rule of inference of $\mathbf{D}$, then:
+$$
+\ph_1,\ldots,\ph_n\models\psi
+$$
+
+For, if $\Ga\models\ph_i$, for $i=1,\ldots,n$, by repeated applications of @thm-semantic-structure.(iii), it follows that $\Ga\models\psi$. 
+
+Hence, to establish the soundness of a proof system $\mathbf{D}$ it suffices to show: 
+
+1. If $\ph$ is an axiom of $\mathbf{D}$, then $\Ga\models\ph$. 
+
+2. If $\psi$ follows from $\ph_1,\ldots,\ph_n$ by some rule of inference of $\mathbf{D}$, then $\ph_1,\ldots,\ph_n\models\psi$. 
+
+This simple strategy for establishing soundness is available because the idea of
+a proof is itself inductive in nature: proofs are built up from the axioms and
+premises of an argument through the repeated application of the rules of
+inference. The idea of validity, by contrast, is not inductive. The valid
+arguments are not built up recursively, but are rather defined, in negative
+existential terms, as those arguments which lack a semantic counterexample. As
+such, there is no obvious way to establish the completeness of a proof system by
+the method of induction. As we shall see in upcoming chapters, completeness
+results require a defter touch.
+
+:::{#exr-relative-soundness-completeness .exercise}
+{{< include /content/exercises/relative-soundness-completeness.qmd >}}
+:::
+
+:::{#exm-0x1-soundness-completeness .example}
+{{< include /content/inserts/examples/0s-x-1s/soundness-completeness.qmd >}}
+:::

@@ -1,0 +1,2 @@
+Complete the proof of @thm-balanced by showing that if $\ph$ and $\psi$ are balanced expressions,
+then, for any binary connective $\ast$, $(\ph\ast\psi)$ is balanced.

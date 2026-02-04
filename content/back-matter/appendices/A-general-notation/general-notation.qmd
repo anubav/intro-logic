@@ -1,0 +1,366 @@
+---
+bibliography: "general-notation.bib"
+number-sections: false
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# General Notation {#sec-general-notation .appendix}
+
+In this course, theorems and their proofs will be expressed in ordinary (if
+somewhat stilted) English supplemented by certain terminological devices, the
+precise meanings of which will be specified in definitions that are highlighted
+and numbered for ease of reference. The terminology that is supplied by definitions in the notes will typically be introduced either for the
+purpose of formulating particular theorems, or else as an aid in proving such
+theorems. As such, while any piece of notation may be freely utilized once it
+has been defined, its usefuleness will often be limited to a specific
+topic. Once that topic has been dealt with, the precise meaning of the notation
+may be, more or less, forgotten.
+
+There is, however, a certain class of terminology which appears so often in
+mathematical writing that it is best regarded as a fundamental part of the
+language in which mathematics is done. In this appendix, we introduce, in
+cursory fashion, a small part of this standard terminology for the benefit of
+those who may yet have had no occasion to encounter it.[^notation] Students
+would do well to master its usage now since outside of this appendix it will be
+utilized without comment in nearly every theorem or proof that we write.
+
+[^notation]: For a comprehensive history of mathematical notation, see @Cajori1928-ln. 
+
+## The Greek Alphabet
+
+In addition to the letters of the English alphabet, the use of Greek letters to
+represent mathematical entities has been a common practice throughout much of
+the history of mathematics.[^greek-alphabet] The 24 letters of the Greek
+alphabet are given in @tbl-greek-alphabet below. The letters that appear most often in this text have
+been highlighted in red. It will be helpful to memorize at least the highlighted
+letters along with their pronunciations, so that you can easily give voice to the text as you read through the
+notes. You should also practice writing these letters so that you can include
+them in your own written work.
+
+[^greek-alphabet]:The 19th c. polymath Charles Babbage once complained: "The use
+of Greek letters in algebraic calculation, which has found wide acceptance among
+recent mathematicians, cannot in itself encumber the operations in the least.
+But the uncouthness of the Greek language, which is in part revealed in the
+shape of its alphabetic characters, gives to algebraic expressions a certain
+mystic appearance" (@Babbage1830-dv, p. 395)  
+
+
+::: {#tbl-greek-alphabet}
+|    |    |    |    |
+|--:|:--|--:|:--|
+| A, $\color{red}\alpha$                | alpha  | N, $\nu$      | nu       |
+| B, $\color{red}\beta$                 | beta   | $\Xi$, $\xi$  | xi       |
+| $\color{red}\Ga$, $\color{red}\ga$    | gamma  | O, o          | omicron  |
+| $\color{red}\De$, $\color{red}\de$|delta|$\color{red}\Pi$, $\color{red}\pi$|pi|
+| E, $\epsilon$                | epsilon  | P, $\color{red}\rho$  | rho       |
+| Z, $\zeta$                 | zeta   | $\color{red}\Sigma$, $\color{red}\sigma$  | sigma       |
+| H, $\eta$    | eta  | T, $\color{red}\tau$         | tau  |
+| $\color{red}{\Theta}$, $\color{red}{\theta}$    | theta  | Y, $\upsilon$         | upsilon  |
+| I, $\iota$    | iota  | $\color{red}\Phi$, $\color{red}\ph$         | phi  |
+| K, $\kappa$    | kappa  | X, $\color{red}\chi$         | chi  |
+| $\color{red}\Lambda$, $\color{red}\lambda$    | lambda  | $\color{red}\Psi$, $\color{red}\psi$         | psi  |
+| M, $\color{red}\mu$    | mu  | $\color{red}\Omega$, $\color{red}\omega$         | omega  |
+
+The Greek alphabet, with commonly used letters highlighted in red, and the standard American English pronunciation of the letters. 
+:::
+
+<div style="width:200px; height:100px; margin-left:auto; margin-right:auto; display:flex; justify-content:center; align-items:center;">
+  <audio controls>
+    <source src="../../../static/audio/The Greek Alphabet (American English Pronunciation).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>        
+</div>
+
+While the decision as to which Greek letter to use to represent a mathematical
+object is to some extent arbitrary, there are many tacit conventions that inform
+this decision. One such convention worth noting is that the capital/lowercase
+distinction is often utilized to mark a distinction between collections of
+objects and their individual members. Thus, if a capital letter such as $\Ga$ is
+used to denote a set of objects, the members of that set will often be denoted
+by lowercase letters such as $\ph$, $\psi$, and $\chi$.[^phi-chi-psi]
+
+[^phi-chi-psi]: In logic and mathematics, it is much more common to find the letters $\ph$, $\psi$, $\chi$ listed in the order here given than in their proper Greek alphabetic order, and, in this course, we submit to this convention. It must be acknowledged, however, that apart from the fact that when pronounced in this unalphabetic order the three-letter sequence has a pleasant, memorable rhythm, there is no good reason to do so.
+
+## Iff
+
+The phrase 'iff' is shorthand for the locution 'if and only if'. It
+expresses an equivalence between the claim which precedes it and the claim which
+follows it. To prove that $\ph$ iff $\psi$, one must prove both (1) $\ph$ is
+true _if_ $\psi$ is true (i.e., that $\psi$ implies $\ph$) and (2) $\ph$
+is true _only if_ $\psi$ is true (i.e., that $\ph$ implies $\psi$).
+
+In the context of a definition, it is the conventional style to employ an 'if'
+locution to relate a term to its defining condition. Nevertheless, in such
+contexts, it will always be assumed that the stated condition is both necessary
+and sufficient for the defined term to apply. Thus, for example, the 'if'
+appearing in the following definition is to be read as 'iff':
+
+::: {#def-prime}
+ A natural number is _prime_ if it is both greater than 1 and divisible by only 1 and itself.
+:::
+
+## Ellipses
+
+An ellipsis '$\cdots$' is used to to indicate an implied interpolation of the
+pattern indicated by the items which precede and follow it. Thus, for example,
+the elliptical expression $$ 1,2,\ldots,100 $$ refers to the list of numbers
+beginning with $1$ and ending with $100$, where each number in the list (apart
+from the first) is 1 greater than that which immediately precedes it. If the
+ellipsis has no succeeding term, then the pattern implied by the terms preceding
+the ellipsis is understood to be continued _ad infinitum_. Thus, the expression:
+
+$$
+    1,2,\ldots
+$$
+
+refers to a list of indefinite length, the $n$th term of which is the number $n$.
+
+While ellipses are most commonly used to denote lists of objects, they may also
+be used in elliptical expressions denoting other types of entities,
+provided the denoting phrase involves some clearly interpolatible pattern. Thus,
+for example, if $n_1,n_2,\ldots,n_k$ are numbers, we may denote their sum by:
+
+$$ 
+n_1 + n_2 + \cdots + n_k 
+$$
+
+Unless otherwise indicated, the pattern implied by the ellipsis should always be
+assumed to be incrementation (i.e., addition by 1) of the most obvious numerical
+index of the items preceding the ellipsis (which may be the items themselves, in the case of a list of numbers). This is so even when there is some other pattern that may seem equally obvious. Thus, for example:
+
+$$
+  a_3,a_5,\ldots,a_{11}
+$$
+refers to the list
+$$
+    a_3,a_5,a_6,a_7,a_8,a_9,a_{10},a_{11}
+$$
+and not to the list
+$$
+    a_3,a_5,a_7,a_9,a_{11}
+$$
+
+To refer to the latter list, we may write:
+$$
+    a_3,a_5,\ldots,a_{2n + 1}, \ldots, a_{11}
+$$
+
+This indicates that the terms in the sequence are all of the form $a_{2n+1}$, with $n$ now being fixed as the index of incrementation.
+
+It is often convenient to stipulate that an elliptical expression such as 
+$$
+a_1,a_2,\ldots,a_0
+$$ 
+
+in which the item following the ellipsis does not appear
+in the continuation of the pattern implied by the items preceding it, refers to an empty list,
+i.e., a list of length 0 the members of which comprise the empty set.
+
+## Sets
+
+<!-- Among the many remarkable revelations that emerged from the attempts to restructure the foundations of mathematics, initiated by Cantor, Dedekind, and Hilbert, among others, in the late 19th and early 20th centuries, was the recognition that much of mathematics can be formulated within a theory which treats as fundamental only a single type of entity, namely, a _set_. The ontological parsimony promised by such a discovery has had a marked influence not only on the subsequent shape of the philosophy of mathematics, but on logic as well.  -->
+
+Many recent textbooks in logic begin by asserting, flatly, that 'in mathematics these days, essentially everything is a set'.[^everything-is-a-set] They then proceed to explain how all the ordinary mathematical objects with which students are readily familiar---functions, sequences, ordered pairs, even numbers---can all be conceived of as sets in covert guise.[^pairs-as-sets]
+
+[^everything-is-a-set]: @Enderton1977-fq, p. vi. 
+
+[^pairs-as-sets]: For example, @Enderton2001-hd (p. 3) offers, as the 'standard' definition of the ordered pair $(x, y)$, the set $\{\{x\}, \{x,y\}\}$. He then goes on to state that a two-place relation is a set of ordered pairs. 'For example,' he writes, 'the ordering relation on the numbers 0-3 is captured by---and in fact _is_---the set of ordered pairs: $\{\langle 0,1\rangle,\langle 0,2\rangle, \ldots,\langle 2,3\rangle\}$' (p. 4). 
+
+In this course, we deliberately avoid this set-centric approach. For one, it gives to the student the misleading impression that ordinary mathematical reasoning somehow lacks the rigor and precision needed to support genuine proof. Not only is this claim false, but it has the harmful pedagogical effect of leaving students somewhat at a loss as to which claims require proof and which do not. Such confusion, in turn, may lead them to question the validity of what is clearly a correct piece of mathematics until it has been shorn of its metaphysical excrecences by translating it into the language of sets. Except at the extreme fringes, such translations shed little light on questions of mathematical validity, and, for students who are new to the subject, they are only apt to confuse. In this course, we will therefore take it for granted that ordinary mathematics, with its surplus of entities, requires no deeper set-theoretic justification. Functions, sequences, numbers, and just about any other item one might have encountered in a mathematics class, will all be treated on a par as first-class entities that can be freely introduced and utilized in mathematical proofs. 
+
+That being said, sets are among those items adverted to most frequently in mathematical reasoning, and so it is crucial to become acquainted with the terminology and notation that is typically used to reason with and about them. 
+
+### Representing Sets
+
+A _set_ is a collection of objects. The most literal way to represent a set is to enclose a comma-separated list of the objects belonging to the set between curly braces. Thus, for example, the set of odd numbers between 1 and 10 may be written:
+$$
+    \{1,3,5,7,9\}
+$$ 
+
+The order of a list does not affect the set of objects appearing it. Nor do repetitions of those objects. Hence, the above set can
+also be written:
+$$
+    \{7,3,5,1,7,5,1,9,9,9,7,5\}
+$$
+
+To say that the object $a$ belongs to the set $X$, we write $a\in X$ (read:
+'$a$ is in $X$' or '$a$ is a member of $X$'). To say that $x$ does _not_
+belong to $X$, we write $x\not\in X$.
+
+Nearly every set that we will have any occasion to reference in this course will
+be most clearly defined not by means of a comprehensive listing of its members but
+rather by specifying a property possessed by all and only the members of this
+set. Thus, for instance, we may have occasion to refer to the set of all prime
+numbers, or the set of all expressions in a language of length greater than
+$12$.
+
+To denote the set of all and only those objects which possess the property $P$,
+we write: $$ \{x: P(x)\} $$ where '$P(x)$' is any statement expressing the fact
+that $x$ has the property $P$. This description of the set is read: 'the set of
+all $x$, such that $P(x)$'. So, for example, if we wish to refer to the set of
+all odd, natural numbers between 1 and 10, we could write: 
+
+$$
+\{n: n\textrm{ is an odd natural number and }1\leq n\leq 10\} 
+$$ 
+
+When the defining property of a set implies that the set in question is a subset
+of some other set $Y$, this fact can be indicated by writing $x\in Y$ on the
+left-hand side of the colon. The condition then appearing on the right-hand side
+of the colon is that which must hold of any member of $Y$ in order for it to be
+included in the set. So, for example, if $\mathbb{N}$ is the set of all natural
+numbers, then the above set may be written:
+$$
+    \{n\in \mathbb{N}: n \textrm{ is odd and }1\leq n\leq 10\}
+$$
+
+If it is clear from the context from what set of objects the members of a
+defined set are to be drawn, then we may omit any explicit reference to the
+containing set. Thus, for example, if it is clear from the context that we are
+defining a set of natural numbers, then, for the above set, we may simply write:
+
+$$
+    \{n: n \textrm{ is odd and }1\leq n\leq 10\}
+$$
+
+Sometimes it is convenient to represent a set as that which results from applying a function to the members of another set. To refer
+to the set which results from applying the function $f$ to the members of the
+set consisting of all and only the objects possessing the property $P$, we
+write: 
+
+$$
+    \{f(x): P(x)\}
+$$
+Hence, the set of all odd natural numbers between $1$ and $10$ may also be written:
+
+$$
+    \{2n+1: 0\leq n\leq 4\}
+$$
+
+Note that there is nothing to prevent a set from having other sets among its members---nor is there anything wrong with a set of sets of sets, or a set of sets of sets of sets, etc.
+
+::: {#exr-russell}
+{{< include /content/exercises/russell.qmd >}}
+:::
+
+::: {#exr-denoting-sets}
+{{< include /content/exercises/denoting-sets.qmd >}}
+:::
+
+### Set Relations and Operations
+
+<!-- If the members of a set can be easily listed, say by the list
+$n_1,\ldots,n_k$, then we often substitute the expression '$=n_1,\ldots,n_k$'
+for the expression '$\in \{n_1,\ldots,n_k\}$.' Thus, for example, it is more
+standard usage to write 'for all $n=1,2,\ldots$, the number $2n+1$ is odd,' than
+it is to write 'for all $n\in\{1,2,\ldots\}$, the number $2n+1$ is odd.' -->
+
+Two sets $X$ and $Y$ are equal, written $X=Y$, if $X$ and $Y$ have exactly the same members, i.e., $a\in X$ iff $a\in Y$, for any object $a$. The set $X$ is a subset of the set $Y$, written $X\subset Y$, if every member of $X$ is a member $Y$. So, for example: 
+
+$$ 
+\{1,5,7\}\subset \{1,3,5,7,9\}. 
+$$
+
+Note that this implies that every set is a subset of itself, i.e., $X\subset
+X$, for any set $X$. When we need to indicate that $X\subset Y$ but that $X\neq
+Y$, we say that $X$ is a 'proper' subset of $Y$.[^proper-subset]
+
+[^proper-subset]:  Because the subset relation is reflexive, it is sometimes denoted $\subseteq$ (by analogy with the weak ordering relation $\leq$). On this notational scheme, it is the 'proper' subset relation (by analogy with the strict ordering relation $<$) that is denoted $\subset$. The reason we do not adopt this notation is that the reflexive subset relation occurs far more frequently than its irreflexive counterpart. Symbolic parsimony thus dictates that it be awarded the unadorned marker.  
+
+Clearly, two sets are equal just in case each is a subset of the other, and one
+often proves the equality of two sets $X$ and $Y$, by first showing $X\subset Y$
+and then showing $Y\subset X$.
+
+One will often encounter multiple statements of set inclusion 'chained' together, as in:
+$$
+    X_1\subset X_2\subset \cdots \subset X_k
+$$
+This means that $X_1\subset X_2$, $X_2\subset X_3$, etc. Since, however, the subset relation is a
+transitive relation (i.e., for any sets $X,Y,Z$, if $X\subset Y$ and $Y\subset Z$, then $X\subset
+    Z$), these statements of inclusion are together equivalent to the claim that $X_i\subset X_j$,
+whenever $1\leq i\leq j\leq k$.
+
+The union of the two sets $X$ and $Y$ is given by:
+
+$$
+    X\cup Y= \{x: x\in X \textrm{ or }x\in Y\}.
+$$
+
+The intersection of $X$ and $Y$ is given by:
+$$
+    X\cap Y=\{x: x\in X\textrm{ and }x\in Y\}.
+$$
+
+And the complement of $X$ relative to $Y$  is given by:
+$$
+    Y-X=\{x\in Y: x\not \in X\}
+$$
+
+In many contexts, there will exist some 'universal' set of which all the sets
+referred to in the discussion are assumed to be subsets. For instance, in a
+given context, we may only be concerned to discuss sets of natural numbers. If
+$\Omega$ refers to this universal set, we write $X^c$ in place of $\W-X$, and refer to this set simply as the complement of $X$:
+
+$$
+    X^c=\{x\in \Omega: x\not\in X\}
+$$
+
+The Venn diagrams in @fig-set-operations can help to visualize the effect of
+performing these set operations:
+
+:::{#fig-set-operations}
+![](/content/static/images/set-operations.svg){width=650 fig-align="center" fig-alt="Set Operations"}
+
+Venn diagrams illustrating the set-theoretic operations of union, intersection, relative complement, and complement. 
+:::
+
+::: {#exr-set-facts}
+{{< include /content/exercises/set-facts.qmd >}}
+:::
+
+Since the result of applying the operations of union and intersection to
+multiple sets does not depend on the order in which the operations are
+performed, there is no need to employ parentheses to determine the order of
+operations when expressing such sets. So, for example, without any threat of
+ambiguity, the union of the sets $X_1,\ldots,X_n$ can be written:
+
+$$
+X_1\cup X_2\cup\cdots\cup X_n
+$$
+
+When there is an obvious way of indexing the operand sets, we will sometimes express the union using a larger version of the operator, as follows:
+$$
+\bigcup_{i=1}^n X_i
+$$
+and similarly for intersections, using the symbol $\bigcap$.
+
+::: {#exr-characteristic-function}
+{{< include /content/exercises/characteristic-function.qmd >}}
+:::
+
+### The Empty Set
+
+We would like the set-theoretic operations defined above to always yield
+well-defined sets. But what is the intersection of two sets that have no members in
+common? To give this question a definite answer, it will be convenient to assume
+that there exists a unique set which has no members. We will denote this set by
+$\emptyset$ and refer to it as the empty set. The two defining characteristics
+of the empty set are as follows:
+
+1. For every property $P$, it is (vacuously) true that, for all $x\in\emptyset$,
+   $x$ has the property $P$.
+2. For every property $P$, it is (vacuously) false that, for some
+   $x\in\emptyset$, $x$ has the property $P$. 
+
+\noindent Note that from the first condition, it follows that, for any set $X$,
+$\emptyset\subset X$. To see this, let $P$ be the property possessed by all and
+only those $x$ such that $x\in X$. From the second condition it follows
+that no object is a member of $\emptyset$. To see this, consider any object $a$,
+and let $P$ be the property possessed by all and only those $x$ such that $x=a$.
+
+::: {#exr-power-set}
+{{< include /content/exercises/power-set.qmd >}}
+:::
+
+## References

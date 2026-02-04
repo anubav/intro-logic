@@ -1,0 +1,135 @@
+## The Syntax and Semantics of Syllogistic Logic
+
+### The Language $\Ls$
+
+We begin by defining a formal language for syllogistic logic, which we will refer to as $\Ls$. The alphabet for the language consists, first, of an infinite number of symbols: 
+$$
+t_1, t_2, t_3, \ldots
+$$
+referred to as _terms_. In addition to the terms, the alphabet also includes the four special symbols:
+$$
+\acop, \ecop, \icop, \ocop
+$$
+referred to as _copulas_.
+
+:::{#def-categorical-sentence .definition}
+A _sentence of $\Ls$_ is any expression of the form:
+$$
+\cop{A}{B}
+$$
+where $A$ and $B$ are terms and $\ast$ is a copula. We refer to the sentences of $\Ls$ as _categorical_ sentences.[^categorical] In the categorical sentence $\cop{A}{B}$, the term $A$ is referred to as the _subject_ of the sentence and $B$ as its _predicate_.[^term-order] 
+:::
+
+[^categorical]: While this is not Aristotle's own terminology, the description of the sentences of his syllogistic as 'categorical' was standard in antiquity (see @Malink2013-kc, p. 24).
+
+Categorical sentences of the form $\all{A}{B}$ and $\no{A}{B}$ are referred to
+as _universal_, those of the form $\some{A}{B}$ and $\somenot{A}{B}$ as
+_particular_, those of the form $\all{A}{B}$ and $\some{A}{B}$ as _affirmative_,
+and those of the form $\no{A}{B}$ and $\somenot{A}{B}$ as _negative_. When
+classifying sentences, these labels are often composed, with the designation of
+the sentence as either universal or particular (its 'quantity') preceding its
+designation as either affirmative or negative (its 'quality'). Thus, for
+example, a sentence of the form $\all{A}{B}$ is a universal affirmative
+sentence, and one of the form $\somenot{A}{B}$ a particular negative
+sentence.[^copulas]
+
+[^copulas]: The Latin symbols $\acop$, $\ecop$, $\icop$, $\ocop$, as abbreviations for the copulas, were, of course, not employed by Aristotle. 
+They were introduced in the 12th–13th‑centuries, by scholastic teachers of logic, who sought mnemonic aids for syllogistically valid argument forms. In the 13th century, William of Sherwood, in his _Introductiones in logicam_ (c. 1240), introduced the terminology explicitly, extracting the symbols $\acop$ and $\icop$ from the latin _**a**ff**i**rmo_ ("I affirm") and $\ecop$ and $\ocop$ from _n**e**g**o**_ (“I deny”). His mnemonic explanation standardized the convention later adopted by Peter of Spain in his _Summulae logicales_, which made the notation canonical in scholastic logic teaching across Europe.
+
+[^term-order]: This reverses the traditional order of the terms. In Aristotle's
+original presentation, the predicate term of a sentence was written first and its subject term second. To form sentences, the two terms in this order were connected by copular phrases constructed from the verb 'to be predicated of' (κατηγορεῖται), as in "$A$ is predicated of every $B$" or "$A$ is not predicated of some $B$".
+
+### Extensional Semantics
+
+It remains a matter of some dispute as to the correct interpretation of the categorical sentences dealt with in Aristotle's logic.[^dictum-de-omni] However, one prominent reading of these sentences renders them as follows:
+
+$$
+\begin{align*}
+\all{A}{B} &\qquad\qquad\textrm{Every $A$ is $B$}\\
+\no{A}{B} &\qquad\qquad\textrm{No $A$ is $B$}\\
+\some{A}{B} &\qquad\qquad\textrm{Some $A$ is $B$}\\
+\somenot{A}{B} &\qquad\qquad\textrm{Some $A$ is not $B$}\\
+\end{align*}
+$$
+
+ Here, terms like $A$ and $B$ are meant to stand for properties expressed by common noun phrases, such as that of being an animal, or that of being green. Thus, a universal negative sentence might express the claim that 'No humans are cold-blooded', and a particular affirmative proposition that 'Some animal is green'. Our semantics for the language $\Ls$ will adopt this reading of the sentences. 
+
+[^dictum-de-omni]: Since Aristotle does not introduce an artificial, formal language in the _Prior Analytics_, but instead uses ordinary language constructions to express categorical sentences, he only rarely comments explicitly about the intended meanings of these sentences. One such explicit remark is the passage that scholars now refer to as the _dictum de omni et nullo_, in which Aristotle appears to state truth conditions for universal affirmative propositions (and, by analogy, universal negative ones). The passage states: "We use the expression 'predicated of every' when none of the subject can be taken of which the other term cannot be said, and we use 'predicated of none' likewise" (_Prior Analytics_, 24b28--30). 
+
+The non-logical elements of the syntax are the terms. Recall that this means
+that the semantic values of the terms will vary from one interpretation of the
+language to the next. What are the possible semantic values assigned to the
+terms on a given interpretation? While it is again a matter for scholarly debate
+as to Aristotle's own intended interpretation of the terms, here we adopt the
+conventional approach of interpreting the terms 'extensionally'. The extension
+of a common noun phrase is the set of all individual objects denoted by that
+phrase. So, for example, the extension of the term 'cat' is the set of all cats,
+the extension of 'cold-blooded' the set of all cold-blooded
+creatures.[^intension] Thus, in an extensional semantics, a term will be
+interpreted as a set of objects, the members of which are all and only those
+objects denoted by the term.
+
+[^intension]: By contrast, the _intension_ of a common noun phrase is the meaning of the phrase, or that which determines its extension. Thus, for example, while 'human' and 'featherless biped' have the same extension since every human is a featherless biped and vice versa, they have different intensions since the two phrases differ in meaning. For a more detailed discussion of the distinction between extension and intension, see @Carnap1988-nm, ch. 1.
+
+But what exactly do we mean by an _object_? For semantics purposes, we need not specify what an object is. An object is simply a member of a certain set which serves as the background domain for our interpretations. It is customary to allow this domain of objects to vary, and to thus serve as a contextual parameter in our semantics. Fixing this parameter, fixes, in turn, the possible semantic values for the terms, and so precisely determines what it means to interpret the language. When the possible semantic values of the non-logical elements of the syntax exhibit this sort of context dependence, the term that logicians typically use for a specification of the background context, together with a context-specific interpretation of the language, is a _model_.
+
+:::{#def-model-S .definition}
+ A _model_ of the language $\Ls$ is an ordered pair $(\W,\si)$, where $\W$ is a nonempty set, referred to as the _domain_ of the model, and $\si$ is a function which assigns to each term a nonempty subset of $\W$. 
+:::
+
+:::{#fig-model-S}
+
+![](/content/static/images/syllogistic-model.svg){width=450 fig-align="center" fig-alt="Syllogistic model"}
+
+An extensional model of the language $\Ls$. 
+:::
+
+Within a model, every term is assigned a specific semantic value, that is, a specific set of objects in the model's domain. To complete our specification of the semantics for the language, we must formulate a set of semantic rules which associate with each model $\M = (\W,\si)$ a specific truth valuation $val^\M$ that assigns $\true$ or $\false$ to every categorical sentence. These rules, which are meant to capture the intuitive meanings of the copulas $\acop$, $\ecop$, $\icop$, and $\ocop$, are as follows:
+
+1. $val^\M(\all{A}{B})=\true$ iff $\si(A)\subset \si(B)$
+
+2. $val^\M(\no{A}{B}) = \true$ iff $\si(A)\cap\si(B)=\emptyset$
+
+3. $val^\M(\some{A}{B}) = \true$ iff $\si(A)\cap\si(B) \neq \emptyset$
+
+4. $val^\M(\somenot{A}{B}) = \true$ iff $\si(A)-\si(B)\neq \emptyset$.
+
+To illustrate the application of these semantic rules, let $\M$ be the model partially specified in @fig-model-S above. On this model, we have, for example:
+
+$$
+\begin{align*}
+val^\M(\all{t_4}{t_{1}})=\true \\
+val^\M(\some{t_2}{t_{3}})=\false \\
+val^\M(\no{t_1}{t_{2}})=\false \\ 
+val^\M(\somenot{t_4}{t_{3}})=\true
+\end{align*}
+$$
+
+:::{#exr-square-of-opposition .exercise}
+{{< include /content/exercises/square-of-opposition.qmd >}}
+:::
+
+
+Argumentative validity is defined just as before: an argument in the language $\Ls$ is valid if and only if there is no model under which all of its premises are true and its conclusion false.
+
+:::{#def-validity-S .definition}
+  The argument $\Ga\proves\ph$ is _valid_ if, for every model $\M$: if $val^\M(\psi)=\true$, for all $\psi\in\Ga$, then $val^\M(\ph)=\true$. In this case, we write $\Ga\models\ph$. 
+:::
+
+To see how this standard of validity is applied, consider the argument:
+$$
+\some{A}{B}, \all{B}{C}\proves \some{A}{C}
+$$
+where $A$, $B$, and $C$ are any terms. To show that this argument is valid, we must confirm that, for every model, if the premises are all true, so too is the conclusion. Let $\M=(\W,\si)$ be a model such that $val^\M(\some{A}{B})=val^\M(\all{B}{C})=\true$. By our semantic rule for particular affirmative sentences, $val^\M(\some{A}{B})=\true$ iff $\si(A)\inter\si(B)\neq\emptyset$, and so, in this case, there exists some object $x\in\W$, such that $x\in\si(A)$ and $x\in\si(B)$. Now, by our semantic rule for universal affirmative sentences, $val^\M(\all{B}{C})=\true$ iff $\si(B)\subset\si(C)$. But this means that, for all $y\in \W$, if $y\in \si(B)$, then $y\in\si(C)$. In particular, this is true of $x$. So, $x\in \si(C)$. But then $\si(B)\inter\si(C)\neq \emptyset$ and so $val^\M(\some{A}{C})=\true$. Hence, the argument is valid, i.e.:
+$$
+\some{A}{B}, \all{B}{C}\models\some{A}{C}
+$$
+Aristotle referred to valid argument forms such as this as _syllogisms_. 
+
+:::{#exr-syllogistic-figures .exercise}
+{{< include /content/exercises/syllogistic-figures.qmd >}}
+:::
+
+:::{#exm-smiley-multisets .example}
+{{< include /content/inserts/examples/smiley/multisets.qmd >}}
+:::

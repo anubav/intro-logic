@@ -1,0 +1,1 @@
+Express the line number $n$ in terms of $l$ and $s$. 

@@ -1,0 +1,7 @@
+A _binary string_ is a finite string of symbols each of which is either the symbol $0$ or the symbol $1$. Provide inductive definitions of the following sets of binary strings. (You may, if you wish, assume that there exists a unique binary string of length 0, denoted by $\emptyset$, and that $\emptyset$ belongs to all of these sets.) 
+
+a. The set of all binary strings in which the symbol $0$ does not occur. 
+
+b. The set of all alternating binary strings (e.g., $010101$, $101010101$). 
+
+c. The set of all palindromic binary strings (i.e., binary strings that read the same forwards as backwards). 

@@ -1,0 +1,17 @@
+Provide proofs to establish the following claims:
+
+a. $\ph\conj\psi\provesp\psi\conj\ph$
+
+b. $\provesp \neg(\ph\conj\neg\ph)$
+
+c. $\provesp \ph\vee\neg\ph$
+
+d. $\neg\ph\provesp\ph\imp\psi$
+
+e. $\ph\provesp\ph\imp\psi$
+
+f. $\ph, \neg\psi\provesp\neg(\ph\imp\psi)$
+
+g. $\neg(\ph\vee\psi)\provesp\neg\ph\conj\neg\psi$
+
+h. $\neg(\ph\conj\psi)\provesp\neg\ph\disj\neg\psi$

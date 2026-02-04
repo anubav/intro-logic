@@ -1,0 +1,11 @@
+Prove the following claims:
+
+(a). $X\subset Y$ iff $X = X\inter Y$
+
+(b). $X\subset Y^c$ iff $Y\subset X^c$
+
+(c). $X\cup(Y-X) = X\cup Y$
+
+(d). $X\inter(Y\cup Z) = (X\inter Y)\cup(X\inter Z)$
+
+(e). $X\inter Y  = (X^c\cup Y^c)^c$

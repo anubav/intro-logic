@@ -1,0 +1,26 @@
+Suppose that we omit parentheses from our language and instead define the sentences inductively as
+follows:
+
+1. Any expression consisting of a single atom is a sentence.
+    
+2. If $\ph$ is a sentence, then the expression $\neg \ph$ is a sentence.
+  
+3. If $\ph$ and $\psi$ are sentences and $\ast$ is a binary connective, then the expression
+$\ph\ast\psi$ is a sentence. 
+
+Show that the following three conditions are mutually inconsistent, i.e., show that they entail that, for some interpretation, the same sentence is assigned both  $\true$ and $\false$.
+
+(S1$^*$):
+If $\ph$ is an atomic sentence, then $val^\si(\ph)=\si(\ph)$.
+
+(S2$^*$): 
+For any sentence $\ph$:
+$$
+val^\si(\neg\ph)=f_\neg(val^\si(\ph))
+$$
+
+(S3$^*$):
+For any sentences $\ph$ and $\psi$ and any binary connective $\ast$:
+$$
+val^\si(\ph\ast\psi)=f_\ast(val^\si(\ph),val^\si(\psi))
+$$

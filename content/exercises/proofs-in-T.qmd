@@ -1,0 +1,5 @@
+a. Show that for any numerical expression $\alpha$, the sentence $\alpha=\alpha$ is a theorem of $\mathbf{T}$.
+
+b. Can you transform the sentence $1\times x \times 0 = 0\times x \times 1$ into a sentence of the form $\alpha=\alpha$, by repeated applications of the rule $\times$?
+
+c. Confirm that the sentence $1\times x \times 0 = 0\times x \times 1$ is a theorem of $\mathbf{T}$. 

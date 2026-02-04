@@ -1,0 +1,1 @@
+Show that the rules (R$\vee+$), (L$\conj-$), and (R$\conj-$) are valid in $\p^-$. 

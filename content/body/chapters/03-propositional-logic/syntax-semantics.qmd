@@ -1,0 +1,739 @@
+## The Syntax and Semantics of Propositional Logic
+
+### The Language $\Lp$
+
+We begin by defining a formal language for propositional logic, which we will
+refer to as $\Lp$. The alphabet for the language consists, first, of an infinite
+number of symbols:
+
+$$
+  \p_1,\p_2,\ldots,\p_n,\ldots
+$$
+
+We refer to these symbols as atoms. In addition to the atoms, the alphabet
+also includes four special symbols:
+
+$$
+  \neg\hspace{0.05in},\hspace{0.05in} \conj\hspace{0.05in},\hspace{0.05in}
+  \disj\hspace{0.05in},\hspace{0.05in} \imp
+$$
+
+These are referred to collectively as propositional connectives, and,
+respectively, as the negation operator ($\neg$), the conjunction operator
+($\conj$), the disjunction operator ($\disj$), and the conditional operator
+($\imp$). The latter three connectives (i.e., $\conj, \disj$, and $\imp$) are
+referred to as binary connectives, whereas the negation operator is referred to
+as a unary connective.
+
+Lastly, the alphabet for $\Lp$ also includes the left and right parentheses:
+
+$$
+(\hspace{0.07in},\hspace{0.07in})
+$$
+
+As always, expressions of the language are finite strings of symbols taken from
+its alphabet. The sentences of the language are given by the following inductive
+definition: 
+
+:::{#def-sentences-p .definition}
+
+The sentences of $\Lp$ are defined inductively as follows:
+
+1. Any expression consisting of a single atom is a sentence.
+
+2. If $\ph$ is a sentence, then the expression $(\neg \ph)$ is a sentence.
+
+3. If $\ph$ and $\psi$ are sentences and $\ast$ is a binary connective, then the expression $(\ph\ast\psi)$ is a sentence.
+
+:::
+
+Sentences of $\Lp$ include:
+
+i. $\p_7$
+
+ii. $(\neg \p_2)$
+
+iii. $(\p_4 \disj \p_{21})$
+
+iv. $(\neg(\neg \p_{14}))$
+
+v. $((\p_3\imp (\neg \p_3)) \conj (\p_{21}\disj \p_{3}))$
+
+vi. $(\p_{16}\imp(\p_{16}\conj (\p_{16} \imp \p_{16})))$
+
+We refer to those sentences consisting of a single atom as atomic
+sentences. The sentence $(\neg \ph)$ is referred to as the negation of
+$\ph$. If $\ph$ is either an atomic sentence or the negation of an atomic
+sentence, we refer to $\ph$ as a literal. The sentence $(\ph\conj\psi)$ is referred to as the conjunction with left conjunct $\ph$ and
+right conjunct $\psi$, or simply the conjunction of $\ph$ and $\psi$. The
+sentence $(\ph\disj \psi)$ is referred to as the disjunction with left
+disjunct $\ph$ and right disjunct $\psi$, or simply the disjunction of
+$\ph$ and $\psi$. The sentence $(\ph\imp \psi)$ is referred to as the conditional with antecedent $\ph$ and consequent $\psi$. Conjunctions,
+disjunctions, and conditionals are referred to, collectively, as binary compounds. 
+
+We have not yet shown that the labels negation, conjunction,
+disjunction, etc., are mutually exclusive. That is, we have not yet shown that a
+given sentence cannot, for example, be both a conjunction and a conditional. Nor
+have we shown that a sentence which is a conjunction must have unique left and
+right conjuncts. We will soon confirm that this is indeed the case, but for
+now we turn to the task of specifying a semantics for the language.
+
+:::{#exr-omit-parens .exercise}
+{{< include /content/exercises/omit-parens.qmd >}}
+:::
+
+:::{#exr-Lp-syntax .exercise}
+{{< include /content/exercises/Lp-syntax.qmd >}}
+:::
+
+
+### Truth Functions and the Propositional Connectives
+
+The non-logical elements of the syntax of $\Lp$ are the atoms. These, naturally,
+are meant to stand for the simple propositions out of which compound propositions will be constructed. But what exactly is a proposition? How we
+choose to model propositions in our semantics will depend, in large part, on the
+patterns of inference that we seek to represent in our logic. This, in turn,
+will depend on the intended meanings of the logical elements of the
+syntax---that is, on the intended meanings of the propositional connectives.
+
+Consider the conjunction operator $\conj$. Viewed as a proposition
+forming operation, this operator maps two propositions, signified by the
+sentences $\ph$ and $\psi$, to a new compound proposition signified by their
+conjunction $(\ph\conj\psi)$. By the latter, we mean a proposition that is true
+just in case both of the propositions signified by its conjuncts are true.
+Setting aside the particulars, the conjunction operator, then, maps two propositions to
+a new proposition whose truth value is a function of the truth values of the two
+propositions from which it was constructed. The negation operator, works the
+same way. It maps a single proposition, signified by the sentence $\ph$, to a
+new proposition, signified by $(\neg\ph)$, the truth value of which is a
+function of the truth value of $\ph$ -- false, if it is true, and true if it is
+false. Our intended semantics for the logical connectives may thus be described as a 'truth-functional'
+semantics. This means that the truth values of compound sentences will be fully
+determined by the truth values of the component sentences out of which they are
+formed. In this way, the truth values of all the sentences of the language will
+supervene on the truth values of the atomic ones. 
+
+While it is true that the atomic sentences represent simple propositions, the
+only feature of these propositions that is semantically relevant in the sense
+that it contributes to assessing the truth values of the sentences in the
+language is their own truth or falsehood. Thus, in this context, we may think of
+a simple proposition as nothing more than the bearer of a truth value, and the
+possible semantic values of the atoms as the possible truth values of the
+propositions they express. The only assumptions we will make about these simple
+propositions are (1) that each is _logically contingent_ in the sense that each
+may be either true or false; and (2) that they are _logically independent_ of
+each other in the sense that the truth or falsehood of any one such proposition
+imposes no constraints on the truth or falsehood of any other. In sum, we will
+include among our interpretations of the language all possible assignments of
+truth values to the atoms.
+
+:::{#def-p-interpretation .definition}
+  An _interpretation_ of the language $\Lp$ is a function $\sigma$ which assigns
+  to each of the atoms a truth value, i.e., an object from the set $\{\true,
+  \false\}$.
+:::
+
+The semantic rules for the language must specify how a given interpretation
+$\si$ determines a truth valuation $val^\si$ for the language. For the atomic
+sentences, the truth value is given directly by the interpretation, as follows:
+
+(S1): 
+If $\ph$ is an atomic sentence, then $val^\si(\ph)=\si(\ph)$.[^atom]
+
+[^atom]: Strictly speaking, the occurrence of '$\ph$' that appears as an argument of $val^\si$ stands for an atomic sentence, whereas the occcurence of '$\ph$' that appears as an argument of $\si$ stands for an atom. However, for ease of exposition, we will generally treat as identical an atomic sentence and the atom from which it is composed.
+
+To assign truth values to compound sentences, we must introduce additional
+semantic rules, specifying the meaning of the propositional connectives. We will
+do so with the aim of interpreting the propositional connectives as effecting
+roughly the same semantic operations as the ordinary English locutions to which
+they correspond in the following table:
+
+| Connective | Operator    | English Operation                         |
+|:----------:|:------------|:------------------------------------------|
+| $\neg$     | negation    | It is not the case that $\smallblank$.    |
+| $\conj$    | conjunction | $\cdots$ and $\smallblank$.               |
+| $\disj$    | ddisjunction| $\cdots$ or $\smallblank$ (or both).      |
+| $\imp$     | conditional | If $\cdots$, then $\smallblank$.          |
+
+: The intended meanings of the propositional connectives
+
+
+What defines each of these operations is the specific way in which the truth or
+falsity of compound sentences resulting from their application is related to the
+truth values of the component sentences to which they are applied. For example,
+negation is an operation which takes a sentence and returns a sentence with the
+opposite truth value, conjunction is an operation which takes two sentences and
+returns a true sentence if and only if both sentences are true, and so forth. To
+formalize these semantic operations, we will utilize the notion of a truth
+function: 
+
+:::{#def-truth-function .definition}
+ An _$n$-ary truth function_ is a function which takes $n$ truth
+ values ($n\geq 1$) and returns a truth value.
+:::
+
+:::{#exr-truth-functions .exercise}
+{{< include /content/exercises/truth-functions.qmd >}}
+:::  
+
+The following four truth functions describe the intended operation of each of the four propositional
+connectives:
+
+$$
+\begin{align*}
+  f_\neg(\al)=\left\{\begin{array}{ll}
+                       \false & \textrm{if }\al=\true   \\
+                       \true  & \textrm {if }\al=\false
+                     \end{array}
+  \right.
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  f_\conj(\al,\be)=\left\{\begin{array}{ll}
+                            \true  & \textrm{if }\al=\true\textrm{ and }\be=\true \\
+                            \false & \textrm {otherwise}
+                          \end{array}
+  \right.
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  f_\disj(\al,\be)=\left\{\begin{array}{ll}
+                            \false & \textrm{if }\al=\false\textrm{ and }\be=\false \\
+                            \true  & \textrm {otherwise}
+                          \end{array}
+  \right.
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  f_\imp(\al,\be)=\left\{\begin{array}{ll}
+                           \false & \textrm{if }\al=\true\textrm{ and }\be=\false \\
+                           \true  & \textrm {otherwise}
+                         \end{array}
+  \right.
+\end{align*}
+$$
+
+To say that these truth functions describe the operations of the  propositional connectives
+is to assert, for example, that the truth value of the negation of a sentence is determined by
+applying the function $f_\neg$ to the truth value of that sentence. Likewise, the truth value of the
+disjunction of two sentences is the truth value returned by the function $f_\disj$, when its first
+argument is the truth value of the left disjunct and its second argument the truth value of the
+right. This idea is captured by the following two semantic rules:
+
+
+(S2): 
+For any sentence $\ph$:
+$$
+  val^\si((\neg\ph))=f_\neg(val^\si(\ph))
+$$
+
+(S3):
+For any sentences $\ph$ and $\psi$ and any binary connective $\ast$:
+$$
+  val^\si((\ph\ast\psi))=f_\ast(val^\si(\ph), val^\si(\psi))
+$$
+
+
+Rules (S1), (S2), and (S3) impose constraints on the truth valuation $val^\si$. However, in order
+for these constraints to comprise a set of semantic rules, it must be the case that, for every
+interpretation $\si$ there exists one and only one truth valuation $val^\si$ that satisfies these
+constraints. As yet, we have not established that this is the case, for we have not yet proven that
+every compound sentence in $\Lp$ has a _unique_ decomposition into simpler ones. If, for
+example, a single sentence were to be both the negation of $\ph$ _and_ the conjunction of
+$\psi$ and $\chi$, then it may be that the rules (S2) and (S3) cannot be jointly satisfied since
+each may require $val^\si$ to assign different truth values to this sentence. In the following
+section we will prove that the rules (S1), (S2), and (S3) do, in fact, constitute a consistent set
+of semantic rules for the language by showing that the sentences of $\Lp$  are uniquely
+decomposable.[^unique-decomposition]
+
+[^unique-decomposition]: For more on unique decomposability, see [Appendix
+@sec-unique-decomposition]. 
+
+
+### Unique Decomposition
+
+In order to show that, for any interpretation $\si$, the rules (S1)-(S3) determine a unique truth
+valuation of the sentences of $\Lp$, we must show that every non-atomic sentence admits of a unique
+decomposition. This claim can be formulated as follows:
+
+:::{#thm-unique-decomposition .theorem}
+
+For every sentence $\ph$, exactly one of the
+  following claims holds:
+
+1. $\ph$ is an atomic sentence.
+    
+2. There exists a unique sentence $\psi$ such that $\ph$ is the sentence $(\neg\psi)$.
+
+3. There exist unique sentences $\psi$ and $\chi$ and a unique binary connective $*$, such that $\ph$ is the sentence $(\psi*\chi)$.
+:::
+
+To prove this theorem, we begin by observing the following obvious syntactic facts:
+
+:::{#prp-syntax-1 .proposition}
+No negation is an atomic proposition.
+
+:::{.proof}
+Every negation begins with the symbol $($, but every atomic sentence begins with an atom.
+:::
+:::
+
+:::{#prp-syntax-2 .proposition}
+No binary compound is an atomic sentence.
+
+:::{.proof}
+Every binary compound begins with the symbol $($, but every atomic sentence begins with an atom.
+:::
+:::
+
+:::{#prp-syntax-1 .proposition}
+No negation is a binary compound.
+
+:::{.proof}
+Every negation begins with the symbols $(\neg$, but every binary compound begins with either the
+  symbols $(\p_n$, where $\p_n$ is an atom, or the symbols $(($.
+:::
+:::
+
+From these three propositions it follows that, for every sentence $\ph$, exactly one of
+the following three claims holds:
+
+1. $\ph$ is an atomic sentence.
+  
+2. $\ph$ is a negation.
+  
+3. $\ph$ is a binary compound.
+
+Moreover, it is easy to show that every negation can be uniquely decomposed:
+
+:::{#prp-negation-ud .proposition}
+If $(\neg\ph)=(\neg\psi)$, then $\ph=\psi$.
+
+:::{.proof}
+  Since $(\neg\ph)=(\neg\psi)$, removing $(\neg$ from the beginning of both of these
+  expressions results in identical expressions. Thus, $\ph)=\psi)$. But now removing $)$ from the
+  end of both of these expressions again results in identical expressions. Hence, $\ph=\psi$.
+:::
+:::
+
+So, if $\ph$ is a negation, there exists a unique sentence $\psi$, such that
+$\ph=(\neg\psi)$. All that remains in order to establish @thm-unique-decomposition is to show that, if
+$\ph$ is a binary compound, there exist unique sentences $\psi$ and $\chi$ and a unique binary
+connective $\ast$, such that $\ph=(\psi*\chi)$. To help prove this claim, we introduce the following
+terminology:
+
+:::{#def-proper-prefix .definition}
+ A nonempty expression $\ph$ is a _proper prefix_ of $\psi$ (written $\ph<\psi$) iff there
+  exists a nonempty expression $\chi$ such that $\psi$ is the expression $\ph\chi$ (i.e., the result
+  of concatenating the expressions $\ph$ and $\chi$).
+:::
+
+:::{#def-balanced-expr .definition}
+ Let $w$ be the following function assigning numbers to the symbols in the alphabet of $\Lp$:
+$$
+  \begin{align*}
+    w(s)=\left\{\begin{array}{rl}
+                  1  & \textrm{if } s \textrm{ is the symbol } ( \\
+                  -1 & \textrm{if } s \textrm{ is the symbol } ) \\
+                  0  & \textrm{otherwise}\end{array}\right.
+  \end{align*}
+$$
+
+Let $\ph$ be the expression $s_1s_2\cdots s_n.$ The _weight_ of $\ph$ is the quantity:
+
+$$
+w(\ph)=\sum_{i=1}^n w(s_i)
+$$
+  
+An expression $\ph$ is _balanced_ if the following two conditions hold:
+
+1. $w(\ph)=0$
+
+2. If $\psi<\ph$, then $w(\psi)\neq 0$.
+:::
+
+:::{#thm-balanced .theorem}
+Every sentence of $\Lp$ is a balanced expression.
+
+:::{.proof}
+The proof proceeds by induction on the sentences. First, let $\ph$ be an atomic sentence. Since
+$w(\p_n)=0$, for $n=1,2,\ldots$, we have $w(\ph)=0$. Moreover, since $\ph$ has no proper prefixes,
+it follows that $\ph$ is balanced.
+
+Now, consider the sentence $(\neg\ph)$, and suppose that $\ph$ is balanced. Then:
+$$
+    w((\neg\ph))=w(()+w(\neg)+w(\ph)+w())=1+0+0+(-1)=0
+$$
+  Now, suppose for contradiction that there exists a $\psi<(\neg\ph)$ such that $w(\psi)=0$. Since
+  the expressions $($, $(\neg$, and $(\neg\ph$ all have a weight of $1$, $\psi$ can be none of these
+  expressions. Thus, $\psi$ must be an expression of the form $(\neg \chi$, where $\chi<\ph$.
+  Moreover, since $w(\psi)=0$ and $w((\neg)=1$, it follows that $w(\chi)=-1$. Hence, $\ph$ has a
+  proper prefix with a weight of $-1$. Since atomic sentences have no proper prefixes, it follows
+  that $\ph$ is not atomic. But every non-atomic sentence begins with $($ and since $w(()=1$, every
+  non-atomic sentence has a proper prefix of weight 1. Thus, $\ph$ has both a proper prefix of
+  weight $1$ and a proper prefix of weight $-1$. But this implies that $\ph$ also has a proper
+  prefix of weight $0$ since the weight of successive proper prefixes can only either increase by 1,
+  decrease by 1, or remain the same. The existence of such a proper prefix, however, contradicts our
+  assumption that $\ph$ is balanced. Thus, we have shown that if $\ph$ is balanced, $(\neg \ph)$ is
+  balanced as well.
+
+Lastly, consider the sentence $(\ph\ast\psi)$, where $\ast$ is a binary connective, and suppose that $\ph$ and $\psi$ are balanced expressions. Then:
+$$
+    w((\ph\ast\psi))=w(()+ w(\ph) + w(\ast) + w(\psi) + w())=1+ 0 + 0 + 0 + ( - 1) = 0
+$$
+  Now, suppose for contradiction that there exists a $\chi<(\ph\ast\psi)$ such that $w(\chi)=0$.
+  Since the expressions $($, $(\ph$, $(\ph\ast$, $(\ph\ast\psi$ all have a weight of $1$, $\chi$ can
+  be none of these expressions. Thus, $\chi$ must either be (i) an expression of the form $(\rho$,
+  where $\rho<\ph$ or (ii) $(\ph\ast\rho$, where $\rho<\psi$.
+
+  In case (i), since $w((\rho) = 0$, and $w(()=1$, it follows that $w(\rho)=-1$. Hence, $\ph$ has a
+  proper prefix with a weight of $-1$. Since atomic sentences have no proper prefixes, it follows
+  that $\ph$ is not atomic. But every non-atomic sentence begins with $($ and since $w(()=1$, every
+  non-atomic sentence has a proper prefix of weight 1. Thus, $\ph$ has both a proper prefix of
+  weight $1$ and a proper prefix of weight $-1$. But this implies that $\ph$ also has a proper
+  prefix of weight $0$. The existence of such a proper prefix, however, contradicts our
+  assumption that $\ph$ is balanced.
+
+  In case (ii), since $w((\ph\ast\rho) = 0$, and $w((\ph\ast)=1$, it follows that $w(\rho)=-1$.
+  Hence, $\psi$ has a proper prefix with a weight of $-1$. Since atomic sentences have no proper
+  prefixes, it follows that $\psi$ is not atomic. But every non-atomic sentence begins with $($ and
+  since $w(()=1$, every non-atomic sentence has a proper prefix of weight 1. Thus, $\psi$ has both a
+  proper prefix of weight $1$ and a proper prefix of weight $-1$. But this implies that $\psi$ also
+  has a proper prefix of weight $0$. The existence of such a proper prefix, however,
+  contradicts our assumption that $\psi$ is balanced.
+
+  Thus, if $\ph$ and $\psi$ are both balanced expressions, so is $(\ph\ast\psi)$. This completes the
+  proof. 
+:::
+:::
+
+The following theorem is a direct corollary of @thm-balanced. 
+
+:::{#thm-no-prefix .theorem}
+No sentence of $\Lp$ is a proper prefix of another.
+
+:::{.proof}
+Suppose, for contradiction, that $\ph$ and $\psi$ are sentences and that $\ph<\psi$. By @thm-balanced both $\ph$ and
+$\psi$ are balanced. Since $\ph$ is balanced, $w(\ph)=0$. This, however, contradicts the assumption that $\psi$ is balanced, since $\ph$ is a proper prefix of $\psi$.
+:::
+:::
+
+With this result in hand, we can now complete our proof of @thm-unique-decomposition by showing that
+every binary compound can be uniquely decomposed into simpler sentences:
+
+:::{#prp-binary-ud .proposition}
+Let $\ph$ and $\psi$ be any sentences and $\ast$ a binary connective. If $(\ph*\psi)=(\ph'*'\psi')$,
+where $\ph'$ and $\psi'$ are sentences and $\ast'$ a binary connective, then $\ph=\ph'$, $\ast=\ast'$ and
+  $\psi=\psi'$.
+
+:::{.proof}
+Since $(\ph\ast\psi)=(\ph'\ast'\psi')$, removing the outermost pair of parentheses from both of these
+  expressions results in identical expressions. Thus, $\ph\ast\psi=\ph'\ast'\psi'$.
+  Now, suppose for contradiction that $\ph\neq \ph'$. Then, either $\ph<\ph'$ or $\ph'<\ph$. But
+  either of these claims contradicts @thm-no-prefix. Hence, $\ph=\ph'$. But then
+  removing $\ph$ from the beginning of $\ph\ast\psi$ and $\ph'$ from the beginning of $\ph'\ast'\psi'$ results in identical
+  expressions. Thus, $\ast \psi=\ast' \psi'$ and so $\ast=\ast'$. But then removing $\ast$ from the beginning of $\ast \psi$ and $\ast'$ from the beginning of $\ast' \psi'$ again results in identical expressions. Hence, $\psi=\psi'$.
+:::
+:::
+
+It follows from the fact that, with respect to @def-sentences-p, the set of sentences of $\Lp$ are uniquely decomposable that, for any
+given interpretation $\si$, there is one and only one truth valuation $val^\si$ satisfying
+conditions (S1), (S2), and (S3). Thus, we are justified in treating these conditions as constituting
+a set of semantic rules for the language.
+
+:::{#exr-no-parens .exercise}
+{{< include /content/exercises/no-parens.qmd >}}
+:::
+
+:::{#exr-polish .exericse}
+{{< include /content/exercises/polish.qmd >}}
+:::
+
+For the purpose of proving unique decomposition, it was necessary to be scrupulous in our use of parentheses. From this point forward, however, for the sake of readability, we may be somewhat more lax. In particular, when writing sentences, we will omit the outermost pair of parentheses. We will also assume an order of operations for the propositional connectives that will allow us to express sentences using fewer parentheses than are strictly required by the grammatical rules of $\Lp$. In accordance with this order of operations, negations is to be parenthesized first, in as narrow a manner as possible, then conjunctions and disjunctions, and finally conditionals. Thus, for example, to express the sentence:
+$$
+  ((\p_1\conj\p_2)\imp (\neg(\neg\p_3)))
+$$
+we may write:
+$$
+\p_1\conj\p_2\imp \neg\neg\p_3
+$$
+
+### Truth Tables
+
+Now that we have specified the semantic rules for the language, all of the standard semantic notions
+introduced in Chapter 1 (e.g., validity, logical truth, logical equivalence, etc.) are defined just
+as before. It will be useful, however, to recast these semantic notions in terms of truth functions.
+To this end, the following definition will be helpful:
+
+:::{#def-truth-function-for-sentence .definition}
+Let $\ph$ be any sentence containing only atoms that appear among $\p_{1},\ldots,\p_{n}$. The _$n$-ary truth function for $\ph$_ is the $n$-ary truth function $f_\ph^n$ defined by:
+$$
+    f_\ph^n(\al_1,\ldots,\al_n)= val^\si(\ph),
+$$
+where $\si$ is any interpretation such that:
+$$
+    \si(\p_{i})=\al_i,
+$$
+for $i=1,\ldots,n$.
+:::
+
+Suppose, for example, that $\ph$ is the sentence $(\p_1\imp \p_2)\conj\neg\p_1$. To evaluate $f_{\ph}^2(\true, \false)$ we must evaluate the truth value of the sentence $\ph$ on an interpretation $\si$ of the language  which assigns to $\p_1$ the value $\true$ and to $\p_2$ the value $\false$. This is:
+
+$$
+\begin{align*}
+val^\si((\p_1\imp \p_2)\conj\neg\p_1) &= f_\conj(val^\si(\p_1\imp\p_2), val^\si(\p_1))\\
+&= f_\conj(f_\imp(val^\si(\p_1),val^\si(\p_2)), val^\si(\p_1))\\
+&= f_\conj(f_\imp(\true, \false), \true)\\
+&= f_\conj(\false, \true)\\  
+&= \false
+\end{align*}
+$$
+
+A particularly convenient way to represent the $n$-ary truth function for $\ph$ is in terms of a
+_truth table_. Excluding column headers, the first $n$ columns of each of the $2^n$ rows of the
+table specify a distinct possible assignment of truth values to the atoms $\p_1,\ldots,\p_n$. The
+$(n+1)$-th column then gives the value of the function $f_\ph^n$ for this particular sequence of
+truth values:
+
+|  $\p_1$  |  $\p_2$  | $\cdots$ |  $\p_n$  |                 $\ph$                  |
+| :------: | :------: | :------: | :------: | :------------------------------------: |
+| $\true$  | $\true$  | $\cdots$ | $\true$  |  $f_\ph^n(\true,\true,\ldots,\true)$   |
+| $\true$  | $\true$  | $\cdots$ | $\false$ |  $f_\ph^n(\true,\true,\ldots,\false)$  |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |                $\vdots$                |
+| $\false$ | $\false$ | $\false$ | $\false$ | $f_\ph^n(\false,\false,\ldots,\false)$ |
+
+
+When populating the first $n$ columns in such a truth table, it is important to ensure that
+all possible assignments of truth values to the atoms $\p_1,\ldots,\p_n$ are countenanced. The most
+straightforward way to ensure that this is the case is to adopt the following procedure: for
+$m=1,\ldots,n$, fill in the $m$th column with alternating between blocks of $\true$'s and $\false$'s, where the size of the blocks is equal to $2^{n-m}$ rows. So, for example, if $n=3$, fill in the
+first column with alternating blocks of $\true$'s and $\false$'s of size $2^{3-1}=2^2=4$ rows. Then,
+fill in the second column with alternating blocks of $\true$'s and $\false$'s of size
+$2^{3-2}=2^1=2$ rows. Finally, fill in the third column with alternating blocks of $\true$'s and
+$\false$'s of size $2^{3-3}=2^0=1$ row.[^counting]
+
+[^counting]: Add footnote on counting. 
+
+When writing the truth table for a sentence, it is often convenient to omit columns
+corresponding to atoms not appearing in that sentence since the truth values of these atoms have no effect
+on the sentence's truth value. In addition, one often includes supplementary columns listing the truth
+values of certain component sentences (indicated in the column header) which may aid in the
+computation of the sentence's truth value. Thus, for example, a truth table for the sentence $\neg(\p_3\conj \p_1)\rightarrow \p_1 \disj
+\p_2$ may be written:  
+
+|  $\p_1$  |  $\p_2$  |  $\p_3$  | $\p_3\conj\p_1$ | $\neg(\p_3\conj\p_1)$ | $\p_1\vee\p_2$ | $\neg(\p_3\conj \p_1)\rightarrow \p_1 \disj\p_2$ |
+| :------: | :------: | :------: | :-------------: | :-------------------: | :------------: | :----------------------------------------------: |
+| $\true$  | $\true$  | $\true$  |     $\true$     |       $\false$        |    $\true$     |                     $\true$                      |
+| $\true$  | $\true$  | $\false$ |    $\false$     |        $\true$        |    $\true$     |                     $\true$                      |
+| $\true$  | $\false$ | $\true$  |     $\true$     |       $\false$        |    $\true$     |                     $\true$                      |
+| $\true$  | $\false$ | $\false$ |    $\false$     |        $\true$        |    $\true$     |                     $\true$                      |
+| $\false$ | $\true$  | $\true$  |    $\false$     |        $\true$        |    $\true$     |                     $\true$                      |
+| $\false$ | $\true$  | $\false$ |    $\false$     |        $\true$        |    $\true$     |                     $\true$                      |
+| $\false$ | $\false$ | $\true$  |    $\false$     |        $\true$        |    $\false$    |                     $\false$                     |
+| $\false$ | $\false$ | $\false$ |    $\false$     |        $\true$        |    $\false$    |                     $\false$                     |                    
+
+Now, let $\Ga$ be a set of sentences and let $\ph$ be a sentence. Suppose that the only atoms appearing
+in the sentences in $\Ga\cup\{\ph\}$ are among $\p_1,\ldots,\p_n$. Then, $\Ga\models\ph$ iff, for
+any truth values $\al_1,\ldots,\al_n$: if $f^n_\psi(\al_1,\ldots,\al_n)=\true$, for all
+$\psi\in\Ga$, then $f^n_\ph(\al_1,\ldots,\al_n)=\true$. In simple cases, this can be confirmed
+directly by means of a truth table. For example, the following truth table can be used to confirm
+that $\neg\p_1,\p_1\vee\p_2\models\neg\neg\p_2$:
+
+|  $\p_1$  |  $\p_2$  | $\neg\p_1$ | $\p_1\vee\p_2$ | $\neg\neg\p_2$ |
+| :------: | :------: | :--------: | :------------: | :------------: |
+| $\true$  | $\true$  |  $\false$  |    $\true$     |    $\true$     |
+| $\true$  | $\false$ |  $\false$  |    $\true$     |    $\false$    |
+| $\false$ | $\true$  |  $\true$   |    $\true$     |    $\true$     |
+| $\false$ | $\false$ |  $\true$   |    $\false$    |    $\false$    |
+
+The only row which corresponds to an assignment of truth values to the atoms which makes both of the premises true is row 3. But, in that row, the conclusion is true as well. Hence, the argument is valid. 
+
+We may also use truth tables to indicate how the truth of a given compound sentence depends on its
+(not necessarily atomic) components. For example, if $\ph$ and $\psi$ are any two sentences, we may
+write a truth table for the sentence $\neg\ph\rightarrow\psi$ as follows:
+
+|  $\ph$   |  $\psi$  | $\neg\ph$ | $\neg\ph\imp\psi$ |
+| :------: | :------: | :-------: | :---------------: |
+| $\true$  | $\true$  | $\false$  |      $\true$      |
+| $\true$  | $\false$ |  $\true$  |      $\true$      |
+| $\false$ | $\true$  |  $\true$  |      $\true$      |
+| $\false$ | $\false$ |  $\true$  |     $\false$      |
+
+In a schematic truth table like this, all possible truth value assignments to the
+component sentences $\ph$ and $\psi$ are countenanced. In fact, depending on the sentences $\ph$ and
+$\psi$, certain of these assignments may not be possible. For example, if $\ph$ is the sentence
+$\p_3$ and $\psi$ the sentence $\neg\p_3$, then there is no truth value assignment which assigns
+to both $\ph$ and $\psi$ the value $\true$. Nevertheless, if we wish to establish semantic
+claims about _all_ possible instantiations of a sentence schema, we must consider all
+possible valuations of $\ph$ and $\psi$ since, among the instantiations of this schema, are those in
+which $\ph$ and $\psi$ are distinct atomic sentences.
+
+:::{#exr-truth-tables .exercise}
+{{< include /content/exercises/truth-tables.qmd >}}
+:::
+
+In contexts in which we are only concerned with the truth values of sentences and not their syntax,
+we may allow for the use of certain syntactically ambiguous expressions provided all possible
+disambiguations of these expressions are logically equivalent to one another. For example, we will
+often omit the parentheses from nested conjunctions and disjunctions since the truth
+functions for such sentences are order invariant. Thus, for example, to express the conjunction of the sentences $\ph_1,\ldots,\ph_n$ we may simply write:
+$$
+  \ph_1 \conj \cdots \conj \ph_n
+$$
+However one opts to parenthesize this expression to render it a sentence, the result will be a sentence that is true iff all of the sentences $\ph_1,\ldots,\ph_n$ are true. Likewise, any disambiguation of the disjunction:
+$$
+\ph_1\disj\cdots\disj\ph_n
+$$
+is a sentence that is false iff all of the sentences $\ph_1,\ldots,\ph_n$ are false.
+
+:::{#exr-expressing-semantic-notions .exercise}
+{{< include /content/exercises/expressing-semantic-notions.qmd >}}
+:::
+ 
+
+### Truth-Functional Completeness
+
+As we have seen, sentences can be thought of as expressing truth functions. In particular, a sentence $\ph$ containing only atoms among
+$\p_1,\ldots,\p_n$, can be thought of as expressing the truth function $f_\ph^n$ that maps the truth values of these atomic sentences on a given
+interpretation to the
+truth value of the sentence itself on that same interpretation. So, for example, a sentence like $\neg\p_1\vee \p_2$ expresses the truth function:
+
+$$
+\begin{align*}
+  f^2_{\neg\p_1\vee\p_2}(\al,\be) & = f_\vee(f_{\neg\p_1}^2(\al,\be), f^2_{\p_2}(\al,\be))                     \\
+                                  & = f_\vee(f_\neg(f_{\p_1}^2(\al,\be)), \be)                               \\
+                                  & = f_\vee(f_\neg(\al),\be)                                                \\
+                                  & = \left\{\begin{array}{ll}
+                                               \false & \textrm{if }f_\neg(\al)=\false\textrm{ and }\be=\false \\
+                                               \true  & \textrm{otherwise}
+                                             \end{array}\right. \\
+                                  & = \left\{\begin{array}{ll}
+                                               \false & \textrm{if }\al=\true\textrm{ and }\be=\false \\
+                                               \true  & \textrm{otherwise}
+                                             \end{array}\right.
+\end{align*}
+$$
+
+This truth function is described by the following truth table:
+
+|  $\p_1$  |  $\p_2$  | $\neg\p_1\disj\p_2$ |
+| :------: | :------: | :-----------------: |
+| $\true$  | $\true$  |       $\true$       |
+| $\true$  | $\false$ |      $\false$       |
+| $\false$ | $\true$  |       $\true$       |
+| $\false$ | $\false$ |       $\true$       |
+
+Note that this same truth function can also be expressed by the sentence $\p_1\imp\p_2$:
+
+|  $\p_1$  |  $\p_2$  | $\p_1\imp\p_2$ |
+| :------: | :------: | :------------: |
+| $\true$  | $\true$  |    $\true$     |
+| $\true$  | $\false$ |    $\false$    |
+| $\false$ | $\true$  |    $\true$     |
+| $\false$ | $\false$ |    $\true$     |
+
+The particular truth function described by the four rows of this truth table is thus expressible both by a sentence which involves the connectives $\neg$ and $\disj$, and also by a
+sentence which involves the single connective $\imp$. The question, then, naturally arises as to which
+truth functions can be expressed by which connectives, and, in particular, whether there are any
+sets of connectives by means of which _every_ truth function can be expressed.
+
+:::{#def-truth-completeness .definition}
+Let $C$ be a set of propositional connectives, i.e., $C\subset\{\neg,\conj,\disj,\imp\}$. We say
+  that the sentence $\ph$ is _expressible in $C$_ if the only connectives appearing in $\ph$
+  are members of $C$. We say that the $n$-ary truth function $f$ is _expressible in $C$_ if
+  $f=f_\ph^n$, for some sentence $\ph$ expressible in $C$. We say that $C$ is a _truth
+    functionally complete_ set of connectives if every truth function is expressible in $C$.
+:::
+
+:::{#exr-dual .exercise}
+{{< include /content/exercises/dual.qmd >}}
+:::
+
+Are there any sets of propositional connectives which are truth functionally
+complete, and, if so, what are they? 
+We will begin by giving an informal argument to illustrate why the set of connectives $\{\neg,\conj,\disj\}$ is truth
+functionally complete. 
+
+Consider the following truth table for an arbitrarily chosen
+3-ary truth function $f$.
+
+|  $\p_1$  |  $\p_2$  |  $\p_3$  |   $f$    |
+| :------: | :------: | :------: | :------: |
+| $\true$  | $\true$  | $\true$  | $\true$  |
+| $\true$  | $\true$  | $\false$ | $\false$ |
+| $\true$  | $\false$ | $\true$  | $\true$  |
+| $\true$  | $\false$ | $\false$ | $\false$ |
+| $\false$ | $\true$  | $\true$  | $\true$  |
+| $\false$ | $\true$  | $\false$ | $\true$  |
+| $\false$ | $\false$ | $\true$  | $\false$ |
+| $\false$ | $\false$ | $\false$ | $\false$ |
+
+How might we construct a sentence $\ph$ expressible in $\{\neg,\conj,\disj\}$ such that
+$f^3_\ph=f$? Note that the function $f$ returns the truth value $\true$ iff its arguments are those
+given in either the first, third, fifth, or sixth rows of the above truth table. Thus, we might
+start by formulating our desired sentence as a disjunction of these four possibilities:
+$$
+  Row_1 \vee Row_3 \vee Row_5 \vee Row_6
+$$
+$Row_1$, in this case, is a sentence which is true iff $\p_1,\p_2,$ and $\p_3$ are all true. This
+sentence can be formulated by means of the following conjunction:
+$$
+  \p_1\conj\p_2\conj\p_3
+$$
+$Row_3$ is a sentence which is true iff $\p_1$ is true, $\p_2$ is false, and $\p_3$ is true. This
+can be formulated as follows:
+$$
+  \p_1\conj\neg\p_2\conj\p_3
+$$
+Formulating the sentences $Row_5$ and $Row_6$ in similar fashion, we can express the sentence $\ph$
+by the following disjunction:
+$$
+  (\p_1\conj\p_2\conj\p_3) \vee (\p_1\conj\neg\p_2\conj\p_3) \vee (\neg\p_1\conj\p_2\conj\p_3) \vee (\neg\p_1\conj\p_2\conj\neg\p_3)
+$$
+
+With only one exception, this technique is fully generalizable, and can
+be used to construct a sentence in $\{\neg,\conj,\disj\}$ which expresses any truth function with
+any number of arguments. The one case that it doesn't cover is the degenerate case in which the truth function in question always returns the
+truth value $\false$. But this truth function is expressible by the sentence $\p_1\conj\neg\p_1$. So the set of connectives
+$\{\neg,\conj,\disj\}$ is truth-functionally complete. 
+
+In fact, the above argument establishes
+a stronger claim, namely, that every sentence of $\Lp$ is equivalent to a disjunction of
+conjunctions of literals, i.e, a sentence of the form:
+$$
+  (\ph_{1,1}\conj\cdots\conj \ph_{1,k})\disj \cdots \disj (\ph_{n,1}\conj\cdots\conj \ph_{n,k}),
+$$
+where $\ph_{i,j}$ is either an atomic sentence or its negation. Such an equivalent form is referred
+to as the _disjunctive normal form_ of the sentence.
+
+:::{#exr-conj-normal-form .exercise}
+{{< include /content/exercises/conj-normal-form.qmd >}}
+:::
+
+If $C$ is a truth functionally complete set of connectives, it suffices to show that the set of
+connectives $C^*$ is truth functionally complete, to show that every sentence expressible in $C$ is
+logically equivalent to some sentence expressible in $C^*$. Thus, for example, in light of the fact that $\{\neg,\conj,\disj\}$ is
+truth-functionally complete, we can prove that $\{\neg,\disj\}$ is also truth-functionally complete by
+observing that:
+$$
+  \ph\conj\psi\equiv \neg(\neg\ph\disj\neg\psi).
+$$
+Furthermore, from the fact that $\{\neg,\disj\}$ is truth functionally complete, we can show that
+$\{\neg,\imp\}$ is truth functionally complete by noting that:
+$$
+  \ph\disj\psi\equiv \neg\ph\imp\psi.
+$$
+Thus, a number of the propositional connectives in $\Lp$ are, from a semantic point of
+view, superfluous. Even if we were only to include in our language the two propositional connectives
+$\neg$ and $\imp$, we do not lose any expressive power---every truth function remains expressible.
+
+:::{#exr-sheffer .exercise}
+{{< include /content/exercises/sheffer.qmd >}}
+:::
+

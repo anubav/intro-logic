@@ -1,0 +1,315 @@
+## Validity {#sec-validity}
+
+### Necessary Truth Preservation
+
+We have now seen how inferences can be treated as mathematical objects by representing them as arguments in a formal language. The next task that we face is to formulate a mathematically precise standard of argumentative validity. As
+a first step, it will be helpful to consider what we mean when we say that an
+argument is valid. Consider the following hackneyed syllogism:
+
+$$
+\textrm{Socrates is a man, Every man is mortal}\proves\textrm{Socrates is mortal}
+$$
+
+Intuitively this is a valid argument. But what about this argument _makes_ it valid? One answer that readily comes to mind is that the argument is valid because its conclusion follows _necessarily_ from its premises. Or, in other words, it is valid because the truth of its premises _necessitates_ that of its conclusion. 
+
+Let us try to formulate this conception of validity in mathematical terms, by making precise the notion of necessary truth preservation in a formal language of the sort discussed in the previous section. 
+
+::: {#def-truth-valuation data-re="valuations?" data-flags="gi"}
+   A _truth valuation_ of a language $L$ is any function which assigns to each of the sentences of $L$ a value in the set $\{\true, \false\}$. We refer to the members of this set as _truth values_.
+:::
+
+To indicate that $val(\ph)=\true$, we will sometimes say that '$\ph$ is _true_ under the valuation $val$', and to indicate that
+$val(\ph)=\false$, that '$\ph$ is _false_ under the valuation $val$'.
+
+What are these mysterious objects $\true$ and $\false$ which somehow manage to
+convey truth and falsehood to a sentence simply in virtue of their being
+assigned to it by a valuation?[^truth-values] Metaphysically, this may seem an
+interesting question, but for the purpose of giving a precise definition of
+argumentative validity, it doesn't really matter. All that matters for this
+purpose is that $\true$ are $\false$ are distinct items, and that these two
+distinct items are the only two values of truth that a sentence can be
+assigned.[^bivalence] They may just as well be thought of as the letters
+'$\true$' and '$\false$' themselves, for apart from their obvious mnemonic value
+any two distinct items would suffice in their place.
+
+[^truth-values]: For a history of the mathematical conception of truth-value, see @Beziau2012-ui. Béziau writes: "At the level of a general definition [a truth-value] is pure abstract nonsense, trivial for a mathematician, beyond understanding for a philosopher whether analytic or synthetic" (p. 238).
+
+[^bivalence]: The assumption that a sentence can take exactly one of two values is referred to as the principle of _bivalence_. Innocuous as it may seem, bivalence is perhaps the most contentious principle in all of logic. Later on in this course, we will investigate notions of validity that are based on a multivalent semantics in which sentences can be assigned one of many truth values. We will also consider semantics in which a sentence may be assigned no truth value at all. 
+
+When we assert that an argument is valid, we will always do so relative to a
+certain set of truth valuations. That the truth of an argument's premises
+necessitate that of its conclusion will then correspond to the fact that for
+_every_ truth valuation in this set, if all the premises of the argument are
+true under that valuation, the conclusion is true under that valuation as well.
+
+::: {#def-relative-validity}
+   The argument
+   $$
+   \Ga\proves\ph
+   $$
+   is _valid_ with respect to the set of truth valuations $V$ if, for every truth valuation $val\in V$, the following is true: if $val(\psi)=\true$, for all $\psi\in\Ga$, then $val(\ph)=\true$. To express this, we write: 
+   $$
+   \Ga\models_V\ph
+   $$
+:::
+
+The symbol '$\models$' is sometimes referred to as the double turnstile, and its counterpart symbol '$\proves$' as the single turnstile. When expressing claims of validity, using the double turnstile, we will adopt the same conventions used to denote arguments with the single turnstile described in the paragraph which follows @def-argument.
+
+It may seem that the above definition of validity is sufficiently abstract that
+nothing of substance can be inferred from it about which arguments are valid and
+which are not. This, however, is not so. Already, the characterization
+of argumentative validity as necessary truth preservation implies a number of
+substantive facts, three of which are stated in the following theorem:
+
+:::{#thm-semantic-structure .theorem}
+Let $V$ be any set of valuations. For any sentences $\ph, \psi$ and any sets of sentences $\Ga, \De$, the following claims hold:
+
+i. $\Ga,\ph\models_V\ph$
+
+ii. If $\Ga\models_V\ph$, then $\Ga, \De\models_V\ph$. 
+
+iii. If $\Ga,\ph\models_V\psi$ and $\De\models_V\ph$, then $\Ga,\De\models_V\psi$. 
+
+:::{.proof} 
+i. Since $\ph\in\Ga\cup\{\ph\}$, any valuation in $V$ under which
+all of the sentences in $\Ga\cup\{\ph\}$ are true is one in which $\ph$ is true.
+But, this means $\Ga,\ph\models_V\ph$.
+
+ii. Suppose $\Ga\models_V\ph$ and let $val\in V$ be a truth valuation such that
+$val(\psi)=\true$ for all $\psi\in \Ga\cup\De$. Since $\Ga\subset\Ga\cup\De$ it
+follows that $val(\psi)=\true$ for all $\psi\in \Ga$. So, since
+$\Ga\models_V\ph$, we have $val(\ph)=\true$. Hence, any valuation in $V$ under which all of the sentences in $\Ga\cup\De$ are true
+is one in which $\ph$ is true. In other words, $\Ga\cup\De\models_V\ph$.
+
+iii. Suppose that $\Ga,\ph\models_V\psi$ and $\De\models_V\ph$, and let $val\in
+V$ be a truth valuation such that $val(\chi)=\true$ for all $\chi\in
+\Ga\cup\De$. Since $\De\subset \Ga\cup\De$ it follows that $val(\chi)=\true$ for
+all $\chi\in\De$. So, since $\De\models_V\ph$, we have $val(\ph)=\true$.
+Moreover, since $\Ga\subset \Ga\cup\De$ it follows that $val(\chi)=\true$, for
+all $\chi\in\Ga$. Hence, $val(\chi)=\true$, for all $\chi\in\Ga\cup\{\ph\}$. So, since $\Ga\cup\{\ph\}\models_V\psi$,
+$val(\psi)=\true$. Hence, any valuation in $V$ under which all of the
+sentences in $\Ga\cup\De$ are true is one in which $\psi$ is true. In
+other words, $\Ga\cup\De\models_V\psi$.
+:::
+:::
+
+The first of these claims asserts that any argument is valid whose conclusion appears among its premises. But should a patently circular argument such as
+
+$$
+\textrm{Socrates is a man}\proves\textrm{Socrates is a man}
+$$
+
+really be counted as valid? 
+
+The second claim asserts that the validity of an argument is preserved under the arbitrary addition of new premises. But what if the added premises are entirely irrelevant to the truth of the conclusion at hand. For example, should the following argument be considered valid:
+$$
+\textrm{Socrates is a man, Every man is mortal}, 2+2=4\proves\textrm{Socrates is mortal}
+$$
+
+We will have occasion to revisit such questions later on in this course. For now, we only note that they are definitively answered in the affirmative by the view of validity which conceives of it as nothing more than necessary truth preservation.
+
+:::{#exr-relative-validity .exercise}
+{{< include /content/exercises/relative-validity.qmd >}}
+:::
+
+In assessing the validity of an argument which set of truth valuations
+should we consider? A natural answer, one might think, is that we should consider _all_ possible assignments of truth and falsehood to the sentences of our language. This, after all, would correspond to the strictest possible notion of validity---and what could be stricter than logic? To adopt this approach, however, will not do, for the reason indicated by the following theorem:
+
+:::{#thm-trivial-validity .theorem}
+Let $V$ be the set of all possible truth valuations of a
+language. Then $\Ga\models_V \ph$ if and only if $\ph\in\Ga$.
+
+:::{.proof} 
+The left-to-right direction (or, the 'if' direction) of the claim follows from @thm-semantic-structure.(i). For the right-to-left direction (or, the 'only if' direction) of the claim, suppose that
+$\ph\not\in\Ga$. Then, since $V$ consists of all possible valuations, there
+exists some valuation in $V$ under which all of the sentences in $\Ga$ are true but the sentence $\ph$ is false. Hence, $\Ga\not\models_V\ph$. 
+:::
+:::
+
+This theorem asserts that an argument is valid with respect to the set of all
+truth valuations of a language if and only if its conclusion appears among its
+premises. Consequently, without somehow restricting the class of admissible
+valuations, we are left with a trivial standard of argumentative validity in which the only valid arguments are circular ones. How then are we to restrict the class of admissible truth valuations in a nonarbitrary way? To answer this question, we must examine in more detail the specifically logical sense of necessity implicated in claims of argumentative validity. 
+
+### Logical Necessity
+
+Let us return to the argument:
+
+$$
+\textrm{Socrates is a man, Every man is mortal}\proves\textrm{Socrates is mortal}
+$$
+
+As we have said, this argument is valid in virtue of the fact that the truth of
+its premises necessitate the truth of its conclusion. But, in what exact sense
+of 'necessity' does Socrates' mortality necessarily follow from Socrates being a
+man and the fact that all men are mortal?
+
+In general, when we say of a claim that it is necessarily true we assert not
+only that it is true but, moreover, that its truth is not a contingent, or incidental, matter.
+Its truth, in other words, is independent of certain features of the context in
+which it is affirmed. The precise sense of the modality is determined by which
+features of the context are deemed incidental to the truth of the claim in
+question. For example, to assert that the Sun _always_ rises in the east, is to assert not only that the Sun will rise in the
+east (today) but, moreover, that this claim would be true regardless of the specific
+day on which it is put forward. Hence, the sun's rising is a temporal (or, more specifically, a diurnal) necessity. Likewise, to assert that you are _forbidden_ from castling when your king is in check, is
+not only to assert that you cannot castle from some one particular arrangement of the pieces in which a check has been made, but that the same prohibition remains in force in any
+such scenario that may arise in a game of chess. Hence, the disallowance of castling out of check is a deontic necessity.[^modalities]
+
+[^modalities]: The branch of logic that studies the various modalities implicated in necessity claims is called _modal_ logic. See Chapter ??? below.  
+
+What, then, are we to make of logical necessity? When we say that
+it is necessarily the case that if the premises of the above argument are true,
+so too is its conclusion, not only do we assert the truth of the following
+conditional: 
+
+(P):
+If 'Socrates is a man' and 'Every man is
+mortal' are true, then 'Socrates is mortal' is true.
+
+we further assert that (P) would be true _regardless_ of certain features of the context in which it is here affirmed. What features of the context do
+we have it in mind to ignore as irrelevant when we describe (P) as logically
+necessary? Presumably
+what is meant by this is that (P) would remain true no matter who (or what) the name
+'Socrates' refers to, and no matter what properties are designated by the
+phrases 'man' and 'mortal'. Thus, for example, if the name
+'Socrates' were to refer to Kurt Gödel, the phrase 'man' to the property of
+being German, and the phrase 'mortal' to the property of being a poor logician,
+it would still follow from the truth of the sentences
+'Socrates is a man' and 'Every man is mortal', that the sentence 'Socrates is
+mortal' is true. For: if all Germans are poor logicians, and Kurt Gödel is
+German, then Kurt Gödel, too, is a poor logician.
+
+Note that it is crucial to this line of reasoning that the constructs 'Every $\cdots$ is $\smallblank$' and '$\cdots$ is a $\smallblank$' are taken to
+possess their usual meaning, i.e., the former asserts that all objects possessing
+the property designated by '$\cdots$' also possess the property designated by
+'$\smallblank$', and the latter asserts that the object named by '$\cdots$'
+possesses the property designated by '$\smallblank$'. If the meanings of these
+constructs were allowed to vary along with those of 'Socrates', 'mortal', and
+'man' (e.g., if 'Every $\cdots$ is $\smallblank$' were taken to mean that only
+_some_ $\cdots$'s are $\smallblank$'s)
+then there may be ways of interpreting the premises and conclusion of the
+argument according to which the premises are true but the conclusion false.
+
+As this example illustrates, when we assess the validity of an argument we
+always take for granted a certain distinction between those elements of the
+syntax that are taken to have a fixed meaning for the purpose of this assessment
+and those elements of the syntax whose meanings are allowed to vary. We refer to
+the former as the _logical_ elements of the syntax and to the latter as its
+_non-logical_ elements. To say that an argument is valid is to assert that,
+under the assumption that the logical elements of the syntax are given
+their usual meaning, the truth of the argument's conclusion follows from the
+truth of its premises no matter how the non-logical elements of the syntax are
+interpreted. The sense of necessity implicated in claims of validity is thus a
+kind of _semantic_ necessity---it is truth in sole virtue of the meanings of the
+logical elements of the syntax.
+
+### Semantics 
+
+Let us now return to the question of how to restrict the class of admissible truth valuations so as to give rise to a non-trivial standard of argumentative validity. Given our previous discussion of logical necessity, the answer to this question should now be clear. To restrict the class of admissible truth valuations, we will appeal to the fixed meanings of the logical elements of the syntax.
+
+With respect to a particular language, a description of the constraints imposed by the meanings of the logical elements of its syntax on the class of admissible truth valuations is called a semantic framework, or simply a _semantics_.[^extensional-semantics] In general, we will specify a semantics for a language by means of the following three-stage procedure:
+
+[^extensional-semantics]: More precisely, this sort of semantic framework, in which the meanings of the logical constants are represented by constraints on the class of admissible truth valuations, is called an _extensional_ semantics. By contrast, an _intensional_ semantics does not interpret meaning in terms of truth and falsehood, but in more fine-grained terms, by appeal to notions like conceptual content, truthmakers, or possible worlds. We will consider intensional semantic frameworks in Chapter ??? below. 
+
+1.  A certain set of expressions of the language will be identified as the non-logical elements of the syntax.
+
+2.  With each non-logical element of the syntax we will associate a set of possible semantic values. An _interpretation_ of the language will then be any function which assigns to each non-logical element of the syntax a particular value from this set.
+
+3. We will formulate a set of _semantic rules_ for the language which associates with each possible interpretation $\sigma$ a unique truth valuation $val^\sigma$.
+
+The class of admissible truth valuations with respect to which we will assess
+the validity of arguments will be those of the form $val^\si$, i.e., those which
+result from the application of the semantic rules to a specific interpretation
+of the non-logical elements of the syntax. In general, the semantic rules for
+the language---which encode the meanings of the logical elements of the
+syntax---will be chosen in such a way that not every truth valuation will be of
+the form $val^\sigma$. Hence, it is these semantic rules that will render our
+standard of validity nontrivial.
+
+Whenever we assess the validity of an argument it will always be assumed that our assessment occurs against the background of an already specified semantics. Taking this for granted, we can now replace @def-relative-validity with the following, more specific definition of validity: 
+
+::: {#def-validity}
+   The argument
+   $$
+   \Ga\proves\ph
+   $$
+   is _valid_ if, for every interpretation $\si$, the following is true: if $val^\si(\psi)=\true$, for all $\psi\in\Ga$, then $val^\si(\ph)=\true$. To express this, we write: 
+   $$
+   \Ga\models\ph
+   $$
+   In this case, we may also say that $\Ga$ _entails_ $\ph$, or that $\ph$ is a _logical consequence_ of $\Ga$.
+:::
+
+As an illustration of @def-validity, let us consider one last time the argument: 
+$$
+\textrm{\textcolor{red}{Socrates} is \textcolor{red}{a man}, Every \textcolor{red}{man} is \textcolor{red}{mortal}}\proves\textrm{\textcolor{red}{Socrates} is \textcolor{red}{mortal}}
+$$
+
+The non-logical elements of the syntax appearing in this argument have been highlighted in red. They include the proper name 'Socrates'
+as well as the common nouns 'man' and 'mortal'. An interpretation of the language must assign semantic values to each of these terms, but what should these semantic values be? Let's begin with the term 'Socrates'. A proper name like 'Socrates' is intended to denote a particular object. Let $\W$ be a set comprising some domain of objects that is sufficiently comprehensive so as to include all the objects to which the proper name 'Socrates' might refer. It could be that $\W$ is the set of all Greek philosophers, or the set of all persons, or the set of all objects in the universe. In any case, we will take the possible semantic values of the name 'Socrates' to be given by the objects in $\W$. Now, for the common nouns 'man' and 'mortal'. These terms are intended to denote properties of the sort that can be predicated of individual objects. If we identify a property with the class of all and only those objects possessing said property, the possible semantic values of the common nouns 'man' and 'mortal' will then be given by subsets of the set of objects $\W$. An illustration of an interpretation of the terms 'Socrates', 'man', and 'mortal' is given in @fig-syllogism-interpretation. 
+
+:::{#fig-syllogism-interpretation}
+
+![](/content/static/images/syllogism-interpretation.svg){width=450 fig-align="center" fig-alt="Set Operations"}
+
+An interpretation $\si$ of the non-logical terms 'Socrates', 'man', and 'mortal'.
+:::
+
+It remains to specify the semantic rules by which an interpretation of the
+non-logical elements of the syntax determines a truth valuation of the language.
+Let $a$ be any proper name and let $P$ and $Q$ be common nouns. A
+sentence of the form '$a$ is $P$' is true just in case the object signified by
+$a$ belongs to the set of objects to which the property signified by $P$ applies. This condition may be summarized by the following semantic rule:
+
+$$
+val^\si(a\textrm{ is }P) = \left\{\begin{array}{ll} \true & \textrm{if }\si(a)\in\si(P) \\
+             \false     & \textrm{otherwise}\end{array}\right.
+$$
+
+Similarly, a sentence of the form 'Every $P$ is $Q$' is true just in case every object to which the property signified by $P$ applies is an object to which the property signified by $Q$ also applies, in other words:
+$$
+  val^\si(\textrm{Every }P\textrm{ is }Q) = \left\{\begin{array}{ll} \true & \textrm{if }\si(P)\subset\si(Q) \\
+             \false     & \textrm{otherwise}\end{array}\right.
+$$ 
+To assess the validity of the argument in question we ask: is there a possible
+interpretation of the language under which both of the premises are true, but
+the conclusion false? To see that the answer to this question is no, consider
+any interpretation $\si$ under which both of the premises are true, i.e.:
+$$
+val^\si(\textrm{Socrates is a man}) = val^\si(\textrm{Every man is mortal}) = \true
+$$
+
+By the above two semantic rules, it follows that both
+$\si(\textrm{Socrates})\in\si(\textrm{man})$ and
+$\si(\textrm{man})\subset\si(\textrm{mortal})$. But this implies that
+$\si(\textrm{Socrates})\in\si(\textrm{mortal})$. Thus, by the first of our two semantic rules, the conclusion of the
+argument---Socrates is mortal---is true under the interpretation $\si$ as well, i.e.:
+$$
+val^\si(\textrm{Socrates is mortal}) = \true
+$$
+So, the argument is valid. (Before moving on, pause for a moment to think about how well this proof of the argument's validity captures your informal intuition as to why the argument is valid.) 
+
+In addition to validity, there are a few other important semantic notions that can be defined in terms of the general notion of truth under an interpretation.
+
+::: {#def-logical-truth} 
+
+A sentence $\ph$ is _logically true_ if $val^\si(\ph)=\true$, for all
+interpretations $\si$. A sentence $\ph$ is _logically false_ if
+$val^\si(\ph)=\false$, for all interpretations $\si$. Two sentences $\ph$ and
+$\psi$ are _logically equivalent_ if $val^\sigma(\ph)=val^\sigma(\psi)$, for all
+interpretations $\sigma$. To indicate that $\ph$ and $\psi$ are logically
+equivalent we write $\ph\equiv\psi$.
+
+:::
+
+::: {#exr-semantic-notions .exercise}
+{{< include /content/exercises/semantic-notions.qmd >}}
+:::
+
+::: {#exm-0x1-semantics .example}
+{{< include /content/inserts/examples/0s-x-1s/semantics.qmd >}}
+
+::: {#exr-0x1-expressive-power .exercise}
+{{< include /content/exercises/0x1-expressive-power.qmd >}}
+::: 
+:::

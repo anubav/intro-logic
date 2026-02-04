@@ -1,0 +1,10 @@
+Let $S$ be the set of all sets which are not members of themselves, i.e.:
+
+$$
+S = \{X: X\textrm{ is a set and }X\not\in X\}
+$$
+
+Explain why the set $S$ cannot exist by asking whether $S$ is a member of itself.^[This is Russell's famous paradox, revealing the inconsistency of the formalization of naive set theory given by @Frege1893-ld in his _Grundgesetze der Arithmetik_. In that work, Frege assumed that any property whatsoever---including the property of not being a member of itself---could be used in the formation of a well-defined set. For a detailed discussion of the various approaches adopted by modern formalizations of set theory to avoid Russell's paradox, see @Fraenkel1973-tk.]
+
+
+

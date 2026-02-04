@@ -1,0 +1,16 @@
+a. Prove that $f_\imp$ is not expressible in $\{\conj,\disj\}$.
+
+Let $\uparrow$ be the binary propositional connective, whose corresponding truth function is given
+by:
+$$
+    f_\uparrow(\al,\be)=f_\neg(f_\conj(\al,\be))
+$$
+and let $\downarrow$ be the binary propositional connective, whose corresponding truth function is given by:
+$$
+    f_\downarrow(\al,\be)=f_\neg(f_\disj(\al,\be))
+$$
+
+b. Show that $\{\uparrow\}$ and $\{\downarrow\}$ are truth functionally complete.
+
+c. Let $\ast$ be any binary propositional connective. Show that if  $\{\ast\}$ is truth functionally complete, then $\ph*\psi$ is equivalent to
+either $\ph\uparrow \psi$ or $\ph\downarrow\psi$.

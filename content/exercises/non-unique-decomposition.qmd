@@ -1,0 +1,19 @@
+a. Suppose that we  wish to assign to the natural numbers the properties 'black' and 'red' in accordance with the following conditions:
+
+    1. The number 1 is red.
+
+    2. If $n$ and $m$ are both red, then $n+m$ is black.
+
+    3. If either $n$ or $m$ is black, then $n+m$ is red.
+
+    4. No number is both red and black.
+
+    Are these conditions consistent?
+
+b. Consider the following two conditions:
+
+    5.  If $n$ and $m$ are either both red or both black, then $n+m$ is black.
+
+    6.  If $n$ is red and $m$ is black, then $n+m$ is red.
+
+    Show that conditions 1, 4, 5, and 6 are consistent. 

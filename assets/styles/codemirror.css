@@ -1,0 +1,29 @@
+.exercise-editor {
+  border: 1px solid #ddd;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cm-editor {
+  height: 300px;
+}
+
+.editor {
+  background-color: white;
+  padding: 8px 10px 10px 10px;
+}
+
+.preview {
+  padding: 10px;
+}
+
+.exercise-submit-btn {
+  margin-bottom: 1em;
+}
+
+.CodeMirror {
+  font-family: "Fira Code", monospace;
+  font-size: medium;
+}

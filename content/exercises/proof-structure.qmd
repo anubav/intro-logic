@@ -1,0 +1,5 @@
+a. Prove @thm-proof-structure. 
+
+b. Let $\mathbf{D}$ be any proof system. Show that if $\Ga\proves_{\mathbf{D}}\ph$, then there exists a proof of $\ph$ from $\Ga$ in $\mathbf{D}$ in which no sentence appears more than once. 
+
+c. Let $\ph_1,\ldots,\ph_n$ be a proof of $\ph$ from $\Ga$ in $\mathbf{D}$. Suppose we rearrange the sentences in this proof by first listing (in any order) all the sentences that are either axioms or members of $\Ga$ followed by the remaining sentences in the order in which they appear in the proof. Is the resulting sequence still a proof of $\ph$ from $\Ga$ in $\mathbf{D}$?

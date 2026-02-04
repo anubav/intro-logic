@@ -1,0 +1,23 @@
+Let $X$ be a multiset with members drawn from the set $\W$. We write $\mathbf{N}_X$ for the function which maps every $x\in\W$ to the natural number corresponding to the number of times that $x$ occurs in $X$. We refer to $\mathbf{N}_X(x)$ as the _multiplicity_ of $x$ in $X$.  
+
+Let $X$ and $Y$ be any two multisets with members drawn from the set $\W$. 
+
+a. Formulate the statements $x\in X$ and $X\subset Y$ in terms of $\mathbf{N}_X$ and $\mathbf{N}_Y$.
+
+b. Express the functions $\mathbf{N}_{X\cap Y}$, $\mathbf{N}_{X\cup Y}$, and $\mathbf{N}_{X-Y}$ in terms of $\mathbf{N}_X$ and $\mathbf{N}_Y$.
+
+An alternative way of defining the union of two multisets $X$ and $Y$ is as the
+'smallest' multiset $Z$ such that $X\subset Z$ and $Y\subset Z$. In other words,
+the union of $X$ and $Y$, in this alternative sense, is the unique multiset $Z$
+such that (i) $X\subset Z$ and $Y\subset Z$ and (ii) for any multiset $W$: if $X\subset W$ and $Y\subset W$, then $Z\subset W$.
+
+c.  Let $X\sqcup Y$ be the alternative multiset union of $X$ and $Y$. Express the function $\mathbf{N}_{X\sqcup Y}$ in terms of $\mathbf{N}_X$ and $\mathbf{N}_Y$.
+
+d. Show that, for any multisets $X$ and $Y$:
+$$
+(X \cup Y) - Y = X
+$$
+Under what conditions does the following equality hold: 
+$$
+(X \sqcup Y) - Y = X
+$$ 

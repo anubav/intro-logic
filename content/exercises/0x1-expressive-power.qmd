@@ -1,0 +1,3 @@
+Show that every sentence of $L_\times$ is logically equivalent to one and only
+one of the following four sentences: (i) $x=0$, (ii) $x=1$, (iii) $0=0$, (iv)
+$0=1$.

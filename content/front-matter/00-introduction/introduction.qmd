@@ -1,0 +1,9 @@
+---
+bibliography: "introduction.bib"
+---
+
+# Introduction {.unnumbered}
+
+{{< include why-study-logic.qmd >}}
+
+## References

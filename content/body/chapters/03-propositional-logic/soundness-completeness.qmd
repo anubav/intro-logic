@@ -1,0 +1,242 @@
+## The Soundness and Completeness of $\p$
+
+In this section, we will establish the soundness and completeness of the proof system $\p$ with respect to the truth-functional semantics for propositional logic. Since the proof system $\p$ is deductively equivalent to the Hilbert-style proof system $\Hp$, it will suffice to establish soundness and completeness for this latter system: $\Ga\proveshp\ph$ iff $\Ga\models\ph$.  
+
+### The Soundness of $\Hp$
+
+To show that the system $\Hp$ is sound, it suffices to show that every axiom of $\Hp$ is a logical truth, and that every rule of inference corresponds to a valid argument. That every axiom is a logical truth can be easily verified by means of truth-tables for the axioms schemas P$1$-P$3$. For example, that every instance of the schema P$1$ is a logical truth can be confirmed as follows:
+
+|  $\ph$   |  $\psi$  | $\psi\imp\ph$ | $\ph\imp(\psi\imp\ph)$ |
+| :------: | :------: | :-----------: | :--------------------: |
+| $\true$  | $\true$  |    $\true$    |        $\true$         |
+| $\true$  | $\false$ |    $\true$    |        $\true$         |
+| $\false$ | $\true$  |   $\false$    |        $\true$         |
+| $\false$ | $\false$ |    $\true$    |        $\true$         |
+
+We leave it to the reader to supply the corresponding truth tables for the axiom schemas P$2$ and P$3$ confirming that each of their instances is a logical truth. 
+
+To show that ($\imp-$) corresponds to a valid argument, we must show that $\ph,\ph\imp\psi\models\psi$. Let $\si$ be an interpretation such that $val^\si(\ph)=\true$ and $val^\si(\ph\imp\psi)=\true$. Then:
+$$
+val^\si(\ph\imp\psi)=f_\imp(val^\si(\ph),val^\si(\psi)) = f_\imp(\true, val^\si(\psi)) = \true
+$$
+But then, by the definition of $f_\imp$ it follows that $val^\si(\psi)=\true$. 
+
+Note that the soundness of $\Hp$ expresses a fact about what is _not_ provable in
+the system. In particular, it asserts that no claim which does not logically follow from $\Gamma$ is
+provable from $\Gamma$ in the system. In establishing the soundness of $\Hp$, the strategy we employed was to show
+that the property of truth under a given interpretation is possessed by any sentence provable from
+any set of sentences all of which possess this property. Since it follows from the definition of
+validity, that if $\Gamma\not\models \ph$, there is some interpretation such that truth under this
+interpretation is not preserved in passing from $\Gamma$ to $\ph$, it can be inferred that
+$\Gamma\not\proveshp \ph$.
+
+As a general rule, we may note that any property possessed by the axioms of a deductive system and
+which is preserved under its rules of inference, is possessed by every theorem of that system. This
+fact can be used to show that certain sentences are not theorems. For example, consider the
+deductive system which has axiom schemas P$$1$ and P$2$ and ($\imp-$) as its sole rule of inference, and
+let $f_\false$ be the unary truth function which always returns the truth value $\false$. If we
+replace the semantical rule (S2), with the ''non-standard'' semantical rule:
+
+(S2)$^*$: For any sentence $\ph$:
+$$
+val^\si(\neg\ph) = f_{\false}(val^\si(\ph))
+$$
+
+it can easily be verified that every instance of P$1$ and P$2$ has the property of being true under all
+interpretations of the language, and that this property is preserved under applications of the rule
+($\imp-$). Hence, every theorem of this system must likewise possesses this property. Note, however,
+that if $\psi$ is true and $\ph$ is false the sentence $(\neg\ph\imp\neg\psi)\imp(\psi\imp\ph)$ is
+false, and so provided $\psi$ is a sentence which can be true and $\ph$ a sentence which can be
+false, this sentence cannot be proven in the system. Since, however, this sentence is a logical
+truth (with respect to the standard semantics for propositional logic), it follows that the
+proof system consisting of just P1, P2, and the rule ($\cond-$) is incomplete.
+
+:::{#exr-incomplete-fragments-P .exercise}
+{{< include /content/exercises/incomplete-fragments-P.qmd >}}
+:::
+
+
+### The Completeness of $\Hp$
+
+In this section we will prove the completeness of $\Hp$. Our proof of completeness will employ the same technique that we employed in establishing the completeness of the proof system $\s$ for syllogistic logic described in Chapter 2. First, we will show that the completeness theorem is equivalent to the claim that every consistent set of sentences is satisfiable.
+
+:::{#def-p-satisfiability .definition}
+Let $\Gamma$ be any set of sentences. We say that $\Gamma$ is
+_satisfiable_ iff there exists an intepretation $\si$, such that $val^\si(\ph)=\true$, for all $\ph\in\Gamma$. We say that $\Gamma$ is _unsatisfiable_ if it is not satisfiable.
+:::
+
+:::{#def-p-consistency .definition} 
+Let $\Gamma$ be any set of sentences. We say that $\Gamma$ is
+_consistent_ iff there is no sentence $\ph$, such that $\Gamma\proveshp\ph$, and $\Gamma\proveshp\neg\ph$. We say that $\Gamma$ is _inconsistent_
+if it is not consistent. 
+:::
+
+If $\Hp$ is complete, then every consistent set of sentences is satisfiable. To see this,
+let $\Gamma$ be unsatisfiable. Since there is no interpretation which satisfies $\Gamma$, it follows
+trivially that for every $\ph$, both $\Gamma\models \ph$ and $\Gamma \models \neg\ph$. Thus, if the
+system is complete, both $\Gamma\proveshp\ph$ and $\Gamma\proveshp\neg\ph$, i.e., $\Gamma$
+is inconsistent. The converse of this claim holds as well, that is, if every
+consistent set of sentences is satisfiable, then the system $\Hp$ is complete. We begin by observing
+the following two facts:
+
+
+:::{#thm-p-sat .theorem}
+$\Gamma\not\models \ph$ iff $\Gamma\cup\{\neg\ph\}$ is satisfiable.
+
+:::{.proof}
+$\Gamma\cup\{\neg\ph\}$ is satisfiable iff there exists an interpretation $\si$,
+such that $val^\si(\psi)=\true$, for all $\psi\in\Ga\cup\{\neg\ph\}$.
+But this is true iff there exists an intepretation $\si$, such that
+$val^\si(\psi)=\true$, for all $\psi\in\Ga$, and
+$val^\si(\ph)=\false$, i.e., $\Gamma\not\models \ph$.
+:::
+:::
+
+:::{#thm-p-con .theorem}
+$\Gamma\not\proveshp\ph$ iff $\Gamma\cup\{\neg\ph\}$ is consistent.
+
+:::{.proof}
+First, suppose that $\Ga\proveshp\ph$. Then, $\Ga,\neg\ph\proveshp\ph$ and $\Gamma,\neg\ph\proveshp\neg\ph$, and so $\Gamma\cup\{\neg\ph\}$ is inconsistent. Next, suppose that $\Gamma\cup\{\neg\ph\}$ is inconsistent. Then there exists
+a sentence $\psi$ such that $\Gamma, \neg\ph\proveshp\psi$ and
+$\Gamma,\neg\ph\proveshp\neg\psi$. By ($\neg+$), we have
+$\Ga\proveshp\neg\neg\ph$. Hence, by ($\neg-$), $\Ga\proveshp\ph$. 
+:::
+:::
+
+In its contrapositive form, the completeness theorem asserts that if $\Gamma\not\proveshp\ph$, then $\Gamma\not\models \ph$. Thus, from @thm-p-sat and @thm-p-con, completeness is equivalent to the following claim: if $\Gamma\cup\{\neg\ph\}$ is consistent, then $\Gamma\cup\{\neg\ph\}$ is satisfiable. Hence, if every consistent set of sentences is satisfiable, the completeness theorem holds. All told, then, the completeness theorem may be reformulated as the claim that every consistent set of sentences is satisfiable.
+
+To show that the completeness theorem holds, we will construct, for any given consistent set of
+sentences, an interpretation which satisfies this set. Our construction will proceed as follows: we
+will consider the sentences of the language, one by one, and determine, for each such sentence,
+whether or not it can be consistently added to the sentences already in the set. If so, we will add
+it to the set, if not, we will add its negation to the set. In this way, we will extend the original
+set to a 'maximal' set of sentences which can be used to decide, in a consistent manner, the truth
+or falsity of every sentence in the language.
+
+As we shall see, such a maximally consistent set amounts to an explicit characterization of a truth
+valuation of the language, with the members of the set indicating which of the sentences are true
+under this valuation. By considering which of the atomic sentences belong to this set, we will be
+able to arrive at an interpretation of the language that satisfies every sentence in the maximal
+set. Since the original set is contained in this maximal set, it too will be satisfied by this
+interpretation.
+
+For convenience, we collect together in the following theorem all the relevant facts about provability in $\Hp$ that we will have occasion to appeal to in our proof of completeness:
+
+:::{#thm-p-proof-facts .theorem}
+For any sentences $\ph$ and $\psi$:
+
+i. $\neg\neg\ph\proveshp\ph$
+
+ii. $\ph, \neg\psi\proveshp\neg(\ph\imp\psi)$
+
+iii. $\neg\ph\proveshp\ph\imp\psi$
+
+iv. $\ph\proveshp\psi\imp\ph$
+
+:::
+
+:::{#def-p-max-con .definition} 
+ A set of sentences $\Gamma$ is _maximally consistent_ if the following two conditions hold:
+
+1. $\Gamma$ is consistent.
+
+2. For every sentence $\ph$: if $\ph\not\in\Ga$, then $\Ga\cup\{\ph\}$ is  inconsistent.
+:::
+
+:::{#thm-p-con-addition .theorem}
+If $\Gamma$ is a consistent set of sentences, then, for any sentence $\ph$,
+either $\Gamma\cup\{\ph\}$ or $\Gamma\cup\{\neg\ph\}$ is consistent.
+
+:::{.proof}
+Suppose, for contradiction, that both $\Gamma\cup\{\ph\}$ and $\Gamma\cup\{\neg\ph\}$ are
+inconsistent. If $\Gamma\cup\{\ph\}$ is inconsistent, then, by @thm-p-proof-facts.(i),
+$\Gamma\cup\{\neg\neg\ph\}$ is inconsistent. Hence, by @thm-p-con,
+$\Gamma\proveshp\neg\ph$. But, if $\Gamma\cup\{\neg\ph\}$ is inconsistent, then, again by
+@thm-p-con, $\Gamma\proveshp\ph$. This, however, contradicts the assumption that $\Gamma$ is consistent.
+:::
+:::
+
+:::{#thm-p-max-con .theorem}
+If $\Gamma$ is a maximally consistent set of sentences, then, for every sentence $\ph$, exactly one sentence in the set $\{\ph, \neg\ph\}$ is a member of $\Gamma$.
+
+:::{.proof}
+That at most one of these two sentences belongs to $\Gamma$ follows from the fact that $\Gamma$ is
+consistent.  Now, suppose that both $\ph\not\in\Gamma$ and $\neg\ph\not\in\Ga$. By the definition
+of maximal consistency, both $\Gamma\cup\{\ph\}$ and $\Ga\cup\{\neg\ph\}$ are inconsistent. But, by @thm-p-con-addition, it follows that $\Ga$ is inconsistent, which contradicts the assumption that $\Gamma$ is maximally consistent.
+:::
+:::
+
+:::{#thm-p-max-con-sat .theorem}
+Every maximally consistent set of sentences is satisfiable
+
+:::{.proof}
+Let $\Gamma$ be a maximally consistent set of sentences, and let $\si_\Ga$ be the interpretation
+defined by:
+$$
+    \si_\Ga(\p_i)=\left\{\begin{array}{ll} \true & \textrm{ if }\p_i\in\Gamma     \\
+             \false     & \textrm{ if }\neg\p_i\in\Gamma\end{array}\right.
+$$
+
+By @thm-p-max-con, this is a well-defined interpretation of $\Lp$. Thus, it will
+suffice to show that $\Ga$ is satisfiable to show that $val^{\si_\Ga}(\ph)=\true$ iff
+$\ph\in\Gamma$. The proof will proceed by induction on the sentences. If $\ph$ is an atomic
+sentence, then the claim follows directly from the definition of
+$\si_\Ga$.
+
+Now, suppose that $\neg\ph\in\Gamma$. Then, by @thm-p-max-con, $\ph\not\in\Ga$, and so, by the induction hypothesis, $val^{\si_\Ga}(\ph)=\false$. Hence, $val^{\si_\Ga}(\neg\ph)=\true$. If, on the other hand, $\neg\ph\not\in\Gamma$, then, by @thm-p-max-con, $\ph\in\Gamma$, and so, by the induction hypothesis, $val^{\si_\Ga}(\ph)=\true$. Hence $val^{\si_\Ga}(\neg\ph)=\false$.
+So, $\neg\ph\in\Ga$ iff $val^{\si_\Ga}(\neg\ph)=\true$.
+
+  Next, suppose that $\ph\imp\psi\in\Gamma$. Then, either $\ph\not\in\Gamma$ or $\psi\in\Gamma$. For
+  if neither is the case, then, by Theorem @thm-p-max-con, both $\ph\in\Ga$ and
+  $\neg\psi\in\Ga$, and so $\Ga\proveshp\ph$ and $\Ga\proveshp\neg\psi$. But then, by @thm-p-proof-facts.(ii), $\Ga\proveshp\neg(\ph\imp\psi)$, which contradicts the assumption that $\Ga$ is consistent.
+  So, either $\ph\not\in\Gamma$ or $\psi\in\Ga$. If, on the one hand, $\ph\not\in\Ga$, then, by the
+  induction hypothesis, $val^\si_\Ga(\ph)=\false$, from which it follows that
+  $val^\si_\Ga(\ph\imp\psi)=\true$. If, on the other hand, $\psi\in\Ga$, then, by the induction
+  hypothesis, $val^\si_\Ga(\ph)=\true$, from which it follows that $val^{\si_\Ga}(\ph\imp\psi)=\true$. Hence,
+  in either case, $val^{\si_\Ga}(\ph\imp\psi)=\true$.
+
+  Lastly, suppose that $\ph\imp\psi\not\in\Ga$. Then, by @thm-p-max-con,
+  $\neg(\ph\imp\psi)\in\Ga$. It follows that both $\ph\in\Ga$ and $\psi\not\in\Ga$. For, if, on the
+  one hand, $\ph\not\in\Ga$, then $\neg\ph\in\Ga$, and so $\Ga\proveshp\neg\ph$. But, by @thm-p-proof-facts.(iii), 
+  $\Ga\proveshp\ph\imp\psi$, which contradicts the assumption that $\Ga$ is consistent. If, on
+  the other hand, $\psi\in\Ga$, then $\Ga\proveshp\psi$. But, by @thm-p-proof-facts.(iv), $\Ga\proveshp\ph\imp\psi$, which again
+  contradicts the assumption that $\Ga$ is consistent. So, both $\ph\in\Ga$ and $\psi\not\in\Ga$. By
+  the induction hypothesis, we have $val^{\si_\Ga}(\ph)=\true$ and $val^{\si_\Ga}(\psi)=\false$, from which it
+  follows that $val^{\si_\Ga}(\ph\imp\psi)=\false$. All told, then, $\ph\imp\psi\in\Ga$ iff
+  $val^{\si_\Ga}(\ph\imp\psi)=\true$. This completes the induction.
+
+:::
+:::
+
+Since every maximally consistent set of sentences is consistent, it only remains to show that every
+consistent set of sentences can be extended to a maximally consistent set. 
+
+:::{#thm-p-extension}
+If $\Gamma$ is a consistent set of sentences, then there
+exists a maximally consistent set of sentences $\Gamma^*$ such that $\Gamma\subset\Gamma^*$.
+
+:::{.proof}
+Let $\ph_1,\ph_2,\ldots$ be an enumeration of all of the sentences of $\Lp$. We construct an increasing sequence of sets $\Gamma_1\subset\Gamma_2\subset\ldots$ as follows: first, let $\Gamma_1=\Gamma$. Now, suppose that $\Gamma_n$ ($n\geq 1$) has been constructed and that it is consistent. Then let:
+$$
+\Gamma_{n+1}=\left\{\begin{array}{ll} \Gamma_n\cup\{\ph_n\} & \textrm{ if }\Gamma_n\cup\{\ph_n\}
+             \textrm{ is consistent.}                                        \\
+             \Gamma_n\cup\{\neg\ph_n\}  & \textrm{otherwise}\end{array}\right.
+$$
+By @thm-p-con-addition, $\Gamma_{n+1}$ is consistent, and so the construction can continue.
+Let $\Gamma^*$ be the set of all sentences which appear in some set in the sequence
+$\Ga_1,\Ga_2,\ldots$. Since $\Ga=\Ga_1$, clearly $\Ga\subset \Ga^*$. We will now show that $\Gamma^*$ is a maximally consistent set. Suppose, for contradiction, that $\Gamma^*$ is inconsistent. Then for some $\ph$, $\Gamma^*\proveshp\ph$ and $\Gamma^*\proveshp\neg\ph$. Given a proof of $\ph$ from $\Gamma^*$ and a proof of $\neg\ph$ from $\Gamma^*$, let $\Delta$ be the set of all sentences in $\Gamma^*$ that are appealed to as premises somewhere in this proof. For each $\psi\in\Delta$, let $n(\psi)$ be the smallest $n$ such that $\psi\in\Gamma_n$. Since proofs are, by definition, of finite length, $\Delta$ is a finite set. Thus, the number $m=\max\{n(\psi):\psi\in\Delta\}$ is a finite number, and every sentence in $\Delta$ is a member of $\Gamma_m$. But then the aforementioned proofs of $\ph$ and $\neg\ph$ from $\Ga^*$ are also proofs from $\Gamma_m$, and so $\Gamma_m$ is inconsistent. But this contradicts the above definition of $\Gamma_m$. Thus,
+$\Gamma^*$ is consistent.
+
+Now, let $\ph$ be any sentence such that $\ph\not\in\Ga^*$. By the definition of $\Gamma^*$, it
+follows that $\neg\ph\in\Ga^*$. Hence, adding $\ph$ to $\Ga^*$ would render the set inconsistent.
+Thus, $\Ga^*$ is a maximally consistent extension of $\Ga$.
+:::
+:::
+
+The proof of the completeness of $\Hp$ now proceeds as follows. Let $\Ga$ be any consistent set. By @thm-p-extension, there exists a maximally consistent set
+$\Ga^*$ such that $\Ga\subset\Ga^*$. As we have seen, $\Ga^*$ is satisfiable by
+the interpretation $\si_\Ga$. But any interpretation that satisfies $\Gamma^*$
+also satisfies $\Ga$, and so $\Ga$ too is satisfiable.
+
+Hence, every consistent set of sentences is satisfiable, and this, as we have
+seen, is equivalent to the completeness of $\Hp$. Thus, the proof system $\Hp$---and so, likewise, the system $\p$---is a sound and complete proof system with respect to the truth-functional semantics for propositional logic.

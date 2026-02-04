@@ -1,0 +1,1 @@
+Formulate the proofs requested in @exr-proofs-in-S in Fitch notation.

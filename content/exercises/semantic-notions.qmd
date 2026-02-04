@@ -1,0 +1,9 @@
+(a). Define logical truth and logical equivalence in terms of the logical consequence relation, $\models$. 
+
+(b). Which sentences are logical consequences of a logical truth? Which sentences are logical consequences of a logical falsehood? If every sentence is a logical consequence of $\ph$, is $\ph$ a logical falsehood? 
+
+(c). Let two sets of sentences $\Ga$ and $\De$ be logically equivalent just in case:
+$$
+val^\si(\ph)=\true\textrm{, for all }\ph\in\Ga\textrm{\,\,iff\,\, }val^\si(\ph)=\true\textrm{, for all }\ph\in\De
+$$
+Define the relation of logical consequence in terms of logical equivalence between sets. 

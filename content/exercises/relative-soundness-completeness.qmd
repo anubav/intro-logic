@@ -1,0 +1,23 @@
+Let us say that a proof system $\mathbf{D}$ is _sound with respect to a set of truth valuations $V$_ if, for all sets of sentences $\Gamma$ and all sentences $\ph$:
+$$
+    \textrm{If $\Gamma\proves_\mathbf{D}\ph$, then $\Gamma\models_V \ph$}
+$$
+
+Let us say that a proof system $\mathbf{D}$ is _complete with respect to a set of truth valuations $V$_, if, for all sets of sentences $\Gamma$ and all sentences $\ph$:
+$$
+    \textrm{If $\Gamma\models_V \ph$, then $\Gamma\proves_\mathbf{D}\ph$.}
+$$  
+
+Prove the following claims:
+
+a.  If $\mathbf{D}$ is sound with respect to $V'$ and $V\subset V'$, then $\mathbf{D}$ is sound  with respect to $V$.
+
+b. If $\mathbf{D}$ is complete with respect to $V$ and $V\subset V'$, then $\mathbf{D}$ is complete with respect to $V'$.
+
+c. If $V$ is the set of all possible truth valuations of a language with more than one sentence, then the only proof systems that are sound with respect to $V$ are those which contain no axioms and only rules of inference of the form:
+$$
+\frac{\ph_1,\ldots,\ph_n,\psi}{\psi}
+$$
+
+d. If $V$ is the set of all possible valuations of a language, then every proof system is complete with respect to $V$.
+  
