@@ -5,8 +5,8 @@ worldwide. A student who is new to the subject may naturally wonder why this
 should be the case. Why, that is, should the study of logic be regarded as a
 necessary prerequisite to a philosophical education? Puzzlement on this score is
 sure to increase when, upon first entry into the study of logic, one is almost
-immediately confronted with formulas and equations that seem more at home in a
-course of mathematics than philosophy.
+immediately confronted with symbols, formulas, and equations that seem more at
+home in a course of mathematics than philosophy.
 
 One potential source of confusion as to logic's proper place within philosophy
 derives from the fact that what might be termed _logicality_---or the capacity
@@ -30,13 +30,13 @@ part of philosophical methodology? The answer, in short, is that reasoning, or
 argumentation, is not merely something that philosophers do and aspire to do
 well. It is also among the principal _objects_ of philosophical scrutiny.
 
-There is no more recognizably philosophical form of intellectual activity as
+There is no more recognizably philosophical form of intellectual activity than
 that which results from the attempt to resolve the feeling of paradox that
 accompanies an apparently sound argument which leads to a manifestly absurd
 conclusion. For the philosopher, such paradoxes of reasoning are not merely
-something to be avoided in practice---which perhaps would be simple enough
-to achieve---they are also sources of potential insight. For they highlight
-the need for a more careful scrutiny of the various concepts implicated in our
+something to be avoided in practice---which perhaps would be simple enough to
+achieve---they are also sources of potential insight. For they highlight the
+need for a more careful scrutiny of the various concepts implicated in our
 reasonings. Consider, for example, the following paradoxes, each of which has
 been made the subject of logical analysis and subsequently served as the
 starting point for a rich and fruitful line of philosophical inquiry:
@@ -53,11 +53,10 @@ starting point for a rich and fruitful line of philosophical inquiry:
 {{< include /content/inserts/sorites.qmd >}}
 :::
 
-Later on in this course, we will have occasion to revisit each of these
-paradoxes, and discuss them in more detail. For now, let us focus on the last
-example of the [sorites paradox](#sorites){.unstyled-link}, as it can be used to
-illustrate how philosopher's employ the method of logical analysis to treat
-paradoxes of reasoning.
+Let us consider, in slightly more detail, the last example of the [sorites
+paradox](#sorites){.unstyled-link}, as it can be used to illustrate how
+philosopher's employ the method of logical analysis to treat paradoxes of
+reasoning.
 
 When confronted by a paradox, the question one must ask is: where has the
 reasoning gone wrong? As a first step towards answering this question, it is
@@ -66,10 +65,12 @@ in the fallacious argument. In the case of the sorites paradox, the fallacy
 relies on the fact that there are certain properties---such as that of being a
 heap---which seem to exhibit the following features:
 
-1. Whether or not the property applies is invariant under small changes in the object to which it is applied.
+1. Whether or not the property applies is invariant under small changes in the
+   object to which it is applied.
 
 2. A large enough number of such small changes, if carried out in consecution,
-   would result in a sequence of objects the first of which clearly possesses the property and the last of which clearly does not.
+   would result in a sequence of objects the first of which clearly possesses
+   the property and the last of which clearly does not.
 
 Identifying the core assumptions at work in a fallacy is a good start, but one
 must next explain how exactly these assumptions are utilized in the paradoxical
@@ -80,9 +81,7 @@ reasoning more precisely.
 Let $H$ (for "heap") be a predicate which applies to the positive integers
 ($1,2,3,\ldots$) and which is defined as follows:
 
-$$
-  H(n) \textrm{ iff an accumulation of $n$ grains of sand is a heap}
-$$
+$$ H(n) \textrm{ iff an accumulation of $n$ grains of sand is a heap} $$
 
 Let $l$ be a large enough number such that $H(l)$ is clearly true and let $s$ be
 a small enough number such that $H(s)$ is clearly false. Then, the paradoxical
@@ -116,11 +115,11 @@ This general procedure whereby the material assumptions upon which an argument
 relies are made explicit and distinguished from the form of the reasoning
 involved in the argument, may be termed _logical analysis_. The methodological
 value of logical analysis for philosophy resides in the asymmetrical status that
-is generally afforded to the truth of the material assumptions, which may be questioned,
-and the underlying system of formal logic on which the argument is based, which
-is generally taken to be beyond reproach. If our analysis of an argument
-represents the reasoning as valid in a correct system of logic, then the fault
-in the reasoning must lie with one of the material assumptions.
+is generally afforded to the truth of the material assumptions, which may be
+questioned, and the underlying system of formal logic on which the argument is
+based, which is generally taken to be beyond reproach. If our analysis of an
+argument represents the reasoning as valid in a correct system of logic, then
+the fault in the reasoning must lie with one of the material assumptions.
 
 Of the two assumptions appearing in the sorites paradox, only the first, given
 in line 1 of the above argument, seems susceptible to doubt, and, indeed, many
@@ -148,43 +147,48 @@ subtleties, but each has its defenders in the literature.[^sorites-truth]
 
 [^sorites-truth]:
     For an analysis of the paradox that rejects the inference from
-    line 1 to 2, noting its invalidity in intuitionistic logic, see @Putnam1983-ix.
-    The most common grounds for rejecting the inference from line 2 to 3 involves
-    the adoption of a supervaluationist semantics such as that described in
-    @Fine1975-cq and @Keefe2000-gn.
+    line 1 to 2, noting its invalidity in intuitionistic logic, see
+    @Putnam1983-ix. The most common grounds for rejecting the inference from
+    line 2 to 3 involves the adoption of a supervaluationist semantics such as
+    that described in @Fine1975-cq and @Keefe2000-gn.
 
 Suppose, however, that upon due reflection we find such considerations
-unconvincing and that we can discover no other satisfactory reason to reject any of
-the material assumptions which lead to the sorites paradox. Must we then admit what seems
-patently absurd, that only a few grains of sand consitute a heap? We are only
-compelled to accept this absurdity, if we acknowledge as valid the form of the
-argument by which this seemingly absurd conclusion was derived from the premises we now admit to be true. But nothing in philosophy is
-sacrosanct---not even logic---and alternative resolutions to the sorites paradox have been put
-forward which target the underlying form of the reasoning itself. One such approach, for example, involves building into our system of logic a constraint which
-restricts the number of claims of the form '$\textrm{If }H(n)\textrm{, then
-}H(n-1)$' that can be appealed to in any single argumentative
-context.[^sorites-logic] According to this approach, the paradoxical argument
-fails not because of the falsehood of one of its material assumptions but
-because any chain of reasoning long enough to extend from a heap to a handful of
-grains of sand is simply too long for the argument to count as valid.
+unconvincing and that we can discover no other satisfactory reason to reject any
+of the material assumptions which lead to the sorites paradox. Must we then
+admit what seems patently absurd, that only a few grains of sand consitute a
+heap? We are only compelled to accept this absurdity, if we acknowledge as valid
+the form of the argument by which this seemingly absurd conclusion was derived
+from the premises we now admit to be true. But nothing in philosophy is
+sacrosanct---not even logic---and alternative resolutions to the sorites paradox
+have been put forward which target the underlying form of the reasoning itself.
+One such approach, for example, involves building into our system of logic a
+constraint which restricts the number of claims of the form '$\textrm{If
+}H(n)\textrm{, then }H(n-1)$' that can be appealed to in any single
+argumentative context.[^sorites-logic] According to this approach, the
+paradoxical argument fails not because of the falsehood of one of its material
+assumptions but because any chain of reasoning long enough to extend from a heap
+to a handful of grains of sand is simply too long for the argument to count as
+valid.
 
-[^sorites-logic]: One proposal for how to develop such a logic is given in @Gaifman2010-rk.
+[^sorites-logic]:
+    One proposal for how to develop such a logic is given in
+    @Gaifman2010-rk.
 
 The possibility of such revisionary logical critique might seem to call into
 question the value of undertaking a detailed study of any specific system of
-logic before first assessing its adequacy. However, there are certain systems
-of logic which, despite their limitations, have proven to be so powerful
-in their applications that they have come to be regarded as a sort-of
-'starter's toolkit' for logical analysis. These systems of logic include classical
-propositional logic, first-order quantificational logic, and the normal modal
-extensions thereof. A great deal of conceptual insight can be gained
-simply by formalizing arguments as derivations in these systems, and one can be
-certain that any proposed solution to a philosophical problem which calls for a
-significant revision to one of these systems is venturing into deep
-philosophical waters. Before daring such depths, it is therefore essential for
-any student of analytic philosophy to gain facility in working with these standard
-systems of logic and to come to understand both their inherent capacities and
-limitations. This is what we hope to achieve in this course.
+logic before first assessing its adequacy. However, there are certain systems of
+logic which, despite their limitations, have proven to be so powerful in their
+applications that they have come to be regarded as a sort-of 'starter's toolkit'
+for logical analysis. These systems of logic include classical propositional
+logic, first-order quantificational logic, and the normal modal extensions
+thereof. A great deal of conceptual insight can be gained simply by formalizing
+arguments as derivations in these systems, and one can be certain that any
+proposed solution to a philosophical problem which calls for a significant
+revision to one of these systems is venturing into deep philosophical waters.
+Before daring such depths, it is therefore essential for any student of analytic
+philosophy to gain facility in working with these standard systems of logic and
+to come to understand both their inherent capacities and limitations. This is
+what we hope to achieve in this course.
 
 ::: {#exr-outside-reading}
 {{< include /content/exercises/outside-reading.qmd >}}
