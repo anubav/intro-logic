@@ -53,16 +53,12 @@ starting point for a rich and fruitful line of philosophical inquiry:
 {{< include /content/inserts/sorites.qmd >}}
 :::
 
-Let us consider, in slightly more detail, the last example of the [sorites
-paradox](#sorites){.unstyled-link}, as it can be used to illustrate how
-philosopher's employ the method of logical analysis to treat paradoxes of
-reasoning.
-
-When confronted by a paradox, the question one must ask is: where has the
+When confronted by a paradox the question to ask is: where has the
 reasoning gone wrong? As a first step towards answering this question, it is
-natural to try to identify the principle assumptions that are being relied upon
-in the fallacious argument. In the case of the sorites paradox, the fallacy
-relies on the fact that there are certain properties---such as that of being a
+natural to try to identify the principal assumptions that are being relied upon
+in the fallacious argument. For example, in the case of the [sorites
+paradox](#sorites){.unstyled-link}, the fallacy
+relies on the fact that there are certain properties---such as the property of being a
 heap---which seem to exhibit the following features:
 
 1. Whether or not the property applies is invariant under small changes in the
@@ -81,7 +77,7 @@ reasoning more precisely.
 Let $H$ (for "heap") be a predicate which applies to the positive integers
 ($1,2,3,\ldots$) and which is defined as follows:
 
-$$ H(n) \textrm{ iff an accumulation of $n$ grains of sand is a heap} $$
+$$ H(n) \textrm{ means that an accumulation of $n$ grains of sand is a heap} $$
 
 Let $l$ be a large enough number such that $H(l)$ is clearly true and let $s$ be
 a small enough number such that $H(s)$ is clearly false. Then, the paradoxical
@@ -89,15 +85,15 @@ line of reasoning outlined above can be represented as follows:
 
 :::{.lproof}
 
-    1. \textrm{For all }n>1\textrm{: if }H(n)\textrm{, then } H(n-1). [assumption]
+    1. \textrm{For all }n\textrm{: if }H(n)\textrm{, then } H(n-1). [assumption]
     2. H(l) [assumption]
     3. \textrm{If }H(l)\textrm{, then }H(l-1) [from: 1]
     4. H(l-1) [from: 2, 3]
     5. \textrm{If }H(l-1)\textrm{, then }H(l-2) [from: 1]
     6. H(l-2) [from: 4, 5]
     ...
-    n. \textrm{If }H(s+1)\textrm{, then }H(s)  [from: 1]
-    n+1. H(s) [from: n-1, n]
+    k. \textrm{If }H(s+1)\textrm{, then }H(s)  [from: 1]
+    k+1. H(s) [from: k-1, k]
 
 :::
 
@@ -114,7 +110,7 @@ assumptions the counterintuitive conclusion.
 This general procedure whereby the material assumptions upon which an argument
 relies are made explicit and distinguished from the form of the reasoning
 involved in the argument, may be termed _logical analysis_. The methodological
-value of logical analysis for philosophy resides in the asymmetrical status that
+value of this form of analysis for philosophy resides in the asymmetrical status that
 is generally afforded to the truth of the material assumptions, which may be
 questioned, and the underlying system of formal logic on which the argument is
 based, which is generally taken to be beyond reproach. If our analysis of an
@@ -132,9 +128,9 @@ discussed in the philosophical literature is the following:
 
 :::{.lproof}
 
-    1. \textrm{It is not true that: for all }n>1\textrm{, if }H(n)\textrm{, then } H(n-1). [assumption]
-    2. \textrm{It is true that: for some }n>1\textrm{, }H(n)\textrm{ but not } H(n-1). [from: 1]
-    3. \textrm{For some }n>1\textrm{, it is true that: }H(n)\textrm{ but not } H(n-1). [from: 2]
+    1. \textrm{It is not true that: for all }n\textrm{, if }H(n)\textrm{, then } H(n-1). [assumption]
+    2. \textrm{It is true that: for some }n\textrm{, }H(n)\textrm{ but not } H(n-1). [from: 1]
+    3. \textrm{For some }n\textrm{, it is true that: }H(n)\textrm{ but not } H(n-1). [from: 2]
 
 :::
 
@@ -143,7 +139,7 @@ specific number $n$ such that $n$ grains of sand constitute a heap, but $n-1$
 grains of sand do not. If this is correct, then the above argument must be
 invalid, and the fault must lie with either the inference from line 1 to 2, or
 the inference from line 2 to 3. Either response introduces a variety of logical
-subtleties, but each has its defenders in the literature.[^sorites-truth]
+subtleties, but each has its defenders in the philosophical literature.[^sorites-truth]
 
 [^sorites-truth]:
     For an analysis of the paradox that rejects the inference from
@@ -152,8 +148,8 @@ subtleties, but each has its defenders in the literature.[^sorites-truth]
     line 2 to 3 involves the adoption of a supervaluationist semantics such as
     that described in @Fine1975-cq and @Keefe2000-gn.
 
-Suppose, however, that upon due reflection we find such considerations
-unconvincing and that we can discover no other satisfactory reason to reject any
+Suppose, however, that upon careful reflection we find such considerations
+unconvincing and we can discover no other satisfactory reason to reject any
 of the material assumptions which lead to the sorites paradox. Must we then
 admit what seems patently absurd, that only a few grains of sand consitute a
 heap? We are only compelled to accept this absurdity, if we acknowledge as valid
@@ -179,16 +175,16 @@ question the value of undertaking a detailed study of any specific system of
 logic before first assessing its adequacy. However, there are certain systems of
 logic which, despite their limitations, have proven to be so powerful in their
 applications that they have come to be regarded as a sort-of 'starter's toolkit'
-for logical analysis. These systems of logic include classical propositional
-logic, first-order quantificational logic, and the normal modal extensions
-thereof. A great deal of conceptual insight can be gained simply by formalizing
-arguments as derivations in these systems, and one can be certain that any
-proposed solution to a philosophical problem which calls for a significant
-revision to one of these systems is venturing into deep philosophical waters.
-Before daring such depths, it is therefore essential for any student of analytic
-philosophy to gain facility in working with these standard systems of logic and
-to come to understand both their inherent capacities and limitations. This is
-what we hope to achieve in this course.
+for logical analysis. These systems of logic include, first and foremost,
+classical propositional logic and first-order quantificational logic. A great
+deal of conceptual insight can be gained simply by formalizing arguments as
+derivations in these systems, and one can be certain that any proposed solution
+to a philosophical problem which calls for a significant revision to one of
+these canonical systems is venturing into deep philosophical waters. Before
+daring such depths, it is therefore essential for any student of analytic
+philosophy to gain facility in working with these standard systems of logic so
+as to better understand their inherent capacities and limitations. This is what
+we hope to achieve in this course.
 
 ::: {#exr-outside-reading}
 {{< include /content/exercises/outside-reading.qmd >}}

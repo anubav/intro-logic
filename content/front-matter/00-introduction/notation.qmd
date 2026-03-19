@@ -1,0 +1,170 @@
+## A Note on Notation {.unnumbered}
+
+In this course, whenever we have occasion to speak in mathematically precise
+terms, we will express our claims and arguments in ordinary (if somewhat
+stilted) English supplemented by certain terminological devices, the precise
+meanings of which will be specified in definitions that are highlighted and
+numbered for ease of reference. The terminology that is supplied by definitions
+in the notes will typically be introduced either for the purpose of formulating
+particular claims, or else as an aid in establishing those claims. As such,
+while any piece of notation may be freely utilized once it has been defined, its
+usefuleness will often be limited to a specific topic. Once that topic has been
+dealt with, the precise meaning of the notation may be, more or less, forgotten.
+
+There is, however, a certain class of terminology which appears so often in
+mathematical writing that it is best regarded as a fundamental part of the
+language in which formal logic is done. In this appendix, we introduce, in cursory
+fashion, a small part of this standard terminology (more of this core notation will
+be presented in Chapter 1, when we introduce the terminology used to represent
+and reason about sets). Students would do well to master its usage now since
+outside of this introduction it will be utilized without comment in nearly every
+precise claim that we make and argument that we give.
+
+### The Greek Alphabet
+
+In addition to the letters of the English/Latin alphabet, the use of Greek letters to
+represent mathematical entities has been a common practice throughout much of
+the history of logic.[^greek-alphabet] The 24 letters of the Greek
+alphabet are given in @tbl-greek-alphabet below, with the letters appearing most
+often in this text highlighted in red.
+
+[^greek-alphabet]:
+    The 19th c. polymath Charles Babbage once complained: "The use
+    of Greek letters in algebraic calculation, which has found wide acceptance among
+    recent mathematicians, cannot in itself encumber the operations in the least.
+    But the uncouthness of the Greek language, which is in part revealed in the
+    shape of its alphabetic characters, gives to algebraic expressions a certain
+    mystic appearance" (@Babbage1830-dv, p. 395)
+
+::: {#tbl-greek-alphabet}
+| | | | |
+|--:|:--|--:|:--|
+| A, $\color{red}\alpha$ | alpha | N, $\nu$ | nu |
+| B, $\color{red}\beta$ | beta | $\Xi$, $\xi$ | xi |
+| $\color{red}\Ga$, $\color{red}\ga$ | gamma | O, o | omicron |
+| $\color{red}\De$, $\color{red}\de$|delta|$\color{red}\Pi$, $\color{red}\pi$|pi|
+| E, $\epsilon$ | epsilon | P, $\color{red}\rho$ | rho |
+| Z, $\zeta$ | zeta | $\color{red}\Sigma$, $\color{red}\sigma$ | sigma |
+| H, $\eta$ | eta | T, $\color{red}\tau$ | tau |
+| $\color{red}{\Theta}$, $\color{red}{\theta}$ | theta | Y, $\upsilon$ | upsilon |
+| I, $\iota$ | iota | $\color{red}\Phi$, $\color{red}\ph$ | phi |
+| K, $\kappa$ | kappa | X, $\color{red}\chi$ | chi |
+| $\color{red}\Lambda$, $\color{red}\lambda$ | lambda | $\color{red}\Psi$, $\color{red}\psi$ | psi |
+| M, $\color{red}\mu$ | mu | $\color{red}\Omega$, $\color{red}\omega$ | omega |
+
+The Greek alphabet, with commonly used letters highlighted in red, and the
+standard American English pronunciation of the letters.
+:::
+
+<div style="width:200px; height:100px; margin-left:auto; margin-right:auto; display:flex; justify-content:center; align-items:center;">
+  <audio controls>
+    <source src="../../../content/static/audio/The Greek Alphabet (American English Pronunciation).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>        
+</div>
+
+While the decision as to which Greek letter to use to represent a mathematical
+object is to some extent arbitrary, there are many tacit conventions that inform
+this decision. One such convention worth noting is that the capital/lowercase
+distinction is often utilized to mark the difference between a collection of
+objects and its individual members. Thus, if a capital letter such as $\Ga$ is
+used to denote a set of objects, the members of that set will often be denoted
+by lowercase letters such as $\ph$, $\psi$, and $\chi$.[^phi-chi-psi]
+
+[^phi-chi-psi]:
+    In logic, it is much more common to find the letters $\ph$,
+    $\psi$, $\chi$ listed in the order here given than in their proper Greek
+    alphabetic order, and, in this course, we submit to this convention. It must
+    be acknowledged, however, that apart from the fact that when pronounced in
+    this unalphabetic order the three-letter sequence has a pleasant, memorable
+    rhythm, there is no good reason to adhere to this convention.
+
+::: {#exr-greek}
+{{< include /content/exercises/greek.qmd >}}
+:::
+
+### Iff
+
+The phrase 'iff' is shorthand for the locution 'if and only if'. It
+expresses an equivalence between the claim which precedes it and the claim which
+follows it. To show that $\ph$ iff $\psi$, one must prove both (1) $\ph$ is
+true _if_ $\psi$ is true (i.e., that $\psi$ implies $\ph$) and (2) $\ph$
+is true _only if_ $\psi$ is true (i.e., that $\ph$ implies $\psi$).
+
+In the context of a definition, it is the conventional style to employ an 'if'
+locution to relate a term to its defining condition. Nevertheless, in such
+contexts, it will always be assumed that the stated condition is both necessary
+and sufficient for the defined term to apply. Thus, for example, the 'if'
+appearing in the following definition is to be read as 'iff':
+
+::: {#def-prime}
+A natural number is _prime_ if it is both greater than 1 and divisible by only 1 and itself.
+:::
+
+### Ellipses
+
+An ellipsis '$\cdots$' is used to to indicate an implied interpolation of the
+pattern indicated by the items which precede and follow it. Thus, for example,
+the elliptical expression $$ 1,2,\ldots,100 $$ refers to the list of numbers
+beginning with $1$ and ending with $100$, where each number in the list (apart
+from the first) is 1 greater than that which immediately precedes it. If the
+ellipsis has no succeeding term, then the pattern implied by the terms preceding
+the ellipsis is understood to be continued _ad infinitum_. Thus, the expression:
+
+$$
+    1,2,\ldots
+$$
+
+refers to a list of indefinite length, the $n$th term of which is the number $n$.
+
+While ellipses are most commonly used to denote lists of objects, they may also
+be used in elliptical expressions denoting other types of entities,
+provided the denoting phrase involves some clearly interpolatible pattern. Thus,
+for example, if $n_1,n_2,\ldots,n_k$ are numbers, we may denote their sum by:
+
+$$
+n_1 + n_2 + \cdots + n_k
+$$
+
+Unless otherwise indicated, the pattern implied by the ellipsis should always be
+assumed to be incrementation (i.e., addition by 1) of the most obvious numerical
+index of the items preceding the ellipsis (which may be the items themselves, in
+the case of a list of numbers). This is so even when there is some other pattern
+that may seem equally obvious. Thus, for example:
+
+$$
+  a_3,a_5,\ldots,a_{11}
+$$
+
+refers to the list
+
+$$
+    a_3,a_5,a_6,a_7,a_8,a_9,a_{10},a_{11}
+$$
+
+and not to the list
+
+$$
+    a_3,a_5,a_7,a_9,a_{11}
+$$
+
+To refer to the latter list, we may write:
+
+$$
+    a_3,a_5,\ldots,a_{2n + 1}, \ldots, a_{11}
+$$
+
+This indicates that the terms in the sequence are all of the form $a_{2n+1}$, with $n$ now being fixed as the index of incrementation.
+
+It is often convenient to stipulate that an elliptical expression such as
+
+$$
+a_1,a_2,\ldots,a_0
+$$
+
+in which the item following the ellipsis does not appear
+in the continuation of the pattern implied by the items preceding it, refers to an empty list,
+i.e., a list of length 0 the members of which comprise the empty set.
+
+... what is the 'empty set', you ask? Read on, we will talk more about that in
+the next chapter.

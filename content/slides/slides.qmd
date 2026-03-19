@@ -1,0 +1,22 @@
+---
+title: "Introduction to Logic"
+subtitle: |
+  The University of Chicago
+
+  Spring Quarter 2026
+
+  PHIL 20100/30000
+author: Anubav Vasudevan
+format:
+  revealjs:
+    theme: serif
+    slide-number: true
+    chalkboard:
+      buttons: true
+    incremental: true
+    logo: university-of-chicago.png
+    html-math-method: mathjax
+    css: slides.css
+---
+
+{{< include lecture-1.qmd >}}

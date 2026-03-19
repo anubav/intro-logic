@@ -18,11 +18,12 @@ argument purporting to show that what the teacher has said cannot be true:
 > when the exam is given it cannot be a surprise.
 
 The conclusion of the student's argument is absurd since it is clearly possible
-for the teacher to administer one and only one surprise exam (on, say, the third
-day of class).
+for the teacher to administer one and only one surprise exam---on, say, the third
+day of class.
 
-[^surprise-exam]: The surprise exam paradox, originally described as the paradox
-of the "unexpected hanging", first appeared in Martin Gardner's March 1963
-Mathematical Games column in Scientific American magazine (reprinted in
-@Gardner1991-un). Philosophical discussions of the paradox appear in
-@Quine1953-cz and @Kripke2011-ny.
+[^surprise-exam]:
+    The surprise exam paradox, originally described as the paradox
+    of the "unexpected hanging", first appeared in Martin Gardner's March 1963
+    Mathematical Games column in Scientific American magazine (reprinted in
+    @Gardner1991-un). Philosophical discussions of the paradox appear in
+    @Quine1953-cz and @Kripke2011-ny.

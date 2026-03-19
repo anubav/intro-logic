@@ -2,8 +2,12 @@
 bibliography: "introduction.bib"
 ---
 
+{{< include /assets/macros/macros.qmd >}}
+
 # Introduction {.unnumbered}
 
 {{< include why-study-logic.qmd >}}
+
+{{< include notation.qmd >}}
 
 ## References
