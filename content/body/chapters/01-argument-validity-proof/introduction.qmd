@@ -1,82 +1,83 @@
-## Introduction
+## Reasoning about Reasoning?
 
-### In What Sense is Logic Mathematical?
+Logic, in the most general sense of the term, refers to the study of the norms
+that govern the activity of _reasoning_. In this broad sense, logic concerns
+not only the sort of reasoning expressed in mathematical proofs but also such
+reasoning as underwrites a statistical inference or the confirmation of a
+scientific theory. If we further countenance informal methods of reasoning, the
+scope of logic grows wider still, comprehending such rhetorical forms of
+argumentation as one might encounter in a philosophy text or a newspaper
+editorial and even those vague heuristics and patterns of inference summarized
+by the phrase "common sense". Given such a wide scope of application, any
+introduction to logic must begin with a suitably delimited statement of its
+intended subject matter.
 
-_Logic_, in the most general sense of the term, refers to the study of the norms
-that govern the activity of reasoning. In this sense, logic concerns not only
-the sort of reasoning expressed in mathematical proofs but also such reasoning
-as underwrites a statistical inference or the confirmation of a scientific
-theory. If we further countenance informal methods of reasoning, the scope of
-logic grows wider still, comprehending such rhetorical forms of argumentation as
-one might encounter in a philosophy text or a newspaper editorial and even those
-vague heuristics and patterns of inference summarized by the phrase "common
-sense". Given such a wide scope of application, any introduction to logic must begin with a suitably delimited statement of its intended subject
-matter. 
+A more apt description of this course would be an 'Introduction to _Deductive_
+Logic', for our concern will not be with reasoning in general, but only with a
+very specific sort of reasoning, namely, the sort of reasoning which is termed
+_deduction_. To deduce something means to show that its truth follows
+necessarily from other claims that we take to be true, in brief, to _prove_ it, in
+roughly the sense of proof with which we are all acquainted from our prior
+courses in mathematics. Thus, deductive reasoning is what we do when we show
+that the truth of a theorem in geometry follows from more basic claims, or
+axioms, characterizing elementary geometrical notions such as points, lines,
+planes, and the like. It is also what we do when we reason that a '7' must
+belong in a certain empty square on a Sudoku board by ruling out all other
+possibilities, or when we conclude that Mary is right to say that John must be
+lying, when he says that both he and Mary have spoken truly. It is _not_ what we
+do when we conclude--perhaps reasonably--that our lottery ticket will not make
+us rich, nor what Oedipus did when he solved--perhaps brilliantly--the riddle of
+the Sphinx. Reasoning, in the broad sense of the term, is surely at work in both
+of these cases, but in neither case is anything proven to be true.
 
-Notwithstanding the generic title of this course, the topic of our inquiry can more aptly be termed _deductive_ logic, or, to use a less technical term,
-_mathematical_ logic. What exactly is meant by this phrase? The most obvious
-function of the qualifier 'mathematical' when prefixed to the term logic is to
-restrict the subject matter of the inquiry to the particular sort of reasoning
-that is done in mathematics. Mathematical logic, in this sense of the phrase, is
-exclusively concerned with reasoning of the sort which ensures that the truth of
-a conclusion follows from various assumptions in just the way that the truth of
-a theorem in geometry follows from more basic claims, or axioms, characterizing
-elementary geometrical notions such as points, lines, planes, and the like. In
-fact, it turns out that the systems of logic that we will examine in this course
-are remarkably well-suited to the study of such reasoning. Indeed, among the
-many impressive achievements of the landmark investigations into the
-foundations of mathematics conducted in the first half of the 20th century was
-the discovery that a single system of what shall later be introduced as
-first-order quantificational logic, involving only a handful of axiom schemas,
-is sufficient to comprehend all but a small fraction of the proofs that have
-ever been given in mathematics!
+Now, in this course we will be studying the topic of deductive reasoning. In so
+doing, we will have many occasions ourselves to reason deductively. While
+reasoning about reasoning may seem to involve us in a circle, as long as we are
+careful, this circle need not be a vicious one. Indeed, if you continue on in
+your study of logic beyond this course, you will quickly come to discover that
+it is the essentially self-reflexive nature of logic which endows the subject
+not only with its peculiar charm, but also with no small part of its
+philosophical value. For, if logic is concerned to study reasoning and if, at
+the same time, its results are arrived at by means of reasoning, then one may
+meaningfully ask what follows when the claims established in the study of logic
+are applied to itself. The answer, as it turns out, is quite a lot! The
+essentially circular nature of logic is what enabled the discovery of such
+landmark results as Gödel's famous incompleteness theorems, among the
+corrolaries of which are such provocative theses as "arithmetical truth cannot
+be defined arithmetically", and "if a computer can simulate all of our
+mathematical reasonings, then, in principle, we cannot fully grasp how it
+works".
 
-There is, however, a second sense of the phrase 'mathematical logic' that will
-be equally relevant for our purposes. In this alternative sense, the phrase
-'mathematical' functions as an adverbial modifier, indicating something about
-the methodology by which the study of logic is to be pursued rather than
-delimiting its material. Specifically, it implies that the methods to be
-employed in this study are themselves mathematical in nature. Thus, just
-as mathematical psychology does not refer to the psychological study of
-mathematicians but instead to the deploy of mathematical techniques to
-investigate formal models of psychological processes, mathematical logic, in
-this latter sense of the phrase, does not refer to the study of such reasoning
-as is done by mathematicians but instead to the study of logic _done
-mathematically_. In line with this approach, the systems of logic that we will consider in this course will
-themselves be represented as mathematically well-defined structures, and the
-claims that we will make about these systems will be established using standard
-mathematical techniques.
+But let's not get ahead of ourselves! In order to reflect seriously on the
+philosophical import of such claims, one must first understand what exactly they
+mean. And, for this, we require a thorough understanding of the basic concepts
+of deductive logic. These are the concepts of **argument**, **validity**, and
+**proof**. In the remainder of this chapter, we will consider each of these
+concepts in turn, with an eye to understanding how logicians reason about reasoning.
 
-"Logic", as the phrase will be used in this course, is to be understood as mathematical in both of the
-above senses of the term. In fact, it is this duality of meaning which endows the subject not only with its peculiar charm, but also with no small part of its
-philosophical value. For, if logic is concerned to study the sort of
-reasoning done in mathematics and if, at the same time, it is itself just a
-branch of mathematics, then one may meaningfully ask what follows when the
-claims established in the study of logic are applied to itself. The answer, as
-it turns out, is quite a lot! The essentially self-reflective nature of
-logic is what allows for the precise formulation of such
-provocative theses as "arithmetical truth cannot be defined arithmetically", and
-"if a computer can simulate all of our mathematical reasonings, then, in
-principle, we cannot fully grasp how it works".
-
-In order to reflect seriously on the philosophical import of such
-claims, one must first understand what exactly they mean. And, for this, we
-require a thorough understanding of the basic concepts of logic. Let us begin, then, by considering in more detail how the study of logic can be made mathematical.
-
-### Making Logic Mathematical
+## Arguments
 
 Logic seeks to investigate the norms that govern the activity of _reasoning_. An
 act of reasoning proceeds from certain claims that one takes to be true. One
 then applies to these claims some prescribed set of rules or rational
-methodology, in accordance with which one is led to infer that something else is
+methodology, on the basis of which, one argues that something else is
 true.
 
-Logic, then, is concerned to investigate the general conditions under
-which reasoning leads to good---or, to use the logician's preferred approbative, _valid_---inferences. It is thus concerned with questions of the following form:
+Logic, then, is concerned to investigate the general conditions under which
+reasoning leads to good---or, to use the logician's preferred approbative,
+_valid_---arguments. As logicians, we are thus confronted with a number of
+preliminary questions that must be answered before our inquiry can proceed:
 
-1. Is a given method of reasoning such as to result in only valid inferences or, by employing that method, can one sometimes be led to draw invalid inferences as well?
+1. What is an argument? How can arguments be modeled as objects about which we can
+   reason?
 
-2. Are there some valid inferences in a given domain which, in principle, cannot result from applying a given method of reasoning, or are all such inferences invalid?
+2. What does it mean for an argument to be valid? Can the standard of assessment
+   by which a given argument is judged to be valid or invalid be expressed in
+   terms of the possession by that argument of a well-defined property.
+
+3. What does it mean to argue for a claim by reasoning from other
+
+Are there some valid inferences in a given domain which, in principle, cannot result from applying a given method of reasoning, or are all such inferences invalid?
 
 To render such questions mathematically precise, the following tasks must first
 be performed:

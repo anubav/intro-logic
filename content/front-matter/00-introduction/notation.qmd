@@ -18,7 +18,7 @@ fashion, a small part of this standard terminology (more of this core notation w
 be presented in Chapter 1, when we introduce the terminology used to represent
 and reason about sets). Students would do well to master its usage now since
 outside of this introduction it will be utilized without comment in nearly every
-precise claim that we make and argument that we give.
+precise claim that we make and nearly every argument that we give.
 
 ### The Greek Alphabet
 
