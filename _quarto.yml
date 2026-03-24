@@ -10,15 +10,13 @@ book:
   back-to-top-navigation: true
 
   chapters:
-    - index.qmd
-    - content/front-matter/00-introduction/introduction.qmd
-    - content/body/chapters/01-argument-validity-proof/argument-validity-proof.qmd
+      - index.qmd
 
   sidebar:
     style: "floating"
     border: true
     collapse-level: 1
-    
+
 filters:
   - lproof
 
