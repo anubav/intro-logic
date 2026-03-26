@@ -8,6 +8,9 @@ book:
     hypothesis: true
   page-navigation: true
   back-to-top-navigation: true
+  
+  chapters:
+      - index.qmd
 
   sidebar:
     style: "floating"
