@@ -1,63 +1,282 @@
 ## Arguments
 
-In psychological terms, an inference can be characterized as a rational
-transition in thought. We think certain thoughts and, for reason of thinking
-these thoughts, we are led to think something else. It is natural to regard the
-thoughts involved in an inference as non-linguistic abstractions, distinct from
-the specific sentences that may be used to express these thoughts in a
-particular language. Thus, for example, one may wish to allow that one and the same thought, say, the thought that 'snow is white', can be
-expressed in German and French by the sentences 'schnee ist weiß' and 'la neige est blanche',
-respectively. Moreover, if two thinkers, one in German and one in French, were each to conclude from this that 'something is white'---'etwas ist weiß' or 'quelque chose est blanc'---then, it may well be said, that, despite their linguistic differences, both reasoners have drawn one and the same inference.
+Logic seeks to investigate the norms that govern the activity of reasoning.
+It is thus concerned to investigate the general conditions under which
+reasoning leads to good---or, to use the logician's preferred approbative,
+_valid_---arguments. As students of logic, we are thus confronted with a number
+of preliminary questions that must be answered before our inquiry can get going:
 
-Nevertheless, for the purpose of representing inferences as
-mathematical objects, we will disregard the intuitive difference between an
-inference in thought and its linguistic formulation and construe inferences as purely
-syntactic constructs. In other words, we will represent an inference by a
-particular collection of grammatically well-formed sentences expressed in a
-given language.
+1. What exactly is an argument?
 
-We will refer to the syntactic objects representing inferences as _arguments_. An
-argument is a collection of sentences, one of which is distinguished as that for
-the sake of which the others are set forth. The distinguished sentence is
-referred to as the argument's _conclusion_ and the sentences offered in its
-support as the argument's _premises_. The specific syntax in which we will
-formulate arguments will not be that of a natural language such as English but
-instead that of an artificial language devised for the express purpose of
-representing certain patterns of inference.
+2. What does it mean for an argument to be valid?
 
-We adopt this approach so as to minimize the syntactic complexity of the
-arguments that we consider. The rules determining when a sequence of symbols in
-the English alphabet (or a sequence of words in the English lexicon) constitute
-a grammatically well-formed sentence are exceedingly complex, and much of this
-complexity is unnecessary for capturing the differences in meaning that are
-relevant for assessing the validity of the particular inferences with which we
-will be concerned. For example, while there may be some subtle difference in
-meaning between the sentences "John gave the letter to Mary" and "Mary was given
-the letter by John", this difference in meaning, while relevant perhaps for
-producing a desired literary effect, is altogether irrelevant for judging
-whether or not it follows from this claim that, say, "Mary was given something
-by someone". Consequently, to avoid overcomplicating the syntax, we will study
-such inferential relations in a language whose grammar ignores the distinction
-between active and passive voice constructions.
+3. What is reasoning and how is it involved in argumentation?
 
-In each of the artificial languages that we will consider, the syntax of the
-language will be introduced in two distinct stages:
+Let us begin with the first of these questions and think a bit about what an
+argument is and how we ought to represent arguments.
 
-1. First, we will specify an _alphabet_ for the language, i.e., a set of symbols. Any finite string of symbols from this alphabet will be referred to as an _expression_ of the language.
-2. Second, we will specify _grammatical rules_ determining when a given expression is well-formed. A grammaticaly well-formed expression will be called a _sentence_ of the language.
+When we give an argument, we proceeds from certain claims that we take to be
+true. On the basis of these claims we conclude that something else is true. In
+logic, we refer to the claims from which an argument proceeds as the
+_premises_ of that argument, and we refer to the claim to which we are led
+by an argument as its _conclusion_. If we write down the premises of an
+argument in a comma-separated list, and mark them off from the argument's
+conclusion by a horizontal line, the following are all arguments:
+
+$$
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+$$
+
+$$
+\hspace{2mm}
+$$
+
+$$
+\frac{\textrm{Either the bus is late or Anna slept
+in}\hspace{2mm},\hspace{2mm}\textrm{When it does not rain, the bus arrives on
+time}\hspace{2mm},\hspace{2mm}\textrm{It is not raining}}{\textrm{Anna
+slept in}}
+$$
+
+$$
+\hspace{2mm}
+$$
+
+$$
+\frac{\textrm{Every student in the seminar recommended an article to
+the professor}}{\textrm{Some article was recommended to the professor by every student}}
+$$
+
+Note that the first of these arguments has two premises, the second has three,
+and the third has one, but all of the arguments have a single conclusion. Also
+note that while the first two of these arguments are intuitively valid, the third is not.
+
+Now, despite the fact that here we are using English formulations, it may be
+natural to regard the claims made in an argument as non-linguistic abstractions
+from the specific sentences that are used to express those claims in a
+particular language. Thus, for example, the first of the three arguments given
+above can be formulated in German as follows:
+
+$$
+\frac{\textrm{Alle Menschen sind
+Säugetiere}\hspace{2mm},\hspace{2mm}\textrm{Keine Säugetiere sind
+kaltblütig}}{\textrm{Keine Menschen sind kaltblütig}}
+$$
+
+If this class were to be taught in German, and I were to have written this
+latter argument on the board in place of the first of the three arguments given
+above, then, presumably, despite the shift in language, I would have presented
+you with one and the same argument.
+
+It is tempting, therefore, to think of arguments as being made up of claims, or thoughts,
+that can be equally well be expressed in any number of different languages.
+Nevertheless, for the purpose of representing arguments as objects about which
+we ourselves will be reasoning, it will be helpful to be more concrete and to
+disregard the intuitive difference between an argument in thought and its
+linguistic formulation. Thus, we will construe arguments as linguistic constructs.
+In other words, we will represent an argument by a particular collection of
+_sentences_ expressed in a given language.
+
+Will any sentence do to serve as the premise or conclusion of an argument?
+The grammatical concept of a sentence in English is that of a closed, self-contained
+linguistic unit including at least one independent clause. But sentences in
+English, thus understood, can serve a variety different functions. The four functional
+categories of sentences that usually appear in grammar textbooks are as follows:
+
+1. Declarative Sentences - A sentence that is used to declare or to assert
+   something ("The class begins at noon.")
+2. Interrogative Sentences - A sentence that is used to ask a question ("When
+   does the class begin?")
+3. Imperative Sentences - A sentence that is used to issue a command or a request. ("Please
+   arrive to class on time.")
+4. Exclamatory Sentences - A sentence that is used to express an attitude or
+   state of mind. ("What an amazing lecture!")
+
+When we give an argument, we assert things, either so as to make it clear what
+our reasons are for accepting a conclusion, or else to make it clear what we are
+accepting on the basis of those reasons. Thus, questions, commands, and
+exclamation, in so far as they do not assert anything, cannot straightforwardly
+appear in arguments. If they occur in argumentative text, they usually have to
+be paraphrased into declarative form before the argument can be laid out
+clearly. For example, a text which begins with the question “Should we raise the
+minimum wage?”, and then goes on to answer this question in
+the negative is really giving an argument the conclusion of which is the
+declarative sentence “We should not raise the minimum wage”.
+
+Thus, only declarative sentences can serve as the premises or conclusion of an
+argument. Let us now think a bit more carefully about what a declarative
+sentence is. As a first pass, we might think to define a declarative sentence as
+any sentence which can be used to make a claim about how the world is, or, what
+is actually the case. But what then should we make of the following sentences?
+
+$$
+\textrm{Either John or Mary was at the party.}
+$$
+
+$$
+\textrm{If the match is struck, it will light.}
+$$
+
+In a sense, one might think that the first of these sentence does not really
+make a claim about the world, since it fails to specify whether it was John or
+Mary who, in fact, attended the party. The same can be said of the second
+sentence. It does not say what is the case, but only what _would_ be the case
+(namely, that the match would light), on the condition that something else is
+the case (namely, that the match is struck). But, these sorts of claims should
+certainly be allowed to appear in arguments, as in:
+
+$$
+\frac{\textrm{Either John or Mary was at the
+party}\hspace{2mm},\hspace{2mm}\textrm{John stayed home}}{\textrm{Mary was the
+party}}
+$$
+
+or
+
+$$
+\frac{\textrm{If the match is struck, it will
+light}\hspace{2mm},\hspace{2mm}\textrm{The match did not light}}{\textrm{The
+match was not struck}}
+$$
+
+What allows these claims to figure in arguments is simply that they are the sort
+of claims which can be either true or false. Even if a declarative sentence is
+uninformative or hypothetical, it remains truth-evaluable. Thus, it remains
+either true or false that either John or Mary was at the party, and, likewise,
+it is either true or false that if the match is struck, it will light. So, we
+may take truth-evaluability to be our basic standard of which sentences can
+serve as the premises or conclusion of an argument.
+
+Let us return now to the question of what language we ought to use to formulate
+our arguments. English seems a reasonable enough choice, given that it is the
+only language which can be safely assumed is spoken fluently by any participant
+in this course. Yet, at the same time, English (or any other natural language,
+for that matter) turns out not to be a particularly good choice. For the English language is
+exceedingly complex, and much of this complexity is simply unnecessary for
+capturing the differences in meaning that are relevant for formulating the
+particular arguments with which we will be concerned. For example, while there
+may be some subtle difference in meaning between the English sentences "John
+gave the letter to Mary" and "Mary was given the letter by John", this
+difference in meaning, while relevant perhaps for producing a desired literary
+effect, is altogether irrelevant for judging whether or not it follows from this
+claim that, say, "Mary was given something by someone". Consequently, to avoid
+overcomplicating things, if our sole aim is to study such inferential relations,
+we may as well do so in a language whose grammar ignores the distinction between active and passive voice
+constructions.
+
+Or consider, again, the argument discussed earlier:
+
+$$
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+$$
+
+The sentence "All humans are mammals" has any number of obviously equivalent formulations in English,
+for example:
+
+1.  Every human is a mammal.
+2.  Whatever is a human is a mammal.
+3.  Anything that is a human is a mammal.
+4.  If something is a human, then it is a mammal.
+5.  Being a mammal is a property possessed by all humans.
+
+From a logical perspective, the syntactic variation exhibited by these sentences
+is wholly irrelevant to their argumentative significance since all of these
+sentences are true under exactly the same conditions. Why, one might ask,
+does natural language allow so many synonymous forms, which from the perspective
+of logic seem entirely redundant? The answer is that a natural language such as
+English is not just a tool for reasoning, but serves many other purposes as
+well. Natural language has to support poetic effect, rhythm, emphasis, and
+stylistic variation, all of which require flexibility in its syntax, and it also
+has to support efficient reference in discourse, where shifting the subject or
+using anaphora can make communication smoother and less repetitive. In short,
+natural language is shaped not just by the demands of logic, but by the broader
+needs of expression, narrative, and efficient communication.
+
+But the aim of this class is to study reasoning, and so, to avoid unnecessary
+complexity, we would do better to employ a language expressly designed for the
+sole purpose of representing certain argument forms. We might, for example,
+limit ourselves to a small fragment of English in which the only
+declarative sentences are those of the form:
+
+1. All $A$s are $B$s
+2. No $A$s are $B$s
+3. Some $A$s are $B$s
+4. Some $A$s are not $B$s
+
+(Here $A$ and $B$ stand for terms---general noun phrases or adjectives---like
+'human' or 'cold-blooded'.) Or since we have departed from natural language
+already, we might simply go one step further, and formulate arguments in a wholly
+artificial language of our own invention, constructed exactly to suit our
+needs, and with a minimum of extraneous syntactic complexity. For instance, we might
+express the above four sentence forms as follows:
+
+1. All($A$, $B$)
+2. No($A$, $B$)
+3. Some($A$, $B$)
+4. Some-not($A$, $B$)
+
+Or using an infix notation to avoid the need for commas and parentheses, we
+might simply write:
+
+1. $A\textrm{\textbf{a}}B$
+2. $A\textrm{\textbf{n}}B$
+3. $A\textrm{\textbf{s}}B$
+4. $A\textrm{\textbf{sn}}B$
+
+At some point, the choice as to what syntax to adopt in our artificial, or
+formal, language is arbitrary. For example, the expressions
+$\textrm{\textbf{a}}, \textrm{\textbf{n}}, \textrm{\textbf{s}}$, and
+$\textrm{\textbf{sn}}$ here have merely mnemonic significance. We could just as
+well use any expressions we like, for example, the first four vowels of the
+English alphabet:
+
+1. $A\textrm{\textbf{a}}B$
+2. $A\textrm{\textbf{e}}B$
+3. $A\textrm{\textbf{i}}B$
+4. $A\textrm{\textbf{o}}B$
+
+The advantage of this approach is that we are now able to state, in much more
+precise terms, what we mean by a sentence and thus by an argument. Let us give a
+name to the language in which we will formulate arguments. We will call it L$_S$
+(but any name would do). The language L$_S$ has an alphabet consisting of two kinds of symbol:
+
+Terms: $\,\,t_1$, $t_2$, $t_3$, ...
+
+Copulas: $\,\,\textbf{a}$, $\textbf{e}$, $\textbf{i}$, $\textbf{o}$
+
+Let us call any finite string of symbols from this alphabet an _expression_ of
+L$_S$. Which expressions of L$_S$ are sentences? We can now define the notion
+precisely:
+
+::: {#def-argument}
+A _sentence_ of L$_S$ is any expression of the form:
+
+$$
+\cop{A}{B}
+$$
+
+where $A$ and $B$ are terms, and $\ast$ is a copula.
+:::
 
 Sentences, thus defined, are purely syntactic constructs. They are strings of
-symbols devoid of any meaning. Of course, our choice of the syntax for a
-language will in all cases be guided by semantic considerations. In other words,
-we will always have in mind a certain conception of how various linguistic items
-are to be interpreted and we will choose our syntax so as to ensure that the
+symbols devoid of any meaning. Of course, our choice of the syntax for the
+language L$_S$ was guided by semantic considerations. In other words, in devising our
+language, we had in mind a certain conception of how various linguistic items
+are to be interpreted and we chose our syntax so as to ensure that the
 sentences in the language consist only of expressions which, when given such an
 interpretation, express meaningful claims.
 
-We are now ready for our first official definition, that of an _argument_:
+We now have a precise definition of a sentence, and we can use this definition
+to precisely define what we will mean by an _argument_ in the language L$_S$.
 
-::: {#def-argument data-re="arguments?" data-flags="gi"}
-An _argument in the language $L$ _ consists of (i) a possibly empty set of sentences of $L$, whose members are referred to as the argument's _premises_; and (ii) a sentence of $L$ referred to as the argument's _conclusion_. We denote the argument whose premises comprise the set of sentences $\Gamma$ and whose conclusion is the sentence $\varphi$, as follows:
+::: {#def-argument}
+An _argument_ in the language L$_S$ consists of (1) a set of sentences of
+L$_S$, whose members are referred to as the argument's _premises_; and (2) a
+sentence of L$_S$ referred to as the argument's _conclusion_. We denote the
+argument whose premises comprise the set of sentences $\Gamma$ and whose
+conclusion is the sentence $\varphi$, as follows:
 
 $$
   \Gamma\proves\ph
@@ -65,32 +284,108 @@ $$
 
 :::
 
-For the sake of readability, when expressing arguments, we will often omit the
-outer braces from the premise set. Thus, for example, the argument whose
-premises comprise the set $\{\ph_1,\ldots,\ph_n\}$ and whose conclusion is
-$\psi$ may be written:
+The new symbol '$\proves$' introduced in this definitions is sometimes called
+the 'single turnstile'. Don't worry about it's odd appearance; it is just a
+separator, like the horizontal line that we previously used to mark off the
+premises of an argument from its conclusion. Its only advantage over the
+horizontal line is that it allows us to typeset arguments in line.
+
+As we shall see, the precision we gain from formulating arguments in a simple
+language like L$_S$ has many advantages. But it also has its costs. The first is
+that we now have to 'translate' arguments expressed in ordinary language into
+L$_S$ in order to apply the various tools that we will, in subsequent sections,
+develop to assess their validity. In some cases, this translation exercise may
+be straightforward. For example, the argument, letting $A$ be a term that stands
+for 'human', $B$ a term that stands for 'mammal', and $C$ a term that stands for
+'cold-blooded', the English argument:
 
 $$
- \ph_1,\ldots,\ph_n\proves\psi
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
 $$
 
-More generally, if $\Ga_1,\ldots,\Ga_n$ are sets of sentences and $\ph_1,\ldots,\ph_m$ are sentences, we will write:
+Can be rendered in L$_S$ as:
 
 $$
-\Ga_1,\ldots,\Ga_n,\ph_1,\ldots,\ph_m\proves\psi
+\all{A}{B}, \no{B}{C}\proves\no{A}{C}
 $$
 
-for the argument whose premises comprise the set $\Ga_1\cup\cdots\cup\Ga_n\cup\{\ph_1,\ldots,\ph_m\}$ and whose conclusion is $\psi$. In addition, we adopt the convention that if the premise set of an argument is the empty set, we will omit reference to it altogether, writing $\proves\ph$ in
-place of $\emptyset\proves\ph$.
+Other arguments may prove more challenging. Suppose, for example, you are reading a philosophy
+text and you encounter the following passage:
 
-:::{#exm-0x1-syntax .example}
-{{< include /content/inserts/examples/0s-x-1s/syntax.qmd >}}
+> All those who, in the full exercise of reflective self-command, choose to govern their appetites rather than be governed by them, are persons whose actions deserve praise; and every person whose actions deserve praise is, by that very fact, a person of admirable character. Therefore, some individuals who have not merely acted but acted under the discipline of reason are persons of admirable character.
 
-:::{#exr-expressions}
-{{< include /content/exercises/expressions.qmd >}}
+Translating such a passage into L$_S$ requires some thought, because the subject
+and predicate terms of the various claims are somewhat more complex and
+expressed in non-uniform ways. Still, it can be done. In
+this case, let:
+
+$A$: a person who has acted under the discipline of reason
+
+$B$: a person whose actions deserve praise
+
+$C$: a person of admirable character
+
+Then, the argument can be translated into L$_S$ as follows:
+
+$$
+\all{A}{B}, \all{B}{C}\proves\some{A}{C}
+$$
+
+::: {#exr-syllogism-translations}
+{{< include /content/exercises/syllogism-translations.qmd >}}
 :::
 
-:::{#exr-expression-trees}
-{{< include /content/exercises/expression-trees.qmd >}}
-:::
-:::
+Apart from the challenges involved in translation, there is a second risk that
+we run in opting to formulate arguments in a simple language like L$_S$. The
+risk is that this language may lack the expressive resources needed to represent
+the meaning of the various claims involved in an argument in a precise enough
+way to see why that argument is valid. Consider, for example, the following
+argument:
+
+$$
+\frac{\textrm{Some students in the class are taller than Bob}\hspace{2mm},\hspace{2mm}\textrm{Bob is
+taller than Carla}}{\textrm{Some students in the class are taller than Carla}}
+$$
+
+We might try to translate this into L$_S$ as follows. Let:
+
+$A$ = a student in the class
+
+$B$ = a person identical to Bob
+
+$C$ = a person who is taller than Bob
+
+$D$ = a person who is taller than Carla
+
+The argument can then be expressed:
+
+$$
+\some{A}{C}, \all{B}{D}\proves\some{A}{D}
+$$
+
+As we shall see, this, however, is not a valid argument, at least as we will
+learn to judge the matter in the classes to come. The difficulty here is
+that the language L$_S$ does not have the resources to express complex
+relational facts, like "Anyone who is taller than one who is taller than Carla,
+is taller than Carla." To capture such facts, we will need a logic that is more
+expressive than L$_S$. By the time we get to quantificational logic, we will
+have introduced such a language, and so will be able to formalize the above
+argument in a way which will allow us to see why it is valid. But will the same
+concerns arise for the formal language of quantificational logic? Will we have
+to be concerned that there are valid arguments expressible in English that
+cannot be seen as valid when translated into this formalism? In one important
+sense, the answer is no. In fact, it turns out that the language of
+quantificational logic that we will introduce later on in this course is, it
+turns out reasonable comprehensive. Indeed, among the many impressive
+achievements of the landmark logical investigations into the foundations of
+mathematics conducted in the first half of the 20th century was the discovery
+that the language of quantificational logic is sufficient to comprehend all but
+a small fraction of the arguments that have ever been given in mathematics!
+
+For now, let us set aside these issues, and return to our original task. Having
+now addressed the question of what an argument is and how arguments will be
+represented in our study of logic, let us move on our next question: what does
+it mean for an argument to be valid? Before doing so, however, we must pause to examine a
+notion that will be central to our later discussions (and, indeed, that already
+appears surreptitiously in our definition of an argument), namely, that of a set.

@@ -1,6 +1,5 @@
-For any set $X\subset\W$, let $\mathbf{1}_X$ be the function which maps every item in $\W$ to a number in the set
-$\{0, 1\}$ as follows:
-    
+Let $X$ be any subset of $\W$ and let $\mathbf{1}_X$ be the function which maps every item in $\W$ to either $0$ or $1$ as follows:
+
 $$
     \mathbf{1}_X(x) = \left\{\begin{array}{ll}
         1 & \textrm{if } x\in X     \\

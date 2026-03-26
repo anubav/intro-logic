@@ -1,0 +1,163 @@
+/********************************************/
+/* Custom font styling for Quarto Documents */
+/********************************************/
+
+/* Set title text font to Oswald */
+@font-face {
+  font-family: "Oswald";
+  src: url("../../assets/fonts/oswald/oswald.bold.ttf")
+    format("truetype-variations");
+  font-weight: 700; /* The supported weight range of your variable font */
+  font-style: normal;
+  color: red;
+  font-display: swap; /* Optional, improves performance */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari, Edge (Mac) */
+  -moz-osx-font-smoothing: grayscale; /* Firefox (Mac) */
+  text-rendering: optimizeLegibility; /* Improves kerning and ligature on most browsers */
+  font-variant-ligatures: common-ligatures; /* Optional for typographic quality */
+}
+
+.sidebar-title,
+.navbar-title {
+  font-family: "Oswald";
+  font-size: 30px;
+}
+
+/* Set interfact text font to Roboto */
+@font-face {
+  font-family: "Roboto";
+  src: url("../../assets/fonts/roboto/Roboto-VariableFont.ttf")
+    format("truetype-variations");
+  font-weight: 100 900; /* The supported weight range of your variable font */
+  font-stretch: 75% 125%; /* Optional: include if the font supports width variation */
+  font-style: normal;
+  font-display: swap; /* Optional, improves performance */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari, Edge (Mac) */
+  -moz-osx-font-smoothing: grayscale; /* Firefox (Mac) */
+  text-rendering: optimizeLegibility; /* Improves kerning and ligature on most browsers */
+  font-variant-ligatures: common-ligatures; /* Optional for typographic quality */
+}
+
+.breadcrumb-item,
+.btn,
+#toc-title,
+.menu-text,
+.sidebar-link,
+.nav-link,
+.nav-page-text,
+#quarto-back-to-top {
+  font-family: "Roboto", sans-serif;
+}
+
+.breadcrumb-item {
+  font-weight: light;
+  font-size: small;
+}
+
+#toc-title {
+  font-weight: 300;
+  font-size: medium;
+}
+
+.menu-text {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.sidebar-link,
+.nav-link,
+.nav-page-text,
+#quarto-back-to-top {
+  font-weight: 300;
+  font-size: normal;
+}
+
+/* Set heading text font to Cormorant Garamond */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari, Edge (Mac) */
+  -moz-osx-font-smoothing: grayscale; /* Firefox (Mac) */
+  text-rendering: optimizeLegibility; /* Improves kerning and ligature on most browsers */
+  font-variant-ligatures: common-ligatures; /* Optional for typographic quality */
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("../../assets/fonts/stixfonts/STIXTwoText-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("../../assets/fonts/stixfonts/STIXTwoText-Italic.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("../../assets/fonts/stixfonts/STIXTwoText-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("../../assets/fonts/stixfonts/STIXTwoText-BoldItalic.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Math";
+  src: url("../../assets/fonts/stixfonts/STIXTwoMath-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Set body text font to STIX Two Text */
+body {
+  font-family: "STIX Two Text", serif;
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari, Edge (Mac) */
+  -moz-osx-font-smoothing: grayscale; /* Firefox (Mac) */
+  text-rendering: optimizeLegibility; /* Improves kerning and ligature on most browsers */
+  font-variant-ligatures: common-ligatures; /* Optional for typographic quality */
+}
+
+.theorem-title,
+.definition-title,
+.lemma-title,
+.proposition-title,
+.corollary-title,
+.remark-title,
+.proof-title {
+  font-family: "STIX Two Text";
+  font-variant-caps: small-caps;
+  font-weight: 300;
+  margin-right: 0.75em;
+}
+
+/* Set math font for KaTeX/MathJax equations to STIX Two Math */
+.katex,
+.math,
+span[class*="math"] {
+  font-family: "STIX Two Math", "STIX Two Text", serif;
+}

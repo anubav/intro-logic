@@ -1,0 +1,14 @@
+Name the sets whose members consist of all and
+only those items in the shaded regions of the following Venn diagrams:
+
+(a).
+
+![](/content/static/images/venn-1.png){width=350 fig-align="center"}
+
+(b).
+
+![](/content/static/images/venn-2.png){width=350 fig-align="center"}
+
+(c).
+
+![](/content/static/images/venn-3.png){width=350 fig-align="center"}

@@ -1,0 +1,19 @@
+Translate the following arguments into the language L$_S$, indicating the
+meaning of all the terms appearing in your translation.
+
+(a). Some students are athletes. All athletes are disciplined people. Therefore, some students are disciplined people.
+
+(b). All dogs are mammals. No mammals are reptiles. Therefore, no dogs are
+reptiles.
+
+(c). All birds are animals. Not all animals can fly. Therefore, some birds are flightless.
+
+(d). Not all readers who prefer difficult texts are people who appreciate
+ambiguity. Neither are all people who appreciate ambiguity intellectually
+adventurous. Therefore, some readers who prefer difficult texts are
+not intellectually adventurous.
+
+(e). No citizens who routinely ignore their civic duties are fit for public
+office, since all people fit for public office are persons of sound judgment,
+and no citizens who routinely ignore their civic duties are persons of sound
+judgment.

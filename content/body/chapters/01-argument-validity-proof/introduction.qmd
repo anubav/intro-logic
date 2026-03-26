@@ -1,4 +1,4 @@
-## Reasoning about Reasoning?
+## Reasoning about Reasoning
 
 Logic, in the most general sense of the term, refers to the study of the norms
 that govern the activity of _reasoning_. In this broad sense, logic concerns
@@ -16,19 +16,20 @@ A more apt description of this course would be an 'Introduction to _Deductive_
 Logic', for our concern will not be with reasoning in general, but only with a
 very specific sort of reasoning, namely, the sort of reasoning which is termed
 _deduction_. To deduce something means to show that its truth follows
-necessarily from other claims that we take to be true, in brief, to _prove_ it, in
-roughly the sense of proof with which we are all acquainted from our prior
-courses in mathematics. Thus, deductive reasoning is what we do when we show
-that the truth of a theorem in geometry follows from more basic claims, or
-axioms, characterizing elementary geometrical notions such as points, lines,
+necessarily from other claims that we take to be true, in brief, it is to
+_prove_ it, in roughly the sense of proof with which we are all acquainted from
+our prior courses in mathematics. Thus, deductive reasoning is what we do when
+we derive a theorem in geometry from more basic claims,
+or axioms, characterizing elementary geometrical notions such as points, lines,
 planes, and the like. It is also what we do when we reason that a '7' must
 belong in a certain empty square on a Sudoku board by ruling out all other
 possibilities, or when we conclude that Mary is right to say that John must be
 lying, when he says that both he and Mary have spoken truly. It is _not_ what we
-do when we conclude--perhaps reasonably--that our lottery ticket will not make
-us rich, nor what Oedipus did when he solved--perhaps brilliantly--the riddle of
+do when we conclude (perhaps reasonably) that our lottery ticket will not make
+us rich, nor what Oedipus did when he solved (perhaps brilliantly) the riddle of
 the Sphinx. Reasoning, in the broad sense of the term, is surely at work in both
-of these cases, but in neither case is anything proven to be true.
+of these cases, but in neither is anything deduced, in neither is
+anything proven to be true.
 
 Now, in this course we will be studying the topic of deductive reasoning. In so
 doing, we will have many occasions ourselves to reason deductively. While
@@ -50,49 +51,8 @@ works".
 
 But let's not get ahead of ourselves! In order to reflect seriously on the
 philosophical import of such claims, one must first understand what exactly they
-mean. And, for this, we require a thorough understanding of the basic concepts
+mean, and, for this, we require a thorough understanding of the basic concepts
 of deductive logic. These are the concepts of **argument**, **validity**, and
 **proof**. In the remainder of this chapter, we will consider each of these
-concepts in turn, with an eye to understanding how logicians reason about reasoning.
-
-## Arguments
-
-Logic seeks to investigate the norms that govern the activity of _reasoning_. An
-act of reasoning proceeds from certain claims that one takes to be true. One
-then applies to these claims some prescribed set of rules or rational
-methodology, on the basis of which, one argues that something else is
-true.
-
-Logic, then, is concerned to investigate the general conditions under which
-reasoning leads to good---or, to use the logician's preferred approbative,
-_valid_---arguments. As logicians, we are thus confronted with a number of
-preliminary questions that must be answered before our inquiry can proceed:
-
-1. What is an argument? How can arguments be modeled as objects about which we can
-   reason?
-
-2. What does it mean for an argument to be valid? Can the standard of assessment
-   by which a given argument is judged to be valid or invalid be expressed in
-   terms of the possession by that argument of a well-defined property.
-
-3. What does it mean to argue for a claim by reasoning from other
-
-Are there some valid inferences in a given domain which, in principle, cannot result from applying a given method of reasoning, or are all such inferences invalid?
-
-To render such questions mathematically precise, the following tasks must first
-be performed:
-
-1. Inferences must be represented as mathematical objects.
-
-2. The standard of assessment by which a given inference is judged to
-   be valid or invalid must be expressed in terms of the possession by that
-   inference of a mathematically well-defined property.
-
-3. A method of reasoning must be described in such a way that it becomes a
-   mathematical question whether or not a given inference can result from that
-   method.
-
-Once these tasks have been performed, the two questions listed above become no
-less mathematically well-defined than the question: is $4,\!753,\!234,\!127$ a
-prime number? In the remainder of this chapter, we take up each of these three
-tasks in turn.
+concepts in turn, with an eye to understanding how it is that, in logic, we will
+reason about reasoning.
