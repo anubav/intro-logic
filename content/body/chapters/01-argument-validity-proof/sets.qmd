@@ -23,8 +23,8 @@ $$
 $$
 
 To say that the object $a$ belongs to the set $X$, we write $a\in X$ (read:
-'$a$ is in $X$' or '$a$ is a member of $X$'). To say that $x$ does _not_
-belong to $X$, we write $x\not\in X$.
+'$a$ is in $X$' or '$a$ is a member of $X$'). To say that $a$ does _not_
+belong to $X$, we write $a\not\in X$.
 
 Nearly every set that we will have any occasion to reference in this course will
 be most clearly defined not by means of a comprehensive listing of its members but
@@ -45,7 +45,7 @@ $$
 
 When we wish to restrict the members of a set to only those items belonging to
 the set $X$, this fact can be indicated by writing $x\in X$ on the left-hand
-side of the colon. The condition then appearing on the right-hand side of the
+side of the colon. The condition described as applying to $x$ appearing on the right-hand side of the
 colon is that which must hold of any member of $X$ in order for it to be
 included in the set. So, for example, if $\mathbb{N}$ is the set of all natural
 numbers, then the above set may be written:
@@ -114,9 +114,10 @@ Y$, we say that $X$ is a 'proper' subset of $Y$.[^proper-subset]
     more frequently than its irreflexive counterpart. Symbolic parsimony thus
     dictates that it be awarded the unadorned marker.
 
-Clearly, two sets are equal just in case each is a subset of the other, and one
-often proves the equality of two sets $X$ and $Y$, by first showing $X\subset Y$
-and then showing $Y\subset X$.
+Two sets are equal just in case they have exactly the same members. Thus, two
+sets are equal just in case each is a subset of the other, and one often proves
+the equality of two sets $X$ and $Y$, by first showing $X\subset Y$ and then
+showing $Y\subset X$.
 
 One will often encounter multiple statements of set inclusion 'chained' together, as in:
 
