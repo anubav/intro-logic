@@ -95,7 +95,7 @@ sets of sets of sets, etc.
 Two sets $X$ and $Y$ are equal, written $X=Y$, if $X$ and $Y$ have exactly the
 same members, i.e., $a\in X$ iff $a\in Y$, for any object $a$. The set $X$ is a
 subset of the set $Y$, written $X\subset Y$, if every member of $X$ is a member
-$Y$. So, for example:
+of $Y$. So, for example:
 
 $$
 \{1,5,7\}\subset \{1,3,5,7,9\}.

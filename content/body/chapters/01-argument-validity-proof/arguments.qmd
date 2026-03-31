@@ -310,15 +310,19 @@ $$
 \all{A}{B}, \no{B}{C}\proves\no{A}{C}
 $$
 
-Other arguments may prove more challenging. Suppose, for example, you are reading a philosophy
-text and you encounter the following passage:
+Other arguments may prove more challenging. Suppose, for example, you are
+reading a philosophy text and you encounter the following passage:
 
-> All those who, in the full exercise of reflective self-command, choose to govern their appetites rather than be governed by them, are persons whose actions deserve praise; and every person whose actions deserve praise is, by that very fact, a person of admirable character. Therefore, some individuals who have not merely acted but acted under the discipline of reason are persons of admirable character.
+> All those who, in the full exercise of reflective self-command, choose to
+> govern their appetites rather than be governed by them, are persons whose
+> actions deserve praise; and every person whose actions deserve praise is, by
+> that very fact, a person of admirable character. Therefore, some individuals
+> who have not merely acted but acted under the discipline of reason are persons
+> of admirable character.
 
 Translating such a passage into L$_S$ requires some thought, because the subject
 and predicate terms of the various claims are somewhat more complex and
-expressed in non-uniform ways. Still, it can be done. In
-this case, let:
+expressed in non-uniform ways. Still, it can be done. In this case, let:
 
 $A$: a person who has acted under the discipline of reason
 
@@ -340,8 +344,8 @@ Apart from the challenges involved in translation, there is a second risk that
 we run in opting to formulate arguments in a simple language like L$_S$. The
 risk is that this language may lack the expressive resources needed to represent
 the meaning of the various claims involved in an argument in a precise enough
-way to see why that argument is valid. Consider, for example, the following
-argument:
+way to see why that argument is valid. Consider, for example, the following,
+seemingly valid argument:
 
 $$
 \frac{\textrm{Some students in the class are taller than Bob}\hspace{2mm},\hspace{2mm}\textrm{Bob is
@@ -364,28 +368,27 @@ $$
 \some{A}{C}, \all{B}{D}\proves\some{A}{D}
 $$
 
-As we shall see, this, however, is not a valid argument, at least as we will
-learn to judge the matter in the classes to come. The difficulty here is
-that the language L$_S$ does not have the resources to express complex
-relational facts, like "Anyone who is taller than one who is taller than Carla,
-is taller than Carla." To capture such facts, we will need a logic that is more
-expressive than L$_S$. By the time we get to quantificational logic, we will
-have introduced such a language, and so will be able to formalize the above
-argument in a way which will allow us to see why it is valid. But will the same
-concerns arise for the formal language of quantificational logic? Will we have
-to be concerned that there are valid arguments expressible in English that
-cannot be seen as valid when translated into this formalism? In one important
-sense, the answer is no. In fact, it turns out that the language of
-quantificational logic that we will introduce later on in this course is, it
-turns out reasonable comprehensive. Indeed, among the many impressive
-achievements of the landmark logical investigations into the foundations of
-mathematics conducted in the first half of the 20th century was the discovery
-that the language of quantificational logic is sufficient to comprehend all but
-a small fraction of the arguments that have ever been given in mathematics!
+This, as we shall see, is not a valid argument. The difficulty here is that the
+language L$_S$ does not have the resources to express complex relational facts,
+like "Anyone who is taller than one who is taller than Carla, is taller than
+Carla." To capture such facts, we will need a logic that is more expressive than
+L$_S$. By the time we get to quantificational logic, we will have introduced
+such a language, and so will be able to formalize the above argument in a way
+which will allow us to see why it is valid. But will the same concerns arise for
+the formal language of quantificational logic? Will we have to be concerned that
+there are valid arguments expressible in English that cannot be seen as valid
+when translated into this formalism? In one important sense, the answer is no.
+In fact, it turns out that the language of quantificational logic that we will
+introduce later on in this course is, it turns out reasonable comprehensive.
+Indeed, among the many impressive achievements of the landmark logical
+investigations into the foundations of mathematics conducted in the first half
+of the 20th century was the discovery that the language of quantificational
+logic is sufficient to comprehend all but a small fraction of the arguments that
+have ever been given in mathematics!
 
-For now, let us set aside these issues, and return to our original task. Having
-now addressed the question of what an argument is and how arguments will be
-represented in our study of logic, let us move on our next question: what does
-it mean for an argument to be valid? Before doing so, however, we must pause to examine a
-notion that will be central to our later discussions (and, indeed, that already
-appears surreptitiously in our definition of an argument), namely, that of a set.
+Having now addressed the question of what an argument is and how arguments will
+be represented in our study of logic, our next task is to inquire into what it
+means for an argument to be valid? Before taking up this task, however, let us
+pause to introduce a notion that will be central to our later discussions (and,
+indeed, that already appears surreptitiously in our definition of an argument),
+namely, that of a set.
