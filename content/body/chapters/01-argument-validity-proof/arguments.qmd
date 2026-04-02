@@ -96,7 +96,7 @@ categories of sentences that usually appear in grammar textbooks are as follows:
 When we give an argument, we assert things, either so as to make it clear what
 our reasons are for accepting a conclusion, or else to make it clear what we are
 accepting on the basis of those reasons. Thus, questions, commands, and
-exclamation, in so far as they do not assert anything, cannot straightforwardly
+exclamations, in so far as they do not assert anything, cannot straightforwardly
 appear in arguments. If they occur in argumentative text, they usually have to
 be paraphrased into declarative form before the argument can be laid out
 clearly. For example, a text which begins with the question “Should we raise the
@@ -185,8 +185,8 @@ From a logical perspective, the syntactic variation exhibited by these sentences
 is wholly irrelevant to their argumentative significance since all of these
 sentences are true under exactly the same conditions. Why, one might ask,
 does natural language allow so many synonymous forms, which from the perspective
-of logic seem entirely redundant? The answer is that a natural language such as
-English is not just a tool for reasoning, but serves many other purposes as
+of logic seem entirely redundant? The answer, on reflection, is simple: a natural language, such as
+English, is not just a tool for reasoning, but serves many other purposes as
 well. Natural language has to support poetic effect, rhythm, emphasis, and
 stylistic variation, all of which require flexibility in its syntax, and it also
 has to support efficient reference in discourse, where shifting the subject or
@@ -238,9 +238,11 @@ English alphabet:
 4. $A\textrm{\textbf{o}}B$
 
 The advantage of this approach is that we are now able to state, in much more
-precise terms, what we mean by a sentence and thus by an argument. Let us give a
-name to the language in which we will formulate arguments. We will call it L$_S$
-(but any name would do). The language L$_S$ has an alphabet consisting of two kinds of symbol:
+precise terms, what we mean by a sentence and thus by an argument.
+
+Let us give a name to this toy language in which we will formulate arguments. We
+will call it L$_S$. The language L$_S$ has an alphabet consisting of two kinds
+of symbol:
 
 Terms: $\,\,t_1$, $t_2$, $t_3$, ...
 
@@ -248,7 +250,7 @@ Copulas: $\,\,\textbf{a}$, $\textbf{e}$, $\textbf{i}$, $\textbf{o}$
 
 Let us call any finite string of symbols from this alphabet an _expression_ of
 L$_S$. Which expressions of L$_S$ are sentences? We can now define the notion
-precisely:
+precisely.
 
 ::: {#def-argument}
 A _sentence_ of L$_S$ is any expression of the form:
@@ -379,12 +381,12 @@ the formal language of quantificational logic? Will we have to be concerned that
 there are valid arguments expressible in English that cannot be seen as valid
 when translated into this formalism? In one important sense, the answer is no.
 In fact, it turns out that the language of quantificational logic that we will
-introduce later on in this course is, it turns out reasonable comprehensive.
-Indeed, among the many impressive achievements of the landmark logical
-investigations into the foundations of mathematics conducted in the first half
-of the 20th century was the discovery that the language of quantificational
-logic is sufficient to comprehend all but a small fraction of the arguments that
-have ever been given in mathematics!
+introduce later on in this course is reasonably comprehensive. Indeed, among the
+many impressive achievements of the landmark logical investigations into the
+foundations of mathematics conducted in the first half of the 20th century was
+the discovery that the language of quantificational logic is sufficient to
+comprehend all but a small fraction of the arguments that have ever been given
+in mathematics!
 
 Having now addressed the question of what an argument is and how arguments will
 be represented in our study of logic, our next task is to inquire into what it

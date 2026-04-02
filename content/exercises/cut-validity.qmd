@@ -1,0 +1,6 @@
+Let $\Ga$ and $\De$ be any sets of sentences and let $\ph$ and $\psi$ be any
+sentences. Show that the following is true:
+
+$$
+\textrm{If $\Ga,\ph\models_V\psi$ and $\De\models_V\ph$, then $\Ga,\De\models_V\psi$.}
+$$

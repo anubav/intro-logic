@@ -31,7 +31,7 @@ is _false_ under the truth valuation $v$'.
 
 What are these mysterious objects $\true$ and $\false$ which somehow manage to
 convey truth and falsehood to a sentence simply in virtue of their being
-assigned to it by a truth valuation?[^truth-values] Metaphysically, this may seem an
+assigned to it by a truth valuation? Metaphysically, this may seem an
 interesting question, but for the purpose of giving a precise definition of
 argumentative validity, it doesn't really matter. All that matters for this
 purpose is that $\true$ are $\false$ are distinct items, and that these two
@@ -39,8 +39,6 @@ distinct items are the only two truth values that a sentence can be
 assigned.[^bivalence] They may just as well be thought of as the letters
 '$\true$' and '$\false$' themselves, for apart from their obvious mnemonic value
 any two distinct items would suffice in their place.
-
-[^truth-values]: For a history of the mathematical conception of truth-value, see @Beziau2012-ui. Béziau writes: "At the level of a general definition [a truth-value] is pure abstract nonsense, trivial for a mathematician, beyond understanding for a philosopher whether analytic or synthetic" (p. 238).
 
 [^bivalence]:
     The assumption that a sentence can take exactly one of two truth
@@ -78,99 +76,122 @@ $$
 \Ga\models_V\ph
 $$
 
-The symbol '$\models$' is sometimes referred to as the double turnstile, and its
-counterpart symbol '$\proves$' as the single turnstile.
+The symbol '$\models$' is sometimes referred to as the double turnstile.
+
+:::{#exr-relative-validity .exercise}
+{{< include /content/exercises/relative-validity.qmd >}}
+:::
 
 It may seem that the above definition of argumentative validity is sufficiently abstract that
 nothing of substance can be inferred from it about which arguments are valid and
 which are not. This, however, is not so. Already, the characterization of
 argumentative validity as necessary truth preservation implies a number of
-substantive facts, three of which are stated in the following theorem:
+substantive facts. Here is one such fact. For any set of sentences $\Ga$ and any sentence $\ph$:
 
-<!-- TODO: Change theorem to notes in text -->
+$$
+\Ga,\ph\models_V\ph
+$$
 
-:::{#thm-semantic-structure .theorem}
-Let $V$ be any set of truth valuations. For any sentences $\ph, \psi$ and any sets of sentences $\Ga, \De$, the following claims hold:
+What this means is that any argument whose conclusion appears among its
+premises is valid. Since $\ph\in\Ga\cup\{\ph\}$, any truth valuation in $V$ under which
+all of the sentences in $\Ga\cup\{\ph\}$ are true is one in which $\ph$ is true
+as well. But, this is just what it means to say the argument is valid.
 
-i. $\Ga,\ph\models_V\ph$
+Another fact that follows from our definition of validity is that if we add
+premises to a valid argument,the validity of the argument remains unchanged.
+This can be expressed, in formal terms, as follows:
 
-ii. If $\Ga\models_V\ph$, then $\Ga, \De\models_V\ph$.
+$$
+\textrm{If $\Ga\models_V\ph$, then $\Ga, \De\models_V\ph$.}
+$$
 
-iii. If $\Ga,\ph\models_V\psi$ and $\De\models_V\ph$, then $\Ga,\De\models_V\psi$.
+Suppose $\Ga\models_V\ph$ and let $v\in V$ be a truth
+valuation such that $v(\psi)=\true$ for all $\psi\in \Ga\cup\De$. Since
+$\Ga\subset\Ga\cup\De$ it follows that $v(\psi)=\true$ for all $\psi\in \Ga$.
+So, since $\Ga\models_V\ph$, we have $v(\ph)=\true$. Hence, any valuation in $V$
+under which all of the sentences in $\Ga\cup\De$ are true is one in which $\ph$
+is true. In other words, $\Ga,\De\models_V\ph$.
 
-:::{.proof}
-i. Since $\ph\in\Ga\cup\{\ph\}$, any valuation in $V$ under which
-all of the sentences in $\Ga\cup\{\ph\}$ are true is one in which $\ph$ is true.
-But, this means $\Ga,\ph\models_V\ph$.
-
-ii. Suppose $\Ga\models_V\ph$ and let $val\in V$ be a truth valuation such that
-$val(\psi)=\true$ for all $\psi\in \Ga\cup\De$. Since $\Ga\subset\Ga\cup\De$ it
-follows that $val(\psi)=\true$ for all $\psi\in \Ga$. So, since
-$\Ga\models_V\ph$, we have $val(\ph)=\true$. Hence, any valuation in $V$ under which all of the sentences in $\Ga\cup\De$ are true
-is one in which $\ph$ is true. In other words, $\Ga\cup\De\models_V\ph$.
-
-iii. Suppose that $\Ga,\ph\models_V\psi$ and $\De\models_V\ph$, and let $val\in
-V$ be a truth valuation such that $val(\chi)=\true$ for all $\chi\in
-\Ga\cup\De$. Since $\De\subset \Ga\cup\De$ it follows that $val(\chi)=\true$ for
-all $\chi\in\De$. So, since $\De\models_V\ph$, we have $val(\ph)=\true$.
-Moreover, since $\Ga\subset \Ga\cup\De$ it follows that $val(\chi)=\true$, for
-all $\chi\in\Ga$. Hence, $val(\chi)=\true$, for all $\chi\in\Ga\cup\{\ph\}$. So, since $\Ga\cup\{\ph\}\models_V\psi$,
-$val(\psi)=\true$. Hence, any valuation in $V$ under which all of the
-sentences in $\Ga\cup\De$ are true is one in which $\psi$ is true. In
-other words, $\Ga\cup\De\models_V\psi$.
-:::
+:::{#exr-cut-validity .exercise}
+{{< include /content/exercises/cut-validity.qmd >}}
 :::
 
-The first of these claims asserts that any argument is valid whose conclusion appears among its premises. But should a patently circular argument such as
+Are these facts about validity reasonable? Should a patently circular argument
+such as:
 
 $$
-\textrm{Socrates is a man}\proves\textrm{Socrates is a man}
+\frac{\textrm{Socrates is Greek}}{\textrm{Socrates is Greek}}
 $$
 
-really be counted as valid?
-
-The second claim asserts that the validity of an argument is preserved under the arbitrary addition of new premises. But what if the added premises are entirely irrelevant to the truth of the conclusion at hand. For example, should the following argument be considered valid:
+really be counted as valid? Should the validity of an argument really be
+preserved under the arbitrary addition of new premises? What if the added
+premises are irrelevant to the truth of the conclusion at
+hand, as is the case, for example, in the following argument:
 
 $$
-\textrm{Socrates is a man, Every man is mortal}, 2+2=4\proves\textrm{Socrates is mortal}
+\frac{\textrm{Socrates is a human\hspace{2mm},\hspace{2mm}All humans are animals}\hspace{2mm},\hspace{2mm}
+2+2=4}{\textrm{Socrates is an animal}}
 $$
 
-We will have occasion to revisit such questions later on in this course. For now, we only note that they are definitively answered in the affirmative by the view of validity which conceives of it as nothing more than necessary truth preservation.
+Should this argument be counted as valid? These are interesting questions. For
+now, we only note that they are definitively answered in the affirmative by the
+view of validity which conceives of it as nothing more than necessary truth
+preservation.
 
-:::{#exr-validity-empty-set .exercise}
-{{< include /content/exercises/validity-empty-set.qmd >}}
-:::
+So far, we have only defined validity relative to a set of truth valuations.
+This begs the question as to which truth valuations we should count as
+admissible for the purpose of assessing the validity of arguments?
 
-In assessing the validity of an argument which set of truth valuations
-should we consider? A natural answer, one might think, is that we should
-consider _all_ possible assignments of truth and falsehood to the sentences of
-our language. This, after all, would correspond to the strictest possible notion
-of necessity---and what could be stricter than logical necessity? To adopt this approach,
-however, will not do, for the reason indicated by the following theorem:
+Before addressing this question, let's first go back to our definition of
+validity and think about it in a slightly different way. That definition said
+that an argument is valid iff every admissible truth valuation under which all
+of the premises of the argument are true is one in which the conclusion is true
+as well. Note that a perfectly equivalent way of formulating this definition is
+as follows: An argument is _invalid_ iff there is some admissible truth valuation with
+respect to which all of the premises are true but the conclusion is false.
+
+It is often more intuitive to think about validity in this way. We invalidate an
+argument by finding a _counterexample_ to it. A counterexample is just an
+admissible truth valuation that makes the premises true and the conclusion
+false. Consequently, when we increase the class of admissible truth valuations
+we make it easier to find a counterexample, and so easier to invalidate an
+argument. This means that fewer arguments will be valid. On the other hand, when
+we decrease the class of admissible truth valuations we make it harder to find a
+counterexample, and so harder to invalidate an argument. This means that more
+arguments will be valid.
+
+So, to return to the question of which truth valuations we should count as
+admissible, a natural answer, one might think, is that we should consider _all_
+possible assignments of truth and falsehood to the sentences of our language.
+This, after all, would correspond to the strictest possible standard of
+validity---and what could be stricter than logic?
+
+To adopt this approach, however, will not do, for the reason indicated by the
+following theorem:
 
 :::{#thm-trivial-validity .theorem}
 Let $V$ be the set of _all_ possible truth valuations. Then $\Ga\models_V \ph$ if and only if $\ph\in\Ga$.
 
 :::{.proof}
-The left-to-right direction (or, the 'if' direction) of the claim
-follows from @thm-semantic-structure.(i). For the right-to-left direction (or,
+The right-to-left direction (or, the 'if' direction) of the claim
+follows, as we have seen, from the definition of validity which entails that any
+circular argument is valid. For the left-to-right direction (or,
 the 'only if' direction) of the claim, suppose that $\ph\not\in\Ga$. Then, since
-$V$ consists of all possible truth valuations, there exists some trtuh valuation
+$V$ consists of all possible truth valuations, there exists some truth valuation
 in $V$ under which all of the sentences in $\Ga$ are true but the sentence $\ph$
 is false. Hence, $\Ga\not\models_V\ph$.
 :::
 :::
 
-<!-- TODO: Add comments on counterexamples and invalidity -->
-
 This theorem asserts that an argument is valid with respect to the set of all
 truth valuations of a language if and only if its conclusion appears among its
-premises! Consequently, without somehow restricting the class of admissible
+premises. Consequently, without somehow restricting the class of admissible
 valuations, we are left with a trivial standard of argumentative validity in
-which the only valid arguments are circular ones. How then are we to restrict
-the class of admissible truth valuations in a nonarbitrary way? To answer this
-question, we must examine in more detail the specifically logical sense of
-necessity involved in claims of argumentative validity.
+which the only valid arguments are circular ones! This, of course, will not do.
+How then are we to restrict the class of admissible truth valuations in a
+nonarbitrary way? To answer this question, we must examine in more detail the
+specifically _logical_ sense of necessity involved in claims of argumentative
+validity.
 
 ### Logical Necessity
 
@@ -184,24 +205,24 @@ $$
 As we have said, this argument is valid in virtue of the fact that the truth of
 its premises necessitate the truth of its conclusion. But, in what exact sense
 of 'necessity' does the fact that no humans are cold-blooded necessarily follow
-from the fact that all humans are mammals, on the one hand, and that no mammals
-are cold-blooded, on the other.
+from the two claims that all humans are mammals and no mammals are cold-blooded.
 
 In general, when we say of a claim that it is _necessarily_ true we assert not
 only that it is true but, moreover, that its truth is not a contingent, or
 incidental, matter. Its truth, in other words, is, in some sense, robust--- it
 is independent of certain features of the context in which it is affirmed. The
-precise sense of the modality is determined by which features of the context are
-deemed incidental to the truth of the claim in question. For example, to assert
-that the Sun _always_ rises in the east, is to assert not only that the Sun
-will rise in the east (today) but, moreover, that this claim would be true
-regardless of the specific day on which it is put forward. Hence, the sun's
-rising is a temporal (or, more specifically, a diurnal, or daily) necessity. Likewise, to
-assert that you are _forbidden_ from castling when your king is in check, is
-not only to assert that you cannot castle from some one particular arrangement
-of the pieces in which a check has been made, but that the same prohibition
-remains in force in any such scenario that may arise in a game of chess. Hence,
-the disallowance of castling out of check is a deontic necessity.[^modalities]
+precise sense of necessity is determined by which particular features of the
+context are deemed incidental to the truth of the claim in question. For
+example, to assert that the Sun _always_ rises in the east, is to assert not
+only that the Sun will rise in the east (today) but, moreover, that this claim
+would be true regardless of the specific day on which it is put forward. Hence,
+the sun's rising in the east is a temporal (or, more specifically, a diurnal, or daily)
+necessity. Likewise, to assert that you are _forbidden_ from castling when your
+king is in check, is not only to assert that you cannot castle from some one
+particular arrangement of the pieces in which a check has been made, but that
+the same prohibition remains in force in any such scenario that may arise in a
+game of chess. Hence, the disallowance of castling out of check is a deontic, or rule-based,
+necessity.[^modalities]
 
 [^modalities]:
     The branch of logic that studies the various modalities
@@ -221,32 +242,33 @@ we further assert that this conditional, P, would be true _regardless_ of
 certain features of the context in which it is here affirmed. What features of
 the context do we have it in mind to ignore as irrelevant when we describe P as
 logically necessary? Presumably what is meant by this is that P would remain
-true no matter no matter what properties are designated by the terms 'human',
-'mammal', and 'cold-blooded'. Thus, for example, if the term 'human' were to
-refer to the property of being Germans,
-the term 'mammal' to the property of being near-sights, and the term 'cold-blooded' to the
-property of being a good logician, it would still follow from the truth of the
-sentences 'All humans are mammals' and 'No mammals are cold-blooded', that the sentence
-'No humans are cold-blooded' is true. For: if all Germans are near-sighted, and
-nobody who is near-sighted is good logician, then no German (not even Kurt Gödel!) is a good logician.
+true no matter what properties are designated by the terms 'human', 'mammal',
+and 'cold-blooded'. Thus, for example, if the term 'human' were to refer to the
+property of being German, the term 'mammal' to the property of being
+near-sighted, and the term 'cold-blooded' to the property of being a good
+logician, it would still follow from the truth of the sentences 'All humans are
+mammals' and 'No mammals are cold-blooded', that the sentence 'No humans are
+cold-blooded' is true. For: if all Germans are near-sighted, and nobody who is
+near-sighted is a good logician, then no German is a good
+logician---not even Kurt Gödel!
 
 Note that it is crucial to this line of reasoning that the constructs 'All
 $\cdots$ are $\smallblank$' and 'No $\cdots$ are $\smallblank$' are taken to
-possess their usual meaning, i.e., the former asserts that all objects possessing
-the property designated by '$\cdots$' also possess the property designated by
-'$\smallblank$', and the latter asserts that no object possessing the property designated by '$\cdots$'
-possesses the property designated by '$\smallblank$'. If the meanings of these
-constructs were allowed to vary along with those of 'human', 'mammal', and
-'cold-blooded' (e.g., if 'All $\cdots$ are $\smallblank$' were taken to mean that only
-_some_ $\cdots$'s are $\smallblank$'s)
-then there may be ways of interpreting the premises and conclusion of the
-argument according to which the premises are true but the conclusion false.
+possess their usual meaning, i.e., the former asserts that all objects
+possessing the property designated by '$\cdots$' also possess the property
+designated by '$\smallblank$', and the latter asserts that no object possessing
+the property designated by '$\cdots$' possesses the property designated by
+'$\smallblank$'. If the meanings of these constructs were allowed to vary along
+with those of 'human', 'mammal', and 'cold-blooded' (e.g., if 'All $\cdots$ are
+$\smallblank$' were taken to mean that only _some_ $\cdots$'s are
+$\smallblank$'s) then there may be ways of interpreting the premises and
+conclusion of the argument according to which the premises are true but the
+conclusion false.
 
 As this example illustrates, when we assess the validity of an argument we
-always take for granted a certain distinction between those elements of the
+always take for granted a distinction between those elements of the
 language that are taken to have a fixed meaning for the purpose of this assessment
-and those elements of the language which are subject to reinterpretation, that
-is, whose meanings are allowed to vary. We refer to
+and those elements of the language which are subject to reinterpretation and whose meanings are allowed to vary. We refer to
 the former as the _logical_ elements of the language and to the latter as its
 _non-logical_ elements. To say that an argument is valid is to assert that,
 under the assumption that the logical elements of the language are given
@@ -255,3 +277,18 @@ truth of its premises no matter how the non-logical elements of the language are
 interpreted. The sense of necessity implicated in claims of validity is thus a
 kind of _semantic_ necessity---it is truth in sole virtue of the meanings of the
 logical elements of the language.
+
+To make this standard of validity more precise there are three things that we
+need to do:
+
+1. First, we must distinguish between the logical and non-logical elements of
+   the language.
+2. Second, we must describe what it means to interpret the non-logical elements of
+   the language.
+3. Third, we must describe how, on a given interpretation, the logical
+   elements of the language determine the truth or falsehood of every sentence.
+
+To perform these three tasks is referred to as giving a semantics for the language. The
+semantics for a formal language will vary from one language to the next, so at
+this point it will be best to consider a concrete example. In the next section we
+will therefore introduce a semantics for our formal language L$_S$.

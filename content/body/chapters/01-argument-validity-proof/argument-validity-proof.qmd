@@ -19,4 +19,8 @@ crossref:
 {{< include validity.qmd >}}
 :::
 
+:::{.content-hidden when-profile="lecture-2"}
+{{< include extensional-semantics.qmd >}}
+:::
+
 ## References {.unnumbered}

@@ -1,0 +1,17 @@
+Establish the truth of the following claims by either showing that the
+corresponding argument is valid or by providing a counterexample to show that it
+is invalid:
+
+a. $\some{B}{A}, \all{B}{C}\models \some{A}{C}$
+
+b. $\no{B}{A}, \some{B}{C}\models \somenot{A}{C}$
+
+c. $\all{A}{B}, \somenot{A}{B}\models \some{A}{C}$
+
+d. $\all{A}{B}, \all{C}{B}, \all{B}{D} \models \some{A}{C}$
+
+e. $\some{C}{A}, \no{C}{B}, \all{B}{D}\models \somenot{A}{C}$
+
+f. $\all{A}{B}, \some{C}{B}, \no{C}{D} \models \somenot{A}{D}$
+
+g. $\all{A}{B}, \some{A}{A} \models \some{A}{B}$

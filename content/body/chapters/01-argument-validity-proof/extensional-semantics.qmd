@@ -1,0 +1,236 @@
+## Extensional Semantics
+
+Recall that the syntax of the language L$_S$ countenances four distinct sentence forms:
+
+$$
+\begin{align*}
+\all{A}{B} &\qquad\qquad(\textrm{All $A$s are $B$s})\\
+\no{A}{B} &\qquad\qquad(\textrm{No $A$s are $B$s})\\
+\some{A}{B} &\qquad\qquad(\textrm{Some $A$s is $B$s})\\
+\somenot{A}{B} &\qquad\qquad(\textrm{Some $A$s is not $B$s})\\
+\end{align*}
+$$
+
+Which are the logical and which the non-logical elements of the language?
+As suggested above, the non-logical elements of the language are the terms.
+Their meanings will be allowed to vary from one interpretation to the next.
+
+But what does it means to interpret these terms? Here we will adopt the approach
+of interpreting the terms 'extensionally'. Terms in the language L$_S$ are meant
+to stand for properties expressed by common noun phrases, such as 'animal',
+'cold-blooded', or 'green'. The extension of a common noun phrase is the set of
+all individual objects that possess the property denoted by that phrase. So, for
+example, the extension of the term 'cat' is the set of all cats, the extension
+of 'cold-blooded' the set of all cold-blooded creatures.[^intension] Thus, in an
+extensional semantics, a term will be interpreted as a set of objects, the
+members of which are all and only those objects possessing the property denoted
+by the term.
+
+[^intension]:
+    By contrast, the _intension_ of a common noun phrase is the
+    meaning of the phrase, or that which determines its extension. Thus, for
+    example, while 'human' and 'featherless biped' have the same extension since
+    every human is a featherless biped and vice versa, they have different
+    intensions since the two phrases differ in meaning. For a more detailed
+    discussion of the distinction between extension and intension, see
+    @Carnap1988-nm, ch. 1.
+
+But what exactly do we mean by an _object_? For semantics purposes, we need not
+specify what an object is. An object is simply a member of a certain fixed set
+which we will refer to as the 'universe' and which we will denote by $\W$. We
+may assume that $\W$ is very big, and we may even assume that it is infinite and
+contains every number ($1,2,3,\ldots$). This universe of objects will serve as
+the background domain for our interpretations. Now, to interpret the language is
+simply to assign to every term an extension, that is, a subset of objects in the
+universe.
+
+::: {#def-interpretation-Ls}
+An _interpretation_ of the language $\Ls$ is a
+function assigning to each term a subset of $\W$. If $\si$ is an interpretation
+and $A$ is a term, we write $\si(A)$ for the subset of $\W$ assigned to $A$ by the
+interpretation $\si$.  
+:::
+
+:::{#fig-model-S}
+![](/content/static/images/syllogistic-model.svg){width=450 fig-align="center" fig-alt="Syllogistic model"}
+
+An extensional interpretation of the language $\Ls$.
+:::
+
+On any given interpretation of the language, every term is assigned a specific
+extension, that is, a specific set of objects in the universe. To complete our
+specification of the semantics for the language, we must explain how it is that
+the truth or falsity of any sentence in the language, gets decided on a given
+interpretation. In doing so, we will, in effect, be providing an account of the
+intended meanings of the logical elements of the syntax, in this case the
+copulas $\all{}{}, \no{}{}, \some{}{}$, and $\somenot{}{}$.
+
+So, what we have left to do is explain how we go from an interpretation of the
+language, say $\si$, to a specific truth valuation of the language, call it
+$v^\si$. Let's begin by focusing on sentences of the form $\all{A}{B}$. On the
+intepretation $\si$, the extension of $A$ is given by the set $\si(A)$ and the
+extension of $B$ by the set $\si(B)$. Under what conditions should the sentence
+$\all{A}{B}$ be judged to be true? Since $\all{A}{B}$ is intended to express the
+fact that all $A$s are $B$s, $\all{A}{B}$ should be true just in case every
+object in $\si(A)$ is in $\si(B)$. That is:
+
+$$
+\textrm{$v^\si(\all{A}{B})=\true$ iff $\si(A)\subset \si(B)$}
+$$
+
+What about sentences of the form $\no{A}{B}$? This sentence is meant to express
+the fact that no $A$s are $B$s and so it should be true, on the interpretation $\si$,
+just in case $\si(A)$ and $\si(B)$ do not overlap, i.e.:
+
+$$
+\textrm{$v^\si(\no{A}{B}) = \true$ iff $\si(A)\cap\si(B)=\emptyset$}
+$$
+
+The corresponding rules explaining how to assess the truth and falsity of sentences
+of the form $\some{A}{B}$ and $\somenot{A}{B}$ can be stated as follows:
+
+$$
+\textrm{$v^\si(\some{A}{B}) = \true$ iff $\si(A)\cap\si(B) \neq \emptyset$}
+$$
+
+$$
+\textrm{$v^\si(\somenot{A}{B}) = \true$ iff $\si(A)-\si(B)\neq \emptyset$}
+$$
+
+To illustrate the a pplication of these semantic rules, let $\si$ be the intepretation partially specified in @fig-model-S above. On this interpretation, we have, for example:
+
+$$
+\begin{align*}
+v^\si(\all{t_4}{t_{1}})=\true \\
+v^\si(\some{t_2}{t_{3}})=\false \\
+v^\si(\no{t_1}{t_{2}})=\false \\
+v^\si(\somenot{t_4}{t_{3}})=\true
+\end{align*}
+$$
+
+Now, let's return to the issue of argumentative validity. We had previously defined a valid
+argument as one for which there is no admissible truth valuation under which all
+of the premises are true but the conclusion is false. Now we are in a position
+to answer the question of what counts as an admissible truth valuation.
+
+The class of admissible truth valuations with respect to which we will assess
+the validity of arguments will be those of the form $v^\si$, where $\si$ is an
+intepretation of the language. In other words, an admissible truth valuation is
+one which results from the application of the semantic rules to a specific interpretation
+of the non-logical elements of the syntax. We can now update our
+definition of argumentative validity as follows:
+
+::: {#def-validity}
+The argument
+
+$$
+\Ga\proves\ph
+$$
+
+is _valid_ if, for every interpretation $\si$, the following is true: if $v^\si(\psi)=\true$, for all $\psi\in\Ga$, then $v^\si(\ph)=\true$.
+:::
+
+To express that the argument $\Ga\proves\ph$ is valid, we write:
+
+$$
+\Ga\models\ph
+$$
+
+In this case, we may also say that $\Ga$ _entails_ $\ph$, or that $\ph$ is a _logical consequence_ of $\Ga$.
+
+In general, the semantic rules for the language---which capture the meanings of
+the logical elements of the syntax---will be chosen in such a way that not every
+truth valuation will be of the form $v^\sigma$. Hence, it is these semantic
+rules that will render our standard of validity nontrivial, in the sense that it
+will admit as valid not just circular arguments. In the case of L$_S$, for
+example, we may observe that there is no admissible truth valuation which
+assigns $\true$ to both the sentences $\all{A}{B}$ and $\somenot{A}{B}$. To see
+why, let $\si$ be any interpretation of the language and suppose that
+$v^\si(\all{A}{B})=\true$. Then, by our semantic rule for the $\all{}{}$ copula,
+we have $\si(A)\subset\si(B)$. But then $\si(A)-\si(B)=\emptyset$, and so, by
+our semantic rule for the $\somenot{}{}$ copula, $v^\si(\somenot{A}{B})=\false$.
+
+Thus, on our extensional semantics $\all{A}{B}$ and $\somenot{A}{B}$ cannot both
+be true. In fact, it is easy to verify that they also cannot both be false. In
+other words, the one is true just in case the other is false. And the same relation
+obtains between the propositions $\no{A}{B}$ and $\some{A}{B}$ (see Exercise ???
+below).
+
+Now, at last, we have in place the necessary resources to make precise our
+initial, somewhat vague intuition that the following argument is valid:
+
+$$
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+$$
+
+Let $A$ stand for 'human', $B$ for 'mammal' and $C$ for 'cold-blooded'. Then,
+translated into our formal language L$_S$, the claim that this argument is valid
+is expressed:
+
+$$
+\all{A}{B}, \no{B}{C}\models\no{A}{C}
+$$
+
+To confirm this, we must show that, for any interpretation, if
+the premises are true, the conclusion is true as well. Let $\si$ be an
+interpretation such that $v^\si(\all{A}{B}) = \true$ and
+$v^\si(\no{B}{C})=\true$. Then, from the first of these claims, we have
+$\si(A)\subset\si(B)$, and, from the second, we have
+$\si(B)\inter\si(C)=\emptyset$. Now, suppose $x\in\si(A)$. Then, since
+$\si(A)\subset\si(B)$, $x\in \si(B)$. But since $\si(B)\inter\si(C)=\emptyset$,
+it follows that $x\not\in\si(C)$. So, for any object $x$, if $x\in\si(A)$ it follows that
+$x\not\in\si(C)$. But this means that $\si(A)\inter\si(C)=\emptyset$. So, by our
+semantic rules, $v^\si(\no{A}{C})=\true$. Hence, the argument is valid.
+
+Now, let's consider another argument:
+
+$$
+\frac{\textrm{No humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{All mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+$$
+
+This argument can be formalized in the language L$_S$ as follows: $\no{A}{B},
+\all{B}{C}\proves \no{A}{C}$. Is this argument valid? To show that it is not
+valid it suffices to provide a counterexample to the argument. This is an
+interpretation under which the premises are true but the conclusion is false.
+Let $a$, $b$, and $c$ be any three distinct objects in $\W$. A counterexample to
+the argument is any interpretation $\si$ satisfying:
+
+$$
+\si(A) = \{a, b\}
+$$
+
+$$
+\si(B) = \{c\}
+$$
+
+$$
+\si(C) = \{b, c\}
+$$
+
+For it is easy to verify that, on such an interpretation, the premises are true
+and the conclusion false:
+
+$$
+\si(A)\inter\si(B) = \{a, b\}\inter\{c\} = \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\si(\no{A}{B}) = \true
+$$
+
+$$
+\si(B) = \{c\} \subset \{b,c\} = \si(C) \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\si(\all{B}{C}) = \true
+$$
+
+$$
+\si(A)\inter\si(C) = \{a, b\}\inter\{b, c\} \neq \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\si(\no{A}{C}) = \false
+$$
+
+We can visually represent this counterexample as follows:
+
+![](/content/static/images/syllogism-counterexample.svg){width=450 fig-align="center" fig-alt="Syllogistic counterexample"}
+
+:::{#exr-syllogisms-validity .exercise}
+{{< include /content/exercises/syllogisms-validity.qmd >}}
+:::

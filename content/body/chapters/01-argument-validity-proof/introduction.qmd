@@ -43,7 +43,7 @@ the same time, its results are arrived at by means of reasoning, then one may
 meaningfully ask what follows when the claims established in the study of logic
 are applied to itself. The answer, as it turns out, is quite a lot! The
 essentially circular nature of logic is what enabled the discovery of such
-landmark results as Gödel's famous incompleteness theorems, among the
+landmark results as Gödel's famous incompleteness theorems, among the purported
 corrolaries of which are such provocative theses as "arithmetical truth cannot
 be defined arithmetically", and "if a computer can simulate all of our
 mathematical reasonings, then, in principle, we cannot fully grasp how it
@@ -52,7 +52,7 @@ works".
 But let's not get ahead of ourselves! In order to reflect seriously on the
 philosophical import of such claims, one must first understand what exactly they
 mean, and, for this, we require a thorough understanding of the basic concepts
-of deductive logic. These are the concepts of **argument**, **validity**, and
-**proof**. In the remainder of this chapter, we will consider each of these
-concepts in turn, with an eye to understanding how it is that, in logic, we will
+of deductive logic. These are the concepts of _argument_, _validity_, and
+_proof_. In the remainder of this chapter, we will consider each of these
+concepts in turn, with an eye to understanding how it is that, in logic, we
 reason about reasoning.
