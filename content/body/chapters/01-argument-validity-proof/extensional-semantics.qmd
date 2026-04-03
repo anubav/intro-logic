@@ -101,10 +101,10 @@ To illustrate the a pplication of these semantic rules, let $\si$ be the intepre
 
 $$
 \begin{align*}
-v^\si(\all{t_4}{t_{1}})=\true \\
-v^\si(\some{t_2}{t_{3}})=\false \\
-v^\si(\no{t_1}{t_{2}})=\false \\
-v^\si(\somenot{t_4}{t_{3}})=\true
+v^\si(\all{D}{C})=\true \\
+v^\si(\some{A}{B})=\false \\
+v^\si(\no{C}{A})=\false \\
+v^\si(\somenot{D}{B})=\true
 \end{align*}
 $$
 
