@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to Logic - 1&nbsp; Argument, Validity &amp; Proof</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../content/front-matter/00-introduction/introduction.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
+<link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="../../../../assets/scripts/definitions.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../assets/styles/fonts.css">
+<link rel="stylesheet" href="../../../../assets/styles/environments.css">
+<link rel="stylesheet" href="../../../../assets/styles/tweaks.css">
+<link rel="stylesheet" href="../../../../assets/styles/custom.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Introduction to Logic</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Front Matter</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/front-matter/00-introduction/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#reasoning-about-reasoning" id="toc-reasoning-about-reasoning" class="nav-link active" data-scroll-target="#reasoning-about-reasoning"><span class="header-section-number">1.1</span> Reasoning about Reasoning</a></li>
+  <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments"><span class="header-section-number">1.2</span> Arguments</a></li>
+  <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets"><span class="header-section-number">1.3</span> Sets</a>
+  <ul class="collapse">
+  <li><a href="#representing-sets" id="toc-representing-sets" class="nav-link" data-scroll-target="#representing-sets"><span class="header-section-number">1.3.1</span> Representing Sets</a></li>
+  <li><a href="#set-relations-and-operations" id="toc-set-relations-and-operations" class="nav-link" data-scroll-target="#set-relations-and-operations"><span class="header-section-number">1.3.2</span> Set Relations and Operations</a></li>
+  <li><a href="#the-empty-set" id="toc-the-empty-set" class="nav-link" data-scroll-target="#the-empty-set"><span class="header-section-number">1.3.3</span> The Empty Set</a></li>
+  </ul></li>
+  <li><a href="#sec-validity" id="toc-sec-validity" class="nav-link" data-scroll-target="#sec-validity"><span class="header-section-number">1.4</span> Validity</a>
+  <ul class="collapse">
+  <li><a href="#necessary-truth-preservation" id="toc-necessary-truth-preservation" class="nav-link" data-scroll-target="#necessary-truth-preservation"><span class="header-section-number">1.4.1</span> Necessary Truth Preservation</a></li>
+  <li><a href="#logical-necessity" id="toc-logical-necessity" class="nav-link" data-scroll-target="#logical-necessity"><span class="header-section-number">1.4.2</span> Logical Necessity</a></li>
+  </ul></li>
+  <li><a href="#extensional-semantics" id="toc-extensional-semantics" class="nav-link" data-scroll-target="#extensional-semantics"><span class="header-section-number">1.5</span> Extensional Semantics</a></li>
+  <li><a href="#proofs" id="toc-proofs" class="nav-link" data-scroll-target="#proofs"><span class="header-section-number">1.6</span> Proofs</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-argument-validity-proof" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+<!-- Greek letters -->
+<!-- set operations -->
+<!-- script letters -->
+<!-- bold letters -->
+<!-- logic -->
+<!-- propositional logic -->
+<!-- syllogistic logic -->
+<!-- miscellaneous -->
+</div>
+<section id="reasoning-about-reasoning" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="reasoning-about-reasoning"><span class="header-section-number">1.1</span> Reasoning about Reasoning</h2>
+<p>Logic, in the most general sense of the term, refers to the study of the norms that govern the activity of <em>reasoning</em>. In this broad sense, logic concerns not only the sort of reasoning expressed in mathematical proofs but also such reasoning as underwrites a statistical inference or the confirmation of a scientific theory. If we further countenance informal methods of reasoning, the scope of logic grows wider still, comprehending such rhetorical forms of argumentation as one might encounter in a philosophy text or a newspaper editorial and even those vague heuristics and patterns of inference summarized by the phrase “common sense”. Given such a wide scope of application, any introduction to logic must begin with a suitably delimited statement of its intended subject matter.</p>
+<p>A more apt description of this course would be an ‘Introduction to <em>Deductive</em> Logic’, for our concern will not be with reasoning in general, but only with a very specific sort of reasoning, namely, the sort of reasoning which is termed <em>deduction</em>. To deduce something means to show that its truth follows necessarily from other claims that we take to be true, in brief, it is to <em>prove</em> it, in roughly the sense of proof with which we are all acquainted from our prior courses in mathematics. Thus, deductive reasoning is what we do when we derive a theorem in geometry from more basic claims, or axioms, characterizing elementary geometrical notions such as points, lines, planes, and the like. It is also what we do when we reason that a ‘7’ must belong in a certain empty square on a Sudoku board by ruling out all other possibilities, or when we conclude that Mary is right to say that John must be lying, when he says that both he and Mary have spoken truly. It is <em>not</em> what we do when we conclude (perhaps reasonably) that our lottery ticket will not make us rich, nor what Oedipus did when he solved (perhaps brilliantly) the riddle of the Sphinx. Reasoning, in the broad sense of the term, is surely at work in both of these cases, but in neither is anything deduced, in neither is anything proven to be true.</p>
+<p>Now, in this course we will be studying the topic of deductive reasoning. In so doing, we will have many occasions ourselves to reason deductively. While reasoning about reasoning may seem to involve us in a circle, as long as we are careful, this circle need not be a vicious one. Indeed, if you continue on in your study of logic beyond this course, you will quickly come to discover that it is the essentially self-reflexive nature of logic which endows the subject not only with its peculiar charm, but also with no small part of its philosophical value. For, if logic is concerned to study reasoning and if, at the same time, its results are arrived at by means of reasoning, then one may meaningfully ask what follows when the claims established in the study of logic are applied to itself. The answer, as it turns out, is quite a lot! The essentially circular nature of logic is what enabled the discovery of such landmark results as Gödel’s famous incompleteness theorems, among the purported corrolaries of which are such provocative theses as “arithmetical truth cannot be defined arithmetically”, and “if a computer can simulate all of our mathematical reasonings, then, in principle, we cannot fully grasp how it works”.</p>
+<p>But let’s not get ahead of ourselves! In order to reflect seriously on the philosophical import of such claims, one must first understand what exactly they mean, and, for this, we require a thorough understanding of the basic concepts of deductive logic. These are the concepts of <em>argument</em>, <em>validity</em>, and <em>proof</em>. In the remainder of this chapter, we will consider each of these concepts in turn, with an eye to understanding how it is that, in logic, we reason about reasoning.</p>
+</section>
+<section id="arguments" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="arguments"><span class="header-section-number">1.2</span> Arguments</h2>
+<p>Logic seeks to investigate the norms that govern the activity of reasoning. It is thus concerned to investigate the general conditions under which reasoning leads to good—or, to use the logician’s preferred approbative, <em>valid</em>—arguments. As students of logic, we are thus confronted with a number of preliminary questions that must be answered before our inquiry can get going:</p>
+<ol type="1">
+<li><p>What exactly is an argument?</p></li>
+<li><p>What does it mean for an argument to be valid?</p></li>
+<li><p>What is reasoning and how is it involved in argumentation?</p></li>
+</ol>
+<p>Let us begin with the first of these questions and think a bit about what an argument is and how we ought to represent arguments.</p>
+<p>When we give an argument, we proceeds from certain claims that we take to be true. On the basis of these claims we conclude that something else is true. In logic, we refer to the claims from which an argument proceeds as the <em>premises</em> of that argument, and we refer to the claim to which we are led by an argument as its <em>conclusion</em>. If we write down the premises of an argument in a comma-separated list, and mark them off from the argument’s conclusion by a horizontal line, the following are all arguments:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p><span class="math display">\[
+\hspace{2mm}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\textrm{Either the bus is late or Anna slept
+in}\hspace{2mm},\hspace{2mm}\textrm{When it does not rain, the bus arrives on
+time}\hspace{2mm},\hspace{2mm}\textrm{It is not raining}}{\textrm{Anna
+slept in}}
+\]</span></p>
+<p><span class="math display">\[
+\hspace{2mm}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\textrm{Every student in the seminar recommended an article to
+the professor}}{\textrm{Some article was recommended to the professor by every student}}
+\]</span></p>
+<p>Note that the first of these arguments has two premises, the second has three, and the third has one, but all of the arguments have a single conclusion. Also note that while the first two of these arguments are intuitively valid, the third is not.</p>
+<p>Now, despite the fact that here we are using English formulations, it may be natural to regard the claims made in an argument as non-linguistic abstractions from the specific sentences that are used to express those claims in a particular language. Thus, for example, the first of the three arguments given above can be formulated in German as follows:</p>
+<p><span class="math display">\[
+\frac{\textrm{Alle Menschen sind
+Säugetiere}\hspace{2mm},\hspace{2mm}\textrm{Keine Säugetiere sind
+kaltblütig}}{\textrm{Keine Menschen sind kaltblütig}}
+\]</span></p>
+<p>If this class were to be taught in German, and I were to have written this latter argument on the board in place of the first of the three arguments given above, then, presumably, despite the shift in language, I would have presented you with one and the same argument.</p>
+<p>It is tempting, therefore, to think of arguments as being made up of claims, or thoughts, that can be equally well be expressed in any number of different languages. Nevertheless, for the purpose of representing arguments as objects about which we ourselves will be reasoning, it will be helpful to be more concrete and to disregard the intuitive difference between an argument in thought and its linguistic formulation. Thus, we will construe arguments as linguistic constructs. In other words, we will represent an argument by a particular collection of <em>sentences</em> expressed in a given language.</p>
+<p>Will any sentence do to serve as the premise or conclusion of an argument? The grammatical concept of a sentence in English is that of a closed, self-contained linguistic unit including at least one independent clause. But sentences in English, thus understood, can serve a variety different functions. The four functional categories of sentences that usually appear in grammar textbooks are as follows:</p>
+<ol type="1">
+<li>Declarative Sentences - A sentence that is used to declare or to assert something (“The class begins at noon.”)</li>
+<li>Interrogative Sentences - A sentence that is used to ask a question (“When does the class begin?”)</li>
+<li>Imperative Sentences - A sentence that is used to issue a command or a request. (“Please arrive to class on time.”)</li>
+<li>Exclamatory Sentences - A sentence that is used to express an attitude or state of mind. (“What an amazing lecture!”)</li>
+</ol>
+<p>When we give an argument, we assert things, either so as to make it clear what our reasons are for accepting a conclusion, or else to make it clear what we are accepting on the basis of those reasons. Thus, questions, commands, and exclamations, in so far as they do not assert anything, cannot straightforwardly appear in arguments. If they occur in argumentative text, they usually have to be paraphrased into declarative form before the argument can be laid out clearly. For example, a text which begins with the question “Should we raise the minimum wage?”, and then goes on to answer this question in the negative is really giving an argument the conclusion of which is the declarative sentence “We should not raise the minimum wage”.</p>
+<p>Thus, only declarative sentences can serve as the premises or conclusion of an argument. Let us now think a bit more carefully about what a declarative sentence is. As a first pass, we might think to define a declarative sentence as any sentence which can be used to make a claim about how the world is, or, what is actually the case. But what then should we make of the following sentences?</p>
+<p><span class="math display">\[
+\textrm{Either John or Mary was at the party.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{If the match is struck, it will light.}
+\]</span></p>
+<p>In a sense, one might think that the first of these sentence does not really make a claim about the world, since it fails to specify whether it was John or Mary who, in fact, attended the party. The same can be said of the second sentence. It does not say what is the case, but only what <em>would</em> be the case (namely, that the match would light), on the condition that something else is the case (namely, that the match is struck). But, these sorts of claims should certainly be allowed to appear in arguments, as in:</p>
+<p><span class="math display">\[
+\frac{\textrm{Either John or Mary was at the
+party}\hspace{2mm},\hspace{2mm}\textrm{John stayed home}}{\textrm{Mary was the
+party}}
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+\frac{\textrm{If the match is struck, it will
+light}\hspace{2mm},\hspace{2mm}\textrm{The match did not light}}{\textrm{The
+match was not struck}}
+\]</span></p>
+<p>What allows these claims to figure in arguments is simply that they are the sort of claims which can be either true or false. Even if a declarative sentence is uninformative or hypothetical, it remains truth-evaluable. Thus, it remains either true or false that either John or Mary was at the party, and, likewise, it is either true or false that if the match is struck, it will light. So, we may take truth-evaluability to be our basic standard of which sentences can serve as the premises or conclusion of an argument.</p>
+<p>Let us return now to the question of what language we ought to use to formulate our arguments. English seems a reasonable enough choice, given that it is the only language which can be safely assumed is spoken fluently by any participant in this course. Yet, at the same time, English (or any other natural language, for that matter) turns out not to be a particularly good choice. For the English language is exceedingly complex, and much of this complexity is simply unnecessary for capturing the differences in meaning that are relevant for formulating the particular arguments with which we will be concerned. For example, while there may be some subtle difference in meaning between the English sentences “John gave the letter to Mary” and “Mary was given the letter by John”, this difference in meaning, while relevant perhaps for producing a desired literary effect, is altogether irrelevant for judging whether or not it follows from this claim that, say, “Mary was given something by someone”. Consequently, to avoid overcomplicating things, if our sole aim is to study such inferential relations, we may as well do so in a language whose grammar ignores the distinction between active and passive voice constructions.</p>
+<p>Or consider, again, the argument discussed earlier:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>The sentence “All humans are mammals” has any number of obviously equivalent formulations in English, for example:</p>
+<ol type="1">
+<li>Every human is a mammal.</li>
+<li>Whatever is a human is a mammal.</li>
+<li>Anything that is a human is a mammal.</li>
+<li>If something is a human, then it is a mammal.</li>
+<li>Being a mammal is a property possessed by all humans.</li>
+</ol>
+<p>From a logical perspective, the syntactic variation exhibited by these sentences is wholly irrelevant to their argumentative significance since all of these sentences are true under exactly the same conditions. Why, one might ask, does natural language allow so many synonymous forms, which from the perspective of logic seem entirely redundant? The answer, on reflection, is simple: a natural language, such as English, is not just a tool for reasoning, but serves many other purposes as well. Natural language has to support poetic effect, rhythm, emphasis, and stylistic variation, all of which require flexibility in its syntax, and it also has to support efficient reference in discourse, where shifting the subject or using anaphora can make communication smoother and less repetitive. In short, natural language is shaped not just by the demands of logic, but by the broader needs of expression, narrative, and efficient communication.</p>
+<p>But the aim of this class is to study reasoning, and so, to avoid unnecessary complexity, we would do better to employ a language expressly designed for the sole purpose of representing certain argument forms. We might, for example, limit ourselves to a small fragment of English in which the only declarative sentences are those of the form:</p>
+<ol type="1">
+<li>All <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s</li>
+<li>No <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s</li>
+<li>Some <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s</li>
+<li>Some <span class="math inline">\(A\)</span>s are not <span class="math inline">\(B\)</span>s</li>
+</ol>
+<p>(Here <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> stand for terms—general noun phrases or adjectives—like ‘human’ or ‘cold-blooded’.) Or since we have departed from natural language already, we might simply go one step further, and formulate arguments in a wholly artificial language of our own invention, constructed exactly to suit our needs, and with a minimum of extraneous syntactic complexity. For instance, we might express the above four sentence forms as follows:</p>
+<ol type="1">
+<li>All(<span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>)</li>
+<li>No(<span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>)</li>
+<li>Some(<span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>)</li>
+<li>Some-not(<span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>)</li>
+</ol>
+<p>Or using an infix notation to avoid the need for commas and parentheses, we might simply write:</p>
+<ol type="1">
+<li><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{n}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{s}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{sn}}B\)</span></li>
+</ol>
+<p>At some point, the choice as to what syntax to adopt in our artificial, or formal, language is arbitrary. For example, the expressions <span class="math inline">\(\textrm{\textbf{a}}, \textrm{\textbf{n}}, \textrm{\textbf{s}}\)</span>, and <span class="math inline">\(\textrm{\textbf{sn}}\)</span> here have merely mnemonic significance. We could just as well use any expressions we like, for example, the first four vowels of the English alphabet:</p>
+<ol type="1">
+<li><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{e}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{i}}B\)</span></li>
+<li><span class="math inline">\(A\textrm{\textbf{o}}B\)</span></li>
+</ol>
+<p>The advantage of this approach is that we are now able to state, in much more precise terms, what we mean by a sentence and thus by an argument.</p>
+<p>Let us give a name to this toy language in which we will formulate arguments. We will call it L<span class="math inline">\(_S\)</span>. The language L<span class="math inline">\(_S\)</span> has an alphabet consisting of two kinds of symbol:</p>
+<p>Terms: <span class="math inline">\(\,\,t_1\)</span>, <span class="math inline">\(t_2\)</span>, <span class="math inline">\(t_3\)</span>, …</p>
+<p>Copulas: <span class="math inline">\(\,\,\textbf{a}\)</span>, <span class="math inline">\(\textbf{e}\)</span>, <span class="math inline">\(\textbf{i}\)</span>, <span class="math inline">\(\textbf{o}\)</span></p>
+<p>Let us call any finite string of symbols from this alphabet an <em>expression</em> of L<span class="math inline">\(_S\)</span>. Which expressions of L<span class="math inline">\(_S\)</span> are sentences? We can now define the notion precisely.</p>
+<div id="def-argument" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1</strong></span> A <em>sentence</em> of L<span class="math inline">\(_S\)</span> is any expression of the form:</p>
+<p><span class="math display">\[
+A\!\ast\!B
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are terms, and <span class="math inline">\(\ast\)</span> is a copula.</p>
+</div>
+<p>Sentences, thus defined, are purely syntactic constructs. They are strings of symbols devoid of any meaning. Of course, our choice of the syntax for the language L<span class="math inline">\(_S\)</span> was guided by semantic considerations. In other words, in devising our language, we had in mind a certain conception of how various linguistic items are to be interpreted and we chose our syntax so as to ensure that the sentences in the language consist only of expressions which, when given such an interpretation, express meaningful claims.</p>
+<p>We now have a precise definition of a sentence, and we can use this definition to precisely define what we will mean by an <em>argument</em> in the language L<span class="math inline">\(_S\)</span>.</p>
+<div id="def-argument" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.2</strong></span> An <em>argument</em> in the language L<span class="math inline">\(_S\)</span> consists of (1) a set of sentences of L<span class="math inline">\(_S\)</span>, whose members are referred to as the argument’s <em>premises</em>; and (2) a sentence of L<span class="math inline">\(_S\)</span> referred to as the argument’s <em>conclusion</em>. We denote the argument whose premises comprise the set of sentences <span class="math inline">\(\Gamma\)</span> and whose conclusion is the sentence <span class="math inline">\(\varphi\)</span>, as follows:</p>
+<p><span class="math display">\[
+  \Gamma\vdash\varphi
+\]</span></p>
+</div>
+<p>The new symbol ‘<span class="math inline">\(\vdash\)</span>’ introduced in this definitions is sometimes called the ‘single turnstile’. Don’t worry about it’s odd appearance; it is just a separator, like the horizontal line that we previously used to mark off the premises of an argument from its conclusion. Its only advantage over the horizontal line is that it allows us to typeset arguments in line.</p>
+<p>As we shall see, the precision we gain from formulating arguments in a simple language like L<span class="math inline">\(_S\)</span> has many advantages. But it also has its costs. The first is that we now have to ‘translate’ arguments expressed in ordinary language into L<span class="math inline">\(_S\)</span> in order to apply the various tools that we will, in subsequent sections, develop to assess their validity. In some cases, this translation exercise may be straightforward. For example, the argument, letting <span class="math inline">\(A\)</span> be a term that stands for ‘human’, <span class="math inline">\(B\)</span> a term that stands for ‘mammal’, and <span class="math inline">\(C\)</span> a term that stands for ‘cold-blooded’, the English argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>Can be rendered in L<span class="math inline">\(_S\)</span> as:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C\vdash A\textrm{\textbf{e}}C
+\]</span></p>
+<p>Other arguments may prove more challenging. Suppose, for example, you are reading a philosophy text and you encounter the following passage:</p>
+<blockquote class="blockquote">
+<p>All those who, in the full exercise of reflective self-command, choose to govern their appetites rather than be governed by them, are persons whose actions deserve praise; and every person whose actions deserve praise is, by that very fact, a person of admirable character. Therefore, some individuals who have not merely acted but acted under the discipline of reason are persons of admirable character.</p>
+</blockquote>
+<p>Translating such a passage into L<span class="math inline">\(_S\)</span> requires some thought, because the subject and predicate terms of the various claims are somewhat more complex and expressed in non-uniform ways. Still, it can be done. In this case, let:</p>
+<p><span class="math inline">\(A\)</span>: a person who has acted under the discipline of reason</p>
+<p><span class="math inline">\(B\)</span>: a person whose actions deserve praise</p>
+<p><span class="math inline">\(C\)</span>: a person of admirable character</p>
+<p>Then, the argument can be translated into L<span class="math inline">\(_S\)</span> as follows:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{i}}C
+\]</span></p>
+<div id="exr-syllogism-translations" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.1</strong></span> Translate the following arguments into the language L<span class="math inline">\(_S\)</span>, indicating the meaning of all the terms appearing in your translation.</p>
+<p>(a). Some students are athletes. All athletes are disciplined people. Therefore, some students are disciplined people.</p>
+<p>(b). All dogs are mammals. No mammals are reptiles. Therefore, no dogs are reptiles.</p>
+<p>(c). All birds are animals. Not all animals can fly. Therefore, some birds are flightless.</p>
+<p>(d). Not all readers who prefer difficult texts are people who appreciate ambiguity. Neither are all people who appreciate ambiguity intellectually adventurous. Therefore, some readers who prefer difficult texts are not intellectually adventurous.</p>
+<p>(e). No citizens who routinely ignore their civic duties are fit for public office, since all people fit for public office are persons of sound judgment, and no citizens who routinely ignore their civic duties are persons of sound judgment.</p>
+</div>
+<p>Apart from the challenges involved in translation, there is a second risk that we run in opting to formulate arguments in a simple language like L<span class="math inline">\(_S\)</span>. The risk is that this language may lack the expressive resources needed to represent the meaning of the various claims involved in an argument in a precise enough way to see why that argument is valid. Consider, for example, the following, seemingly valid argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Some students in the class are taller than Bob}\hspace{2mm},\hspace{2mm}\textrm{Bob is
+taller than Carla}}{\textrm{Some students in the class are taller than Carla}}
+\]</span></p>
+<p>We might try to translate this into L<span class="math inline">\(_S\)</span> as follows. Let:</p>
+<p><span class="math inline">\(A\)</span> = a student in the class</p>
+<p><span class="math inline">\(B\)</span> = a person identical to Bob</p>
+<p><span class="math inline">\(C\)</span> = a person who is taller than Bob</p>
+<p><span class="math inline">\(D\)</span> = a person who is taller than Carla</p>
+<p>The argument can then be expressed:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{i}}C, B\textrm{\textbf{a}}D\vdash A\textrm{\textbf{i}}D
+\]</span></p>
+<p>This, as we shall see, is not a valid argument. The difficulty here is that the language L<span class="math inline">\(_S\)</span> does not have the resources to express complex relational facts, like “Anyone who is taller than one who is taller than Carla, is taller than Carla.” To capture such facts, we will need a logic that is more expressive than L<span class="math inline">\(_S\)</span>. By the time we get to quantificational logic, we will have introduced such a language, and so will be able to formalize the above argument in a way which will allow us to see why it is valid. But will the same concerns arise for the formal language of quantificational logic? Will we have to be concerned that there are valid arguments expressible in English that cannot be seen as valid when translated into this formalism? In one important sense, the answer is no. In fact, it turns out that the language of quantificational logic that we will introduce later on in this course is reasonably comprehensive. Indeed, among the many impressive achievements of the landmark logical investigations into the foundations of mathematics conducted in the first half of the 20th century was the discovery that the language of quantificational logic is sufficient to comprehend all but a small fraction of the arguments that have ever been given in mathematics!</p>
+<p>Having now addressed the question of what an argument is and how arguments will be represented in our study of logic, our next task is to inquire into what it means for an argument to be valid? Before taking up this task, however, let us pause to introduce a notion that will be central to our later discussions (and, indeed, that already appears surreptitiously in our definition of an argument), namely, that of a set.</p>
+</section>
+<section id="sets" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sets"><span class="header-section-number">1.3</span> Sets</h2>
+<section id="representing-sets" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="representing-sets"><span class="header-section-number">1.3.1</span> Representing Sets</h3>
+<p>Sets are among the items adverted to most frequently in logical reasoning, and so it is crucial to become acquainted with the terminology and notation that is typically used to reason with and about them.</p>
+<p>A <em>set</em> is a collection of objects. The most literal way to represent a set is to enclose a comma-separated list of the objects belonging to the set between curly braces. Thus, for example, the set of odd numbers between 1 and 10 may be written:</p>
+<p><span class="math display">\[
+    \{1,3,5,7,9\}
+\]</span></p>
+<p>The order of a list does not affect the set of objects appearing it. Nor do repetitions of those objects. Hence, the above set can also be written:</p>
+<p><span class="math display">\[
+    \{7,3,5,1,7,5,1,9,9,9,7,5\}
+\]</span></p>
+<p>To say that the object <span class="math inline">\(a\)</span> belongs to the set <span class="math inline">\(X\)</span>, we write <span class="math inline">\(a\in X\)</span> (read: ‘<span class="math inline">\(a\)</span> is in <span class="math inline">\(X\)</span>’ or ‘<span class="math inline">\(a\)</span> is a member of <span class="math inline">\(X\)</span>’). To say that <span class="math inline">\(a\)</span> does <em>not</em> belong to <span class="math inline">\(X\)</span>, we write <span class="math inline">\(a\not\in X\)</span>.</p>
+<p>Nearly every set that we will have any occasion to reference in this course will be most clearly defined not by means of a comprehensive listing of its members but rather by specifying a property possessed by all and only the members of this set. Thus, for instance, we may have occasion to refer to the set of all prime numbers, or the set of all expressions in a language of length greater than <span class="math inline">\(12\)</span>.</p>
+<p>To denote the set of all and only those objects which possess the property <span class="math inline">\(P\)</span>, we write: <span class="math display">\[ \{x: P(x)\} \]</span> where ‘<span class="math inline">\(P(x)\)</span>’ is any statement expressing the fact that <span class="math inline">\(x\)</span> has the property <span class="math inline">\(P\)</span>. This description of the set is read: ‘the set of all <span class="math inline">\(x\)</span>, such that <span class="math inline">\(P(x)\)</span>’. So, for example, if we wish to refer to the set of all odd, natural numbers between 1 and 10, we could write:</p>
+<p><span class="math display">\[
+\{n: n\textrm{ is an odd natural number and }1\leq n\leq 10\}
+\]</span></p>
+<p>When we wish to restrict the members of a set to only those items belonging to the set <span class="math inline">\(X\)</span>, this fact can be indicated by writing <span class="math inline">\(x\in X\)</span> on the left-hand side of the colon. The condition described as applying to <span class="math inline">\(x\)</span> appearing on the right-hand side of the colon is that which must hold of any member of <span class="math inline">\(X\)</span> in order for it to be included in the set. So, for example, if <span class="math inline">\(\mathbb{N}\)</span> is the set of all natural numbers, then the above set may be written:</p>
+<p><span class="math display">\[
+    \{n\in \mathbb{N}: n \textrm{ is odd and }1\leq n\leq 10\}
+\]</span></p>
+<p>If it is clear from the context from what set of objects the members of a defined set are to be drawn, then we may omit any explicit reference to the containing set. Thus, for example, if it is clear from the context that we are defining a set of natural numbers, then, for the above set, we may simply write:</p>
+<p><span class="math display">\[
+    \{n: n \textrm{ is odd and }1\leq n\leq 10\}
+\]</span></p>
+<p>Sometimes it is convenient to represent a set as that which results from applying a function to the members of another set. To refer to the set which results from applying the function <span class="math inline">\(f\)</span> to the members of the set consisting of all and only the objects possessing the property <span class="math inline">\(P\)</span>, we write:</p>
+<p><span class="math display">\[
+    \{f(x): P(x)\}
+\]</span></p>
+<p>Hence, the set of all odd natural numbers between <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> may also be written:</p>
+<p><span class="math display">\[
+    \{2n+1: 0\leq n\leq 4\}
+\]</span></p>
+<p>Note that there is nothing to prevent a set from having other sets among its members—nor is there anything wrong with a set of sets of sets, or a set of sets of sets of sets, etc.</p>
+<div id="exr-russell" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.2</strong></span> Let <span class="math inline">\(S\)</span> be the set of all sets which are not members of themselves, i.e.:</p>
+<p><span class="math display">\[
+S = \{X: X\textrm{ is a set and }X\not\in X\}
+\]</span></p>
+<p>Explain why the set <span class="math inline">\(S\)</span> cannot exist by asking whether <span class="math inline">\(S\)</span> is a member of itself.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</div>
+<div id="exr-denoting-sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.3</strong></span> Let <span class="math inline">\(S = \{2, 4, 8, 16, 32\}\)</span>. Fill in the blanks, assuming that all sets are sets of natural numbers:</p>
+<p>(a). <span class="math inline">\(S = \{4, 4, 2, 16, 32, 2, 4, \,\underline{\hspace{0.5cm}}\,\}\)</span></p>
+<p>(b). <span class="math inline">\(S \subset \{2n: 1 \leq n &lt; \,\underline{\hspace{0.5cm}}\,\}\)</span></p>
+<p>(c). <span class="math inline">\(\{n: 1\leq n\leq 5\} = \{\,\underline{\hspace{1cm}}\,: n\in S\}\)</span></p>
+<p>(d). <span class="math inline">\(S = \{\,\underline{\hspace{1cm}}\,: 1\leq n \leq 5\}\)</span></p>
+</div>
+</section>
+<section id="set-relations-and-operations" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="set-relations-and-operations"><span class="header-section-number">1.3.2</span> Set Relations and Operations</h3>
+<p>Two sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are equal, written <span class="math inline">\(X=Y\)</span>, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have exactly the same members, i.e., <span class="math inline">\(a\in X\)</span> iff <span class="math inline">\(a\in Y\)</span>, for any object <span class="math inline">\(a\)</span>. The set <span class="math inline">\(X\)</span> is a subset of the set <span class="math inline">\(Y\)</span>, written <span class="math inline">\(X\subset Y\)</span>, if every member of <span class="math inline">\(X\)</span> is a member of <span class="math inline">\(Y\)</span>. So, for example:</p>
+<p><span class="math display">\[
+\{1,5,7\}\subset \{1,3,5,7,9\}.
+\]</span></p>
+<p>Note that this implies that every set is a subset of itself, i.e., <span class="math inline">\(X\subset
+X\)</span>, for any set <span class="math inline">\(X\)</span>. When we need to indicate that <span class="math inline">\(X\subset Y\)</span> but that <span class="math inline">\(X\neq
+Y\)</span>, we say that <span class="math inline">\(X\)</span> is a ‘proper’ subset of <span class="math inline">\(Y\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Two sets are equal just in case they have exactly the same members. Thus, two sets are equal just in case each is a subset of the other, and one often proves the equality of two sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, by first showing <span class="math inline">\(X\subset Y\)</span> and then showing <span class="math inline">\(Y\subset X\)</span>.</p>
+<p>One will often encounter multiple statements of set inclusion ‘chained’ together, as in:</p>
+<p><span class="math display">\[
+    X_1\subset X_2\subset \cdots \subset X_k
+\]</span></p>
+<p>This means that <span class="math inline">\(X_1\subset X_2\)</span>, <span class="math inline">\(X_2\subset X_3\)</span>, etc. Since, however, the subset relation is a transitive relation (i.e., for any sets <span class="math inline">\(X,Y,Z\)</span>, if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset Z\)</span>, then <span class="math inline">\(X\subset
+    Z\)</span>), these statements of inclusion are together equivalent to the claim that <span class="math inline">\(X_i\subset X_j\)</span>, whenever <span class="math inline">\(1\leq i\leq j\leq k\)</span>.</p>
+<p>The union of the two sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by:</p>
+<p><span class="math display">\[
+    X\cup Y= \{x: x\in X \textrm{ or }x\in Y\}.
+\]</span></p>
+<p>The intersection of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by:</p>
+<p><span class="math display">\[
+    X\cap Y=\{x: x\in X\textrm{ and }x\in Y\}.
+\]</span></p>
+<p>And the complement of <span class="math inline">\(X\)</span> relative to <span class="math inline">\(Y\)</span> is given by:</p>
+<p><span class="math display">\[
+    Y-X=\{x\in Y: x\not \in X\}
+\]</span></p>
+<p>In many contexts, there will exist some ‘universal’ set of which all the sets referred to in the discussion are assumed to be subsets. For instance, in a given context, we may only be concerned to discuss sets of natural numbers. If <span class="math inline">\(\Omega\)</span> refers to this universal set, we write <span class="math inline">\(X^c\)</span> in place of <span class="math inline">\(\Omega-X\)</span>, and refer to this set simply as the complement of <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+    X^c=\{x\in \Omega: x\not\in X\}
+\]</span></p>
+<p>The Venn diagrams in <a href="#fig-set-operations" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> can help to visualize the effect of performing these set operations:</p>
+<div id="fig-set-operations" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" alt="Set Operations">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-set-operations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../content/static/images/set-operations.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Set Operations" width="650">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-set-operations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Venn diagrams illustrating the set-theoretic operations of union, intersection, relative complement, and complement.
+</figcaption>
+</figure>
+</div>
+<div id="exr-set-facts" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.4</strong></span> Prove the following claims:</p>
+<p>(a). If <span class="math inline">\(X\subset Y\)</span>, then <span class="math inline">\(X\cup Z\subset Y\cup Z\)</span>.</p>
+<p>(b). <span class="math inline">\(X\subset Y\)</span> iff <span class="math inline">\(X = X\cap Y\)</span></p>
+<p>(c). <span class="math inline">\(X\subset Y^c\)</span> iff <span class="math inline">\(Y\subset X^c\)</span></p>
+<p>(d). <span class="math inline">\(X\cup(Y-X) = X\cup Y\)</span></p>
+<p>(e). <span class="math inline">\(X\cap(Y\cup Z) = (X\cap Y)\cup(X\cap Z)\)</span></p>
+<p>(f). <span class="math inline">\(X\cap Y  = (X^c\cup Y^c)^c\)</span></p>
+</div>
+<div id="exr-venn-diagrams" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.5</strong></span> Name the sets whose members consist of all and only those items in the shaded regions of the following Venn diagrams:</p>
+<p>(a).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/venn-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+<p>(b).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/venn-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+<p>(c).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/venn-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+</div>
+<p>Since the result of applying the operations of union and intersection to multiple sets does not depend on the order in which the operations are performed, there is no need to employ parentheses to determine the order of operations when expressing such sets. So, for example, without any threat of ambiguity, the union of the sets <span class="math inline">\(X_1,\ldots,X_n\)</span> can be written:</p>
+<p><span class="math display">\[
+X_1\cup X_2\cup\cdots\cup X_n
+\]</span></p>
+<p>When there is an obvious way of indexing the operand sets, we will sometimes express the union using a larger version of the operator, as follows:</p>
+<p><span class="math display">\[
+\bigcup_{i=1}^n X_i
+\]</span></p>
+<p>and similarly for intersections, using the symbol <span class="math inline">\(\bigcap\)</span>.</p>
+<div id="exr-characteristic-function" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.6</strong></span> Let <span class="math inline">\(X\)</span> be any subset of <span class="math inline">\(\Omega\)</span> and let <span class="math inline">\(\mathbf{1}_X\)</span> be the function which maps every item in <span class="math inline">\(\Omega\)</span> to either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> as follows:</p>
+<p><span class="math display">\[
+    \mathbf{1}_X(x) = \left\{\begin{array}{ll}
+        1 &amp; \textrm{if } x\in X     \\
+        0 &amp; \textrm{if } x\not\in X
+    \end{array}\right.
+\]</span></p>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be any two subsets of <span class="math inline">\(\Omega\)</span>. Express the functions <span class="math inline">\(\mathbf{1}_{X\cap Y}\)</span>, <span class="math inline">\(\mathbf{1}_{X\cup Y}\)</span>, and <span class="math inline">\(\mathbf{1}_{X-Y}\)</span> in terms of <span class="math inline">\(\mathbf{1}_X\)</span> and <span class="math inline">\(\mathbf{1}_Y\)</span>.</p>
+</div>
+</section>
+<section id="the-empty-set" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="the-empty-set"><span class="header-section-number">1.3.3</span> The Empty Set</h3>
+<p>We would like the set-theoretic operations defined above to always yield well-defined sets. But what is the intersection of two sets that have no members in common? To give this question a definite answer, it will be convenient to assume that there exists a unique set which has no members. We will denote this set by <span class="math inline">\(\emptyset\)</span> and refer to it as the empty set. The two defining characteristics of the empty set are as follows:</p>
+<ol type="1">
+<li>For every property <span class="math inline">\(P\)</span>, it is (vacuously) true that, for all <span class="math inline">\(x\in\emptyset\)</span>, <span class="math inline">\(x\)</span> has the property <span class="math inline">\(P\)</span>.</li>
+<li>For every property <span class="math inline">\(P\)</span>, it is (vacuously) false that, for some <span class="math inline">\(x\in\emptyset\)</span>, <span class="math inline">\(x\)</span> has the property <span class="math inline">\(P\)</span>.</li>
+</ol>
+<p>Note that from the first condition, it follows that, for any set <span class="math inline">\(X\)</span>, <span class="math inline">\(\emptyset\subset X\)</span>. To see this, let <span class="math inline">\(P\)</span> be the property possessed by all and only those <span class="math inline">\(x\)</span> such that <span class="math inline">\(x\in X\)</span>. From the second condition it follows that no object is a member of <span class="math inline">\(\emptyset\)</span>. To see this, consider any object <span class="math inline">\(a\)</span>, and let <span class="math inline">\(P\)</span> be the property possessed by all and only those <span class="math inline">\(x\)</span> such that <span class="math inline">\(x=a\)</span>.</p>
+<div id="exr-power-set" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.7</strong></span> The <em>power set</em> of the set <span class="math inline">\(X\)</span>, written <span class="math inline">\(P(X)\)</span>, is the set of all subsets of <span class="math inline">\(X\)</span>, i.e.: <span class="math display">\[
+P(X) = \{Y: Y\subset X\}
+\]</span></p>
+<p>(a). Let <span class="math inline">\(S = \{1, 2, 3, 4, 5, 6, 7\}\)</span>. How many members does <span class="math inline">\(P(S)\)</span> have?</p>
+<p>(b). How many members does <span class="math inline">\(P(P(S))\)</span> have?</p>
+<p>(c). How many members does the power set of the empty set have?</p>
+</div>
+</section>
+</section>
+<section id="sec-validity" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-validity"><span class="header-section-number">1.4</span> Validity</h2>
+<section id="necessary-truth-preservation" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="necessary-truth-preservation"><span class="header-section-number">1.4.1</span> Necessary Truth Preservation</h3>
+<p>We have now seen how arguments can be represented as collections of sentences in a formal language. The next task that we face is to formulate a precise standard of argumentative validity. As a first step, it will be helpful to consider what we mean when we say that an argument is valid. Consider again the following argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>Intuitively this is a valid argument. But what about this argument <em>makes</em> it valid? One answer that readily comes to mind is that the argument is valid because its conclusion follows <em>necessarily</em> from its premises. Or, in other words, it is valid because the truth of its premises <em>necessitates</em> that of its conclusion.</p>
+<p>Let us try to formulate this conception of validity in sharper terms, by making precise the notion of necessary truth preservation in a formal language of the sort discussed in the previous section.</p>
+<div id="def-truth-valuation" class="theorem definition" data-re="valuations?" data-flags="gi">
+<p><span class="theorem-title"><strong>Definition 1.3</strong></span> We refer to the objects <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> as <em>truth values</em>. A <em>truth valuation</em> of a formal language <span class="math inline">\(L\)</span> is any assignment of truth values to the sentences of <span class="math inline">\(L\)</span>.</p>
+</div>
+<p>Let <span class="math inline">\(v\)</span> be a truth valuation of the language <span class="math inline">\(L\)</span>. To indicate that <span class="math inline">\(v\)</span> assigns the truth value <span class="math inline">\(\mathbf{T}\)</span> to the sentence <span class="math inline">\(\varphi\)</span>, we write <span class="math inline">\(v(\varphi)=\mathbf{T}\)</span>. In this case, we will sometimes say that ‘<span class="math inline">\(\varphi\)</span> is <em>true</em> under the truth valuation <span class="math inline">\(v\)</span>’. To indicate that <span class="math inline">\(v\)</span> assigns the truth value <span class="math inline">\(\mathbf{F}\)</span> to the sentence <span class="math inline">\(\varphi\)</span>, we write <span class="math inline">\(v(\varphi)=\mathbf{F}\)</span>, and say that ‘<span class="math inline">\(\varphi\)</span> is <em>false</em> under the truth valuation <span class="math inline">\(v\)</span>’.</p>
+<p>What are these mysterious objects <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> which somehow manage to convey truth and falsehood to a sentence simply in virtue of their being assigned to it by a truth valuation? Metaphysically, this may seem an interesting question, but for the purpose of giving a precise definition of argumentative validity, it doesn’t really matter. All that matters for this purpose is that <span class="math inline">\(\mathbf{T}\)</span> are <span class="math inline">\(\mathbf{F}\)</span> are distinct items, and that these two distinct items are the only two truth values that a sentence can be assigned.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> They may just as well be thought of as the letters ‘<span class="math inline">\(\mathbf{T}\)</span>’ and ‘<span class="math inline">\(\mathbf{F}\)</span>’ themselves, for apart from their obvious mnemonic value any two distinct items would suffice in their place.</p>
+<p>When we assert that an argument is valid, we will always do so relative to a certain set of admissible, or possible, truth valuations. That the truth of an argument’s premises necessitate that of its conclusion will then correspond to the fact that for <em>every</em> possible truth valuation, if all the premises of the argument are true under that valuation, the conclusion is true under that valuation as well. Let us try to write this definition down more precisely.</p>
+<div id="def-relative-validity" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.4</strong></span> Let <span class="math inline">\(V\)</span> be a set of truth valuations. The argument</p>
+<p><span class="math display">\[
+\Gamma\vdash\varphi
+\]</span></p>
+<p>is <em>valid</em> with respect to <span class="math inline">\(V\)</span> if, for every truth valuation <span class="math inline">\(v\in V\)</span>, the following is true: if <span class="math inline">\(v(\psi)=\mathbf{T}\)</span>, for all <span class="math inline">\(\psi\in\Gamma\)</span>, then <span class="math inline">\(v(\varphi)=\mathbf{T}\)</span>.</p>
+</div>
+<p>To indicate that the argument <span class="math inline">\(\Gamma\vdash\varphi\)</span> is valid with respect to <span class="math inline">\(V\)</span>, we write:</p>
+<p><span class="math display">\[
+\Gamma\models_V\varphi
+\]</span></p>
+<p>The symbol ‘<span class="math inline">\(\models\)</span>’ is sometimes referred to as the double turnstile.</p>
+<div id="exr-relative-validity" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.8</strong></span> Let <span class="math inline">\(\varphi,\psi\)</span>, and <span class="math inline">\(\chi\)</span> be distinct sentences. Construct a two-member set of truth valuations <span class="math inline">\(V\)</span> such that the following three claims are all true:</p>
+<ol type="1">
+<li><span class="math inline">\(\varphi,\psi\models_V\chi\)</span></li>
+<li><span class="math inline">\(\varphi\not\models_V\chi\)</span></li>
+<li><span class="math inline">\(\psi\not\models_V\chi\)</span></li>
+</ol>
+</div>
+<p>It may seem that the above definition of argumentative validity is sufficiently abstract that nothing of substance can be inferred from it about which arguments are valid and which are not. This, however, is not so. Already, the characterization of argumentative validity as necessary truth preservation implies a number of substantive facts. Here is one such fact. For any set of sentences <span class="math inline">\(\Gamma\)</span> and any sentence <span class="math inline">\(\varphi\)</span>:</p>
+<p><span class="math display">\[
+\Gamma,\varphi\models_V\varphi
+\]</span></p>
+<p>What this means is that any argument whose conclusion appears among its premises is valid. Since <span class="math inline">\(\varphi\in\Gamma\cup\{\varphi\}\)</span>, any truth valuation in <span class="math inline">\(V\)</span> under which all of the sentences in <span class="math inline">\(\Gamma\cup\{\varphi\}\)</span> are true is one in which <span class="math inline">\(\varphi\)</span> is true as well. But, this is just what it means to say the argument is valid.</p>
+<p>Another fact that follows from our definition of validity is that if we add premises to a valid argument,the validity of the argument remains unchanged. This can be expressed, in formal terms, as follows:</p>
+<p><span class="math display">\[
+\textrm{If $\Gamma\models_V\varphi$, then $\Gamma, \Delta\models_V\varphi$.}
+\]</span></p>
+<p>Suppose <span class="math inline">\(\Gamma\models_V\varphi\)</span> and let <span class="math inline">\(v\in V\)</span> be a truth valuation such that <span class="math inline">\(v(\psi)=\mathbf{T}\)</span> for all <span class="math inline">\(\psi\in \Gamma\cup\Delta\)</span>. Since <span class="math inline">\(\Gamma\subset\Gamma\cup\Delta\)</span> it follows that <span class="math inline">\(v(\psi)=\mathbf{T}\)</span> for all <span class="math inline">\(\psi\in \Gamma\)</span>. So, since <span class="math inline">\(\Gamma\models_V\varphi\)</span>, we have <span class="math inline">\(v(\varphi)=\mathbf{T}\)</span>. Hence, any valuation in <span class="math inline">\(V\)</span> under which all of the sentences in <span class="math inline">\(\Gamma\cup\Delta\)</span> are true is one in which <span class="math inline">\(\varphi\)</span> is true. In other words, <span class="math inline">\(\Gamma,\Delta\models_V\varphi\)</span>.</p>
+<div id="exr-cut-validity" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.9</strong></span> Let <span class="math inline">\(\Gamma\)</span> and <span class="math inline">\(\Delta\)</span> be any sets of sentences and let <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> be any sentences. Show that the following is true:</p>
+<p><span class="math display">\[
+\textrm{If $\Gamma,\varphi\models_V\psi$ and $\Delta\models_V\varphi$, then $\Gamma,\Delta\models_V\psi$.}
+\]</span></p>
+</div>
+<p>Are these facts about validity reasonable? Should a patently circular argument such as:</p>
+<p><span class="math display">\[
+\frac{\textrm{Socrates is Greek}}{\textrm{Socrates is Greek}}
+\]</span></p>
+<p>really be counted as valid? Should the validity of an argument really be preserved under the arbitrary addition of new premises? What if the added premises are irrelevant to the truth of the conclusion at hand, as is the case, for example, in the following argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Socrates is a human\hspace{2mm},\hspace{2mm}All humans are animals}\hspace{2mm},\hspace{2mm}
+2+2=4}{\textrm{Socrates is an animal}}
+\]</span></p>
+<p>Should this argument be counted as valid? These are interesting questions. For now, we only note that they are definitively answered in the affirmative by the view of validity which conceives of it as nothing more than necessary truth preservation.</p>
+<p>So far, we have only defined validity relative to a set of truth valuations. This begs the question as to which truth valuations we should count as admissible for the purpose of assessing the validity of arguments?</p>
+<p>Before addressing this question, let’s first go back to our definition of validity and think about it in a slightly different way. That definition said that an argument is valid iff every admissible truth valuation under which all of the premises of the argument are true is one in which the conclusion is true as well. Note that a perfectly equivalent way of formulating this definition is as follows: An argument is <em>invalid</em> iff there is some admissible truth valuation with respect to which all of the premises are true but the conclusion is false.</p>
+<p>It is often more intuitive to think about validity in this way. We invalidate an argument by finding a <em>counterexample</em> to it. A counterexample is just an admissible truth valuation that makes the premises true and the conclusion false. Consequently, when we increase the class of admissible truth valuations we make it easier to find a counterexample, and so easier to invalidate an argument. This means that fewer arguments will be valid. On the other hand, when we decrease the class of admissible truth valuations we make it harder to find a counterexample, and so harder to invalidate an argument. This means that more arguments will be valid.</p>
+<p>So, to return to the question of which truth valuations we should count as admissible, a natural answer, one might think, is that we should consider <em>all</em> possible assignments of truth and falsehood to the sentences of our language. This, after all, would correspond to the strictest possible standard of validity—and what could be stricter than logic?</p>
+<p>To adopt this approach, however, will not do, for the reason indicated by the following theorem:</p>
+<div id="thm-trivial-validity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1</strong></span> Let <span class="math inline">\(V\)</span> be the set of <em>all</em> possible truth valuations. Then <span class="math inline">\(\Gamma\models_V \varphi\)</span> if and only if <span class="math inline">\(\varphi\in\Gamma\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The right-to-left direction (or, the ‘if’ direction) of the claim follows, as we have seen, from the definition of validity which entails that any circular argument is valid. For the left-to-right direction (or, the ‘only if’ direction) of the claim, suppose that <span class="math inline">\(\varphi\not\in\Gamma\)</span>. Then, since <span class="math inline">\(V\)</span> consists of all possible truth valuations, there exists some truth valuation in <span class="math inline">\(V\)</span> under which all of the sentences in <span class="math inline">\(\Gamma\)</span> are true but the sentence <span class="math inline">\(\varphi\)</span> is false. Hence, <span class="math inline">\(\Gamma\not\models_V\varphi\)</span>.</p>
+</div>
+</div>
+<p>This theorem asserts that an argument is valid with respect to the set of all truth valuations of a language if and only if its conclusion appears among its premises. Consequently, without somehow restricting the class of admissible valuations, we are left with a trivial standard of argumentative validity in which the only valid arguments are circular ones! This, of course, will not do. How then are we to restrict the class of admissible truth valuations in a nonarbitrary way? To answer this question, we must examine in more detail the specifically <em>logical</em> sense of necessity involved in claims of argumentative validity.</p>
+</section>
+<section id="logical-necessity" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="logical-necessity"><span class="header-section-number">1.4.2</span> Logical Necessity</h3>
+<p>Let us return to the argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>As we have said, this argument is valid in virtue of the fact that the truth of its premises necessitate the truth of its conclusion. But, in what exact sense of ‘necessity’ does the fact that no humans are cold-blooded necessarily follow from the two claims that all humans are mammals and no mammals are cold-blooded.</p>
+<p>In general, when we say of a claim that it is <em>necessarily</em> true we assert not only that it is true but, moreover, that its truth is not a contingent, or incidental, matter. Its truth, in other words, is, in some sense, robust— it is independent of certain features of the context in which it is affirmed. The precise sense of necessity is determined by which particular features of the context are deemed incidental to the truth of the claim in question. For example, to assert that the Sun <em>always</em> rises in the east, is to assert not only that the Sun will rise in the east (today) but, moreover, that this claim would be true regardless of the specific day on which it is put forward. Hence, the sun’s rising in the east is a temporal (or, more specifically, a diurnal, or daily) necessity. Likewise, to assert that you are <em>forbidden</em> from castling when your king is in check, is not only to assert that you cannot castle from some one particular arrangement of the pieces in which a check has been made, but that the same prohibition remains in force in any such scenario that may arise in a game of chess. Hence, the disallowance of castling out of check is a deontic, or rule-based, necessity.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>What, then, are we to make of logical necessity? When we say that it is necessarily the case that if the premises of the above argument are true, so too is its conclusion, not only do we assert the truth of the following conditional:</p>
+<p>(P): If ‘All humans are mammals’ and ‘No humans are cold-blooded’ are true, then ‘No humans are cold-blooded’ is true.</p>
+<p>we further assert that this conditional, P, would be true <em>regardless</em> of certain features of the context in which it is here affirmed. What features of the context do we have it in mind to ignore as irrelevant when we describe P as logically necessary? Presumably what is meant by this is that P would remain true no matter what properties are designated by the terms ‘human’, ‘mammal’, and ‘cold-blooded’. Thus, for example, if the term ‘human’ were to refer to the property of being German, the term ‘mammal’ to the property of being near-sighted, and the term ‘cold-blooded’ to the property of being a good logician, it would still follow from the truth of the sentences ‘All humans are mammals’ and ‘No mammals are cold-blooded’, that the sentence ‘No humans are cold-blooded’ is true. For: if all Germans are near-sighted, and nobody who is near-sighted is a good logician, then no German is a good logician—not even Kurt Gödel!</p>
+<p>Note that it is crucial to this line of reasoning that the constructs ‘All <span class="math inline">\(\cdots\)</span> are <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’ and ‘No <span class="math inline">\(\cdots\)</span> are <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’ are taken to possess their usual meaning, i.e., the former asserts that all objects possessing the property designated by ‘<span class="math inline">\(\cdots\)</span>’ also possess the property designated by ‘<span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’, and the latter asserts that no object possessing the property designated by ‘<span class="math inline">\(\cdots\)</span>’ possesses the property designated by ‘<span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’. If the meanings of these constructs were allowed to vary along with those of ‘human’, ‘mammal’, and ‘cold-blooded’ (e.g., if ‘All <span class="math inline">\(\cdots\)</span> are <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’ were taken to mean that only <em>some</em> <span class="math inline">\(\cdots\)</span>’s are <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’s) then there may be ways of interpreting the premises and conclusion of the argument according to which the premises are true but the conclusion false.</p>
+<p>As this example illustrates, when we assess the validity of an argument we always take for granted a distinction between those elements of the language that are taken to have a fixed meaning for the purpose of this assessment and those elements of the language which are subject to reinterpretation and whose meanings are allowed to vary. We refer to the former as the <em>logical</em> elements of the language and to the latter as its <em>non-logical</em> elements. To say that an argument is valid is to assert that, under the assumption that the logical elements of the language are given their usual meaning, the truth of the argument’s conclusion follows from the truth of its premises no matter how the non-logical elements of the language are interpreted. The sense of necessity implicated in claims of validity is thus a kind of <em>semantic</em> necessity—it is truth in sole virtue of the meanings of the logical elements of the language.</p>
+<p>To make this standard of validity more precise there are three things that we need to do:</p>
+<ol type="1">
+<li>First, we must distinguish between the logical and non-logical elements of the language.</li>
+<li>Second, we must describe what it means to interpret the non-logical elements of the language.</li>
+<li>Third, we must describe how, on a given interpretation, the logical elements of the language determine the truth or falsehood of every sentence.</li>
+</ol>
+<p>To perform these three tasks is referred to as giving a semantics for the language. The semantics for a formal language will vary from one language to the next, so at this point it will be best to consider a concrete example. In the next section we will therefore introduce a semantics for our formal language L<span class="math inline">\(_S\)</span>.</p>
+</section>
+</section>
+<section id="extensional-semantics" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="extensional-semantics"><span class="header-section-number">1.5</span> Extensional Semantics</h2>
+<p>Recall that the syntax of the language L<span class="math inline">\(_S\)</span> countenances four distinct sentence forms:</p>
+<p><span class="math display">\[
+\begin{align*}
+A\textrm{\textbf{a}}B &amp;\qquad\qquad(\textrm{All $A$s are $B$s})\\
+A\textrm{\textbf{e}}B &amp;\qquad\qquad(\textrm{No $A$s are $B$s})\\
+A\textrm{\textbf{i}}B &amp;\qquad\qquad(\textrm{Some $A$s is $B$s})\\
+A\textrm{\textbf{o}}B &amp;\qquad\qquad(\textrm{Some $A$s is not $B$s})\\
+\end{align*}
+\]</span></p>
+<p>Which are the logical and which the non-logical elements of the language? As suggested above, the non-logical elements of the language are the terms. Their meanings will be allowed to vary from one interpretation to the next.</p>
+<p>But what does it means to interpret these terms? Here we will adopt the approach of interpreting the terms ‘extensionally’. Terms in the language L<span class="math inline">\(_S\)</span> are meant to stand for properties expressed by common noun phrases, such as ‘animal’, ‘cold-blooded’, or ‘green’. The extension of a common noun phrase is the set of all individual objects that possess the property denoted by that phrase. So, for example, the extension of the term ‘cat’ is the set of all cats, the extension of ‘cold-blooded’ the set of all cold-blooded creatures.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Thus, in an extensional semantics, a term will be interpreted as a set of objects, the members of which are all and only those objects possessing the property denoted by the term.</p>
+<p>But what exactly do we mean by an <em>object</em>? For semantics purposes, we need not specify what an object is. An object is simply a member of a certain fixed set which we will refer to as the ‘universe’ and which we will denote by <span class="math inline">\(\Omega\)</span>. We may assume that <span class="math inline">\(\Omega\)</span> is very big, and we may even assume that it is infinite and contains every number (<span class="math inline">\(1,2,3,\ldots\)</span>). This universe of objects will serve as the background domain for our interpretations. Now, to interpret the language is simply to assign to every term an extension, that is, a subset of objects in the universe.</p>
+<div id="def-interpretation-Ls" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.5</strong></span> An <em>interpretation</em> of the language <span class="math inline">\(L_{\mathbf{S}}\)</span> is a function assigning to each term a subset of <span class="math inline">\(\Omega\)</span>. If <span class="math inline">\(\sigma\)</span> is an interpretation and <span class="math inline">\(A\)</span> is a term, we write <span class="math inline">\(\sigma(A)\)</span> for the subset of <span class="math inline">\(\Omega\)</span> assigned to <span class="math inline">\(A\)</span> by the interpretation <span class="math inline">\(\sigma\)</span>.</p>
+</div>
+<div id="fig-model-S" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" alt="Syllogistic model">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../content/static/images/syllogistic-model.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Syllogistic model" width="450">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: An extensional interpretation of the language <span class="math inline">\(L_{\mathbf{S}}\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>On any given interpretation of the language, every term is assigned a specific extension, that is, a specific set of objects in the universe. To complete our specification of the semantics for the language, we must explain how it is that the truth or falsity of any sentence in the language, gets decided on a given interpretation. In doing so, we will, in effect, be providing an account of the intended meanings of the logical elements of the syntax, in this case the copulas <span class="math inline">\(\textrm{\textbf{a}}, \textrm{\textbf{e}}, \textrm{\textbf{i}}\)</span>, and <span class="math inline">\(\textrm{\textbf{o}}\)</span>.</p>
+<p>So, what we have left to do is explain how we go from an interpretation of the language, say <span class="math inline">\(\sigma\)</span>, to a specific truth valuation of the language, call it <span class="math inline">\(v^\sigma\)</span>. Let’s begin by focusing on sentences of the form <span class="math inline">\(A\textrm{\textbf{a}}B\)</span>. On the intepretation <span class="math inline">\(\sigma\)</span>, the extension of <span class="math inline">\(A\)</span> is given by the set <span class="math inline">\(\sigma(A)\)</span> and the extension of <span class="math inline">\(B\)</span> by the set <span class="math inline">\(\sigma(B)\)</span>. Under what conditions should the sentence <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> be judged to be true? Since <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> is intended to express the fact that all <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s, <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> should be true just in case every object in <span class="math inline">\(\sigma(A)\)</span> is in <span class="math inline">\(\sigma(B)\)</span>. That is:</p>
+<p><span class="math display">\[
+\textrm{$v^\sigma(A\textrm{\textbf{a}}B)=\mathbf{T}$ iff $\sigma(A)\subset \sigma(B)$}
+\]</span></p>
+<p>What about sentences of the form <span class="math inline">\(A\textrm{\textbf{e}}B\)</span>? This sentence is meant to express the fact that no <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s and so it should be true, on the interpretation <span class="math inline">\(\sigma\)</span>, just in case <span class="math inline">\(\sigma(A)\)</span> and <span class="math inline">\(\sigma(B)\)</span> do not overlap, i.e.:</p>
+<p><span class="math display">\[
+\textrm{$v^\sigma(A\textrm{\textbf{e}}B) = \mathbf{T}$ iff $\sigma(A)\cap\sigma(B)=\emptyset$}
+\]</span></p>
+<p>The corresponding rules explaining how to assess the truth and falsity of sentences of the form <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> can be stated as follows:</p>
+<p><span class="math display">\[
+\textrm{$v^\sigma(A\textrm{\textbf{i}}B) = \mathbf{T}$ iff $\sigma(A)\cap\sigma(B) \neq \emptyset$}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{$v^\sigma(A\textrm{\textbf{o}}B) = \mathbf{T}$ iff $\sigma(A)-\sigma(B)\neq \emptyset$}
+\]</span></p>
+<p>To illustrate the a pplication of these semantic rules, let <span class="math inline">\(\sigma\)</span> be the intepretation partially specified in <a href="#fig-model-S" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> above. On this interpretation, we have, for example:</p>
+<p><span class="math display">\[
+\begin{align*}
+v^\sigma(D\textrm{\textbf{a}}C)=\mathbf{T}\\
+v^\sigma(A\textrm{\textbf{i}}B)=\mathbf{F}\\
+v^\sigma(C\textrm{\textbf{e}}A)=\mathbf{F}\\
+v^\sigma(D\textrm{\textbf{o}}B)=\mathbf{T}
+\end{align*}
+\]</span></p>
+<p>Now, let’s return to the issue of argumentative validity. We had previously defined a valid argument as one for which there is no admissible truth valuation under which all of the premises are true but the conclusion is false. Now we are in a position to answer the question of what counts as an admissible truth valuation.</p>
+<p>The class of admissible truth valuations with respect to which we will assess the validity of arguments will be those of the form <span class="math inline">\(v^\sigma\)</span>, where <span class="math inline">\(\sigma\)</span> is an intepretation of the language. In other words, an admissible truth valuation is one which results from the application of the semantic rules to a specific interpretation of the non-logical elements of the syntax. We can now update our definition of argumentative validity as follows:</p>
+<div id="def-validity" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.6</strong></span> The argument</p>
+<p><span class="math display">\[
+\Gamma\vdash\varphi
+\]</span></p>
+<p>is <em>valid</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>, the following is true: if <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span>, for all <span class="math inline">\(\psi\in\Gamma\)</span>, then <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>.</p>
+</div>
+<p>To express that the argument <span class="math inline">\(\Gamma\vdash\varphi\)</span> is valid, we write:</p>
+<p><span class="math display">\[
+\Gamma\models\varphi
+\]</span></p>
+<p>In this case, we may also say that <span class="math inline">\(\Gamma\)</span> <em>entails</em> <span class="math inline">\(\varphi\)</span>, or that <span class="math inline">\(\varphi\)</span> is a <em>logical consequence</em> of <span class="math inline">\(\Gamma\)</span>.</p>
+<p>In general, the semantic rules for the language—which capture the meanings of the logical elements of the syntax—will be chosen in such a way that not every truth valuation will be of the form <span class="math inline">\(v^\sigma\)</span>. Hence, it is these semantic rules that will render our standard of validity nontrivial, in the sense that it will admit as valid not just circular arguments. In the case of L<span class="math inline">\(_S\)</span>, for example, we may observe that there is no admissible truth valuation which assigns <span class="math inline">\(\mathbf{T}\)</span> to both the sentences <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span>. To see why, let <span class="math inline">\(\sigma\)</span> be any interpretation of the language and suppose that <span class="math inline">\(v^\sigma(A\textrm{\textbf{a}}B)=\mathbf{T}\)</span>. Then, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{a}}\)</span> copula, we have <span class="math inline">\(\sigma(A)\subset\sigma(B)\)</span>. But then <span class="math inline">\(\sigma(A)-\sigma(B)=\emptyset\)</span>, and so, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{o}}\)</span> copula, <span class="math inline">\(v^\sigma(A\textrm{\textbf{o}}B)=\mathbf{F}\)</span>.</p>
+<p>Thus, on our extensional semantics <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> cannot both be true. In fact, it is easy to verify that they also cannot both be false. In other words, the one is true just in case the other is false. And the same relation obtains between the propositions <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> (see Exercise ??? below).</p>
+<p>Now, at last, we have in place the necessary resources to make precise our initial, somewhat vague intuition that the following argument is valid:</p>
+<p><span class="math display">\[
+\frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>Let <span class="math inline">\(A\)</span> stand for ‘human’, <span class="math inline">\(B\)</span> for ‘mammal’ and <span class="math inline">\(C\)</span> for ‘cold-blooded’. Then, translated into our formal language L<span class="math inline">\(_S\)</span>, the claim that this argument is valid is expressed:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C\models A\textrm{\textbf{e}}C
+\]</span></p>
+<p>To confirm this, we must show that, for any interpretation, if the premises are true, the conclusion is true as well. Let <span class="math inline">\(\sigma\)</span> be an interpretation such that <span class="math inline">\(v^\sigma(A\textrm{\textbf{a}}B) = \mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(B\textrm{\textbf{e}}C)=\mathbf{T}\)</span>. Then, from the first of these claims, we have <span class="math inline">\(\sigma(A)\subset\sigma(B)\)</span>, and, from the second, we have <span class="math inline">\(\sigma(B)\cap\sigma(C)=\emptyset\)</span>. Now, suppose <span class="math inline">\(x\in\sigma(A)\)</span>. Then, since <span class="math inline">\(\sigma(A)\subset\sigma(B)\)</span>, <span class="math inline">\(x\in \sigma(B)\)</span>. But since <span class="math inline">\(\sigma(B)\cap\sigma(C)=\emptyset\)</span>, it follows that <span class="math inline">\(x\not\in\sigma(C)\)</span>. So, for any object <span class="math inline">\(x\)</span>, if <span class="math inline">\(x\in\sigma(A)\)</span> it follows that <span class="math inline">\(x\not\in\sigma(C)\)</span>. But this means that <span class="math inline">\(\sigma(A)\cap\sigma(C)=\emptyset\)</span>. So, by our semantic rules, <span class="math inline">\(v^\sigma(A\textrm{\textbf{e}}C)=\mathbf{T}\)</span>. Hence, the argument is valid.</p>
+<p>Now, let’s consider another argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{No humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{All mammals are
+cold-blooded}}{\textrm{No humans are cold-blooded}}
+\]</span></p>
+<p>This argument can be formalized in the language L<span class="math inline">\(_S\)</span> as follows: <span class="math inline">\(A\textrm{\textbf{e}}B,
+B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{e}}C\)</span>. Is this argument valid? To show that it is not valid it suffices to provide a counterexample to the argument. This is an interpretation under which the premises are true but the conclusion is false. Let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> be any three distinct objects in <span class="math inline">\(\Omega\)</span>. A counterexample to the argument is any interpretation <span class="math inline">\(\sigma\)</span> satisfying:</p>
+<p><span class="math display">\[
+\sigma(A) = \{a, b\}
+\]</span></p>
+<p><span class="math display">\[
+\sigma(B) = \{c\}
+\]</span></p>
+<p><span class="math display">\[
+\sigma(C) = \{b, c\}
+\]</span></p>
+<p>For it is easy to verify that, on such an interpretation, the premises are true and the conclusion false:</p>
+<p><span class="math display">\[
+\sigma(A)\cap\sigma(B) = \{a, b\}\cap\{c\} = \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\sigma(A\textrm{\textbf{e}}B) = \mathbf{T}
+\]</span></p>
+<p><span class="math display">\[
+\sigma(B) = \{c\} \subset \{b,c\} = \sigma(C) \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\sigma(B\textrm{\textbf{a}}C) = \mathbf{T}
+\]</span></p>
+<p><span class="math display">\[
+\sigma(A)\cap\sigma(C) = \{a, b\}\cap\{b, c\} \neq \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}
+v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
+\]</span></p>
+<p>We can visually represent this counterexample as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/syllogism-counterexample.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Syllogistic counterexample" width="450"></p>
+</figure>
+</div>
+<div id="exr-syllogisms-validity" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.10</strong></span> Establish the truth of the following claims by either showing that the corresponding argument is valid or by providing a counterexample to show that it is invalid:</p>
+<ol type="a">
+<li><p><span class="math inline">\(B\textrm{\textbf{i}}A, B\textrm{\textbf{a}}C\models A\textrm{\textbf{i}}C\)</span></p></li>
+<li><p><span class="math inline">\(B\textrm{\textbf{e}}A, B\textrm{\textbf{i}}C\models A\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, A\textrm{\textbf{o}}B\models A\textrm{\textbf{i}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, C\textrm{\textbf{a}}B, B\textrm{\textbf{a}}D \models A\textrm{\textbf{i}}C\)</span></p></li>
+<li><p><span class="math inline">\(C\textrm{\textbf{i}}A, C\textrm{\textbf{e}}B, B\textrm{\textbf{a}}D\models A\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, C\textrm{\textbf{i}}B, C\textrm{\textbf{e}}D \models A\textrm{\textbf{o}}D\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, A\textrm{\textbf{i}}A \models A\textrm{\textbf{i}}B\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="proofs" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="proofs"><span class="header-section-number">1.6</span> Proofs</h2>
+<p>A method of reasoning is any method or procedure by which one proposes to assess the validity of an argument. Given the definition of validity offered in the previous section, it may be thought that the most direct method of reasoning consists in evaluating the truth values of the sentences comprising that argument under all the possible interpretations of the language. Having done so, one can then conclude that the argument is valid just in case no interpretation is found under which all of the premises are true and the conclusion false.</p>
+<p>While the correctness of this procedure follows immediately from our definition of argumentative validity, it clearly does not represent the way in which reasoning ordinarily proceeds. Take, for example, the arithmetical argument:</p>
+<p><span class="math display">\[
+x + 2y = -2, y &gt; 1 \vdash 8 &lt; -2x
+\]</span></p>
+<p>When we assess this argument arithmetically, we stipulate that its validity is to be assessed relative to the ordinary semantics for arithmetic. This means that the numerals ‘1’, ‘2’ and ‘8’ refer to the numbers 1, 2 and 8, respectively; the symbol ‘+’ denotes the operation of addition; and the symbols ‘=’, ‘&lt;’ and ‘&gt;’ stand for the relations of equality, being less than, and being greater than, respectively. These are the logical elements of the syntax appearing in the argument. The non-logical elements are the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, which may stand for any numbers. The argument is valid just in case no matter what numbers the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand for: if it is true that <span class="math inline">\(x+2y=-2\)</span> and <span class="math inline">\(y&gt;1\)</span>, then it is also true that <span class="math inline">\(8&lt;-2x\)</span>.</p>
+<p>Of course, if one were charged with the task of assessing the validity of this argument—say, in a mathematics class—one would most certainly <em>not</em> proceed by substituting in particular numerical values for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in an effort to ascertain whether or not there exists a particular interpretation of these variables under which the premises of the argument are true and its conclusion false. For one, there are, infinitely many such intepretations. Instead, to assess this argument’s validity, a more feasible approach would be to attempt to <em>derive</em> the conclusion from the premises using the basic rules of algebra.</p>
+<p>In the typical language in which algebraic derivations are expressed, a demonstration of this argument’s validity could take the following form:</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(y&gt;1\)</span>, it follows that <span class="math inline">\(2y&gt;2\)</span> and therefore that <span class="math inline">\(x+2y&gt;x+2\)</span>. But since <span class="math inline">\(x+2y=-2\)</span>, we have: <span class="math display">\[
+  - 2 &gt; x + 2
+\]</span> Subtracting <span class="math inline">\(2\)</span> from both sides of the above inequality gives us: <span class="math display">\[
+  - 4 &gt; x
+\]</span> Multiplying both sides of this inequality by <span class="math inline">\(-2\)</span> yields <span class="math inline">\(8 &lt; - 2x\)</span>, which is the desired conclusion.</p>
+</div>
+<p>Taking this example as our model, when we speak of a method of reasoning, we will henceforth have in mind methods which employ as a standard for argumentative validity the existence or non-existence of a derivation—or proof—of an argument’s conclusion from its premises. In order to make precise this idea we must begin by formulating in mathematically precise terms what we mean by a <em>proof</em>.</p>
+<p>To begin, let us reconsider the above algebraic derivation and try to express the reasoning in slightly more detail. In the abbreviated form of the proof given above, the algebraic rules that we appealed to were left tacit and a number of intermediate steps skipped over. To bring out these steps, let us, for the sake of illustration, impose strict constraints on what we are allowed to take for granted in the reasoning. In particular, we will assume only that:</p>
+<ol type="1">
+<li><p>Given any two numbers, we are able to judge which of the two is the greater—and so judge true such simple inequalities as <span class="math inline">\(4&gt;2\)</span> and <span class="math inline">\(-3&gt;-6\)</span>.</p></li>
+<li><p>We are able to evaluate simple arithmetical expressions—and so judge true such simple equalities as <span class="math inline">\(2+3=5\)</span> and <span class="math inline">\(-2\cdot 3 = -6\)</span>.</p></li>
+</ol>
+<p>Every other law or principle appealed to in the reasoning must be stated explicitly. To carry out the proof we will need to appeal to the following rules of algebraic reasoning. For any numerical expressions <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>:</p>
+<p>R1: If <span class="math inline">\(\alpha&gt;0\)</span> and <span class="math inline">\(\beta&gt;\gamma\)</span>, then <span class="math inline">\(\alpha\beta&gt;\alpha\gamma\)</span>.</p>
+<p>R2: If <span class="math inline">\(\alpha&lt;0\)</span> and <span class="math inline">\(\beta&gt;\gamma\)</span>, then <span class="math inline">\(\alpha\beta&lt;\alpha\gamma\)</span>.</p>
+<p>R3: If <span class="math inline">\(\alpha&gt;\beta\)</span>, then both <span class="math inline">\(\gamma +\alpha&gt;\gamma+\beta\)</span> and <span class="math inline">\(\alpha+\gamma&gt;\beta +\gamma\)</span>.</p>
+<p>R4: <span class="math inline">\(\alpha+0=\alpha\)</span></p>
+<p>R5: If <span class="math inline">\(\psi\)</span> is the result of substituting <span class="math inline">\(\beta\)</span> for <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(\varphi\)</span>, then from <span class="math inline">\(\alpha=\beta\)</span> and <span class="math inline">\(\varphi\)</span>, one may infer <span class="math inline">\(\psi\)</span>.</p>
+<p>Utilizing these principles, the more detailed formulation of the reasoning involved in the above proof is as follows:</p>
+<ol type="1">
+<li><p>Since <span class="math inline">\(2&gt;0\)</span> and (by assumption) <span class="math inline">\(y&gt;1\)</span>, it follows by R1 that <span class="math inline">\(2y&gt;2\cdot 1\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(2\cdot 1=2\)</span> and (by 1) <span class="math inline">\(2y&gt;2\cdot 1\)</span>, it follows by R5 that <span class="math inline">\(2y&gt;2\)</span>.</p></li>
+<li><p>Since (by 2) <span class="math inline">\(2y&gt;2\)</span>, it follows by R3 that <span class="math inline">\(x+2y&gt;x+2\)</span>.</p></li>
+<li><p>Since (by assumption) <span class="math inline">\(x+2y=-2\)</span> and (by 3) <span class="math inline">\(x+2y&gt;x+2\)</span>, it follows by R5 that <span class="math inline">\(-2&gt;x+2\)</span>.</p></li>
+<li><p>Since (by 4) <span class="math inline">\(-2&gt;x+2\)</span>, it follows by R3 that <span class="math inline">\(-2+(-2)&gt;x+2+(-2)\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(-2+(-2)=-4\)</span> and (by 5) <span class="math inline">\(-2+(-2)&gt;x+2+(-2)\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x+2+(-2)\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(2+(-2)=0\)</span> and (by 6) <span class="math inline">\(-4&gt;x+2+(-2)\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x+0\)</span>.</p></li>
+<li><p>Since (by R4) <span class="math inline">\(x+0=x\)</span> and (by 7) <span class="math inline">\(-4&gt;x+0\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(-2&lt;0\)</span> and (by 8) <span class="math inline">\(-4&gt;x\)</span>, it follows by R2 that <span class="math inline">\(-2\cdot -4&lt;-2x\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(-2\cdot -4=8\)</span> and (by 9) <span class="math inline">\(-2\cdot -4&lt;-2x\)</span>, it follows by R5 that <span class="math inline">\(8&lt;-2x\)</span>.</p></li>
+</ol>
+<p>What is important to note about this proof is that all of the claims that are asserted in the course of the reasoning fall into one of the following three categories:</p>
+<ol type="i">
+<li><p>Premises of the argument (e.g., <span class="math inline">\(x+2y=-2\)</span>).</p></li>
+<li><p>Elementary facts of arithmetic (e.g., <span class="math inline">\(2&gt;0\)</span> or <span class="math inline">\(-2\cdot -4=8\)</span>).</p></li>
+<li><p>The result of applying one of the principles R1–R5 to claims already established in the proof.</p></li>
+</ol>
+<p>This can be emphasized by omitting from the proof such inferential markers as ‘since <span class="math inline">\(\ldots\)</span> it follows that <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’, etc. and instead simply listing the claims that are asserted in the proof one after another in sequence, indicating, for each such claim, into which of the above three categories it falls:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2 &gt; 0\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(y &gt; 1\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2y &gt; 2\cdot 1\)</span></span>
+<span class="proof-justification">R1: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot 1 = 2\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="4,3">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2y &gt; 2\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(4, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="0" data-crossrefs="5">
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(x + 2y &gt; x + 2\)</span></span>
+<span class="proof-justification">R3: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="0">
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(x + 2y = -2\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="0" data-crossrefs="7,6">
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2 &gt; x + 1\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(7, 6\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="0" data-crossrefs="8">
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2 + (-2) &gt; x + 2 + (-2)\)</span></span>
+<span class="proof-justification">R3: <span class="math inline">\(8\)</span></span>
+</div>
+<div class="proof-line" data-number="10" data-depth="0">
+<span class="line-number"><span class="math inline">\(10\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2 + (-2) = -4\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="11" data-depth="0" data-crossrefs="10,9">
+<span class="line-number"><span class="math inline">\(11\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-4 &gt; x + 2 + (-2)\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(10, 9\)</span></span>
+</div>
+<div class="proof-line" data-number="12" data-depth="0">
+<span class="line-number"><span class="math inline">\(12\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2 + (-2) = 0\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="13" data-depth="0" data-crossrefs="12,11">
+<span class="line-number"><span class="math inline">\(13\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-4 &gt; x + 0\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(12, 11\)</span></span>
+</div>
+<div class="proof-line" data-number="14" data-depth="0">
+<span class="line-number"><span class="math inline">\(14\)</span></span>
+<span class="proof-formula"><span class="math inline">\(x + 0 = x\)</span></span>
+<span class="proof-justification">R4</span>
+</div>
+<div class="proof-line" data-number="15" data-depth="0" data-crossrefs="14,13">
+<span class="line-number"><span class="math inline">\(15\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-4 &gt; x\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(14, 13\)</span></span>
+</div>
+<div class="proof-line" data-number="16" data-depth="0">
+<span class="line-number"><span class="math inline">\(16\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2 &lt; 0\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="17" data-depth="0" data-crossrefs="16,15">
+<span class="line-number"><span class="math inline">\(17\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2\cdot -4 &lt; -2x\)</span></span>
+<span class="proof-justification">R2: <span class="math inline">\(16, 15\)</span></span>
+</div>
+<div class="proof-line" data-number="18" data-depth="0">
+<span class="line-number"><span class="math inline">\(18\)</span></span>
+<span class="proof-formula"><span class="math inline">\(-2\cdot -4 = 8\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="19" data-depth="0" data-crossrefs="18,17">
+<span class="line-number"><span class="math inline">\(19\)</span></span>
+<span class="proof-formula"><span class="math inline">\(8 &lt; -2x\)</span></span>
+<span class="proof-justification">R5: <span class="math inline">\(18, 17\)</span></span>
+</div>
+</div>
+<p>We will take this expanded arithmetical derivation as a model for the simplest sort of proofs that we will consider in the context of our formal languages. Later on in the course, we will consider other kinds of proofs with a more complicated structure.</p>
+<p>We first observe that a proof of the above sort is always given relative to both a set of elementary, or axiomatic, truths, which we can freely take for granted in our reasoning, and a system of rules by which we can derive new sentences from sentences already established in the proof. Taken together, these axioms and rules form what we shall call a proof system:</p>
+<div id="def-proof-system" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 1.7</strong></span> A <em>proof system</em> for a language <span class="math inline">\(L\)</span> consists of (i) a set of sentences of <span class="math inline">\(L\)</span>, the members of which are referred to as <em>axioms</em>; and (ii) a set of rules of inference, each of which states that certain sentences can be inferred from others.</p>
+</div>
+<p>We can now define what we mean by a proof:</p>
+<div id="def-proof" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 1.8</strong></span> Let <span class="math inline">\(\mathbf{D}\)</span> be a proof system for the language <span class="math inline">\(L\)</span>. Let <span class="math inline">\(\Gamma\)</span> be a set of sentences of <span class="math inline">\(L\)</span> and let <span class="math inline">\(\varphi\)</span> be a sentence of <span class="math inline">\(L\)</span>. A <em>proof</em> of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> is a finite sequence of sentences <span class="math inline">\(\varphi_1,\varphi_2,\ldots,\varphi_n\)</span> such that:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\varphi_n\)</span> is the sentence <span class="math inline">\(\varphi\)</span>.</p></li>
+<li><p>For <span class="math inline">\(i=1,\ldots,n\)</span>, at least one of the following conditions holds:</p>
+<ol type="i">
+<li><p><span class="math inline">\(\varphi_i\in\Gamma\)</span></p></li>
+<li><p><span class="math inline">\(\varphi_i\)</span> is an axiom of <span class="math inline">\(\mathbf{D}\)</span></p></li>
+<li><p><span class="math inline">\(\varphi_i\)</span> follows from one of the rules of <span class="math inline">\(\mathbf{D}\)</span> applied to sentences among <span class="math inline">\(\varphi_1,\ldots,\varphi_{i-1}\)</span>.</p></li>
+</ol></li>
+</ol>
+<p>We write <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span> to indicate that there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>. In this case, we also say that <span class="math inline">\(\varphi\)</span> is <em>provable</em> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> or that the argument <span class="math inline">\(\Gamma\vdash\varphi\)</span> is <em>provable</em> in <span class="math inline">\(\mathbf{D}\)</span>, or that <span class="math inline">\(\varphi\)</span> is a <em>deductive consequence</em> of <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>.</p>
+</div>
+<p>It is important to stress that this definition of proof makes no reference whatsoever to the various semantic notions introduced in <a href="#sec-validity" class="quarto-xref"><span>Section 1.4</span></a>. Concepts such as truth and falsehood, meaning, interpretation, etc., nowhere figure in our formal understanding of proof. Rather, a proof is a purely syntactic construct, which can be thought of as the output of an abstract calculus which operates on symbolic expressions in complete ignorance as to how they are to interpreted. As such, the standard of provability is, at a conceptual level, entirely distinct from that of validity. The former is syntactic, the latter semantic. It will be crucial to keep this distinction in mind as we proceed.</p>
+<p>Henceforth, by a ‘method of reasoning’ we will simply mean a system of proof. To say that an inference can result from a given method of reasoning is just to say that the conclusion of the corresponding argument is provable from its premises in the relevant proof system. It might be supposed that this notion of proof is sufficiently abstract that it entails nothing of substance concerning which arguments are provable and which are not. Not so. Already we have said enough to ensure that provability satisfies the same general claims that were shown to hold of validity in <span class="quarto-unresolved-ref">?thm-semantic-structure</span>.</p>
+<div id="thm-proof-structure" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.2</strong></span> Let <span class="math inline">\(\mathbf{D}\)</span> be any proof system. For any sentences <span class="math inline">\(\varphi, \psi\)</span> and any sets of sentences <span class="math inline">\(\Gamma, \Delta\)</span>, the following claims hold:</p>
+<ol type="i">
+<li><p><span class="math inline">\(\Gamma,\varphi\vdash_{\mathbf{D}}\varphi\)</span></p></li>
+<li><p>If <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span>, then <span class="math inline">\(\Gamma,\Delta\vdash_{\mathbf{D}}\varphi\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\Gamma,\varphi\vdash_{\mathbf{D}}\psi\)</span> and <span class="math inline">\(\Delta\vdash_{\mathbf{D}}\varphi\)</span>, then <span class="math inline">\(\Gamma,\Delta\vdash_{\mathbf{D}}\psi\)</span>.</p></li>
+</ol>
+</div>
+<p>We leave the proof of this theorem as an exercise for the reader.</p>
+<p>Some standard proof-theoretic terminology: if a sentence is provable from the empty set in a given proof system, we refer to it as a <em>theorem</em> of that system. If two sentences are each provable from the other, we refer to them as <em>provably equivalent</em>.</p>
+<div id="exr-proof-structure" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.11</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p>Prove <a href="#thm-proof-structure" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbf{D}\)</span> be any proof system. Show that if <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span>, then there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> in which no sentence appears more than once.</p></li>
+<li><p>Let <span class="math inline">\(\varphi_1,\ldots,\varphi_n\)</span> be a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>. Suppose we rearrange the sentences in this proof by first listing (in any order) all the sentences that are either axioms or members of <span class="math inline">\(\Gamma\)</span> followed by the remaining sentences in the order in which they appear in the proof. Is the resulting sequence still a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>?</p></li>
+</ol>
+</div>
+<div id="exm-0x1-proof" class="example theorem">
+<p><span class="theorem-title"><strong>Example 1.1 (Multiplying 0’s and 1’s - Proofs)</strong></span> In this example, we introduce a proof system <span class="math inline">\(\mathbf{T}\)</span> by which to reason in the language <span class="math inline">\(L_\times\)</span> introduced in <span class="quarto-unresolved-ref">?exm-0x1-syntax</span>.</p>
+<p>The proof system <span class="math inline">\(\mathbf{T}\)</span> has three axioms: <span class="math display">\[
+x = x \quad\quad\quad 0 = 0 \quad\quad\quad 1 = 1
+\]</span></p>
+<p>In addition, the system <span class="math inline">\(\mathbf{T}\)</span> has ten rules of inference. The first four of these rules concern the addition and removal of the numerals <span class="math inline">\(1\)</span> and <span class="math inline">\(0\)</span> from numerical expressions (here, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, and <span class="math inline">\(\gamma\)</span> are any numerical expressions):</p>
+<p>(1<span class="math inline">\(-\)</span>): <span class="math display">\[
+\frac{1\times \alpha = \beta}{\alpha=\beta}
+\]</span></p>
+<p>(1+): <span class="math display">\[
+\frac{\alpha = \beta}{1\times\alpha=\beta}
+\]</span></p>
+<p>(0<span class="math inline">\(-\)</span>): <span class="math display">\[
+\frac{0\times\alpha = \beta}{0 =\beta}
+\]</span></p>
+<p>(0+): <span class="math display">\[
+\frac{0 = \alpha}{0\times\beta = \alpha}
+\]</span></p>
+<p>The next two rules concern the addition and removal of the numeral <span class="math inline">\(x\)</span> from numerical expressions:</p>
+<p>(<span class="math inline">\(x-\)</span>): If <span class="math inline">\(x\)</span> occurs in <span class="math inline">\(\alpha\)</span>, then: <span class="math display">\[
+\frac{x\times \alpha = \beta}{\alpha = \beta}
+\]</span></p>
+<p>(<span class="math inline">\(x+\)</span>): If <span class="math inline">\(x\)</span> occurs in <span class="math inline">\(\alpha\)</span>, then: <span class="math display">\[
+\frac{\alpha = \beta}{x\times \alpha = \beta}
+\]</span></p>
+<p>The seventh rule expresses that the equality relation is symmetrical:</p>
+<p>(S): <span class="math display">\[
+\frac{\alpha = \beta}{\beta = \alpha}
+\]</span></p>
+<p>and the eighth, that it is transitive:</p>
+<p>(T): <span class="math display">\[
+\frac{\alpha = \beta\quad\beta=\gamma}{\alpha = \gamma}
+\]</span></p>
+<p>The ninth rule asserts that from <span class="math inline">\(0 = 1\)</span>, any sentence <span class="math inline">\(\varphi\)</span> follows:</p>
+<p>(<span class="math inline">\(\neq\)</span>): <span class="math display">\[
+\frac{0 = 1}{\varphi}
+\]</span></p>
+<p>The tenth and final rule expresses the symmetricality of the operator <span class="math inline">\(\times\)</span>:</p>
+<p>(<span class="math inline">\(\times\)</span>): <span class="math display">\[
+\frac{\alpha\times\beta = \gamma}{\beta\times\alpha = \gamma}
+\]</span></p>
+<p>As an illustration of reasoning in the proof system <span class="math inline">\(\mathbf{T}\)</span>, we will show that: <span class="math display">\[
+x\times 0 = 0\times 1,\quad 1\times x \times 1 = 1 \vdash_{\mathbf{T}} 1 = x
+\]</span></p>
+<p>The proof is as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(1 \times x \times 1 = 1\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0" data-crossrefs="1">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(x \times 1 = 1\)</span></span>
+<span class="proof-justification">1<span class="math inline">\(-\)</span>: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="2">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(1\times x = 1\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\times\)</span>: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0" data-crossrefs="3">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(x = 1\)</span></span>
+<span class="proof-justification">1<span class="math inline">\(-\)</span>: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="4">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(1 = x\)</span></span>
+<span class="proof-justification">S: <span class="math inline">\(4\)</span></span>
+</div>
+</div>
+<div id="exr-proofs-in-T" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.12</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p>Show that for any numerical expression <span class="math inline">\(\alpha\)</span>, the sentence <span class="math inline">\(\alpha=\alpha\)</span> is a theorem of <span class="math inline">\(\mathbf{T}\)</span>.</p></li>
+<li><p>Can you transform the sentence <span class="math inline">\(1\times x \times 0 = 0\times x \times 1\)</span> into a sentence of the form <span class="math inline">\(\alpha=\alpha\)</span>, by repeated applications of the rule <span class="math inline">\(\times\)</span>?</p></li>
+<li><p>Confirm that the sentence <span class="math inline">\(1\times x \times 0 = 0\times x \times 1\)</span> is a theorem of <span class="math inline">\(\mathbf{T}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carnap1988-nm" class="csl-entry" role="listitem">
+Carnap, Rudolf. 1988. <em>Meaning and Necessity</em>. 2nd ed. Phoenix Books. Chicago, IL: University of Chicago Press.
+</div>
+<div id="ref-Fraenkel1973-tk" class="csl-entry" role="listitem">
+Fraenkel, A A, A Levy, and Y Bar-Hillel. 1973. <em>Foundations of <span>S</span>et <span>T</span>heory</em>. 2nd ed. Studies in Logic and the Foundations of Mathematics. North-Holland.
+</div>
+<div id="ref-Frege1893-ld" class="csl-entry" role="listitem">
+Frege, Gottlob. 1893-1903. <em>Grundgesetze Der Arithmetik</em>. Jena: H. Pohle.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This is Russell’s famous paradox, revealing the inconsistency of the formalization of naive set theory given by <span class="citation" data-cites="Frege1893-ld">Frege (<a href="#ref-Frege1893-ld" role="doc-biblioref">1893-1903</a>)</span> in his <em>Grundgesetze der Arithmetik</em>. In that work, Frege assumed that any property whatsoever—including the property of not being a member of itself—could be used in the formation of a well-defined set. For a detailed discussion of the various approaches adopted by modern formalizations of set theory to avoid Russell’s paradox, see <span class="citation" data-cites="Fraenkel1973-tk">Fraenkel, Levy, and Bar-Hillel (<a href="#ref-Fraenkel1973-tk" role="doc-biblioref">1973</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Because the subset relation is reflexive, it is sometimes denoted <span class="math inline">\(\subseteq\)</span> (by analogy with the weak ordering relation <span class="math inline">\(\leq\)</span>). On this notational scheme, it is the ‘proper’ subset relation (by analogy with the strict ordering relation <span class="math inline">\(&lt;\)</span>) that is denoted <span class="math inline">\(\subset\)</span>. The reason we do not adopt this notation is that the reflexive subset relation occurs far more frequently than its irreflexive counterpart. Symbolic parsimony thus dictates that it be awarded the unadorned marker.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>The assumption that a sentence can take exactly one of two truth values is referred to as the principle of <em>bivalence</em>. Innocuous as it may seem, bivalence is perhaps the most contentious principle in all of logic. If you continue in your study of logic, you will encounter notions of argumentative validity that reject bivalence in favor of a ‘multivalent’ semantics in which sentences can be assigned one of many distinct truth values. You will also discover semantics in which a sentence may be assigned no truth value at all.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The branch of logic that studies the various modalities implicated in necessity claims is called <em>modal</em> logic. See Chapter ??? below.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>By contrast, the <em>intension</em> of a common noun phrase is the meaning of the phrase, or that which determines its extension. Thus, for example, while ‘human’ and ‘featherless biped’ have the same extension since every human is a featherless biped and vice versa, they have different intensions since the two phrases differ in meaning. For a more detailed discussion of the distinction between extension and intension, see <span class="citation" data-cites="Carnap1988-nm">Carnap (<a href="#ref-Carnap1988-nm" role="doc-biblioref">1988</a>)</span>, ch.&nbsp;1.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../content/front-matter/00-introduction/introduction.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

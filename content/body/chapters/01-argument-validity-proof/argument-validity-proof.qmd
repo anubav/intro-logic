@@ -23,4 +23,10 @@ crossref:
 {{< include extensional-semantics.qmd >}}
 :::
 
+:::{.content-hidden when-profile="lecture-3"}
+:::{.content-hidden when-profile="lecture-2"}
+{{< include proof.qmd >}}
+:::
+:::
+
 ## References {.unnumbered}
