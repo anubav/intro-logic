@@ -1,207 +1,533 @@
-## Proofs 
+## Proofs
+
+### Reasoning by Proof
+
+We have, thus far, discussed how to represent arguments and what it means for an
+argument to be valid. Next, we turn to the topic of reasoning.
 
 A method of reasoning is any method or procedure by which one proposes to assess
 the validity of an argument. Given the definition of validity offered in the
 previous section, it may be thought that the most direct method of reasoning
 consists in evaluating the truth values of the sentences comprising that
-argument under all the possible interpretations of the language. Having done so, one can then conclude that the argument is valid just in case no interpretation is found under which all of the premises are true and the conclusion false. 
+argument under all the possible interpretations of the language. Having done so,
+one then concludes that the argument is valid just in case no counterexample
+is found under which all of the premises are true and the conclusion is false.
 
 While the correctness of this procedure follows immediately from our definition
 of argumentative validity, it clearly does not represent the way in which
-reasoning ordinarily proceeds. Take, for example, the arithmetical argument:
+reasoning ordinarily proceeds. Take, for example, the following arithmetical
+argument of the sort that one might encounter in a high school algebra course:
 
 $$
-x + 2y = -2, y > 1 \proves 8 < -2x
+\frac{x + 2y = -2\hspace{3mm},\hspace{3mm} y > 1}{8 < -2x}
 $$
 
-When we assess this argument arithmetically, we stipulate that its validity is
-to be assessed relative to the ordinary semantics for arithmetic. This means
-that the numerals '1', '2' and '8' refer to the numbers 1, 2 and 8,
-respectively; the symbol '+' denotes the operation of addition; and the symbols
-'=', '<' and '>' stand for the relations of equality, being less than, and being
-greater than, respectively. These are the logical elements of the syntax
-appearing in the argument. The non-logical elements are the variables $x$ and
-$y$, which may stand for any numbers. The argument is valid just in
-case no matter what numbers the variables $x$ and $y$ stand for: if it is true
-that $x+2y=-2$ and $y>1$, then it is also true that $8<-2x$.
+When we assess the arithmetical validity of this argument, we assume that the
+numerals '1', '2' and '8' refer to the numbers 1, 2 and 8, respectively; that the
+symbol '+' denotes the operation of addition; and that the symbols '=', '<' and '>'
+stand for the relations of equality, being less than, and being greater than,
+respectively. These are the logical elements of the language appearing in the
+argument. The non-logical elements of the language are the variables $x$ and $y$, which may
+stand for any numbers. The argument is valid just in case no matter what numbers
+the variables $x$ and $y$ stand for: if it is true that $x+2y=-2$ and $y>1$,
+then it is also true that $8<-2x$.
 
 Of course, if one were charged with the task of assessing the validity of this
-argument---say, in a mathematics class---one would most certainly _not_
+argument---say, in an algebra class---one would most certainly _not_
 proceed by substituting in particular numerical values for $x$ and $y$ in an
 effort to ascertain whether or not there exists a particular interpretation of
 these variables under which the premises of the argument are true and its
-conclusion false. For one, there are, infinitely many such intepretations. Instead, to assess this argument's validity, a more feasible
-approach would be to attempt to _derive_ the conclusion from the premises using the basic rules of algebra.
+conclusion false. For one, there are, infinitely many such interpretations.
+Instead, to assess this argument's validity, a more feasible approach would be
+to attempt to _prove_ the conclusion from the premises using the basic rules of
+algebra.
 
-In the typical language in which algebraic derivations are expressed, a demonstration of this argument's validity could take the following form:
+In the typical language in which algebraic derivations are expressed, a proof of this argument's validity could take the following form:
 
 :::{.proof}
 Since $y>1$, it follows that $2y>2$ and therefore that $x+2y>x+2$. But since
 $x+2y=-2$, we have:
+
 $$
   - 2 > x + 2
 $$
+
 Subtracting $2$ from both sides of the above inequality gives us:
+
 $$
   - 4 > x
 $$
+
 Multiplying both sides of this inequality by $-2$ yields $8 < - 2x$, which is the desired conclusion.
 :::
 
 Taking this example as our model, when we speak of a method of reasoning, we
-will henceforth have in mind methods which employ as a standard for
-argumentative validity the existence or non-existence of a derivation---or
-proof---of an argument's conclusion from its premises. In order to
-make precise this idea we must begin by formulating in
-mathematically precise terms what we mean by a _proof_.
+will always have in mind methods which employ as a standard for argumentative
+validity the existence of a _proof_ of an argument's conclusion from its
+premises. In order to make this idea precise, we must say more about what we
+mean by a proof.
 
-To begin, let us reconsider the above algebraic derivation
-and try to express the reasoning in slightly more detail. In the abbreviated
-form of the proof given above, the algebraic rules that we appealed to were left tacit and a number of intermediate steps skipped over. To bring out these steps, let us, for the sake of
-illustration, impose strict constraints on what we are allowed to take for
-granted in the reasoning. In particular, we will assume only that:
-
-1. Given any two numbers, we are able to judge which of the two is the greater---and so judge true such simple inequalities as $4>2$ and $-3>-6$.
-
-2. We are able to evaluate simple arithmetical expressions---and so judge true such simple equalities as $2+3=5$ and $-2\cdot 3 = -6$. 
-
-Every other law or principle appealed to in the reasoning must be stated explicitly. To carry out the proof we will need to appeal to the following
-rules of algebraic reasoning. For any numerical expressions $\alpha$, $\beta$, $\gamma$:
-
-R1: If $\alpha>0$ and $\beta>\gamma$, then $\alpha\beta>\alpha\gamma$.
-
-R2: If $\alpha<0$ and $\beta>\gamma$, then $\alpha\beta<\alpha\gamma$.
-
-R3: If $\alpha>\beta$, then both $\gamma +\alpha>\gamma+\beta$ and $\alpha+\gamma>\beta +\gamma$.
-
-R4: $\alpha+0=\alpha$
-
-R5: 
-    If $\psi$ is the result of substituting $\beta$ for $\alpha$ in $\ph$, then from $\alpha=\beta$ and $\ph$, one may infer $\psi$.
-
-Utilizing these principles, the more detailed formulation of the reasoning involved in the above proof is as follows:
-
-1. Since $2>0$ and (by assumption) $y>1$, it follows by R1 that $2y>2\cdot 1$.
-
-2. Since $2\cdot 1=2$ and (by 1) $2y>2\cdot 1$, it follows by R5 that $2y>2$.
-
-3. Since (by 2) $2y>2$, it follows by R3 that $x+2y>x+2$.
-
-4. Since (by assumption) $x+2y=-2$ and (by 3) $x+2y>x+2$, it follows by R5 that $-2>x+2$.
-
-5. Since (by 4) $-2>x+2$, it follows by R3 that $-2+(-2)>x+2+(-2)$.
-
-6. Since $-2+(-2)=-4$ and (by 5) $-2+(-2)>x+2+(-2)$, it follows by R5 that $-4>x+2+(-2)$.
-
-7. Since $2+(-2)=0$ and (by 6) $-4>x+2+(-2)$, it follows by R5 that $-4>x+0$.
-
-8. Since (by R4) $x+0=x$ and (by 7) $-4>x+0$, it follows by R5 that $-4>x$.
-
-9. Since $-2<0$ and (by 8) $-4>x$, it follows by R2 that $-2\cdot -4<-2x$.
-
-10. Since $-2\cdot -4=8$ and (by 9) $-2\cdot -4<-2x$, it follows by R5 that $8<-2x$.
-
-What is important to note about this proof is that all of the claims that are
-asserted in the course of the reasoning fall into one of the following three
-categories:
-
-i. Premises of the argument (e.g., $x+2y=-2$).
-
-ii. Elementary facts of arithmetic (e.g., $2>0$ or $-2\cdot -4=8$).
-  
-iii. The result of applying one of the principles R1--R5 to claims already established in the proof.
-
-This can be emphasized by omitting from the proof such inferential markers as
-'since $\ldots$ it follows that $\smallblank$', etc. and instead simply listing the claims that are asserted in the proof one after another in sequence, indicating, for each such claim, into which of the above three categories it falls:
+Let us consider again the above algebraic derivation. In this proof, we start with
+one of the premises, namely $y > 1$. We then transform this premise into another
+sentence, $2y > 2$, by applying a certain rule of algebra, namely the rule which
+allows us to multiply both sides of an inequality by any positive number. We
+might transcribe this transformation as follows:
 
 :::{.lproof}
-    1. 2 > 0                    [Arithmetic]
-    2. y > 1                    [Premise]
-    3. 2y > 2\cdot 1            [R1: 1, 2]
-    4. 2\cdot 1 = 2             [Arithmetic]
-    5. 2y > 2                   [R5: 4, 3]
-    6. x + 2y > x + 2           [R3: 5]
-    7. x + 2y = -2              [Premise]
-    8. -2 > x + 1               [R5: 7, 6]
-    9. -2 + (-2) > x + 2 + (-2) [R3: 8]
-    10. -2 + (-2) = -4          [Arithmetic]
-    11. -4 > x + 2 + (-2)       [R5: 10, 9]
-    12. 2 + (-2) = 0            [Arithmetic]
-    13. -4 > x + 0              [R5: 12, 11]
-    14. x + 0 = x               [R4]
-    15. -4 > x                  [R5: 14, 13]
-    16. -2 < 0                  [Arithmetic]
-    17. -2\cdot -4 < -2x        [R2: 16, 15]
-    18. -2\cdot -4 = 8          [Arithmetic]
-    19. 8 < -2x                 [R5: 18, 17]
+
+    1. y > 1 [Premise]
+    2. 2\cdot y > 2 [Multiply by 2: 1]
+
+:::
+
+The note at the end of the last line indicates that we are applying the rule
+"Multiply by 2" to line 1. This rule can be formulated as follows:
+
+(Multiply by 2) For any numerical expressions $\al$ and $\be$: If $\al > \be$,
+it follows that $2\cdot \al > 2\cdot \be$.
+
+Strictly speaking, if we treat this rule simply as a rule licensing a certain
+syntactic transformation, it doesn't quite get us what we want. For, if we apply
+the rule, as stated, to the sentence $y > 1$, what we get is $2\cdot y > 2\cdot
+1$---not $2\cdot y > 2$. Now, of course, we all know it to be a basic fact
+about arithmetic that $2\cdot 1 = 2$, and so we naturally perform the requisite
+substitution in our head. But to give a more complete transcription of the
+reasoning here, we can be fully explicit and include the substition as another
+step in the proof:
+
+:::{.lproof}
+
+    1. y > 1 [Premise]
+    2. 2\cdot y > 2\cdot 1  [Multiply by 2: 1]
+    3. 2\cdot 1 = 2        [Arithmetic]
+    4. 2\cdot y > 2        [Substitution of Equals: 2, 3]
+
+:::
+
+Here we appeal to the basic arithmetical fact that $2\cdot 1 = 2$ in line 2 of
+the proof. A rule of substitution is then applied to lines 2 and 3 of the proof
+to give us line 4. This substitution rule can be stated as follows:
+
+(Substitution of Equals) Let $\psi$ be the result of substituting one numerical
+expression $\beta$ for another numerical expression $\alpha$ in the sentence
+$\ph$. Then, if $\alpha=\beta$ and $\ph$, it follows that $\psi$.
+
+The proof now is correct, but the rule Multiply by 2 seems a bit too specific.
+We don't want to have to posit separate rules for every possible number that we
+might want to utilize as a multiplier in an algebraic proof. A better rule, that
+licenses the general sort of transformation that we have in mind, would be
+something like:
+
+(Multiply by $n>0$) For any number $n$, and any numerical expressions $\al$ and
+$\be$: If $n > 0$ and $\al > \be$, it follows that $n\cdot \al > n\cdot \be$.
+
+To apply this rule, we now have to cite a further arithmetical fact, namely, that $2 >
+0$. All told, now, the proof looks like this:
+
+:::{.lproof}
+
+    1. y > 1 [Premise]
+    2. 2 > 0 [Arithmetic]
+    3. 2\cdot y > 2\cdot 1 [Multiply by $n > 0$: 1, 2]
+    4. 2\cdot 1 = 2 [Arithmetic]
+    5. 2\cdot y > 2 [Substitution of Equals: 3, 4]
+
+:::
+
+This, of course, is only the first step of the reasoning. But if we continue in
+this way, spelling out the proof in detail, one step at a time, eventually the
+reasoning should terminate with the conclusion of the argument appearing as the last
+line of the proof.
+
+:::{.lproof}
+
+    1. y > 1 [Premise]
+    2. 2 > 0 [Arithmetic]
+    3. 2\cdot y > 2\cdot 1 [Multiply by $n > 0$: 1, 2]
+    4. 2\cdot 1 = 2 [Arithmetic]
+    5. 2\cdot y > 2 [Substitution of Equals: 3, 4]
+    ...
+    n. 8 < - 2\cdot x [Some Rule: ?, \ldots, ?]
+
+:::
+
+:::{#exr-arithmetical-proof .exercise}
+{{< include /content/exercises/arithmetical-proof.qmd >}}
 :::
 
 We will take this expanded arithmetical derivation as a model for the simplest
-sort of proofs that we will consider in the context of our formal languages.
-Later on in the course, we will consider other kinds of proofs with a
-more complicated structure.
+sort of proofs that we will consider in the context of our formal languages
+(shortly we will consider other kinds of proofs with a slightly more complicated
+structure).
 
-We first observe that a proof of the above sort is always given relative to both
-a set of elementary, or axiomatic, truths, which we can freely take for granted in our reasoning, and a system of rules by which we can derive new sentences from sentences already established in the proof. Taken together, these axioms and rules form what we shall call a proof system:
+What is important to note about proofs such as this is that all of the claims
+that are asserted in the course of the reasoning fall into one of the following
+three categories:
 
-::: {#def-proof-system .definition} 
+1. Premises of the argument (e.g., $y > 1$).
 
-A _proof system_ for a language $L$ consists of (i) a set of sentences of $L$, the members of which are referred to as _axioms_; and (ii) a set of rules of inference, each of which states that certain sentences can be inferred from others.
+2. Basic facts of arithmetic (e.g., $2>0$ or $2\cdot 1 = 2$).
 
-:::
+3. The result of applying a rule of inference to claims already established in the proof.
 
-We can now define what we mean by a proof:
+In general, we refer to the sort of basic claims that we can freely appeal to in
+the course of giving a proof as _axioms_. With respect to a set of axioms and
+rules of inference, each of which tells us that certain sentences can be inferred
+from others, a _proof_ can now be defined as follows:
 
 ::: {#def-proof .definition}
 
-Let $\mathbf{D}$ be a proof system for the language $L$. Let $\Ga$ be a set of sentences of $L$ and let $\ph$ be a sentence of $L$. A _proof_ of $\ph$ from $\Ga$ in $\mathbf{D}$ is a finite sequence of sentences $\ph_1,\ph_2,\ldots,\ph_n$ such that:
-
-1. $\ph_n$ is the sentence $\ph$. 
-
-2. For $i=1,\ldots,n$, at least one of the following conditions holds:
-
-    i. $\ph_i\in\Ga$
-    
-    ii. $\ph_i$ is an axiom of $\mathbf{D}$
-
-    iii. $\ph_i$ follows from one of the rules of $\mathbf{D}$ applied to sentences among $\ph_1,\ldots,\ph_{i-1}$. 
-
-We write $\Ga\proves_{\mathbf{D}}\ph$ to indicate that there exists a proof of $\ph$ from $\Ga$ in $\mathbf{D}$. In this case, we also say that $\ph$ is _provable_ from $\Ga$ in $\mathbf{D}$ or that the argument $\Ga\proves\ph$ is _provable_ in $\mathbf{D}$, or that $\ph$ is a _deductive consequence_ of $\Ga$ in $\mathbf{D}$. 
+Given a set of axioms and rules of inference, a _proof_ of $\ph$ from $\Ga$ is a
+finite sequence of sentences, the last of which is the sentence $\ph$ and each
+of which is either (1) a member of the set $\Ga$; (2) an axiom; or (3) the
+result of applying one of the rules of inference to sentences appearing earlier
+in the proof.
 
 :::
 
-It is important to stress that this definition of proof makes no reference whatsoever to the various semantic notions introduced in @sec-validity. Concepts such as truth and falsehood, meaning, interpretation, etc., nowhere figure in our formal understanding of proof. Rather, a proof is a purely syntactic construct, which can be thought of as the output of an abstract calculus which operates on symbolic expressions in complete ignorance as to how they are to interpreted. As such, the standard of provability is, at a conceptual level, entirely distinct from that of validity. The former is syntactic, the latter semantic. It will be crucial to keep this distinction in mind as we proceed. 
+Ideally, the system of axioms and rules in which we give proofs should ensure
+that the following is true: an argument is valid just in case there exists a
+proof of its conclusion from its premises. In the following section, we will
+introduce such a proof system for the formal language L$_S$.
 
-Henceforth, by a 'method of reasoning' we will simply mean a system of proof. To
-say that an inference can result from a given method of reasoning is just to say
-that the conclusion of the corresponding argument is provable from its premises
-in the relevant proof system. It might be supposed that this notion of proof is sufficiently abstract that it entails nothing of substance concerning which arguments are provable and which are not. Not so. Already we have said enough to ensure that provability satisfies the same general claims that were shown to hold of validity in @thm-semantic-structure.
-
-:::{#thm-proof-structure .theorem}
-Let $\mathbf{D}$ be any proof system. For any sentences $\ph, \psi$ and any sets of sentences $\Ga, \De$, the following claims hold:
-
-i. $\Ga,\ph\proves_{\mathbf{D}}\ph$
-
-ii. If $\Ga\proves_{\mathbf{D}}\ph$, then $\Ga,\De\proves_{\mathbf{D}}\ph$. 
-
-iii. If $\Ga,\ph\proves_{\mathbf{D}}\psi$ and $\De\proves_{\mathbf{D}}\ph$, then $\Ga,\De\proves_{\mathbf{D}}\psi$. 
+:::{#exr-proof-facts .exercise}
+{{< include /content/exercises/proof-facts.qmd >}}
 :::
 
-We leave the proof of this theorem as an exercise for the reader. 
+### Proofs in L$_S$
 
-Some standard proof-theoretic terminology: if a
-sentence is provable from the empty set in a given proof system, we refer to it
-as a _theorem_ of that system. If two sentences are each provable from the
-other, we refer to them as _provably equivalent_.
+The history of formal logic begins with Aristotle's theory of the syllogism. In
+what is perhaps the first treatise on the subject of formal logic, the _Prior
+Analytics_, Aristotle draws a distinction between valid arguments which he
+regards as 'perfect' and those which he regards as imperfect. While the validity
+of perfect arguments is self-evident and requires no further justification, the
+validity of imperfect arguments stands in need of proof. To provide such proofs,
+Aristotle introduces a method of reasoning by which imperfectly valid arguments
+can be derived by means of certain rules of inference.
 
-:::{#exr-proof-structure}
-{{< include /content/exercises/proof-structure.qmd >}}
+In the remainder of this chapter, we will present a version of
+Aristotle's proof system for the formal language L$_S$. This system includes
+both axioms and rules of inference by which certain sentences can be inferred
+from others.[^corcoran]
+
+[^corcoran]: The proof system introduced below was first proposed as a formalization of Aristotle's theory of the syllogism by @Corcoran1972-wl.
+
+The axioms of the system are all sentences of the form:
+
+$$
+\all{A}{A}
+$$
+
+where $A$ is any term. The basic rules of inference are as follows:[^barbara]
+
+[^barbara]:
+    The names here given to the rules are taken from the following Latin poem created in the 13th century to help medieval logic students memorize the valid syllogistic forms:
+
+    > _Barbara, Celarent, Darii, Ferioque_ prima (first);
+    > _Cesare, Camestres, Festino, Baroco_ secunda (second);
+    > Tertia (third) _Darapti, Disamis, Datisi, Felapton,_
+    > _Bocardo, Ferison_; Quarta (fourth) sunt _Bramantip, Camenes,_
+    > _Dimaris, Fesapo, Fresison_.
+
+    In the entry on "Traditional Logic" in @Brody2006-dz _Glossary of Logical
+    Terms_, the key for the mnemonic employed in this poem is described as
+    follows: "The three vowels respectively indicate the three constituent
+    propositions of the syllogism as $\acop$, $\ecop$, $\icop$, or $\ocop$. For
+    first-figure syllogisms the initial consonants are arbitrarily the first
+    four consonants; for the other figures the initial consonants indicate to
+    which of the first-figure syllogisms the syllogism in question may be
+    reduced. Other consonants occurring in second-, third-, and fourth-figure
+    mnemonics indicate the operation that must be performed on the proposition
+    indicated by the preceding vowel in order to reduce the syllogism to a
+    first-figure syllogism".
+
+(Barbara):
+
+$$
+\frac{\all{A}{B}\quad,\quad\all{B}{C}}{\all{A}{C}}
+$$
+
+(Celarent):
+
+$$
+\frac{\all{A}{B}\quad,\quad\no{B}{C}}{\no{A}{C}}
+$$
+
+(e-conversion):
+
+$$
+\frac{\no{A}{B}}{\no{B}{A}}
+$$
+
+By means of these axioms and rules, we can give proofs to establish the validity of arguments in L$_S$. For example, we can show:
+
+$$
+\all{A}{B}, \all{B}{C}, \no{D}{C} \models \no{D}{A}
+$$
+
+The proof is as follows:
+
+:::{.lproof}
+
+    1. A\textrm{\textbf{a}}B [Premise]
+    2. B\textrm{\textbf{a}}C [Premise]
+    3. A\textrm{\textbf{a}}C [Barbara: 1, 2]
+    4. D\textrm{\textbf{e}}C [Premise]
+    5. C\textrm{\textbf{e}}D [e-conversion: 4]
+    6. A\textrm{\textbf{e}}D [Celarent: 3, 5]
+    7. D\textrm{\textbf{e}}A [e-conversion: 6]
+
 :::
 
-:::{#exm-0x1-proof .example}
-{{< include /content/inserts/examples/0s-x-1s/proof.qmd >}}
+Here's another example:
 
-:::{#exr-proofs-in-T}
-{{< include /content/exercises/proofs-in-T.qmd >}}
+$$
+\all{A}{B}, \no{B}{C}, \all{D}{A}, \all{E}{D} \models \no{C}{E}
+$$
+
+the proof is:
+
+:::{.lproof}
+
+    1. A\textrm{\textbf{a}}B [Premise]
+    2. B\textrm{\textbf{e}}C [Premise]
+    3. A\textrm{\textbf{e}}C [Celarent: 1, 2]
+    4. D\textrm{\textbf{a}}A [Premise]
+    5. D\textrm{\textbf{e}}C [Celarent: 3, 4]
+    6. E\textrm{\textbf{a}}D [Premise]
+    7. E\textrm{\textbf{e}}C [Celarent: 5, 6]
+    8. C\textrm{\textbf{e}}E [e-conversion: 7]
+
 :::
+
+Note that there may be other ways of proving the same argument, for example:
+
+:::{.lproof}
+
+    1. D\textrm{\textbf{a}}A [Premise]
+    2. A\textrm{\textbf{a}}B [Premise]
+    3. D\textrm{\textbf{a}}B [Barbara: 1, 2]
+    4. E\textrm{\textbf{a}}D [Premise]
+    5. E\textrm{\textbf{a}}B [Barbara: 3, 4]
+    6. B\textrm{\textbf{e}}C [Premise]
+    7. E\textrm{\textbf{e}}C [Celarent: 5, 6]
+    8. C\textrm{\textbf{e}}E [e-conversion: 7]
+
 :::
+
+While the axioms and rules of inference listed above allow us to establish the
+validity of a number of arguments, taken together, the resulting proof system is
+clearly inadequate to prove _all_ valid arguments. For instance, this system does
+not allow us to prove any non-circular arguments with a conclusion that is of
+the form $\some{A}{B}$ or $\somenot{A}{B}$. For none of the axioms are
+of this form and none of the rules of inference license the inference of
+a sentence of this form from other sentences. Thus, the only way that $\some{A}{B}$ or $\somenot{A}{B}$ can appear in a proof, is if that sentence appears among the premises,
+that is, if the argument is circular. Of course, as we know, there are many
+valid non-circular arguments with a conclusion that is of the form $\some{A}{B}$
+or $\somenot{A}{B}$, for example:
+
+$$
+\some{A}{B}, \all{B}{C}\proves \some{A}{C}
+$$
+
+To enable the proof of such arguments, we could supplement the proof system by
+adding more rules of inference. Interestingly, however, this is not the primary
+approach adopted by Aristotle. To prove such arguments, Aristotle instead
+employs a new method of proof which he have not yet considered, the method of
+_reductio ad absurdum_ or proof by contradiction. To formalize proofs by
+contradiction, we have to revisit our original definition of a proof and expand
+it so as to accommodate what we shall refer to as 'hypothetical' proofs.
+
+### Proof by Contradiction
+
+The proofs that we have discussed so far have all had a very simple structure. They
+have consisted of sequences of sentences, each of which is either an axiom, a
+premise, or the result of applying a rule of inference to sentences previously
+appearing in the proof. In such simple proofs, every claim put forward in the
+course of the reasoning is asserted on the grounds of its being a
+logical consequence of the premises. In everyday reasoning, however, it is often
+convenient to posit a claim which we do not take ourselves to have established---and so do not wish to assert---but which instead serves as a supposition to be utilized indirectly in some hypothetical mode of reasoning.
+
+Consider, for example, the method of _reductio ad absurdum_, or proof by
+contradiction. When we give a proof by contradiction, we suppose that a certain
+claim is true for the sake of deriving a contradiction. Having done so, we then
+discharge our supposition and conclude that the claim that we supposed to be
+true is, in fact, false. In such proofs, we posit a claim and reason from
+it despite the fact that this claim has not been shown to follow from the
+premises. Instead the claim serves as a _hypothesis_, introduced for the
+specific purpose of deriving a contradiction.
+
+In the formal language L$_S$, the method of proof by contradiction can be
+implemented by appealing to the fact that for every sentence in the language
+L$_S$, there exists another sentence which, on the extensional semantics
+introduced above, is its contradictory opposite, in the sense that the one is
+true, on a given interpretation, iff the other is false (see
+@exr-e-i-contrariety):
+
+:::{#def-contradictory .definition}
+The _contradictory_ of $\all{A}{B}$ is $\somenot{A}{B}$ and vice versa. The contradictory of $\no{A}{B}$ is $\some{A}{B}$ and vice versa. For any sentence $\ph$, we write $\neg\ph$ for the contradictory of $\ph$.  
+:::
+
+Note that the symbol '$\neg$' is not in the alphabet of the language L$_S$. We
+introduce it here as a metalinguistic device for referring to one sentence by
+means of another. Thus, for example, $\neg\some{A}{B}$ is not a new sentence of
+the language L$_S$. It is simply another name for the sentence $\no{A}{B}$.
+
+Appealing to the notion of the contradictory of a sentence, we can describe the
+method of proof by contradiction as follows: (1) first, posit, as a hypothesis,
+a sentence $\ph$; (2) next, derive from this hypothesis, together with the
+premises, a contradictory pair of sentences of the form $\psi$ and $\neg\psi$;
+(3) finally, having done so, discharge the hypothesis, and conclude that the
+premises entail the contradictory of the hypothesis, $\neg\ph$.
+
+As an illustration of this procedure, let us see how one might try to utilize the method of proof by contradiction to establish the validity of the following argument:
+
+$$
+\some{A}{B}, \all{B}{C}\proves \some{A}{C}
+$$
+
+In accordance with the description of the method just given, we would like our proof system to license the following sort of reasoning:
+
+:::{.lproof}
+
+    1. A\textrm{\textbf{e}}C [Hypothesis]
+    2. B\textrm{\textbf{a}}C [Premise]
+    3. C\textrm{\textbf{e}}A [Premise]
+    4. B\textrm{\textbf{e}}A [Celarent: 2, 3]
+    5. A\textrm{\textbf{e}}B [e-conversion: 4]
+    6. A\textrm{\textbf{i}}B [Premise: 4]
+    7. A\textrm{\textbf{i}}C [Contradiction: 3,4]
+
+:::
+
+Line 1 of this proof introduces $\no{A}{C}$ as a hypothesis; lines 2--6 deduce
+various consequences of this hypothesis in combination with the premises; lines
+5 and 6 contain the desired contradiction; and line 7 concludes the proof by
+discharging the hypothesis and asserting its contradictory, which is the desired result.
+
+This sequence of sentences, of course, is not a proof in the sense of the term specified in
+@def-proof, for $\no{A}{C}$ is neither a premise nor an axiom of the system. In
+the simple proofs that we have thus far considered, there is simply no mechanism
+for introducing a new hypothesis not included among the premises, nor for
+discharging that same hypothesis at some later stage of the reasoning.
+Consequently, there is no way of indicating that the hypothesis $\no{A}{C}$ is
+meant to be in effect in lines 1--6, but not in line 7.
+
+One common notation that is often employed for indicating the introduction and
+subsequent discharge of hypotheses is what is sometimes called Fitch notation.[^fitch]
+In a Fitch-notation, proofs are not represented as simple "flat" sequences but
+as leveled sequences. To add a sentence to the set of hypotheses one writes down
+the sentence and increments the level of indentation by one. This same
+hypothesis is then later discharged by restoring the indentation of the proof to
+its previous level. Levels of indentation are explicitly marked using vertical
+lines and new hypotheses are highlighted by underlining them. The proof
+terminates with the desired conclusion appearing on the last line of the proof
+without indentation, signaling that all introduced hypotheses have been
+discharged.
+
+[^fitch]: Named after Frederic Brenton Fitch, who developed the notational scheme in the 1930s during his doctoral studies at Princeton under Alonzo Church.
+
+In Fitch notation, the the above proof by contradiction is written:
+
+:::{.lproof}
+
+    1. | |_ A\textrm{\textbf{e}}C [Hypothesis]
+    2. | |  C\textrm{\textbf{a}}B [Premise]
+    3. | |  C\textrm{\textbf{e}}A [Premise]
+    4. | |  B\textrm{\textbf{e}}A [Celarent: 2, 3]
+    5. | |  A\textrm{\textbf{e}}B [e-conversion: 4]
+    6. | |  A\textrm{\textbf{i}}B [Premise]
+    7. | A\textrm{\textbf{i}}C [Contradiction: 5, 6]
+
+:::
+
+This format makes it clear that the hypothesis $\no{A}{C}$ is introduced in line
+1 and discharged in line 7.
+
+Now, let's consider the argument:
+
+$$
+\all{D}{B}, \somenot{A}{B}, \all{A}{C}\proves\somenot{C}{D}
+$$
+
+One strategy for proving this argument is to first establish, by means of a
+proof by contradiction, that $\somenot{C}{B}$ follows from the premises
+$\somenot{A}{B}$ and $\all{A}{C}$. One could then show, again using a proof by
+contradiction, that $\somenot{C}{D}$ follows from the sentence $\somenot{C}{B}$
+just established, and the remaining premise $\all{D}{B}$.
+
+:::{.lproof}
+
+    1. | |_ C\textrm{\textbf{a}}D [Hypothesis]
+    2. | | |_ C\textrm{\textbf{a}}B [Hypothesis]
+    3. | | | A\textrm{\textbf{a}}C [Premise]
+    4. | | | A\textrm{\textbf{a}}B [Barbara: 2, 3]
+    5. | | | A\textrm{\textbf{o}}B [Premise]
+    6. | | C\textrm{\textbf{o}}B [Contradiction: 4, 5]
+    7. | | D\textrm{\textbf{a}}B [Premise]
+    8. | | C\textrm{\textbf{a}}B [Barbara: 1, 7]
+    9. | C\textrm{\textbf{o}}D [Contradiction: 6, 8]
+
+:::
+
+While this is a correct proof, it is does not perspicuously convey the structure
+of the reasoning. One of its more confusing features is that the hypothesis
+$\all{C}{D}$, which is the target of the second proof by contradiction (lines 1
+and 6--8), is still in effect as a hypothesis in the first proof by
+contradiction (lines 2--5). Since $\all{C}{D}$ plays no role in the latter
+subproof, it seems more natural to introduce this hypothesis only after the
+first proof by contradiction has been completed.
+
+This version of the proof, in which the two proofs by contradiction are done one
+after the other is written:
+
+:::{.lproof}
+
+    1. | |_ C\textrm{\textbf{a}}B [Hypothesis]
+    2. | | A\textrm{\textbf{a}}C [Premise]
+    3. | | A\textrm{\textbf{a}}B [Barbara: 1, 2]
+    4. | | A\textrm{\textbf{o}}B [Premise]
+    5. | C\textrm{\textbf{o}}B [Contradiction: 3, 4]
+    6. | |_ C\textrm{\textbf{a}}D [Hypothesis]
+    7. | | D\textrm{\textbf{a}}B [Premise]
+    8. | | C\textrm{\textbf{a}}B [Barbara: 6, 7]
+    9. | | C\textrm{\textbf{o}}B [Reiteration, 5]
+    10.| C\textrm{\textbf{o}}D [Contradiction: 8, 9]
+
+:::
+
+Note that in the line 9 of this proof, we reiterate the conclusion of the first
+proof by contradiction appearing in line 5, inserting in into the second proof
+by contradiction. In general, even if the context has shifted, you are free to
+reiterate any line of a proof as long as the hypotheses under which it was
+established are all still in effect. This allows you to "bring
+forward" an earlier statement into the part of the proof where it is needed.
+
+Let's try another example:
+
+$$
+\all{A}{B}, \somenot{A}{B}\proves \no{C}{D}
+$$
+
+First, let's confirm for ourselves that the argument is valid. Clearly there is
+no interpretation under which all of the premises are true and the conclusion
+false, since there is no interpretation under which all of the premises are
+true. So, the argument is indeed valid. The argument can be proven by
+contradiction as follows:
+
+:::{.lproof}
+
+    1. | |_ C\textrm{\textbf{i}}D [Hypothesis]
+    2. | | A\textrm{\textbf{a}}B [Premise]
+    3. | | A\textrm{\textbf{o}}B [Premise]
+    4. | C\textrm{\textbf{e}}D [Contradicition: 2, 3]
+
+:::
+
+:::{#exr-proofs-in-S .exercise}
+{{< include /content/exercises/proofs-in-S.qmd >}}
+:::
+
+Does every valid argument expressible in L$_S$ have a proof in this system? The
+answer, as it turns out, is yes, but for the purposes of this class, you will just have
+to take my word for it.

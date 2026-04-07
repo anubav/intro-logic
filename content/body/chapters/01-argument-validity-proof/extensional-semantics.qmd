@@ -1,13 +1,13 @@
-## Extensional Semantics
+### Extensional Semantics for L$_S$
 
-Recall that the syntax of the language L$_S$ countenances four distinct sentence forms:
+Recall that the language L$_S$ countenances four distinct sentence forms:
 
 $$
 \begin{align*}
 \all{A}{B} &\qquad\qquad(\textrm{All $A$s are $B$s})\\
 \no{A}{B} &\qquad\qquad(\textrm{No $A$s are $B$s})\\
 \some{A}{B} &\qquad\qquad(\textrm{Some $A$s is $B$s})\\
-\somenot{A}{B} &\qquad\qquad(\textrm{Some $A$s is not $B$s})\\
+\somenot{A}{B} &\qquad\qquad(\textrm{Some $A$s are not $B$s})\\
 \end{align*}
 $$
 
@@ -38,11 +38,11 @@ by the term.
 But what exactly do we mean by an _object_? For semantics purposes, we need not
 specify what an object is. An object is simply a member of a certain fixed set
 which we will refer to as the 'universe' and which we will denote by $\W$. We
-may assume that $\W$ is very big, and we may even assume that it is infinite and
-contains every number ($1,2,3,\ldots$). This universe of objects will serve as
-the background domain for our interpretations. Now, to interpret the language is
-simply to assign to every term an extension, that is, a subset of objects in the
-universe.
+may assume that $\W$ is very big, we may even assume that it is infinite. This
+universe of objects will serve as the background domain for our interpretations.
+
+To interpret the language is simply to assign to every term an extension,
+that is, a subset of objects in the universe.
 
 ::: {#def-interpretation-Ls}
 An _interpretation_ of the language $\Ls$ is a
@@ -59,15 +59,15 @@ An extensional interpretation of the language $\Ls$.
 
 On any given interpretation of the language, every term is assigned a specific
 extension, that is, a specific set of objects in the universe. To complete our
-specification of the semantics for the language, we must explain how it is that
+specification of the semantics for the language we must explain how it is that
 the truth or falsity of any sentence in the language, gets decided on a given
 interpretation. In doing so, we will, in effect, be providing an account of the
 intended meanings of the logical elements of the syntax, in this case the
 copulas $\all{}{}, \no{}{}, \some{}{}$, and $\somenot{}{}$.
 
-So, what we have left to do is explain how we go from an interpretation of the
+How then do we go from an interpretation of the
 language, say $\si$, to a specific truth valuation of the language, call it
-$v^\si$. Let's begin by focusing on sentences of the form $\all{A}{B}$. On the
+$v^\si$. Let's start with sentences of the form $\all{A}{B}$. On the
 intepretation $\si$, the extension of $A$ is given by the set $\si(A)$ and the
 extension of $B$ by the set $\si(B)$. Under what conditions should the sentence
 $\all{A}{B}$ be judged to be true? Since $\all{A}{B}$ is intended to express the
@@ -97,7 +97,7 @@ $$
 \textrm{$v^\si(\somenot{A}{B}) = \true$ iff $\si(A)-\si(B)\neq \emptyset$}
 $$
 
-To illustrate the a pplication of these semantic rules, let $\si$ be the intepretation partially specified in @fig-model-S above. On this interpretation, we have, for example:
+To illustrate the application of these semantic rules, let $\si$ be the intepretation partially specified in @fig-model-S above. On this interpretation, we have, for example:
 
 $$
 \begin{align*}
@@ -116,8 +116,8 @@ to answer the question of what counts as an admissible truth valuation.
 The class of admissible truth valuations with respect to which we will assess
 the validity of arguments will be those of the form $v^\si$, where $\si$ is an
 intepretation of the language. In other words, an admissible truth valuation is
-one which results from the application of the semantic rules to a specific interpretation
-of the non-logical elements of the syntax. We can now update our
+one which results from the application of the semantic rules to a specific
+assignment of extensions to the terms. We can now update our
 definition of argumentative validity as follows:
 
 ::: {#def-validity}
@@ -139,7 +139,7 @@ $$
 In this case, we may also say that $\Ga$ _entails_ $\ph$, or that $\ph$ is a _logical consequence_ of $\Ga$.
 
 In general, the semantic rules for the language---which capture the meanings of
-the logical elements of the syntax---will be chosen in such a way that not every
+the logical elements of the language---will be chosen in such a way that not every
 truth valuation will be of the form $v^\sigma$. Hence, it is these semantic
 rules that will render our standard of validity nontrivial, in the sense that it
 will admit as valid not just circular arguments. In the case of L$_S$, for
@@ -153,8 +153,11 @@ our semantic rule for the $\somenot{}{}$ copula, $v^\si(\somenot{A}{B})=\false$.
 Thus, on our extensional semantics $\all{A}{B}$ and $\somenot{A}{B}$ cannot both
 be true. In fact, it is easy to verify that they also cannot both be false. In
 other words, the one is true just in case the other is false. And the same relation
-obtains between the propositions $\no{A}{B}$ and $\some{A}{B}$ (see Exercise ???
-below).
+obtains between the propositions $\no{A}{B}$ and $\some{A}{B}$
+
+:::{#exr-e-i-contrariety .exercise}
+{{< include /content/exercises/e-i-contrariety.qmd >}}
+:::
 
 Now, at last, we have in place the necessary resources to make precise our
 initial, somewhat vague intuition that the following argument is valid:
@@ -194,8 +197,8 @@ This argument can be formalized in the language L$_S$ as follows: $\no{A}{B},
 \all{B}{C}\proves \no{A}{C}$. Is this argument valid? To show that it is not
 valid it suffices to provide a counterexample to the argument. This is an
 interpretation under which the premises are true but the conclusion is false.
-Let $a$, $b$, and $c$ be any three distinct objects in $\W$. A counterexample to
-the argument is any interpretation $\si$ satisfying:
+Let $a$, $b$, and $c$ be any three distinct objects in $\W$, and let $\si$ be an
+interpretation satisfying:
 
 $$
 \si(A) = \{a, b\}
@@ -209,8 +212,9 @@ $$
 \si(C) = \{b, c\}
 $$
 
-For it is easy to verify that, on such an interpretation, the premises are true
-and the conclusion false:
+It is easy to verify that the interpretation $\si$ is a counterexample to the
+argument, for, on this interpretation, the premises of the argument are true
+and its conclusion is false:
 
 $$
 \si(A)\inter\si(B) = \{a, b\}\inter\{c\} = \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}

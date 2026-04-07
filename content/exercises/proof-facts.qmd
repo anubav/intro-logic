@@ -1,0 +1,6 @@
+a. Does there exist a proof of $\ph$ from the set of sentences $\Ga\cup\{\ph\}$? Explain.
+
+b. If there exists a proof of $\ph$ from the set of sentences $\Ga$, does there
+exist a proof of $\ph$ from $\Ga\cup\De$? Explain.
+
+c. Show that if there exists a proof of $\ph$ from $\Ga$, then there exists a proof of $\ph$ from $\Ga$ in which no sentence appears more than once.

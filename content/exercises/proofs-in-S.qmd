@@ -1,13 +1,14 @@
-Establish the following claims:
+Assess the validity of the following arguments. If the argument is valid,
+provide a proof. If it is invalid, provide a counterexample.
 
-a. $\some{A}{B}\provess\some{B}{A}$
+a. $\some{A}{B}\proves\some{B}{A}$
 
-b. $\all{A}{B}\provess\some{B}{A}$
+b. $\all{A}{B}\proves\some{B}{A}$
 
-c. $\no{A}{B}, \some{B}{A}\provess\somenot{D}{C}$
+c. $\no{A}{B}, \some{B}{A}\proves\somenot{D}{C}$
 
-d. $\all{A}{B}, \some{C}{A}\provess\some{C}{B}$
+d. $\all{A}{B}, \some{C}{A}\proves\some{C}{B}$
 
-e. $\somenot{A}{B}, \all{C}{B}\provess\somenot{A}{C}$
+e. $\somenot{A}{B}, \all{C}{B}\proves\somenot{A}{C}$
 
-f. $\no{A}{B}, \some{C}{A}, \all{D}{B}\provess\somenot{C}{D}$
+f. $\no{A}{B}, \some{C}{A}, \all{D}{B}\proves\somenot{C}{D}$

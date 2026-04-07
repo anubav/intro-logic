@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Logic - 1&nbsp; Argument, Validity &amp; Proof</title>
+<title>1&nbsp; Argument, Validity &amp; Proof – Introduction to Logic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,10 +56,10 @@ div.csl-indent {
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
 <link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -97,7 +97,7 @@ div.csl-indent {
 </script>
 <script src="../../../../assets/scripts/definitions.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -139,13 +139,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -207,9 +207,14 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#necessary-truth-preservation" id="toc-necessary-truth-preservation" class="nav-link" data-scroll-target="#necessary-truth-preservation"><span class="header-section-number">1.4.1</span> Necessary Truth Preservation</a></li>
   <li><a href="#logical-necessity" id="toc-logical-necessity" class="nav-link" data-scroll-target="#logical-necessity"><span class="header-section-number">1.4.2</span> Logical Necessity</a></li>
+  <li><a href="#extensional-semantics-for-l_s" id="toc-extensional-semantics-for-l_s" class="nav-link" data-scroll-target="#extensional-semantics-for-l_s"><span class="header-section-number">1.4.3</span> Extensional Semantics for L<span class="math inline">\(_S\)</span></a></li>
   </ul></li>
-  <li><a href="#extensional-semantics" id="toc-extensional-semantics" class="nav-link" data-scroll-target="#extensional-semantics"><span class="header-section-number">1.5</span> Extensional Semantics</a></li>
-  <li><a href="#proofs" id="toc-proofs" class="nav-link" data-scroll-target="#proofs"><span class="header-section-number">1.6</span> Proofs</a></li>
+  <li><a href="#proofs" id="toc-proofs" class="nav-link" data-scroll-target="#proofs"><span class="header-section-number">1.5</span> Proofs</a>
+  <ul class="collapse">
+  <li><a href="#reasoning-by-proof" id="toc-reasoning-by-proof" class="nav-link" data-scroll-target="#reasoning-by-proof"><span class="header-section-number">1.5.1</span> Reasoning by Proof</a></li>
+  <li><a href="#proofs-in-l_s" id="toc-proofs-in-l_s" class="nav-link" data-scroll-target="#proofs-in-l_s"><span class="header-section-number">1.5.2</span> Proofs in L<span class="math inline">\(_S\)</span></a></li>
+  <li><a href="#proof-by-contradiction" id="toc-proof-by-contradiction" class="nav-link" data-scroll-target="#proof-by-contradiction"><span class="header-section-number">1.5.3</span> Proof by Contradiction</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -514,7 +519,7 @@ Y\)</span>, we say that <span class="math inline">\(X\)</span> is a ‘proper’
     X^c=\{x\in \Omega: x\not\in X\}
 \]</span></p>
 <p>The Venn diagrams in <a href="#fig-set-operations" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> can help to visualize the effect of performing these set operations:</p>
-<div id="fig-set-operations" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" alt="Set Operations">
+<div id="fig-set-operations" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Set Operations" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-set-operations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../../../content/static/images/set-operations.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Set Operations" width="650">
@@ -690,25 +695,25 @@ cold-blooded}}{\textrm{No humans are cold-blooded}}
 </ol>
 <p>To perform these three tasks is referred to as giving a semantics for the language. The semantics for a formal language will vary from one language to the next, so at this point it will be best to consider a concrete example. In the next section we will therefore introduce a semantics for our formal language L<span class="math inline">\(_S\)</span>.</p>
 </section>
-</section>
-<section id="extensional-semantics" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="extensional-semantics"><span class="header-section-number">1.5</span> Extensional Semantics</h2>
-<p>Recall that the syntax of the language L<span class="math inline">\(_S\)</span> countenances four distinct sentence forms:</p>
+<section id="extensional-semantics-for-l_s" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="extensional-semantics-for-l_s"><span class="header-section-number">1.4.3</span> Extensional Semantics for L<span class="math inline">\(_S\)</span></h3>
+<p>Recall that the language L<span class="math inline">\(_S\)</span> countenances four distinct sentence forms:</p>
 <p><span class="math display">\[
 \begin{align*}
 A\textrm{\textbf{a}}B &amp;\qquad\qquad(\textrm{All $A$s are $B$s})\\
 A\textrm{\textbf{e}}B &amp;\qquad\qquad(\textrm{No $A$s are $B$s})\\
 A\textrm{\textbf{i}}B &amp;\qquad\qquad(\textrm{Some $A$s is $B$s})\\
-A\textrm{\textbf{o}}B &amp;\qquad\qquad(\textrm{Some $A$s is not $B$s})\\
+A\textrm{\textbf{o}}B &amp;\qquad\qquad(\textrm{Some $A$s are not $B$s})\\
 \end{align*}
 \]</span></p>
 <p>Which are the logical and which the non-logical elements of the language? As suggested above, the non-logical elements of the language are the terms. Their meanings will be allowed to vary from one interpretation to the next.</p>
 <p>But what does it means to interpret these terms? Here we will adopt the approach of interpreting the terms ‘extensionally’. Terms in the language L<span class="math inline">\(_S\)</span> are meant to stand for properties expressed by common noun phrases, such as ‘animal’, ‘cold-blooded’, or ‘green’. The extension of a common noun phrase is the set of all individual objects that possess the property denoted by that phrase. So, for example, the extension of the term ‘cat’ is the set of all cats, the extension of ‘cold-blooded’ the set of all cold-blooded creatures.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Thus, in an extensional semantics, a term will be interpreted as a set of objects, the members of which are all and only those objects possessing the property denoted by the term.</p>
-<p>But what exactly do we mean by an <em>object</em>? For semantics purposes, we need not specify what an object is. An object is simply a member of a certain fixed set which we will refer to as the ‘universe’ and which we will denote by <span class="math inline">\(\Omega\)</span>. We may assume that <span class="math inline">\(\Omega\)</span> is very big, and we may even assume that it is infinite and contains every number (<span class="math inline">\(1,2,3,\ldots\)</span>). This universe of objects will serve as the background domain for our interpretations. Now, to interpret the language is simply to assign to every term an extension, that is, a subset of objects in the universe.</p>
+<p>But what exactly do we mean by an <em>object</em>? For semantics purposes, we need not specify what an object is. An object is simply a member of a certain fixed set which we will refer to as the ‘universe’ and which we will denote by <span class="math inline">\(\Omega\)</span>. We may assume that <span class="math inline">\(\Omega\)</span> is very big, we may even assume that it is infinite. This universe of objects will serve as the background domain for our interpretations.</p>
+<p>To interpret the language is simply to assign to every term an extension, that is, a subset of objects in the universe.</p>
 <div id="def-interpretation-Ls" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.5</strong></span> An <em>interpretation</em> of the language <span class="math inline">\(L_{\mathbf{S}}\)</span> is a function assigning to each term a subset of <span class="math inline">\(\Omega\)</span>. If <span class="math inline">\(\sigma\)</span> is an interpretation and <span class="math inline">\(A\)</span> is a term, we write <span class="math inline">\(\sigma(A)\)</span> for the subset of <span class="math inline">\(\Omega\)</span> assigned to <span class="math inline">\(A\)</span> by the interpretation <span class="math inline">\(\sigma\)</span>.</p>
 </div>
-<div id="fig-model-S" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" alt="Syllogistic model">
+<div id="fig-model-S" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Syllogistic model" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-model-S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../../../content/static/images/syllogistic-model.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Syllogistic model" width="450">
@@ -718,8 +723,8 @@ Figure&nbsp;1.2: An extensional interpretation of the language <span class="math
 </figcaption>
 </figure>
 </div>
-<p>On any given interpretation of the language, every term is assigned a specific extension, that is, a specific set of objects in the universe. To complete our specification of the semantics for the language, we must explain how it is that the truth or falsity of any sentence in the language, gets decided on a given interpretation. In doing so, we will, in effect, be providing an account of the intended meanings of the logical elements of the syntax, in this case the copulas <span class="math inline">\(\textrm{\textbf{a}}, \textrm{\textbf{e}}, \textrm{\textbf{i}}\)</span>, and <span class="math inline">\(\textrm{\textbf{o}}\)</span>.</p>
-<p>So, what we have left to do is explain how we go from an interpretation of the language, say <span class="math inline">\(\sigma\)</span>, to a specific truth valuation of the language, call it <span class="math inline">\(v^\sigma\)</span>. Let’s begin by focusing on sentences of the form <span class="math inline">\(A\textrm{\textbf{a}}B\)</span>. On the intepretation <span class="math inline">\(\sigma\)</span>, the extension of <span class="math inline">\(A\)</span> is given by the set <span class="math inline">\(\sigma(A)\)</span> and the extension of <span class="math inline">\(B\)</span> by the set <span class="math inline">\(\sigma(B)\)</span>. Under what conditions should the sentence <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> be judged to be true? Since <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> is intended to express the fact that all <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s, <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> should be true just in case every object in <span class="math inline">\(\sigma(A)\)</span> is in <span class="math inline">\(\sigma(B)\)</span>. That is:</p>
+<p>On any given interpretation of the language, every term is assigned a specific extension, that is, a specific set of objects in the universe. To complete our specification of the semantics for the language we must explain how it is that the truth or falsity of any sentence in the language, gets decided on a given interpretation. In doing so, we will, in effect, be providing an account of the intended meanings of the logical elements of the syntax, in this case the copulas <span class="math inline">\(\textrm{\textbf{a}}, \textrm{\textbf{e}}, \textrm{\textbf{i}}\)</span>, and <span class="math inline">\(\textrm{\textbf{o}}\)</span>.</p>
+<p>How then do we go from an interpretation of the language, say <span class="math inline">\(\sigma\)</span>, to a specific truth valuation of the language, call it <span class="math inline">\(v^\sigma\)</span>. Let’s start with sentences of the form <span class="math inline">\(A\textrm{\textbf{a}}B\)</span>. On the intepretation <span class="math inline">\(\sigma\)</span>, the extension of <span class="math inline">\(A\)</span> is given by the set <span class="math inline">\(\sigma(A)\)</span> and the extension of <span class="math inline">\(B\)</span> by the set <span class="math inline">\(\sigma(B)\)</span>. Under what conditions should the sentence <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> be judged to be true? Since <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> is intended to express the fact that all <span class="math inline">\(A\)</span>s are <span class="math inline">\(B\)</span>s, <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> should be true just in case every object in <span class="math inline">\(\sigma(A)\)</span> is in <span class="math inline">\(\sigma(B)\)</span>. That is:</p>
 <p><span class="math display">\[
 \textrm{$v^\sigma(A\textrm{\textbf{a}}B)=\mathbf{T}$ iff $\sigma(A)\subset \sigma(B)$}
 \]</span></p>
@@ -734,7 +739,7 @@ Figure&nbsp;1.2: An extensional interpretation of the language <span class="math
 <p><span class="math display">\[
 \textrm{$v^\sigma(A\textrm{\textbf{o}}B) = \mathbf{T}$ iff $\sigma(A)-\sigma(B)\neq \emptyset$}
 \]</span></p>
-<p>To illustrate the a pplication of these semantic rules, let <span class="math inline">\(\sigma\)</span> be the intepretation partially specified in <a href="#fig-model-S" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> above. On this interpretation, we have, for example:</p>
+<p>To illustrate the application of these semantic rules, let <span class="math inline">\(\sigma\)</span> be the intepretation partially specified in <a href="#fig-model-S" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> above. On this interpretation, we have, for example:</p>
 <p><span class="math display">\[
 \begin{align*}
 v^\sigma(D\textrm{\textbf{a}}C)=\mathbf{T}\\
@@ -744,7 +749,7 @@ v^\sigma(D\textrm{\textbf{o}}B)=\mathbf{T}
 \end{align*}
 \]</span></p>
 <p>Now, let’s return to the issue of argumentative validity. We had previously defined a valid argument as one for which there is no admissible truth valuation under which all of the premises are true but the conclusion is false. Now we are in a position to answer the question of what counts as an admissible truth valuation.</p>
-<p>The class of admissible truth valuations with respect to which we will assess the validity of arguments will be those of the form <span class="math inline">\(v^\sigma\)</span>, where <span class="math inline">\(\sigma\)</span> is an intepretation of the language. In other words, an admissible truth valuation is one which results from the application of the semantic rules to a specific interpretation of the non-logical elements of the syntax. We can now update our definition of argumentative validity as follows:</p>
+<p>The class of admissible truth valuations with respect to which we will assess the validity of arguments will be those of the form <span class="math inline">\(v^\sigma\)</span>, where <span class="math inline">\(\sigma\)</span> is an intepretation of the language. In other words, an admissible truth valuation is one which results from the application of the semantic rules to a specific assignment of extensions to the terms. We can now update our definition of argumentative validity as follows:</p>
 <div id="def-validity" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.6</strong></span> The argument</p>
 <p><span class="math display">\[
@@ -757,8 +762,16 @@ v^\sigma(D\textrm{\textbf{o}}B)=\mathbf{T}
 \Gamma\models\varphi
 \]</span></p>
 <p>In this case, we may also say that <span class="math inline">\(\Gamma\)</span> <em>entails</em> <span class="math inline">\(\varphi\)</span>, or that <span class="math inline">\(\varphi\)</span> is a <em>logical consequence</em> of <span class="math inline">\(\Gamma\)</span>.</p>
-<p>In general, the semantic rules for the language—which capture the meanings of the logical elements of the syntax—will be chosen in such a way that not every truth valuation will be of the form <span class="math inline">\(v^\sigma\)</span>. Hence, it is these semantic rules that will render our standard of validity nontrivial, in the sense that it will admit as valid not just circular arguments. In the case of L<span class="math inline">\(_S\)</span>, for example, we may observe that there is no admissible truth valuation which assigns <span class="math inline">\(\mathbf{T}\)</span> to both the sentences <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span>. To see why, let <span class="math inline">\(\sigma\)</span> be any interpretation of the language and suppose that <span class="math inline">\(v^\sigma(A\textrm{\textbf{a}}B)=\mathbf{T}\)</span>. Then, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{a}}\)</span> copula, we have <span class="math inline">\(\sigma(A)\subset\sigma(B)\)</span>. But then <span class="math inline">\(\sigma(A)-\sigma(B)=\emptyset\)</span>, and so, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{o}}\)</span> copula, <span class="math inline">\(v^\sigma(A\textrm{\textbf{o}}B)=\mathbf{F}\)</span>.</p>
-<p>Thus, on our extensional semantics <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> cannot both be true. In fact, it is easy to verify that they also cannot both be false. In other words, the one is true just in case the other is false. And the same relation obtains between the propositions <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> (see Exercise ??? below).</p>
+<p>In general, the semantic rules for the language—which capture the meanings of the logical elements of the language—will be chosen in such a way that not every truth valuation will be of the form <span class="math inline">\(v^\sigma\)</span>. Hence, it is these semantic rules that will render our standard of validity nontrivial, in the sense that it will admit as valid not just circular arguments. In the case of L<span class="math inline">\(_S\)</span>, for example, we may observe that there is no admissible truth valuation which assigns <span class="math inline">\(\mathbf{T}\)</span> to both the sentences <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span>. To see why, let <span class="math inline">\(\sigma\)</span> be any interpretation of the language and suppose that <span class="math inline">\(v^\sigma(A\textrm{\textbf{a}}B)=\mathbf{T}\)</span>. Then, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{a}}\)</span> copula, we have <span class="math inline">\(\sigma(A)\subset\sigma(B)\)</span>. But then <span class="math inline">\(\sigma(A)-\sigma(B)=\emptyset\)</span>, and so, by our semantic rule for the <span class="math inline">\(\textrm{\textbf{o}}\)</span> copula, <span class="math inline">\(v^\sigma(A\textrm{\textbf{o}}B)=\mathbf{F}\)</span>.</p>
+<p>Thus, on our extensional semantics <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> cannot both be true. In fact, it is easy to verify that they also cannot both be false. In other words, the one is true just in case the other is false. And the same relation obtains between the propositions <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{i}}B\)</span></p>
+<div id="exr-e-i-contrariety" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.10</strong></span> &nbsp;</p>
+<ol type="a">
+<li><p>Show that, for any interpretation, the sentences <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> cannot both be false.</p></li>
+<li><p>Show that, for any intepretation, the sentence <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> is true iff the sentence <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> is false.</p></li>
+<li><p>Is there an interpretation on which <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> are both false? Explain your answer.</p></li>
+</ol>
+</div>
 <p>Now, at last, we have in place the necessary resources to make precise our initial, somewhat vague intuition that the following argument is valid:</p>
 <p><span class="math display">\[
 \frac{\textrm{All humans are mammals}\hspace{2mm},\hspace{2mm}\textrm{No mammals are
@@ -775,7 +788,7 @@ A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C\models A\textrm{\textbf{e}}C
 cold-blooded}}{\textrm{No humans are cold-blooded}}
 \]</span></p>
 <p>This argument can be formalized in the language L<span class="math inline">\(_S\)</span> as follows: <span class="math inline">\(A\textrm{\textbf{e}}B,
-B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{e}}C\)</span>. Is this argument valid? To show that it is not valid it suffices to provide a counterexample to the argument. This is an interpretation under which the premises are true but the conclusion is false. Let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> be any three distinct objects in <span class="math inline">\(\Omega\)</span>. A counterexample to the argument is any interpretation <span class="math inline">\(\sigma\)</span> satisfying:</p>
+B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{e}}C\)</span>. Is this argument valid? To show that it is not valid it suffices to provide a counterexample to the argument. This is an interpretation under which the premises are true but the conclusion is false. Let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> be any three distinct objects in <span class="math inline">\(\Omega\)</span>, and let <span class="math inline">\(\sigma\)</span> be an interpretation satisfying:</p>
 <p><span class="math display">\[
 \sigma(A) = \{a, b\}
 \]</span></p>
@@ -785,7 +798,7 @@ B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{e}}C\)</span>. Is this argument val
 <p><span class="math display">\[
 \sigma(C) = \{b, c\}
 \]</span></p>
-<p>For it is easy to verify that, on such an interpretation, the premises are true and the conclusion false:</p>
+<p>It is easy to verify that the interpretation <span class="math inline">\(\sigma\)</span> is a counterexample to the argument, for, on this interpretation, the premises of the argument are true and its conclusion is false:</p>
 <p><span class="math display">\[
 \sigma(A)\cap\sigma(B) = \{a, b\}\cap\{c\} = \emptyset \hspace{3mm}\Rightarrow\hspace{3mm}
 v^\sigma(A\textrm{\textbf{e}}B) = \mathbf{T}
@@ -805,7 +818,7 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 </figure>
 </div>
 <div id="exr-syllogisms-validity" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 1.10</strong></span> Establish the truth of the following claims by either showing that the corresponding argument is valid or by providing a counterexample to show that it is invalid:</p>
+<p><span class="theorem-title"><strong>Exercise 1.11</strong></span> Establish the truth of the following claims by either showing that the corresponding argument is valid or by providing a counterexample to show that it is invalid:</p>
 <ol type="a">
 <li><p><span class="math inline">\(B\textrm{\textbf{i}}A, B\textrm{\textbf{a}}C\models A\textrm{\textbf{i}}C\)</span></p></li>
 <li><p><span class="math inline">\(B\textrm{\textbf{e}}A, B\textrm{\textbf{i}}C\models A\textrm{\textbf{o}}C\)</span></p></li>
@@ -817,280 +830,639 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 </ol>
 </div>
 </section>
-<section id="proofs" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="proofs"><span class="header-section-number">1.6</span> Proofs</h2>
-<p>A method of reasoning is any method or procedure by which one proposes to assess the validity of an argument. Given the definition of validity offered in the previous section, it may be thought that the most direct method of reasoning consists in evaluating the truth values of the sentences comprising that argument under all the possible interpretations of the language. Having done so, one can then conclude that the argument is valid just in case no interpretation is found under which all of the premises are true and the conclusion false.</p>
-<p>While the correctness of this procedure follows immediately from our definition of argumentative validity, it clearly does not represent the way in which reasoning ordinarily proceeds. Take, for example, the arithmetical argument:</p>
+</section>
+<section id="proofs" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="proofs"><span class="header-section-number">1.5</span> Proofs</h2>
+<section id="reasoning-by-proof" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="reasoning-by-proof"><span class="header-section-number">1.5.1</span> Reasoning by Proof</h3>
+<p>We have, thus far, discussed how to represent arguments and what it means for an argument to be valid. Next, we turn to the topic of reasoning.</p>
+<p>A method of reasoning is any method or procedure by which one proposes to assess the validity of an argument. Given the definition of validity offered in the previous section, it may be thought that the most direct method of reasoning consists in evaluating the truth values of the sentences comprising that argument under all the possible interpretations of the language. Having done so, one then concludes that the argument is valid just in case no counterexample is found under which all of the premises are true and the conclusion is false.</p>
+<p>While the correctness of this procedure follows immediately from our definition of argumentative validity, it clearly does not represent the way in which reasoning ordinarily proceeds. Take, for example, the following arithmetical argument of the sort that one might encounter in a high school algebra course:</p>
 <p><span class="math display">\[
-x + 2y = -2, y &gt; 1 \vdash 8 &lt; -2x
+\frac{x + 2y = -2\hspace{3mm},\hspace{3mm} y &gt; 1}{8 &lt; -2x}
 \]</span></p>
-<p>When we assess this argument arithmetically, we stipulate that its validity is to be assessed relative to the ordinary semantics for arithmetic. This means that the numerals ‘1’, ‘2’ and ‘8’ refer to the numbers 1, 2 and 8, respectively; the symbol ‘+’ denotes the operation of addition; and the symbols ‘=’, ‘&lt;’ and ‘&gt;’ stand for the relations of equality, being less than, and being greater than, respectively. These are the logical elements of the syntax appearing in the argument. The non-logical elements are the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, which may stand for any numbers. The argument is valid just in case no matter what numbers the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand for: if it is true that <span class="math inline">\(x+2y=-2\)</span> and <span class="math inline">\(y&gt;1\)</span>, then it is also true that <span class="math inline">\(8&lt;-2x\)</span>.</p>
-<p>Of course, if one were charged with the task of assessing the validity of this argument—say, in a mathematics class—one would most certainly <em>not</em> proceed by substituting in particular numerical values for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in an effort to ascertain whether or not there exists a particular interpretation of these variables under which the premises of the argument are true and its conclusion false. For one, there are, infinitely many such intepretations. Instead, to assess this argument’s validity, a more feasible approach would be to attempt to <em>derive</em> the conclusion from the premises using the basic rules of algebra.</p>
-<p>In the typical language in which algebraic derivations are expressed, a demonstration of this argument’s validity could take the following form:</p>
+<p>When we assess the arithmetical validity of this argument, we assume that the numerals ‘1’, ‘2’ and ‘8’ refer to the numbers 1, 2 and 8, respectively; that the symbol ‘+’ denotes the operation of addition; and that the symbols ‘=’, ‘&lt;’ and ‘&gt;’ stand for the relations of equality, being less than, and being greater than, respectively. These are the logical elements of the language appearing in the argument. The non-logical elements of the language are the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, which may stand for any numbers. The argument is valid just in case no matter what numbers the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand for: if it is true that <span class="math inline">\(x+2y=-2\)</span> and <span class="math inline">\(y&gt;1\)</span>, then it is also true that <span class="math inline">\(8&lt;-2x\)</span>.</p>
+<p>Of course, if one were charged with the task of assessing the validity of this argument—say, in an algebra class—one would most certainly <em>not</em> proceed by substituting in particular numerical values for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in an effort to ascertain whether or not there exists a particular interpretation of these variables under which the premises of the argument are true and its conclusion false. For one, there are, infinitely many such interpretations. Instead, to assess this argument’s validity, a more feasible approach would be to attempt to <em>prove</em> the conclusion from the premises using the basic rules of algebra.</p>
+<p>In the typical language in which algebraic derivations are expressed, a proof of this argument’s validity could take the following form:</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(y&gt;1\)</span>, it follows that <span class="math inline">\(2y&gt;2\)</span> and therefore that <span class="math inline">\(x+2y&gt;x+2\)</span>. But since <span class="math inline">\(x+2y=-2\)</span>, we have: <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(y&gt;1\)</span>, it follows that <span class="math inline">\(2y&gt;2\)</span> and therefore that <span class="math inline">\(x+2y&gt;x+2\)</span>. But since <span class="math inline">\(x+2y=-2\)</span>, we have:</p>
+<p><span class="math display">\[
   - 2 &gt; x + 2
-\]</span> Subtracting <span class="math inline">\(2\)</span> from both sides of the above inequality gives us: <span class="math display">\[
+\]</span></p>
+<p>Subtracting <span class="math inline">\(2\)</span> from both sides of the above inequality gives us:</p>
+<p><span class="math display">\[
   - 4 &gt; x
-\]</span> Multiplying both sides of this inequality by <span class="math inline">\(-2\)</span> yields <span class="math inline">\(8 &lt; - 2x\)</span>, which is the desired conclusion.</p>
+\]</span></p>
+<p>Multiplying both sides of this inequality by <span class="math inline">\(-2\)</span> yields <span class="math inline">\(8 &lt; - 2x\)</span>, which is the desired conclusion.</p>
 </div>
-<p>Taking this example as our model, when we speak of a method of reasoning, we will henceforth have in mind methods which employ as a standard for argumentative validity the existence or non-existence of a derivation—or proof—of an argument’s conclusion from its premises. In order to make precise this idea we must begin by formulating in mathematically precise terms what we mean by a <em>proof</em>.</p>
-<p>To begin, let us reconsider the above algebraic derivation and try to express the reasoning in slightly more detail. In the abbreviated form of the proof given above, the algebraic rules that we appealed to were left tacit and a number of intermediate steps skipped over. To bring out these steps, let us, for the sake of illustration, impose strict constraints on what we are allowed to take for granted in the reasoning. In particular, we will assume only that:</p>
-<ol type="1">
-<li><p>Given any two numbers, we are able to judge which of the two is the greater—and so judge true such simple inequalities as <span class="math inline">\(4&gt;2\)</span> and <span class="math inline">\(-3&gt;-6\)</span>.</p></li>
-<li><p>We are able to evaluate simple arithmetical expressions—and so judge true such simple equalities as <span class="math inline">\(2+3=5\)</span> and <span class="math inline">\(-2\cdot 3 = -6\)</span>.</p></li>
-</ol>
-<p>Every other law or principle appealed to in the reasoning must be stated explicitly. To carry out the proof we will need to appeal to the following rules of algebraic reasoning. For any numerical expressions <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>:</p>
-<p>R1: If <span class="math inline">\(\alpha&gt;0\)</span> and <span class="math inline">\(\beta&gt;\gamma\)</span>, then <span class="math inline">\(\alpha\beta&gt;\alpha\gamma\)</span>.</p>
-<p>R2: If <span class="math inline">\(\alpha&lt;0\)</span> and <span class="math inline">\(\beta&gt;\gamma\)</span>, then <span class="math inline">\(\alpha\beta&lt;\alpha\gamma\)</span>.</p>
-<p>R3: If <span class="math inline">\(\alpha&gt;\beta\)</span>, then both <span class="math inline">\(\gamma +\alpha&gt;\gamma+\beta\)</span> and <span class="math inline">\(\alpha+\gamma&gt;\beta +\gamma\)</span>.</p>
-<p>R4: <span class="math inline">\(\alpha+0=\alpha\)</span></p>
-<p>R5: If <span class="math inline">\(\psi\)</span> is the result of substituting <span class="math inline">\(\beta\)</span> for <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(\varphi\)</span>, then from <span class="math inline">\(\alpha=\beta\)</span> and <span class="math inline">\(\varphi\)</span>, one may infer <span class="math inline">\(\psi\)</span>.</p>
-<p>Utilizing these principles, the more detailed formulation of the reasoning involved in the above proof is as follows:</p>
-<ol type="1">
-<li><p>Since <span class="math inline">\(2&gt;0\)</span> and (by assumption) <span class="math inline">\(y&gt;1\)</span>, it follows by R1 that <span class="math inline">\(2y&gt;2\cdot 1\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(2\cdot 1=2\)</span> and (by 1) <span class="math inline">\(2y&gt;2\cdot 1\)</span>, it follows by R5 that <span class="math inline">\(2y&gt;2\)</span>.</p></li>
-<li><p>Since (by 2) <span class="math inline">\(2y&gt;2\)</span>, it follows by R3 that <span class="math inline">\(x+2y&gt;x+2\)</span>.</p></li>
-<li><p>Since (by assumption) <span class="math inline">\(x+2y=-2\)</span> and (by 3) <span class="math inline">\(x+2y&gt;x+2\)</span>, it follows by R5 that <span class="math inline">\(-2&gt;x+2\)</span>.</p></li>
-<li><p>Since (by 4) <span class="math inline">\(-2&gt;x+2\)</span>, it follows by R3 that <span class="math inline">\(-2+(-2)&gt;x+2+(-2)\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(-2+(-2)=-4\)</span> and (by 5) <span class="math inline">\(-2+(-2)&gt;x+2+(-2)\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x+2+(-2)\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(2+(-2)=0\)</span> and (by 6) <span class="math inline">\(-4&gt;x+2+(-2)\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x+0\)</span>.</p></li>
-<li><p>Since (by R4) <span class="math inline">\(x+0=x\)</span> and (by 7) <span class="math inline">\(-4&gt;x+0\)</span>, it follows by R5 that <span class="math inline">\(-4&gt;x\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(-2&lt;0\)</span> and (by 8) <span class="math inline">\(-4&gt;x\)</span>, it follows by R2 that <span class="math inline">\(-2\cdot -4&lt;-2x\)</span>.</p></li>
-<li><p>Since <span class="math inline">\(-2\cdot -4=8\)</span> and (by 9) <span class="math inline">\(-2\cdot -4&lt;-2x\)</span>, it follows by R5 that <span class="math inline">\(8&lt;-2x\)</span>.</p></li>
-</ol>
-<p>What is important to note about this proof is that all of the claims that are asserted in the course of the reasoning fall into one of the following three categories:</p>
-<ol type="i">
-<li><p>Premises of the argument (e.g., <span class="math inline">\(x+2y=-2\)</span>).</p></li>
-<li><p>Elementary facts of arithmetic (e.g., <span class="math inline">\(2&gt;0\)</span> or <span class="math inline">\(-2\cdot -4=8\)</span>).</p></li>
-<li><p>The result of applying one of the principles R1–R5 to claims already established in the proof.</p></li>
-</ol>
-<p>This can be emphasized by omitting from the proof such inferential markers as ‘since <span class="math inline">\(\ldots\)</span> it follows that <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>’, etc. and instead simply listing the claims that are asserted in the proof one after another in sequence, indicating, for each such claim, into which of the above three categories it falls:</p>
+<p>Taking this example as our model, when we speak of a method of reasoning, we will always have in mind methods which employ as a standard for argumentative validity the existence of a <em>proof</em> of an argument’s conclusion from its premises. In order to make this idea precise, we must say more about what we mean by a proof.</p>
+<p>Let us consider again the above algebraic derivation. In this proof, we start with one of the premises, namely <span class="math inline">\(y &gt; 1\)</span>. We then transform this premise into another sentence, <span class="math inline">\(2y &gt; 2\)</span>, by applying a certain rule of algebra, namely the rule which allows us to multiply both sides of an inequality by any positive number. We might transcribe this transformation as follows:</p>
 <div class="lproof">
 <div class="proof-line" data-number="1" data-depth="0">
 <span class="line-number"><span class="math inline">\(1\)</span></span>
-<span class="proof-formula"><span class="math inline">\(2 &gt; 0\)</span></span>
-<span class="proof-justification">Arithmetic</span>
-</div>
-<div class="proof-line" data-number="2" data-depth="0">
-<span class="line-number"><span class="math inline">\(2\)</span></span>
 <span class="proof-formula"><span class="math inline">\(y &gt; 1\)</span></span>
 <span class="proof-justification">Premise</span>
 </div>
+<div class="proof-line" data-number="2" data-depth="0" data-crossrefs="1">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\)</span></span>
+<span class="proof-justification">Multiply by 2: <span class="math inline">\(1\)</span></span>
+</div>
+</div>
+<p>The note at the end of the last line indicates that we are applying the rule “Multiply by 2” to line 1. This rule can be formulated as follows:</p>
+<p>(Multiply by 2) For any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: If <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(2\cdot \alpha&gt; 2\cdot \beta\)</span>.</p>
+<p>Strictly speaking, if we treat this rule simply as a rule licensing a certain syntactic transformation, it doesn’t quite get us what we want. For, if we apply the rule, as stated, to the sentence <span class="math inline">\(y &gt; 1\)</span>, what we get is <span class="math inline">\(2\cdot y &gt; 2\cdot
+1\)</span>—not <span class="math inline">\(2\cdot y &gt; 2\)</span>. Now, of course, we all know it to be a basic fact about arithmetic that <span class="math inline">\(2\cdot 1 = 2\)</span>, and so we naturally perform the requisite substitution in our head. But to give a more complete transcription of the reasoning here, we can be fully explicit and include the substition as another step in the proof:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(y &gt; 1\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0" data-crossrefs="1">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\cdot 1\)</span></span>
+<span class="proof-justification">Multiply by 2: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot 1 = 2\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0" data-crossrefs="2,3">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\)</span></span>
+<span class="proof-justification">Substitution of Equals: <span class="math inline">\(2, 3\)</span></span>
+</div>
+</div>
+<p>Here we appeal to the basic arithmetical fact that <span class="math inline">\(2\cdot 1 = 2\)</span> in line 2 of the proof. A rule of substitution is then applied to lines 2 and 3 of the proof to give us line 4. This substitution rule can be stated as follows:</p>
+<p>(Substitution of Equals) Let <span class="math inline">\(\psi\)</span> be the result of substituting one numerical expression <span class="math inline">\(\beta\)</span> for another numerical expression <span class="math inline">\(\alpha\)</span> in the sentence <span class="math inline">\(\varphi\)</span>. Then, if <span class="math inline">\(\alpha=\beta\)</span> and <span class="math inline">\(\varphi\)</span>, it follows that <span class="math inline">\(\psi\)</span>.</p>
+<p>The proof now is correct, but the rule Multiply by 2 seems a bit too specific. We don’t want to have to posit separate rules for every possible number that we might want to utilize as a multiplier in an algebraic proof. A better rule, that licenses the general sort of transformation that we have in mind, would be something like:</p>
+<p>(Multiply by <span class="math inline">\(n&gt;0\)</span>) For any number <span class="math inline">\(n\)</span>, and any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: If <span class="math inline">\(n &gt; 0\)</span> and <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(n\cdot \alpha&gt; n\cdot \beta\)</span>.</p>
+<p>To apply this rule, we now have to cite a further arithmetical fact, namely, that <span class="math inline">\(2 &gt;
+0\)</span>. All told, now, the proof looks like this:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(y &gt; 1\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2 &gt; 0\)</span></span>
+<span class="proof-justification">Arithmetic</span>
+</div>
 <div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
 <span class="line-number"><span class="math inline">\(3\)</span></span>
-<span class="proof-formula"><span class="math inline">\(2y &gt; 2\cdot 1\)</span></span>
-<span class="proof-justification">R1: <span class="math inline">\(1, 2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\cdot 1\)</span></span>
+<span class="proof-justification">Multiply by <span class="math inline">\(n &gt; 0\)</span>: <span class="math inline">\(1, 2\)</span></span>
 </div>
 <div class="proof-line" data-number="4" data-depth="0">
 <span class="line-number"><span class="math inline">\(4\)</span></span>
 <span class="proof-formula"><span class="math inline">\(2\cdot 1 = 2\)</span></span>
 <span class="proof-justification">Arithmetic</span>
 </div>
-<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="4,3">
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="3,4">
 <span class="line-number"><span class="math inline">\(5\)</span></span>
-<span class="proof-formula"><span class="math inline">\(2y &gt; 2\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(4, 3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\)</span></span>
+<span class="proof-justification">Substitution of Equals: <span class="math inline">\(3, 4\)</span></span>
 </div>
-<div class="proof-line" data-number="6" data-depth="0" data-crossrefs="5">
-<span class="line-number"><span class="math inline">\(6\)</span></span>
-<span class="proof-formula"><span class="math inline">\(x + 2y &gt; x + 2\)</span></span>
-<span class="proof-justification">R3: <span class="math inline">\(5\)</span></span>
 </div>
-<div class="proof-line" data-number="7" data-depth="0">
-<span class="line-number"><span class="math inline">\(7\)</span></span>
-<span class="proof-formula"><span class="math inline">\(x + 2y = -2\)</span></span>
+<p>This, of course, is only the first step of the reasoning. But if we continue in this way, spelling out the proof in detail, one step at a time, eventually the reasoning should terminate with the conclusion of the argument appearing as the last line of the proof.</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(y &gt; 1\)</span></span>
 <span class="proof-justification">Premise</span>
 </div>
-<div class="proof-line" data-number="8" data-depth="0" data-crossrefs="7,6">
-<span class="line-number"><span class="math inline">\(8\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2 &gt; x + 1\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(7, 6\)</span></span>
-</div>
-<div class="proof-line" data-number="9" data-depth="0" data-crossrefs="8">
-<span class="line-number"><span class="math inline">\(9\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2 + (-2) &gt; x + 2 + (-2)\)</span></span>
-<span class="proof-justification">R3: <span class="math inline">\(8\)</span></span>
-</div>
-<div class="proof-line" data-number="10" data-depth="0">
-<span class="line-number"><span class="math inline">\(10\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2 + (-2) = -4\)</span></span>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2 &gt; 0\)</span></span>
 <span class="proof-justification">Arithmetic</span>
 </div>
-<div class="proof-line" data-number="11" data-depth="0" data-crossrefs="10,9">
-<span class="line-number"><span class="math inline">\(11\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-4 &gt; x + 2 + (-2)\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(10, 9\)</span></span>
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\cdot 1\)</span></span>
+<span class="proof-justification">Multiply by <span class="math inline">\(n &gt; 0\)</span>: <span class="math inline">\(1, 2\)</span></span>
 </div>
-<div class="proof-line" data-number="12" data-depth="0">
-<span class="line-number"><span class="math inline">\(12\)</span></span>
-<span class="proof-formula"><span class="math inline">\(2 + (-2) = 0\)</span></span>
+<div class="proof-line" data-number="4" data-depth="0">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot 1 = 2\)</span></span>
 <span class="proof-justification">Arithmetic</span>
 </div>
-<div class="proof-line" data-number="13" data-depth="0" data-crossrefs="12,11">
-<span class="line-number"><span class="math inline">\(13\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-4 &gt; x + 0\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(12, 11\)</span></span>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="3,4">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(2\cdot y &gt; 2\)</span></span>
+<span class="proof-justification">Substitution of Equals: <span class="math inline">\(3, 4\)</span></span>
 </div>
-<div class="proof-line" data-number="14" data-depth="0">
-<span class="line-number"><span class="math inline">\(14\)</span></span>
-<span class="proof-formula"><span class="math inline">\(x + 0 = x\)</span></span>
-<span class="proof-justification">R4</span>
+<div class="proof-line" data-number="6" data-depth="0" data-ellipses="true">
+<span class="line-number"><span class="math display">\[\vdots\]</span></span>
+<span class="proof-formula"></span>
+<span class="proof-justification"></span>
 </div>
-<div class="proof-line" data-number="15" data-depth="0" data-crossrefs="14,13">
-<span class="line-number"><span class="math inline">\(15\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-4 &gt; x\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(14, 13\)</span></span>
-</div>
-<div class="proof-line" data-number="16" data-depth="0">
-<span class="line-number"><span class="math inline">\(16\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2 &lt; 0\)</span></span>
-<span class="proof-justification">Arithmetic</span>
-</div>
-<div class="proof-line" data-number="17" data-depth="0" data-crossrefs="16,15">
-<span class="line-number"><span class="math inline">\(17\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2\cdot -4 &lt; -2x\)</span></span>
-<span class="proof-justification">R2: <span class="math inline">\(16, 15\)</span></span>
-</div>
-<div class="proof-line" data-number="18" data-depth="0">
-<span class="line-number"><span class="math inline">\(18\)</span></span>
-<span class="proof-formula"><span class="math inline">\(-2\cdot -4 = 8\)</span></span>
-<span class="proof-justification">Arithmetic</span>
-</div>
-<div class="proof-line" data-number="19" data-depth="0" data-crossrefs="18,17">
-<span class="line-number"><span class="math inline">\(19\)</span></span>
-<span class="proof-formula"><span class="math inline">\(8 &lt; -2x\)</span></span>
-<span class="proof-justification">R5: <span class="math inline">\(18, 17\)</span></span>
+<div class="proof-line" data-number="7" data-depth="0">
+<span class="line-number"><span class="math inline">\(n\)</span></span>
+<span class="proof-formula"><span class="math inline">\(8 &lt; - 2\cdot x\)</span></span>
+<span class="proof-justification">Some Rule: <span class="math inline">\(?, \ldots, ?\)</span></span>
 </div>
 </div>
-<p>We will take this expanded arithmetical derivation as a model for the simplest sort of proofs that we will consider in the context of our formal languages. Later on in the course, we will consider other kinds of proofs with a more complicated structure.</p>
-<p>We first observe that a proof of the above sort is always given relative to both a set of elementary, or axiomatic, truths, which we can freely take for granted in our reasoning, and a system of rules by which we can derive new sentences from sentences already established in the proof. Taken together, these axioms and rules form what we shall call a proof system:</p>
-<div id="def-proof-system" class="definition theorem">
-<p><span class="theorem-title"><strong>Definition 1.7</strong></span> A <em>proof system</em> for a language <span class="math inline">\(L\)</span> consists of (i) a set of sentences of <span class="math inline">\(L\)</span>, the members of which are referred to as <em>axioms</em>; and (ii) a set of rules of inference, each of which states that certain sentences can be inferred from others.</p>
+<div id="exr-arithmetical-proof" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.12</strong></span> Complete the arithmetical proof started above. Add any additional rules that are required to deduce the conclusion from the premises together with basic arithmetical facts.</p>
 </div>
-<p>We can now define what we mean by a proof:</p>
-<div id="def-proof" class="definition theorem">
-<p><span class="theorem-title"><strong>Definition 1.8</strong></span> Let <span class="math inline">\(\mathbf{D}\)</span> be a proof system for the language <span class="math inline">\(L\)</span>. Let <span class="math inline">\(\Gamma\)</span> be a set of sentences of <span class="math inline">\(L\)</span> and let <span class="math inline">\(\varphi\)</span> be a sentence of <span class="math inline">\(L\)</span>. A <em>proof</em> of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> is a finite sequence of sentences <span class="math inline">\(\varphi_1,\varphi_2,\ldots,\varphi_n\)</span> such that:</p>
+<p>We will take this expanded arithmetical derivation as a model for the simplest sort of proofs that we will consider in the context of our formal languages (shortly we will consider other kinds of proofs with a slightly more complicated structure).</p>
+<p>What is important to note about proofs such as this is that all of the claims that are asserted in the course of the reasoning fall into one of the following three categories:</p>
 <ol type="1">
-<li><p><span class="math inline">\(\varphi_n\)</span> is the sentence <span class="math inline">\(\varphi\)</span>.</p></li>
-<li><p>For <span class="math inline">\(i=1,\ldots,n\)</span>, at least one of the following conditions holds:</p>
-<ol type="i">
-<li><p><span class="math inline">\(\varphi_i\in\Gamma\)</span></p></li>
-<li><p><span class="math inline">\(\varphi_i\)</span> is an axiom of <span class="math inline">\(\mathbf{D}\)</span></p></li>
-<li><p><span class="math inline">\(\varphi_i\)</span> follows from one of the rules of <span class="math inline">\(\mathbf{D}\)</span> applied to sentences among <span class="math inline">\(\varphi_1,\ldots,\varphi_{i-1}\)</span>.</p></li>
-</ol></li>
+<li><p>Premises of the argument (e.g., <span class="math inline">\(y &gt; 1\)</span>).</p></li>
+<li><p>Basic facts of arithmetic (e.g., <span class="math inline">\(2&gt;0\)</span> or <span class="math inline">\(2\cdot 1 = 2\)</span>).</p></li>
+<li><p>The result of applying a rule of inference to claims already established in the proof.</p></li>
 </ol>
-<p>We write <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span> to indicate that there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>. In this case, we also say that <span class="math inline">\(\varphi\)</span> is <em>provable</em> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> or that the argument <span class="math inline">\(\Gamma\vdash\varphi\)</span> is <em>provable</em> in <span class="math inline">\(\mathbf{D}\)</span>, or that <span class="math inline">\(\varphi\)</span> is a <em>deductive consequence</em> of <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>.</p>
+<p>In general, we refer to the sort of basic claims that we can freely appeal to in the course of giving a proof as <em>axioms</em>. With respect to a set of axioms and rules of inference, each of which tells us that certain sentences can be inferred from others, a <em>proof</em> can now be defined as follows:</p>
+<div id="def-proof" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 1.7</strong></span> Given a set of axioms and rules of inference, a <em>proof</em> of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> is a finite sequence of sentences, the last of which is the sentence <span class="math inline">\(\varphi\)</span> and each of which is either (1) a member of the set <span class="math inline">\(\Gamma\)</span>; (2) an axiom; or (3) the result of applying one of the rules of inference to sentences appearing earlier in the proof.</p>
 </div>
-<p>It is important to stress that this definition of proof makes no reference whatsoever to the various semantic notions introduced in <a href="#sec-validity" class="quarto-xref"><span>Section 1.4</span></a>. Concepts such as truth and falsehood, meaning, interpretation, etc., nowhere figure in our formal understanding of proof. Rather, a proof is a purely syntactic construct, which can be thought of as the output of an abstract calculus which operates on symbolic expressions in complete ignorance as to how they are to interpreted. As such, the standard of provability is, at a conceptual level, entirely distinct from that of validity. The former is syntactic, the latter semantic. It will be crucial to keep this distinction in mind as we proceed.</p>
-<p>Henceforth, by a ‘method of reasoning’ we will simply mean a system of proof. To say that an inference can result from a given method of reasoning is just to say that the conclusion of the corresponding argument is provable from its premises in the relevant proof system. It might be supposed that this notion of proof is sufficiently abstract that it entails nothing of substance concerning which arguments are provable and which are not. Not so. Already we have said enough to ensure that provability satisfies the same general claims that were shown to hold of validity in <span class="quarto-unresolved-ref">?thm-semantic-structure</span>.</p>
-<div id="thm-proof-structure" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1.2</strong></span> Let <span class="math inline">\(\mathbf{D}\)</span> be any proof system. For any sentences <span class="math inline">\(\varphi, \psi\)</span> and any sets of sentences <span class="math inline">\(\Gamma, \Delta\)</span>, the following claims hold:</p>
-<ol type="i">
-<li><p><span class="math inline">\(\Gamma,\varphi\vdash_{\mathbf{D}}\varphi\)</span></p></li>
-<li><p>If <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span>, then <span class="math inline">\(\Gamma,\Delta\vdash_{\mathbf{D}}\varphi\)</span>.</p></li>
-<li><p>If <span class="math inline">\(\Gamma,\varphi\vdash_{\mathbf{D}}\psi\)</span> and <span class="math inline">\(\Delta\vdash_{\mathbf{D}}\varphi\)</span>, then <span class="math inline">\(\Gamma,\Delta\vdash_{\mathbf{D}}\psi\)</span>.</p></li>
-</ol>
-</div>
-<p>We leave the proof of this theorem as an exercise for the reader.</p>
-<p>Some standard proof-theoretic terminology: if a sentence is provable from the empty set in a given proof system, we refer to it as a <em>theorem</em> of that system. If two sentences are each provable from the other, we refer to them as <em>provably equivalent</em>.</p>
-<div id="exr-proof-structure" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.11</strong></span> &nbsp;</p>
+<p>Ideally, the system of axioms and rules in which we give proofs should ensure that the following is true: an argument is valid just in case there exists a proof of its conclusion from its premises. In the following section, we will introduce such a proof system for the formal language L<span class="math inline">\(_S\)</span>.</p>
+<div id="exr-proof-facts" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.13</strong></span> &nbsp;</p>
 <ol type="a">
-<li><p>Prove <a href="#thm-proof-structure" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>.</p></li>
-<li><p>Let <span class="math inline">\(\mathbf{D}\)</span> be any proof system. Show that if <span class="math inline">\(\Gamma\vdash_{\mathbf{D}}\varphi\)</span>, then there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span> in which no sentence appears more than once.</p></li>
-<li><p>Let <span class="math inline">\(\varphi_1,\ldots,\varphi_n\)</span> be a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>. Suppose we rearrange the sentences in this proof by first listing (in any order) all the sentences that are either axioms or members of <span class="math inline">\(\Gamma\)</span> followed by the remaining sentences in the order in which they appear in the proof. Is the resulting sequence still a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(\mathbf{D}\)</span>?</p></li>
+<li><p>Does there exist a proof of <span class="math inline">\(\varphi\)</span> from the set of sentences <span class="math inline">\(\Gamma\cup\{\varphi\}\)</span>? Explain.</p></li>
+<li><p>If there exists a proof of <span class="math inline">\(\varphi\)</span> from the set of sentences <span class="math inline">\(\Gamma\)</span>, does there exist a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\cup\Delta\)</span>? Explain.</p></li>
+<li><p>Show that if there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span>, then there exists a proof of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> in which no sentence appears more than once.</p></li>
 </ol>
 </div>
-<div id="exm-0x1-proof" class="example theorem">
-<p><span class="theorem-title"><strong>Example 1.1 (Multiplying 0’s and 1’s - Proofs)</strong></span> In this example, we introduce a proof system <span class="math inline">\(\mathbf{T}\)</span> by which to reason in the language <span class="math inline">\(L_\times\)</span> introduced in <span class="quarto-unresolved-ref">?exm-0x1-syntax</span>.</p>
-<p>The proof system <span class="math inline">\(\mathbf{T}\)</span> has three axioms: <span class="math display">\[
-x = x \quad\quad\quad 0 = 0 \quad\quad\quad 1 = 1
+</section>
+<section id="proofs-in-l_s" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="proofs-in-l_s"><span class="header-section-number">1.5.2</span> Proofs in L<span class="math inline">\(_S\)</span></h3>
+<p>The history of formal logic begins with Aristotle’s theory of the syllogism. In what is perhaps the first treatise on the subject of formal logic, the <em>Prior Analytics</em>, Aristotle draws a distinction between valid arguments which he regards as ‘perfect’ and those which he regards as imperfect. While the validity of perfect arguments is self-evident and requires no further justification, the validity of imperfect arguments stands in need of proof. To provide such proofs, Aristotle introduces a method of reasoning by which imperfectly valid arguments can be derived by means of certain rules of inference.</p>
+<p>In the remainder of this chapter, we will present a version of Aristotle’s proof system for the formal language L<span class="math inline">\(_S\)</span>. This system includes both axioms and rules of inference by which certain sentences can be inferred from others.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>The axioms of the system are all sentences of the form:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}A
 \]</span></p>
-<p>In addition, the system <span class="math inline">\(\mathbf{T}\)</span> has ten rules of inference. The first four of these rules concern the addition and removal of the numerals <span class="math inline">\(1\)</span> and <span class="math inline">\(0\)</span> from numerical expressions (here, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, and <span class="math inline">\(\gamma\)</span> are any numerical expressions):</p>
-<p>(1<span class="math inline">\(-\)</span>): <span class="math display">\[
-\frac{1\times \alpha = \beta}{\alpha=\beta}
+<p>where <span class="math inline">\(A\)</span> is any term. The basic rules of inference are as follows:<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>(Barbara):</p>
+<p><span class="math display">\[
+\frac{A\textrm{\textbf{a}}B\quad,\quad B\textrm{\textbf{a}}C}{A\textrm{\textbf{a}}C}
 \]</span></p>
-<p>(1+): <span class="math display">\[
-\frac{\alpha = \beta}{1\times\alpha=\beta}
+<p>(Celarent):</p>
+<p><span class="math display">\[
+\frac{A\textrm{\textbf{a}}B\quad,\quad B\textrm{\textbf{e}}C}{A\textrm{\textbf{e}}C}
 \]</span></p>
-<p>(0<span class="math inline">\(-\)</span>): <span class="math display">\[
-\frac{0\times\alpha = \beta}{0 =\beta}
+<p>(e-conversion):</p>
+<p><span class="math display">\[
+\frac{A\textrm{\textbf{e}}B}{B\textrm{\textbf{e}}A}
 \]</span></p>
-<p>(0+): <span class="math display">\[
-\frac{0 = \alpha}{0\times\beta = \alpha}
-\]</span></p>
-<p>The next two rules concern the addition and removal of the numeral <span class="math inline">\(x\)</span> from numerical expressions:</p>
-<p>(<span class="math inline">\(x-\)</span>): If <span class="math inline">\(x\)</span> occurs in <span class="math inline">\(\alpha\)</span>, then: <span class="math display">\[
-\frac{x\times \alpha = \beta}{\alpha = \beta}
-\]</span></p>
-<p>(<span class="math inline">\(x+\)</span>): If <span class="math inline">\(x\)</span> occurs in <span class="math inline">\(\alpha\)</span>, then: <span class="math display">\[
-\frac{\alpha = \beta}{x\times \alpha = \beta}
-\]</span></p>
-<p>The seventh rule expresses that the equality relation is symmetrical:</p>
-<p>(S): <span class="math display">\[
-\frac{\alpha = \beta}{\beta = \alpha}
-\]</span></p>
-<p>and the eighth, that it is transitive:</p>
-<p>(T): <span class="math display">\[
-\frac{\alpha = \beta\quad\beta=\gamma}{\alpha = \gamma}
-\]</span></p>
-<p>The ninth rule asserts that from <span class="math inline">\(0 = 1\)</span>, any sentence <span class="math inline">\(\varphi\)</span> follows:</p>
-<p>(<span class="math inline">\(\neq\)</span>): <span class="math display">\[
-\frac{0 = 1}{\varphi}
-\]</span></p>
-<p>The tenth and final rule expresses the symmetricality of the operator <span class="math inline">\(\times\)</span>:</p>
-<p>(<span class="math inline">\(\times\)</span>): <span class="math display">\[
-\frac{\alpha\times\beta = \gamma}{\beta\times\alpha = \gamma}
-\]</span></p>
-<p>As an illustration of reasoning in the proof system <span class="math inline">\(\mathbf{T}\)</span>, we will show that: <span class="math display">\[
-x\times 0 = 0\times 1,\quad 1\times x \times 1 = 1 \vdash_{\mathbf{T}} 1 = x
+<p>By means of these axioms and rules, we can give proofs to establish the validity of arguments in L<span class="math inline">\(_S\)</span>. For example, we can show:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, B\textrm{\textbf{a}}C, D\textrm{\textbf{e}}C \models D\textrm{\textbf{e}}A
 \]</span></p>
 <p>The proof is as follows:</p>
 <div class="lproof">
 <div class="proof-line" data-number="1" data-depth="0">
 <span class="line-number"><span class="math inline">\(1\)</span></span>
-<span class="proof-formula"><span class="math inline">\(1 \times x \times 1 = 1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
 <span class="proof-justification">Premise</span>
 </div>
-<div class="proof-line" data-number="2" data-depth="0" data-crossrefs="1">
+<div class="proof-line" data-number="2" data-depth="0">
 <span class="line-number"><span class="math inline">\(2\)</span></span>
-<span class="proof-formula"><span class="math inline">\(x \times 1 = 1\)</span></span>
-<span class="proof-justification">1<span class="math inline">\(-\)</span>: <span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{a}}C\)</span></span>
+<span class="proof-justification">Premise</span>
 </div>
-<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="2">
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
 <span class="line-number"><span class="math inline">\(3\)</span></span>
-<span class="proof-formula"><span class="math inline">\(1\times x = 1\)</span></span>
-<span class="proof-justification"><span class="math inline">\(\times\)</span>: <span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}C\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(1, 2\)</span></span>
 </div>
-<div class="proof-line" data-number="4" data-depth="0" data-crossrefs="3">
+<div class="proof-line" data-number="4" data-depth="0">
 <span class="line-number"><span class="math inline">\(4\)</span></span>
-<span class="proof-formula"><span class="math inline">\(x = 1\)</span></span>
-<span class="proof-justification">1<span class="math inline">\(-\)</span>: <span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Premise</span>
 </div>
 <div class="proof-line" data-number="5" data-depth="0" data-crossrefs="4">
 <span class="line-number"><span class="math inline">\(5\)</span></span>
-<span class="proof-formula"><span class="math inline">\(1 = x\)</span></span>
-<span class="proof-justification">S: <span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}D\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="0" data-crossrefs="3,5">
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}D\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(3, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="0" data-crossrefs="6">
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{e}}A\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(6\)</span></span>
 </div>
 </div>
-<div id="exr-proofs-in-T" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.12</strong></span> &nbsp;</p>
+<p>Here’s another example:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C, D\textrm{\textbf{a}}A, E\textrm{\textbf{a}}D \models C\textrm{\textbf{e}}E
+\]</span></p>
+<p>the proof is:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{a}}A\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="3,4">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="0">
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(E\textrm{\textbf{a}}D\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="7" data-depth="0" data-crossrefs="5,6">
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(E\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(5, 6\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="0" data-crossrefs="7">
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}E\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(7\)</span></span>
+</div>
+</div>
+<p>Note that there may be other ways of proving the same argument, for example:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{a}}A\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0" data-crossrefs="1,2">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(E\textrm{\textbf{a}}D\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="3,4">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(E\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="0">
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="7" data-depth="0" data-crossrefs="5,6">
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(E\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(5, 6\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="0" data-crossrefs="7">
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}E\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(7\)</span></span>
+</div>
+</div>
+<p>While the axioms and rules of inference listed above allow us to establish the validity of a number of arguments, taken together, the resulting proof system is clearly inadequate to prove <em>all</em> valid arguments. For instance, this system does not allow us to prove any non-circular arguments with a conclusion that is of the form <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> or <span class="math inline">\(A\textrm{\textbf{o}}B\)</span>. For none of the axioms are of this form and none of the rules of inference license the inference of a sentence of this form from other sentences. Thus, the only way that <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> or <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> can appear in a proof, is if that sentence appears among the premises, that is, if the argument is circular. Of course, as we know, there are many valid non-circular arguments with a conclusion that is of the form <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> or <span class="math inline">\(A\textrm{\textbf{o}}B\)</span>, for example:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{i}}B, B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{i}}C
+\]</span></p>
+<p>To enable the proof of such arguments, we could supplement the proof system by adding more rules of inference. Interestingly, however, this is not the primary approach adopted by Aristotle. To prove such arguments, Aristotle instead employs a new method of proof which he have not yet considered, the method of <em>reductio ad absurdum</em> or proof by contradiction. To formalize proofs by contradiction, we have to revisit our original definition of a proof and expand it so as to accommodate what we shall refer to as ‘hypothetical’ proofs.</p>
+</section>
+<section id="proof-by-contradiction" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="proof-by-contradiction"><span class="header-section-number">1.5.3</span> Proof by Contradiction</h3>
+<p>The proofs that we have discussed so far have all had a very simple structure. They have consisted of sequences of sentences, each of which is either an axiom, a premise, or the result of applying a rule of inference to sentences previously appearing in the proof. In such simple proofs, every claim put forward in the course of the reasoning is asserted on the grounds of its being a logical consequence of the premises. In everyday reasoning, however, it is often convenient to posit a claim which we do not take ourselves to have established—and so do not wish to assert—but which instead serves as a supposition to be utilized indirectly in some hypothetical mode of reasoning.</p>
+<p>Consider, for example, the method of <em>reductio ad absurdum</em>, or proof by contradiction. When we give a proof by contradiction, we suppose that a certain claim is true for the sake of deriving a contradiction. Having done so, we then discharge our supposition and conclude that the claim that we supposed to be true is, in fact, false. In such proofs, we posit a claim and reason from it despite the fact that this claim has not been shown to follow from the premises. Instead the claim serves as a <em>hypothesis</em>, introduced for the specific purpose of deriving a contradiction.</p>
+<p>In the formal language L<span class="math inline">\(_S\)</span>, the method of proof by contradiction can be implemented by appealing to the fact that for every sentence in the language L<span class="math inline">\(_S\)</span>, there exists another sentence which, on the extensional semantics introduced above, is its contradictory opposite, in the sense that the one is true, on a given interpretation, iff the other is false (see <a href="#exr-e-i-contrariety" class="quarto-xref">Exercise&nbsp;<span>1.10</span></a>):</p>
+<div id="def-contradictory" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 1.8</strong></span> The <em>contradictory</em> of <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> is <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> and vice versa. The contradictory of <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> is <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> and vice versa. For any sentence <span class="math inline">\(\varphi\)</span>, we write <span class="math inline">\(\neg\varphi\)</span> for the contradictory of <span class="math inline">\(\varphi\)</span>.</p>
+</div>
+<p>Note that the symbol ‘<span class="math inline">\(\neg\)</span>’ is not in the alphabet of the language L<span class="math inline">\(_S\)</span>. We introduce it here as a metalinguistic device for referring to one sentence by means of another. Thus, for example, <span class="math inline">\(\neg A\textrm{\textbf{i}}B\)</span> is not a new sentence of the language L<span class="math inline">\(_S\)</span>. It is simply another name for the sentence <span class="math inline">\(A\textrm{\textbf{e}}B\)</span>.</p>
+<p>Appealing to the notion of the contradictory of a sentence, we can describe the method of proof by contradiction as follows: (1) first, posit, as a hypothesis, a sentence <span class="math inline">\(\varphi\)</span>; (2) next, derive from this hypothesis, together with the premises, a contradictory pair of sentences of the form <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\neg\psi\)</span>; (3) finally, having done so, discharge the hypothesis, and conclude that the premises entail the contradictory of the hypothesis, <span class="math inline">\(\neg\varphi\)</span>.</p>
+<p>As an illustration of this procedure, let us see how one might try to utilize the method of proof by contradiction to establish the validity of the following argument:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{i}}B, B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{i}}C
+\]</span></p>
+<p>In accordance with the description of the method just given, we would like our proof system to license the following sort of reasoning:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="0">
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{a}}C\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="0">
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}A\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="0" data-crossrefs="2,3">
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{e}}A\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="0" data-crossrefs="4">
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}B\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="0" data-crossrefs="4">
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{i}}B\)</span></span>
+<span class="proof-justification">Premise: <span class="math inline">\(4\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="0" data-crossrefs="3,4">
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{i}}C\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(3, 4\)</span></span>
+</div>
+</div>
+<p>Line 1 of this proof introduces <span class="math inline">\(A\textrm{\textbf{e}}C\)</span> as a hypothesis; lines 2–6 deduce various consequences of this hypothesis in combination with the premises; lines 5 and 6 contain the desired contradiction; and line 7 concludes the proof by discharging the hypothesis and asserting its contradictory, which is the desired result.</p>
+<p>This sequence of sentences, of course, is not a proof in the sense of the term specified in <a href="#def-proof" class="quarto-xref">Definition&nbsp;<span>1.7</span></a>, for <span class="math inline">\(A\textrm{\textbf{e}}C\)</span> is neither a premise nor an axiom of the system. In the simple proofs that we have thus far considered, there is simply no mechanism for introducing a new hypothesis not included among the premises, nor for discharging that same hypothesis at some later stage of the reasoning. Consequently, there is no way of indicating that the hypothesis <span class="math inline">\(A\textrm{\textbf{e}}C\)</span> is meant to be in effect in lines 1–6, but not in line 7.</p>
+<p>One common notation that is often employed for indicating the introduction and subsequent discharge of hypotheses is what is sometimes called Fitch notation.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> In a Fitch-notation, proofs are not represented as simple “flat” sequences but as leveled sequences. To add a sentence to the set of hypotheses one writes down the sentence and increments the level of indentation by one. This same hypothesis is then later discharged by restoring the indentation of the proof to its previous level. Levels of indentation are explicitly marked using vertical lines and new hypotheses are highlighted by underlining them. The proof terminates with the desired conclusion appearing on the last line of the proof without indentation, signaling that all introduced hypotheses have been discharged.</p>
+<p>In Fitch notation, the the above proof by contradiction is written:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}C\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}A\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(B\textrm{\textbf{e}}A\)</span></span>
+<span class="proof-justification">Celarent: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{e}}B\)</span></span>
+<span class="proof-justification">e-conversion: <span class="math inline">\(4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{i}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="7" data-depth="1" data-crossrefs="5,6">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{i}}C\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(5, 6\)</span></span>
+</div>
+</div>
+<p>This format makes it clear that the hypothesis <span class="math inline">\(A\textrm{\textbf{e}}C\)</span> is introduced in line 1 and discharged in line 7.</p>
+<p>Now, let’s consider the argument:</p>
+<p><span class="math display">\[
+D\textrm{\textbf{a}}B, A\textrm{\textbf{o}}B, A\textrm{\textbf{a}}C\vdash C\textrm{\textbf{o}}D
+\]</span></p>
+<p>One strategy for proving this argument is to first establish, by means of a proof by contradiction, that <span class="math inline">\(C\textrm{\textbf{o}}B\)</span> follows from the premises <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{a}}C\)</span>. One could then show, again using a proof by contradiction, that <span class="math inline">\(C\textrm{\textbf{o}}D\)</span> follows from the sentence <span class="math inline">\(C\textrm{\textbf{o}}B\)</span> just established, and the remaining premise <span class="math inline">\(D\textrm{\textbf{a}}B\)</span>.</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}D\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}C\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="3" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="1,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(1, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1" data-crossrefs="6,8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{o}}D\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(6, 8\)</span></span>
+</div>
+</div>
+<p>While this is a correct proof, it is does not perspicuously convey the structure of the reasoning. One of its more confusing features is that the hypothesis <span class="math inline">\(C\textrm{\textbf{a}}D\)</span>, which is the target of the second proof by contradiction (lines 1 and 6–8), is still in effect as a hypothesis in the first proof by contradiction (lines 2–5). Since <span class="math inline">\(C\textrm{\textbf{a}}D\)</span> plays no role in the latter subproof, it seems more natural to introduce this hypothesis only after the first proof by contradiction has been completed.</p>
+<p>This version of the proof, in which the two proofs by contradiction are done one after the other is written:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}C\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1,2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}D\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(D\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Barbara: <span class="math inline">\(6, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Reiteration, 5</span>
+</div>
+<div class="proof-line" data-number="10" data-depth="1" data-crossrefs="8,9">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(10\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{o}}D\)</span></span>
+<span class="proof-justification">Contradiction: <span class="math inline">\(8, 9\)</span></span>
+</div>
+</div>
+<p>Note that in the line 9 of this proof, we reiterate the conclusion of the first proof by contradiction appearing in line 5, inserting in into the second proof by contradiction. In general, even if the context has shifted, you are free to reiterate any line of a proof as long as the hypotheses under which it was established are all still in effect. This allows you to “bring forward” an earlier statement into the part of the proof where it is needed.</p>
+<p>Let’s try another example:</p>
+<p><span class="math display">\[
+A\textrm{\textbf{a}}B, A\textrm{\textbf{o}}B\vdash C\textrm{\textbf{e}}D
+\]</span></p>
+<p>First, let’s confirm for ourselves that the argument is valid. Clearly there is no interpretation under which all of the premises are true and the conclusion false, since there is no interpretation under which all of the premises are true. So, the argument is indeed valid. The argument can be proven by contradiction as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{i}}D\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{a}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(A\textrm{\textbf{o}}B\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(C\textrm{\textbf{e}}D\)</span></span>
+<span class="proof-justification">Contradicition: <span class="math inline">\(2, 3\)</span></span>
+</div>
+</div>
+<div id="exr-proofs-in-S" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Assess the validity of the following arguments. If the argument is valid, provide a proof. If it is invalid, provide a counterexample.</p>
 <ol type="a">
-<li><p>Show that for any numerical expression <span class="math inline">\(\alpha\)</span>, the sentence <span class="math inline">\(\alpha=\alpha\)</span> is a theorem of <span class="math inline">\(\mathbf{T}\)</span>.</p></li>
-<li><p>Can you transform the sentence <span class="math inline">\(1\times x \times 0 = 0\times x \times 1\)</span> into a sentence of the form <span class="math inline">\(\alpha=\alpha\)</span>, by repeated applications of the rule <span class="math inline">\(\times\)</span>?</p></li>
-<li><p>Confirm that the sentence <span class="math inline">\(1\times x \times 0 = 0\times x \times 1\)</span> is a theorem of <span class="math inline">\(\mathbf{T}\)</span>.</p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{i}}B\vdash B\textrm{\textbf{i}}A\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B\vdash B\textrm{\textbf{i}}A\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{e}}B, B\textrm{\textbf{i}}A\vdash D\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, C\textrm{\textbf{i}}A\vdash C\textrm{\textbf{i}}B\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{o}}B, C\textrm{\textbf{a}}B\vdash A\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{e}}B, C\textrm{\textbf{i}}A, D\textrm{\textbf{a}}B\vdash C\textrm{\textbf{o}}D\)</span></p></li>
 </ol>
 </div>
-</div>
+<p>Does every valid argument expressible in L<span class="math inline">\(_S\)</span> have a proof in this system? The answer, as it turns out, is yes, but for the purposes of this class, you will just have to take my word for it.</p>
+</section>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Brody2006-dz" class="csl-entry" role="listitem">
+Brody, Boruch A. 2006. <em>Logical Terms, Glossary of</em>. Edited by Donald M Borchert. Vol. 5. Encyclopedia of Philosophy. Detroit; Macmillan Reference USA.
+</div>
 <div id="ref-Carnap1988-nm" class="csl-entry" role="listitem">
 Carnap, Rudolf. 1988. <em>Meaning and Necessity</em>. 2nd ed. Phoenix Books. Chicago, IL: University of Chicago Press.
+</div>
+<div id="ref-Corcoran1972-wl" class="csl-entry" role="listitem">
+Corcoran, John. 1972. <span>“Completeness of an Ancient Logic.”</span> <em>Journal of Symbolic Logic</em> 37 (December): 696–702.
 </div>
 <div id="ref-Fraenkel1973-tk" class="csl-entry" role="listitem">
 Fraenkel, A A, A Levy, and Y Bar-Hillel. 1973. <em>Foundations of <span>S</span>et <span>T</span>heory</em>. 2nd ed. Studies in Logic and the Foundations of Mathematics. North-Holland.
@@ -1108,6 +1480,13 @@ Frege, Gottlob. 1893-1903. <em>Grundgesetze Der Arithmetik</em>. Jena: H. Pohle.
 <li id="fn3"><p>The assumption that a sentence can take exactly one of two truth values is referred to as the principle of <em>bivalence</em>. Innocuous as it may seem, bivalence is perhaps the most contentious principle in all of logic. If you continue in your study of logic, you will encounter notions of argumentative validity that reject bivalence in favor of a ‘multivalent’ semantics in which sentences can be assigned one of many distinct truth values. You will also discover semantics in which a sentence may be assigned no truth value at all.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>The branch of logic that studies the various modalities implicated in necessity claims is called <em>modal</em> logic. See Chapter ??? below.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>By contrast, the <em>intension</em> of a common noun phrase is the meaning of the phrase, or that which determines its extension. Thus, for example, while ‘human’ and ‘featherless biped’ have the same extension since every human is a featherless biped and vice versa, they have different intensions since the two phrases differ in meaning. For a more detailed discussion of the distinction between extension and intension, see <span class="citation" data-cites="Carnap1988-nm">Carnap (<a href="#ref-Carnap1988-nm" role="doc-biblioref">1988</a>)</span>, ch.&nbsp;1.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>The proof system introduced below was first proposed as a formalization of Aristotle’s theory of the syllogism by <span class="citation" data-cites="Corcoran1972-wl">Corcoran (<a href="#ref-Corcoran1972-wl" role="doc-biblioref">1972</a>)</span>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>The names here given to the rules are taken from the following Latin poem created in the 13th century to help medieval logic students memorize the valid syllogistic forms:</p>
+<blockquote class="blockquote">
+<p><em>Barbara, Celarent, Darii, Ferioque</em> prima (first); <em>Cesare, Camestres, Festino, Baroco</em> secunda (second); Tertia (third) <em>Darapti, Disamis, Datisi, Felapton,</em> <em>Bocardo, Ferison</em>; Quarta (fourth) sunt <em>Bramantip, Camenes,</em> <em>Dimaris, Fesapo, Fresison</em>.</p>
+</blockquote>
+<p>In the entry on “Traditional Logic” in <span class="citation" data-cites="Brody2006-dz">Brody (<a href="#ref-Brody2006-dz" role="doc-biblioref">2006</a>)</span> <em>Glossary of Logical Terms</em>, the key for the mnemonic employed in this poem is described as follows: “The three vowels respectively indicate the three constituent propositions of the syllogism as <span class="math inline">\(\textbf{a}\)</span>, <span class="math inline">\(\textbf{e}\)</span>, <span class="math inline">\(\textbf{i}\)</span>, or <span class="math inline">\(\textbf{o}\)</span>. For first-figure syllogisms the initial consonants are arbitrarily the first four consonants; for the other figures the initial consonants indicate to which of the first-figure syllogisms the syllogism in question may be reduced. Other consonants occurring in second-, third-, and fourth-figure mnemonics indicate the operation that must be performed on the proposition indicated by the preceding vowel in order to reduce the syllogism to a first-figure syllogism”.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Named after Frederic Brenton Fitch, who developed the notational scheme in the 1930s during his doctoral studies at Princeton under Alonzo Church.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1147,18 +1526,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1190,7 +1558,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1225,7 +1631,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1273,7 +1683,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

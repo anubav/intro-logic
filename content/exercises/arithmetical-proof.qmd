@@ -1,0 +1,3 @@
+Complete the arithmetical proof started above. Add any additional rules that are
+required to deduce the conclusion from the premises together with basic
+arithmetical facts.
