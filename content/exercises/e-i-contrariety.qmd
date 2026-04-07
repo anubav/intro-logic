@@ -1,7 +1,7 @@
 a. Show that, for any interpretation, the sentences $\all{A}{B}$ and
 $\somenot{A}{B}$ cannot both be false.
 
-b. Show that, for any intepretation, the sentence $\no{A}{B}$ is true iff the
+b. Show that, for any interpretation, the sentence $\no{A}{B}$ is true iff the
 sentence $\some{A}{B}$ is false.
 
 c. Is there an interpretation on which $\all{A}{B}$ and $\no{A}{B}$ are both

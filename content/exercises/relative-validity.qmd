@@ -1,5 +1,11 @@
-Let $\ph,\psi$, and $\chi$ be distinct sentences. Construct a two-member set of
-truth valuations $V$ such that the following three claims are all true:
+Let $\ph,\psi$, and $\chi$ be distinct sentences. Add truth values to the
+following table:
+
+![](/content/static/images/two-truth-valuations.svg){width=150
+fig-align="center" fig-alt="Truth Valuations"}
+
+to specify a two-member set of truth-valuations $V=\{v_1,v_2\}$ with respect to
+which the following three claims are all true:
 
 1. $\ph,\psi\models_V\chi$
 2. $\ph\not\models_V\chi$

@@ -5,13 +5,13 @@
 We have, thus far, discussed how to represent arguments and what it means for an
 argument to be valid. Next, we turn to the topic of reasoning.
 
-A method of reasoning is any method or procedure by which one proposes to assess
+A method of reasoning is any method or procedure by means of which one assesses
 the validity of an argument. Given the definition of validity offered in the
 previous section, it may be thought that the most direct method of reasoning
 consists in evaluating the truth values of the sentences comprising that
 argument under all the possible interpretations of the language. Having done so,
-one then concludes that the argument is valid just in case no counterexample
-is found under which all of the premises are true and the conclusion is false.
+one then concludes that the argument is valid just in case no counterexample is
+found under which all of the premises are true and the conclusion false.
 
 While the correctness of this procedure follows immediately from our definition
 of argumentative validity, it clearly does not represent the way in which
@@ -83,17 +83,13 @@ might transcribe this transformation as follows:
 The note at the end of the last line indicates that we are applying the rule
 "Multiply by 2" to line 1. This rule can be formulated as follows:
 
-(Multiply by 2) For any numerical expressions $\al$ and $\be$: If $\al > \be$,
+(Multiply by 2) For any numerical expressions $\al$ and $\be$: from $\al > \be$,
 it follows that $2\cdot \al > 2\cdot \be$.
 
-Strictly speaking, if we treat this rule simply as a rule licensing a certain
-syntactic transformation, it doesn't quite get us what we want. For, if we apply
-the rule, as stated, to the sentence $y > 1$, what we get is $2\cdot y > 2\cdot
-1$---not $2\cdot y > 2$. Now, of course, we all know it to be a basic fact
-about arithmetic that $2\cdot 1 = 2$, and so we naturally perform the requisite
-substitution in our head. But to give a more complete transcription of the
-reasoning here, we can be fully explicit and include the substition as another
-step in the proof:
+Note, however, that if we are strict about how we apply this rule, it doesn't quite get us what we want. For, if we apply
+the rule, as stated, to the sentence $y > 1$, what we actually get is $2\cdot y>2\cdot 1$---not $2\cdot y > 2$. Now, of course, we all know it to be a basic fact about arithmetic that $2\cdot 1 = 2$, and so we naturally perform the
+requisite substitution in our head. But to give a more complete transcription of
+the reasoning here, we ought to be explicit and include the substition as another step in the proof:
 
 :::{.lproof}
 
@@ -104,22 +100,22 @@ step in the proof:
 
 :::
 
-Here we appeal to the basic arithmetical fact that $2\cdot 1 = 2$ in line 2 of
+Here we appeal to the basic arithmetical fact that $2\cdot 1 = 2$ in line 3 of
 the proof. A rule of substitution is then applied to lines 2 and 3 of the proof
 to give us line 4. This substitution rule can be stated as follows:
 
 (Substitution of Equals) Let $\psi$ be the result of substituting one numerical
 expression $\beta$ for another numerical expression $\alpha$ in the sentence
-$\ph$. Then, if $\alpha=\beta$ and $\ph$, it follows that $\psi$.
+$\ph$. Then, from $\alpha=\beta$ and $\ph$, it follows that $\psi$.
 
-The proof now is correct, but the rule Multiply by 2 seems a bit too specific.
-We don't want to have to posit separate rules for every possible number that we
+While the proof is now correct, the rule Multiply by 2 seems a bit too specific.
+After all, we don't want to have to posit separate rules for every possible number that we
 might want to utilize as a multiplier in an algebraic proof. A better rule, that
 licenses the general sort of transformation that we have in mind, would be
 something like:
 
 (Multiply by $n>0$) For any number $n$, and any numerical expressions $\al$ and
-$\be$: If $n > 0$ and $\al > \be$, it follows that $n\cdot \al > n\cdot \be$.
+$\be$: from $n > 0$ and $\al > \be$, it follows that $n\cdot \al > n\cdot \be$.
 
 To apply this rule, we now have to cite a further arithmetical fact, namely, that $2 >
 0$. All told, now, the proof looks like this:
@@ -136,7 +132,7 @@ To apply this rule, we now have to cite a further arithmetical fact, namely, tha
 
 This, of course, is only the first step of the reasoning. But if we continue in
 this way, spelling out the proof in detail, one step at a time, eventually the
-reasoning should terminate with the conclusion of the argument appearing as the last
+reasoning will terminate with the conclusion of the argument appearing as the last
 line of the proof.
 
 :::{.lproof}
@@ -172,7 +168,7 @@ three categories:
 
 In general, we refer to the sort of basic claims that we can freely appeal to in
 the course of giving a proof as _axioms_. With respect to a set of axioms and
-rules of inference, each of which tells us that certain sentences can be inferred
+rules of inference, each of which tells us that certain sentences follow
 from others, a _proof_ can now be defined as follows:
 
 ::: {#def-proof .definition}
@@ -259,10 +255,11 @@ $$
 \frac{\no{A}{B}}{\no{B}{A}}
 $$
 
-By means of these axioms and rules, we can give proofs to establish the validity of arguments in L$_S$. For example, we can show:
+By means of these axioms and rules, we can give proofs to establish the validity
+of arguments in L$_S$. For example, we can show that the following argument is valid:
 
 $$
-\all{A}{B}, \all{B}{C}, \no{D}{C} \models \no{D}{A}
+\all{A}{B}, \all{B}{C}, \no{D}{C} \proves \no{D}{A}
 $$
 
 The proof is as follows:
@@ -282,7 +279,7 @@ The proof is as follows:
 Here's another example:
 
 $$
-\all{A}{B}, \no{B}{C}, \all{D}{A}, \all{E}{D} \models \no{C}{E}
+\all{A}{B}, \no{B}{C}, \all{D}{A}, \all{E}{D} \proves \no{C}{E}
 $$
 
 the proof is:
@@ -331,7 +328,8 @@ $$
 $$
 
 To enable the proof of such arguments, we could supplement the proof system by
-adding more rules of inference. Interestingly, however, this is not the primary
+adding more rules of inference. Indeed, Aristotle, in the _Prior Analytics_
+tells us just which rules we need to add. Interestingly, however, this is not the primary
 approach adopted by Aristotle. To prove such arguments, Aristotle instead
 employs a new method of proof which he have not yet considered, the method of
 _reductio ad absurdum_ or proof by contradiction. To formalize proofs by

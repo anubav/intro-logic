@@ -519,7 +519,7 @@ Y\)</span>, we say that <span class="math inline">\(X\)</span> is a ‘proper’
     X^c=\{x\in \Omega: x\not\in X\}
 \]</span></p>
 <p>The Venn diagrams in <a href="#fig-set-operations" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> can help to visualize the effect of performing these set operations:</p>
-<div id="fig-set-operations" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Set Operations" data-fig-align="center">
+<div id="fig-set-operations" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Set Operations">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-set-operations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../../../content/static/images/set-operations.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Set Operations" width="650">
@@ -627,7 +627,13 @@ cold-blooded}}{\textrm{No humans are cold-blooded}}
 \]</span></p>
 <p>The symbol ‘<span class="math inline">\(\models\)</span>’ is sometimes referred to as the double turnstile.</p>
 <div id="exr-relative-validity" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 1.8</strong></span> Let <span class="math inline">\(\varphi,\psi\)</span>, and <span class="math inline">\(\chi\)</span> be distinct sentences. Construct a two-member set of truth valuations <span class="math inline">\(V\)</span> such that the following three claims are all true:</p>
+<p><span class="theorem-title"><strong>Exercise 1.8</strong></span> Let <span class="math inline">\(\varphi,\psi\)</span>, and <span class="math inline">\(\chi\)</span> be distinct sentences. Add truth values to the following table:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/two-truth-valuations.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Truth Valuations" width="150"></p>
+</figure>
+</div>
+<p>to specify a two-member set of truth-valuations <span class="math inline">\(V=\{v_1,v_2\}\)</span> with respect to which the following three claims are all true:</p>
 <ol type="1">
 <li><span class="math inline">\(\varphi,\psi\models_V\chi\)</span></li>
 <li><span class="math inline">\(\varphi\not\models_V\chi\)</span></li>
@@ -713,7 +719,7 @@ A\textrm{\textbf{o}}B &amp;\qquad\qquad(\textrm{Some $A$s are not $B$s})\\
 <div id="def-interpretation-Ls" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.5</strong></span> An <em>interpretation</em> of the language <span class="math inline">\(L_{\mathbf{S}}\)</span> is a function assigning to each term a subset of <span class="math inline">\(\Omega\)</span>. If <span class="math inline">\(\sigma\)</span> is an interpretation and <span class="math inline">\(A\)</span> is a term, we write <span class="math inline">\(\sigma(A)\)</span> for the subset of <span class="math inline">\(\Omega\)</span> assigned to <span class="math inline">\(A\)</span> by the interpretation <span class="math inline">\(\sigma\)</span>.</p>
 </div>
-<div id="fig-model-S" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Syllogistic model" data-fig-align="center">
+<div id="fig-model-S" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Syllogistic model">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-model-S-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../../../content/static/images/syllogistic-model.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Syllogistic model" width="450">
@@ -768,7 +774,7 @@ v^\sigma(D\textrm{\textbf{o}}B)=\mathbf{T}
 <p><span class="theorem-title"><strong>Exercise 1.10</strong></span> &nbsp;</p>
 <ol type="a">
 <li><p>Show that, for any interpretation, the sentences <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{o}}B\)</span> cannot both be false.</p></li>
-<li><p>Show that, for any intepretation, the sentence <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> is true iff the sentence <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> is false.</p></li>
+<li><p>Show that, for any interpretation, the sentence <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> is true iff the sentence <span class="math inline">\(A\textrm{\textbf{i}}B\)</span> is false.</p></li>
 <li><p>Is there an interpretation on which <span class="math inline">\(A\textrm{\textbf{a}}B\)</span> and <span class="math inline">\(A\textrm{\textbf{e}}B\)</span> are both false? Explain your answer.</p></li>
 </ol>
 </div>
@@ -836,7 +842,7 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 <section id="reasoning-by-proof" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="reasoning-by-proof"><span class="header-section-number">1.5.1</span> Reasoning by Proof</h3>
 <p>We have, thus far, discussed how to represent arguments and what it means for an argument to be valid. Next, we turn to the topic of reasoning.</p>
-<p>A method of reasoning is any method or procedure by which one proposes to assess the validity of an argument. Given the definition of validity offered in the previous section, it may be thought that the most direct method of reasoning consists in evaluating the truth values of the sentences comprising that argument under all the possible interpretations of the language. Having done so, one then concludes that the argument is valid just in case no counterexample is found under which all of the premises are true and the conclusion is false.</p>
+<p>A method of reasoning is any method or procedure by means of which one assesses the validity of an argument. Given the definition of validity offered in the previous section, it may be thought that the most direct method of reasoning consists in evaluating the truth values of the sentences comprising that argument under all the possible interpretations of the language. Having done so, one then concludes that the argument is valid just in case no counterexample is found under which all of the premises are true and the conclusion false.</p>
 <p>While the correctness of this procedure follows immediately from our definition of argumentative validity, it clearly does not represent the way in which reasoning ordinarily proceeds. Take, for example, the following arithmetical argument of the sort that one might encounter in a high school algebra course:</p>
 <p><span class="math display">\[
 \frac{x + 2y = -2\hspace{3mm},\hspace{3mm} y &gt; 1}{8 &lt; -2x}
@@ -870,9 +876,8 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 </div>
 </div>
 <p>The note at the end of the last line indicates that we are applying the rule “Multiply by 2” to line 1. This rule can be formulated as follows:</p>
-<p>(Multiply by 2) For any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: If <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(2\cdot \alpha&gt; 2\cdot \beta\)</span>.</p>
-<p>Strictly speaking, if we treat this rule simply as a rule licensing a certain syntactic transformation, it doesn’t quite get us what we want. For, if we apply the rule, as stated, to the sentence <span class="math inline">\(y &gt; 1\)</span>, what we get is <span class="math inline">\(2\cdot y &gt; 2\cdot
-1\)</span>—not <span class="math inline">\(2\cdot y &gt; 2\)</span>. Now, of course, we all know it to be a basic fact about arithmetic that <span class="math inline">\(2\cdot 1 = 2\)</span>, and so we naturally perform the requisite substitution in our head. But to give a more complete transcription of the reasoning here, we can be fully explicit and include the substition as another step in the proof:</p>
+<p>(Multiply by 2) For any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: from <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(2\cdot \alpha&gt; 2\cdot \beta\)</span>.</p>
+<p>Note, however, that if we are strict about how we apply this rule, it doesn’t quite get us what we want. For, if we apply the rule, as stated, to the sentence <span class="math inline">\(y &gt; 1\)</span>, what we actually get is <span class="math inline">\(2\cdot y&gt;2\cdot 1\)</span>—not <span class="math inline">\(2\cdot y &gt; 2\)</span>. Now, of course, we all know it to be a basic fact about arithmetic that <span class="math inline">\(2\cdot 1 = 2\)</span>, and so we naturally perform the requisite substitution in our head. But to give a more complete transcription of the reasoning here, we ought to be explicit and include the substition as another step in the proof:</p>
 <div class="lproof">
 <div class="proof-line" data-number="1" data-depth="0">
 <span class="line-number"><span class="math inline">\(1\)</span></span>
@@ -895,10 +900,10 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 <span class="proof-justification">Substitution of Equals: <span class="math inline">\(2, 3\)</span></span>
 </div>
 </div>
-<p>Here we appeal to the basic arithmetical fact that <span class="math inline">\(2\cdot 1 = 2\)</span> in line 2 of the proof. A rule of substitution is then applied to lines 2 and 3 of the proof to give us line 4. This substitution rule can be stated as follows:</p>
-<p>(Substitution of Equals) Let <span class="math inline">\(\psi\)</span> be the result of substituting one numerical expression <span class="math inline">\(\beta\)</span> for another numerical expression <span class="math inline">\(\alpha\)</span> in the sentence <span class="math inline">\(\varphi\)</span>. Then, if <span class="math inline">\(\alpha=\beta\)</span> and <span class="math inline">\(\varphi\)</span>, it follows that <span class="math inline">\(\psi\)</span>.</p>
-<p>The proof now is correct, but the rule Multiply by 2 seems a bit too specific. We don’t want to have to posit separate rules for every possible number that we might want to utilize as a multiplier in an algebraic proof. A better rule, that licenses the general sort of transformation that we have in mind, would be something like:</p>
-<p>(Multiply by <span class="math inline">\(n&gt;0\)</span>) For any number <span class="math inline">\(n\)</span>, and any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: If <span class="math inline">\(n &gt; 0\)</span> and <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(n\cdot \alpha&gt; n\cdot \beta\)</span>.</p>
+<p>Here we appeal to the basic arithmetical fact that <span class="math inline">\(2\cdot 1 = 2\)</span> in line 3 of the proof. A rule of substitution is then applied to lines 2 and 3 of the proof to give us line 4. This substitution rule can be stated as follows:</p>
+<p>(Substitution of Equals) Let <span class="math inline">\(\psi\)</span> be the result of substituting one numerical expression <span class="math inline">\(\beta\)</span> for another numerical expression <span class="math inline">\(\alpha\)</span> in the sentence <span class="math inline">\(\varphi\)</span>. Then, from <span class="math inline">\(\alpha=\beta\)</span> and <span class="math inline">\(\varphi\)</span>, it follows that <span class="math inline">\(\psi\)</span>.</p>
+<p>While the proof is now correct, the rule Multiply by 2 seems a bit too specific. After all, we don’t want to have to posit separate rules for every possible number that we might want to utilize as a multiplier in an algebraic proof. A better rule, that licenses the general sort of transformation that we have in mind, would be something like:</p>
+<p>(Multiply by <span class="math inline">\(n&gt;0\)</span>) For any number <span class="math inline">\(n\)</span>, and any numerical expressions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: from <span class="math inline">\(n &gt; 0\)</span> and <span class="math inline">\(\alpha&gt; \beta\)</span>, it follows that <span class="math inline">\(n\cdot \alpha&gt; n\cdot \beta\)</span>.</p>
 <p>To apply this rule, we now have to cite a further arithmetical fact, namely, that <span class="math inline">\(2 &gt;
 0\)</span>. All told, now, the proof looks like this:</p>
 <div class="lproof">
@@ -928,7 +933,7 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 <span class="proof-justification">Substitution of Equals: <span class="math inline">\(3, 4\)</span></span>
 </div>
 </div>
-<p>This, of course, is only the first step of the reasoning. But if we continue in this way, spelling out the proof in detail, one step at a time, eventually the reasoning should terminate with the conclusion of the argument appearing as the last line of the proof.</p>
+<p>This, of course, is only the first step of the reasoning. But if we continue in this way, spelling out the proof in detail, one step at a time, eventually the reasoning will terminate with the conclusion of the argument appearing as the last line of the proof.</p>
 <div class="lproof">
 <div class="proof-line" data-number="1" data-depth="0">
 <span class="line-number"><span class="math inline">\(1\)</span></span>
@@ -976,7 +981,7 @@ v^\sigma(A\textrm{\textbf{e}}C) = \mathbf{F}
 <li><p>Basic facts of arithmetic (e.g., <span class="math inline">\(2&gt;0\)</span> or <span class="math inline">\(2\cdot 1 = 2\)</span>).</p></li>
 <li><p>The result of applying a rule of inference to claims already established in the proof.</p></li>
 </ol>
-<p>In general, we refer to the sort of basic claims that we can freely appeal to in the course of giving a proof as <em>axioms</em>. With respect to a set of axioms and rules of inference, each of which tells us that certain sentences can be inferred from others, a <em>proof</em> can now be defined as follows:</p>
+<p>In general, we refer to the sort of basic claims that we can freely appeal to in the course of giving a proof as <em>axioms</em>. With respect to a set of axioms and rules of inference, each of which tells us that certain sentences follow from others, a <em>proof</em> can now be defined as follows:</p>
 <div id="def-proof" class="definition theorem">
 <p><span class="theorem-title"><strong>Definition 1.7</strong></span> Given a set of axioms and rules of inference, a <em>proof</em> of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\Gamma\)</span> is a finite sequence of sentences, the last of which is the sentence <span class="math inline">\(\varphi\)</span> and each of which is either (1) a member of the set <span class="math inline">\(\Gamma\)</span>; (2) an axiom; or (3) the result of applying one of the rules of inference to sentences appearing earlier in the proof.</p>
 </div>
@@ -1011,9 +1016,9 @@ A\textrm{\textbf{a}}A
 <p><span class="math display">\[
 \frac{A\textrm{\textbf{e}}B}{B\textrm{\textbf{e}}A}
 \]</span></p>
-<p>By means of these axioms and rules, we can give proofs to establish the validity of arguments in L<span class="math inline">\(_S\)</span>. For example, we can show:</p>
+<p>By means of these axioms and rules, we can give proofs to establish the validity of arguments in L<span class="math inline">\(_S\)</span>. For example, we can show that the following argument is valid:</p>
 <p><span class="math display">\[
-A\textrm{\textbf{a}}B, B\textrm{\textbf{a}}C, D\textrm{\textbf{e}}C \models D\textrm{\textbf{e}}A
+A\textrm{\textbf{a}}B, B\textrm{\textbf{a}}C, D\textrm{\textbf{e}}C \vdash D\textrm{\textbf{e}}A
 \]</span></p>
 <p>The proof is as follows:</p>
 <div class="lproof">
@@ -1055,7 +1060,7 @@ A\textrm{\textbf{a}}B, B\textrm{\textbf{a}}C, D\textrm{\textbf{e}}C \models D\te
 </div>
 <p>Here’s another example:</p>
 <p><span class="math display">\[
-A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C, D\textrm{\textbf{a}}A, E\textrm{\textbf{a}}D \models C\textrm{\textbf{e}}E
+A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C, D\textrm{\textbf{a}}A, E\textrm{\textbf{a}}D \vdash C\textrm{\textbf{e}}E
 \]</span></p>
 <p>the proof is:</p>
 <div class="lproof">
@@ -1147,7 +1152,7 @@ A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C, D\textrm{\textbf{a}}A, E\textrm{\t
 <p><span class="math display">\[
 A\textrm{\textbf{i}}B, B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{i}}C
 \]</span></p>
-<p>To enable the proof of such arguments, we could supplement the proof system by adding more rules of inference. Interestingly, however, this is not the primary approach adopted by Aristotle. To prove such arguments, Aristotle instead employs a new method of proof which he have not yet considered, the method of <em>reductio ad absurdum</em> or proof by contradiction. To formalize proofs by contradiction, we have to revisit our original definition of a proof and expand it so as to accommodate what we shall refer to as ‘hypothetical’ proofs.</p>
+<p>To enable the proof of such arguments, we could supplement the proof system by adding more rules of inference. Indeed, Aristotle, in the <em>Prior Analytics</em> tells us just which rules we need to add. Interestingly, however, this is not the primary approach adopted by Aristotle. To prove such arguments, Aristotle instead employs a new method of proof which he have not yet considered, the method of <em>reductio ad absurdum</em> or proof by contradiction. To formalize proofs by contradiction, we have to revisit our original definition of a proof and expand it so as to accommodate what we shall refer to as ‘hypothetical’ proofs.</p>
 </section>
 <section id="proof-by-contradiction" class="level3" data-number="1.5.3">
 <h3 data-number="1.5.3" class="anchored" data-anchor-id="proof-by-contradiction"><span class="header-section-number">1.5.3</span> Proof by Contradiction</h3>
@@ -1437,13 +1442,14 @@ A\textrm{\textbf{a}}B, A\textrm{\textbf{o}}B\vdash C\textrm{\textbf{e}}D
 </div>
 </div>
 <div id="exr-proofs-in-S" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Assess the validity of the following arguments. If the argument is valid, provide a proof. If it is invalid, provide a counterexample.</p>
+<p><span class="theorem-title"><strong>Exercise 1.14</strong></span> Show that the following arguments are valid by giving a proof of the conclusion from the premises:</p>
 <ol type="a">
 <li><p><span class="math inline">\(A\textrm{\textbf{i}}B\vdash B\textrm{\textbf{i}}A\)</span></p></li>
-<li><p><span class="math inline">\(A\textrm{\textbf{a}}B\vdash B\textrm{\textbf{i}}A\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, B\textrm{\textbf{e}}C, C\textrm{\textbf{i}}D\vdash A\textrm{\textbf{e}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, A\textrm{\textbf{i}}A\vdash B\textrm{\textbf{i}}A\)</span></p></li>
 <li><p><span class="math inline">\(A\textrm{\textbf{e}}B, B\textrm{\textbf{i}}A\vdash D\textrm{\textbf{o}}C\)</span></p></li>
-<li><p><span class="math inline">\(A\textrm{\textbf{a}}B, C\textrm{\textbf{i}}A\vdash C\textrm{\textbf{i}}B\)</span></p></li>
-<li><p><span class="math inline">\(A\textrm{\textbf{o}}B, C\textrm{\textbf{a}}B\vdash A\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{i}}B, B\textrm{\textbf{e}}C\vdash A\textrm{\textbf{o}}C\)</span></p></li>
+<li><p><span class="math inline">\(A\textrm{\textbf{o}}B, B\textrm{\textbf{a}}C\vdash A\textrm{\textbf{o}}C\)</span></p></li>
 <li><p><span class="math inline">\(A\textrm{\textbf{e}}B, C\textrm{\textbf{i}}A, D\textrm{\textbf{a}}B\vdash C\textrm{\textbf{o}}D\)</span></p></li>
 </ol>
 </div>

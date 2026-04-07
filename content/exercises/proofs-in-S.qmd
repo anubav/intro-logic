@@ -1,14 +1,16 @@
-Assess the validity of the following arguments. If the argument is valid,
-provide a proof. If it is invalid, provide a counterexample.
+Show that the following arguments are valid by giving a proof of the conclusion
+from the premises:
 
 a. $\some{A}{B}\proves\some{B}{A}$
 
-b. $\all{A}{B}\proves\some{B}{A}$
+b. $\all{A}{B}, \no{B}{C}, \some{C}{D}\proves \no{A}{C}$
 
-c. $\no{A}{B}, \some{B}{A}\proves\somenot{D}{C}$
+c. $\all{A}{B}, \some{A}{A}\proves\some{B}{A}$
 
-d. $\all{A}{B}, \some{C}{A}\proves\some{C}{B}$
+d. $\no{A}{B}, \some{B}{A}\proves\somenot{D}{C}$
 
-e. $\somenot{A}{B}, \all{C}{B}\proves\somenot{A}{C}$
+e. $\some{A}{B}, \no{B}{C}\proves\somenot{A}{C}$
 
-f. $\no{A}{B}, \some{C}{A}, \all{D}{B}\proves\somenot{C}{D}$
+f. $\somenot{A}{B}, \all{B}{C}\proves\somenot{A}{C}$
+
+g. $\no{A}{B}, \some{C}{A}, \all{D}{B}\proves\somenot{C}{D}$
