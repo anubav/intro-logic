@@ -11,6 +11,6 @@ d. $\no{A}{B}, \some{B}{A}\proves\somenot{D}{C}$
 
 e. $\some{A}{B}, \no{B}{C}\proves\somenot{A}{C}$
 
-f. $\somenot{A}{B}, \all{B}{C}\proves\somenot{A}{C}$
+f. $\somenot{A}{B}, \all{C}{B}\proves\somenot{A}{C}$
 
 g. $\no{A}{B}, \some{C}{A}, \all{D}{B}\proves\somenot{C}{D}$

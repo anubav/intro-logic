@@ -527,5 +527,5 @@ contradiction as follows:
 :::
 
 Does every valid argument expressible in L$_S$ have a proof in this system? The
-answer, as it turns out, is yes, but for the purposes of this class, you will just have
+answer, as it turns out, is yes, but for now, you will just have
 to take my word for it.

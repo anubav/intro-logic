@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Anubav Vasudevan">
 
-<title>Introduction to Logic</title>
+<title>Solutions to Selected Exercises – Introduction to Logic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./content/front-matter/00-introduction/introduction.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
-<link href="site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
+<link href="../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,13 +75,42 @@ ul.task-list li input[type="checkbox"] {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
-<script src="./assets/scripts/definitions.js"></script>
+<script src="../../assets/scripts/definitions.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="assets/styles/fonts.css">
-<link rel="stylesheet" href="assets/styles/environments.css">
-<link rel="stylesheet" href="assets/styles/tweaks.css">
-<link rel="stylesheet" href="assets/styles/custom.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/styles/fonts.css">
+<link rel="stylesheet" href="../../assets/styles/environments.css">
+<link rel="stylesheet" href="../../assets/styles/tweaks.css">
+<link rel="stylesheet" href="../../assets/styles/custom.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Front Matter</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/back-matter/solutions.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../content/back-matter/solutions.html">Solutions to Selected Exercises</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Introduction to Logic</a> 
+      <a href="../../">Introduction to Logic</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -121,34 +149,34 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Front Matter</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/front-matter/00-introduction/introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/front-matter/00-introduction/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/back-matter/solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/back-matter/solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Solutions to Selected Exercises</span></a>
   </div>
 </li>
@@ -164,28 +192,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#front-matter" id="toc-front-matter" class="nav-link active" data-scroll-target="#front-matter">Front Matter</a></li>
+  <li><a href="#chapter-1---argument-validity-proof" id="toc-chapter-1---argument-validity-proof" class="nav-link active" data-scroll-target="#chapter-1---argument-validity-proof">Chapter 1 - Argument, Validity &amp; Proof</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/back-matter/solutions.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../content/back-matter/solutions.html">Solutions to Selected Exercises</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to Logic</h1>
+<h1 class="title">Solutions to Selected Exercises</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Anubav Vasudevan </p>
-          </div>
-  </div>
     
   
     
@@ -196,8 +218,70 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="front-matter" class="level2 unnumbered hidden">
-<h2 class="unnumbered hidden anchored" data-anchor-id="front-matter">Front Matter</h2>
+<div class="hidden">
+<!-- Greek letters -->
+<!-- set operations -->
+<!-- script letters -->
+<!-- bold letters -->
+<!-- logic -->
+<!-- propositional logic -->
+<!-- syllogistic logic -->
+<!-- miscellaneous -->
+</div>
+<section id="chapter-1---argument-validity-proof" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-1---argument-validity-proof">Chapter 1 - Argument, Validity &amp; Proof</h2>
+<p><a href="../body/chapters/01-argument-validity-proof/argument-validity-proof.html#exr-syllogism-translations" class="quarto-xref">Exercise&nbsp;<span>1.1</span></a></p>
+<ol type="a">
+<li><p><span class="math inline">\(S\)</span>: Student</p>
+<p><span class="math inline">\(A\)</span>: Athlete</p>
+<p><span class="math inline">\(D\)</span>: Disciplined Person</p>
+<p><span class="math display">\[
+S\textrm{\textbf{i}}A, A\textrm{\textbf{a}}D\vdash S\textrm{\textbf{i}}D
+\]</span></p></li>
+<li><p><span class="math inline">\(D\)</span>: Dog</p>
+<p><span class="math inline">\(M\)</span>: Mammal</p>
+<p><span class="math inline">\(R\)</span>: Reptile</p>
+<p><span class="math display">\[
+D\textrm{\textbf{a}}M, M\textrm{\textbf{e}}R\vdash D\textrm{\textbf{e}}R
+\]</span></p></li>
+<li><p><span class="math inline">\(B\)</span>: Bird</p>
+<p><span class="math inline">\(A\)</span>: Animal</p>
+<p><span class="math inline">\(F\)</span>: Thing that can fly</p>
+<p><span class="math display">\[
+B\textrm{\textbf{a}}A, A\textrm{\textbf{o}}F\vdash B\textrm{\textbf{o}}F
+\]</span></p></li>
+<li><p><span class="math inline">\(R\)</span>: Reader who prefers difficult texts</p>
+<p><span class="math inline">\(A\)</span>: Person who appreciates ambiguity</p>
+<p><span class="math inline">\(I\)</span>: Person who is intellectually adventurous</p>
+<p><span class="math display">\[
+R\textrm{\textbf{o}}A, A\textrm{\textbf{o}}I\vdash R\textrm{\textbf{o}}I
+\]</span></p></li>
+</ol>
+<p><a href="../body/chapters/01-argument-validity-proof/argument-validity-proof.html#exr-denoting-sets" class="quarto-xref">Exercise&nbsp;<span>1.3</span></a></p>
+<ol type="a">
+<li><p><span class="math inline">\(8\)</span></p></li>
+<li><p><span class="math inline">\(17\)</span> (or greater)</p></li>
+<li><p><span class="math inline">\(\log_{2} n\)</span></p></li>
+<li><p><span class="math inline">\(2^n\)</span></p></li>
+</ol>
+<p><a href="../body/chapters/01-argument-validity-proof/argument-validity-proof.html#exr-set-facts" class="quarto-xref">Exercise&nbsp;<span>1.4</span></a></p>
+<ol type="a">
+<li><p>Suppose <span class="math inline">\(X\subset Y\)</span>, and let <span class="math inline">\(a\in X\cup Z\)</span>. Then, either <span class="math inline">\(a\in X\)</span> or <span class="math inline">\(a\in
+Z\)</span>. If, on the one hand, <span class="math inline">\(a\in X\)</span>, then, since <span class="math inline">\(X\subset Y\)</span>, it follows that <span class="math inline">\(a\in Y\)</span> and so <span class="math inline">\(a\in Y\cup Z\)</span>. If, on the other hand, <span class="math inline">\(a\in Z\)</span>, then <span class="math inline">\(a\in
+Y\cup Z\)</span>. So, in either case, <span class="math inline">\(a\in Y\cup Z\)</span>. Hence, if <span class="math inline">\(a\in X\cup Z\)</span>, then <span class="math inline">\(a\in Y\cup Z\)</span>, that is <span class="math inline">\(X\cup Z\subset Y\cup Z\)</span>.</p></li>
+<li></li>
+<li><p>First, suppose <span class="math inline">\(X\subset Y^c\)</span> and let <span class="math inline">\(a\in Y\)</span>. Then <span class="math inline">\(a\not\in Y^c\)</span>, and so, since <span class="math inline">\(X\subset Y^c\)</span>, it follows that <span class="math inline">\(a\not\in X\)</span>. So <span class="math inline">\(a\in X^c\)</span>. Hence, if <span class="math inline">\(a\in Y\)</span>, then <span class="math inline">\(a\in X^c\)</span>, that is, <span class="math inline">\(Y\subset X^c\)</span>.</p>
+<p>Next, suppose <span class="math inline">\(Y\subset X^c\)</span> and let <span class="math inline">\(a\in X\)</span>. Then <span class="math inline">\(a\not\in X^c\)</span>, and so, since <span class="math inline">\(Y\subset X^c\)</span>, it follows that <span class="math inline">\(a\not\in Y\)</span>. So <span class="math inline">\(a\in Y^c\)</span>. Hence, if <span class="math inline">\(a\in X\)</span>, then <span class="math inline">\(a\in Y^c\)</span>, that is, <span class="math inline">\(X\subset Y^c\)</span>.</p></li>
+<li><p>First, suppose <span class="math inline">\(a\in X\cup(Y-X)\)</span>. Then, either <span class="math inline">\(a\in X\)</span> or <span class="math inline">\(a\in Y-X\)</span>. If, on the one hand, <span class="math inline">\(a\in X\)</span>, then <span class="math inline">\(a\in X\cup Y\)</span>. If, on the other hand <span class="math inline">\(a\in Y-X\)</span>, then <span class="math inline">\(a\in Y\)</span>, and so <span class="math inline">\(a\in X\cup Y\)</span>. So, in either case, <span class="math inline">\(a\in X\cup Y\)</span>. Hence, if <span class="math inline">\(a\in X\cup(Y-X)\)</span>, then <span class="math inline">\(a\in X\cup Y\)</span>, that is <span class="math inline">\(X\cup(Y-X)\subset X\cup Y\)</span>.</p>
+<p>Next, suppose <span class="math inline">\(a\in X\cup Y\)</span>. Then, either <span class="math inline">\(a\in X\)</span> or <span class="math inline">\(a\in Y\)</span>. If, on the one hand, <span class="math inline">\(a\in X\)</span>, then <span class="math inline">\(a\in X\cup(Y-X)\)</span>. Suppose, on the other hand, that <span class="math inline">\(a\in Y\)</span>. If <span class="math inline">\(a\in X\)</span>, then <span class="math inline">\(a\in X\cup(Y-X)\)</span>. If <span class="math inline">\(a\not\in X\)</span>, then <span class="math inline">\(a\in Y-X\)</span>, so again <span class="math inline">\(a\in X\cup(Y-X)\)</span>. So, in either case, <span class="math inline">\(a\in X\cup(Y-X)\)</span>. Hence, if <span class="math inline">\(a\in X\cup Y\)</span>, then <span class="math inline">\(a\in X\cup(Y-X)\)</span>, that is <span class="math inline">\(X\cup Y\subset X\cup(Y-X)\)</span>.</p>
+<p>Since <span class="math inline">\(X\cup(Y-X)\subset X\cup Y\)</span> and <span class="math inline">\(X\cup Y\subset X\cup(Y-X)\)</span>, it follows that <span class="math inline">\(X\cup(Y-X)=X\cup Y\)</span>.</p></li>
+</ol>
+<p><a href="../body/chapters/01-argument-validity-proof/argument-validity-proof.html#exr-venn-diagrams" class="quarto-xref">Exercise&nbsp;<span>1.5</span></a></p>
+<ol type="a">
+<li><p><span class="math inline">\((X-Y)\cup(Y-X)\)</span> (or: <span class="math inline">\((X\cup Y) - (X\cap Y)\)</span>)</p></li>
+<li><p><span class="math inline">\(((X-Y)\cup(Y-X))^c\)</span> (or: <span class="math inline">\((X\cup Y)^c\cup(X\cap Y)\)</span>)</p></li>
+<li><p><span class="math inline">\(((X\cap Y)-Z)\cup(Z-(X\cup Y))\)</span></p></li>
+</ol>
 
 
 </section>
@@ -348,124 +432,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         return "";
       }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -622,11 +588,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="pagination-link" aria-label="Argument, Validity &amp; Proof">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./content/front-matter/00-introduction/introduction.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
