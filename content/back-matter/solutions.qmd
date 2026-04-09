@@ -41,3 +41,9 @@ crossrefs-hover: false
 
 {{< include /content/solutions/syllogisms-validity.qmd >}}
 :::
+
+:::{.content-hidden when-profile="lecture-4"}
+@exr-proofs-in-S
+
+{{< include /content/solutions/proofs-in-S.qmd >}}
+:::
