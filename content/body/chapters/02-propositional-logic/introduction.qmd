@@ -1,0 +1,49 @@
+## Introduction
+
+Propositional logic is the study of the inferential relations that obtain
+between compound propositions that are built up from other more simple
+propositions through the application of various logical operations. The specific
+system of propositional logic that we will study in this chapter will focus on a
+particular kind of proposition forming operation, namely, that which
+yields a compound proposition the truth value of which is a function of the
+truth values of the component propositions from which it is constructed. For
+example:
+
+Alice is a philosophy major **and** Bob is majoring in economics.
+
+**Either** the train is late **or** the schedule that is posted online is wrong.
+
+**If** the battery is not dead, **then** the computer will turn on.
+
+You are eligible to vote **if and only if** you are a resident of the county.
+
+Such operations are all called 'truth-functional' operations, or, 'Boolean'
+operations, for short.[^Boole] Truth-functional propositional logic forms the
+core of most other systems of logic utilized in philosophical analysis,
+including first-order quantificational logic and modal logic.[^classical] It
+also provides the standard context in which the theory of probability is
+developed. It thus constitutes the first essential entry in a philosophy
+student's logical toolkit.
+
+[^Boole]:
+    The label 'Boolean' is in honor of the English mathematician George
+    Boole, whose seminal work, _An Investigation of the Laws of Thought_
+    [-@Boole1854-ur], layed the foundation for the branch of mathematics now
+    called Boolean algebra.
+
+In this chapter, we will introduce a formal language in which to represent
+arguments of propositional logic, a semantic framework in which to assess their
+validity, and a proof system in which to carry out propositional reasoning.
+
+[^classical]:
+    Truth-functional, or Boolean, propositional logic is often
+    referred to as _classical_ propositional logic. This label is a misnomer,
+    for truth-functional propositional logic is neither classical in the sense
+    of being the first system of propositional logic to have been studied, nor
+    in the sense of having its origin in Greek or Latin antiquity. The use of
+    the label 'classical' to describe truth-functional propositional logic seems
+    to have gained widespread usage in the mid-20th century, mainly to
+    distinguish truth-functional propositional logic from alternative
+    non-classical systems of propositional logic (such as intuitionistic
+    propositional logic or relevantist propositional logic) that began to be
+    studied more widely at that time.
