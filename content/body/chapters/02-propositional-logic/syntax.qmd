@@ -1,0 +1,504 @@
+## The Syntax of Propositional Logic
+
+### Truth-Functional Operations
+
+In natural language, many of the sentences that we assert have a _compositional_
+structure. They are, that is, built up from other sentences through the use
+of certain compound sentence forming operations. Let's take a simple example. Consider the sentence:
+
+$$
+\textrm{Tomorrow it will rain.}
+$$
+
+From this sentence, we can construct a new sentence by adding to the verb the
+negating particle _not_:
+
+$$
+\textrm{Tomorrow it will \emph{not} rain.}
+$$
+
+Moreover, we can perform the very same operation on other sentences. For example,
+by negating the verb in the sentence:
+
+$$
+\textrm{Alice is a philosophy major.}
+$$
+
+we obtain a new sentence:
+
+$$
+\textrm{Alice is \emph{not} a philosophy major.}
+$$
+
+It is thus natural to think of the act of negating the verb as a general
+operation which takes us from one sentence to another, the latter being a
+compound sentence that is, in some way, made up of the former. We can also
+imagine compound sentence forming operations which act on more than one
+sentence. For example, given the two sentences:
+
+$$
+\textrm{Tomorrow it will rain.}
+$$
+
+and
+
+$$
+\textrm{Saturday will be sunny. }
+$$
+
+we can conjoin these sentences using the coordinating particle _and_ to yield
+the new sentence:
+
+$$
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+$$
+
+Here we have an operation which takes two sentences and returns a new compound
+sentence of which both of the original sentences are a part. Since it takes two
+sentences, we might call such an operation a _binary_ operation, whereas
+negation, since it acts on only one sentence, would be _unary_.
+
+How exactly is the sentence 'Tomorrow it will not rain', that results from
+performing the unary operation of negating the verb, related to the sentence
+'Tomorrow it will rain' on which this operation is performed. The answer should be
+clear: the sentence which results from performing the operation of negation is one which is
+true just in case the sentence on which the operation was performed is false.
+This is likewise the case, for the sentence 'Alice is not a philosophy major'
+obtained by negating the sentence 'Alice is a philosophy major'. So, we can think of
+negation as a general operation that takes a sentence to another sentence which is true
+just in case the original sentence is false.
+
+What about the conjunction of two sentences? The conjunction of two sentences
+via the the coordinating particle _and_ yields a sentence which is true just in
+case _both_ of its component sentences are true. For example:
+
+$$
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+$$
+
+is true just in case tomorrow there is rain and Saturday is sunny. Thus
+understood, both negation and conjunction, viewed as compound sentence forming
+operations, have something in common. Both operations result in sentences the truth
+value of which is entirely determined by the truth values of the component
+sentences on which these operations are performed. We will call such operations
+_truth-functional_ operations since the truth or falsehood of their output is a
+function of the truth and falsehood of their inputs.
+
+There are lots of examples of non-truth-functional compound sentence forming operations in natural language.
+Take, for example, the result of combining the sentences:
+
+$$
+\textrm{The stock market went down.}
+$$
+
+and
+
+$$
+\textrm{There was a snowstorm in Boston.}
+$$
+
+via the subordinating conjunction 'because' to yield the sentence:
+
+$$
+\textrm{The stock market went down \emph{because} there was a snowstorm in Boston.}
+$$
+
+The truth or falsehood of this claim cannot be determined by that of the
+component sentences alone. In particular, if both sentences are true, the
+claim could be either true or false depending on whether the sentences stand in a suitable
+causal relationship to one another. Here are a few more examples of
+non-truth-functional compounds:
+
+$$
+\textrm{\emph{It could have been the case that} life developed on Mars.  }
+$$
+
+$$
+\textrm{\emph{Lois Lane believes that} Superman is Clark Kent.}
+$$
+
+$$
+\textrm{Caesar crossed the Rubicon \emph{after} he was declared emperor
+of Rome.}
+$$
+
+In all of these cases, the truth value of the compound sentence is not
+determined by the truth values of its component parts.
+
+In this chapter, we will be concerned to study the logic of truth-functional
+operations, like negation and conjunction. Other examples of truth-functional
+compounds include:
+
+$$
+\textrm{\emph{Either} the train is late \emph{or} the schedule that is posted online is wrong}.
+$$
+
+$$
+\textrm{\emph{If} the battery is not dead, \emph{then} the computer will turn on.}
+$$
+
+$$
+\textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
+$$
+
+Our aim will be to develop tools to assess the validity arguments involving such compound
+sentences---arguments such as:
+
+$$
+\frac{\textrm{Either James is sick at home or the store is closed
+\hspace{3mm},\hspace{3mm} The store is not closed}}{\textrm{James is sick at home}}
+$$
+
+Just as before, we will study this logic in the context of a simplified formal
+language. This will allow us to avoid the unnecessary complexity of having to
+deal with natural language constructions. In English, for example, there are
+many ways to express the truth-functional operation of conjuntion, such as:
+
+$$
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+$$
+
+$$
+\textrm{Tomorrow it will rain, \emph{but} Saturday will be sunny.}
+$$
+
+$$
+\textrm{\emph{While} tomorrow it will rain, Saturday will be sunny.}
+$$
+
+$$
+\textrm{\emph{Even though} Tomorrow it will rain, Saturday will be sunny.}
+$$
+
+Moreover, in natural language, sentence forming operators that typically effect
+truth-functional operations do not always work in a uniform way. For instance,
+not every act of negating the verb has the effect of producing a sentence that
+is true just in case the original sentence is false. For example:
+
+$$
+\textrm{Thomas is not in a good mood.}
+$$
+
+does not appear to be true just in case:
+
+$$
+\textrm{Thomas is in a good mood.}
+$$
+
+is false. Both could perhaps be false, if Thomas happens to be in a state of
+resigned indifference.
+
+To avoid such complications, we will formulate arguments of propositional logic
+in an artificial language devised for the express purpose of modeling the sort
+of arguments we are concerned to assess. We will call this formal language
+L$_P$.
+
+### The Formal Language L$_P$
+
+To define the language L$_P$, we begin by defining an alphabet for the language.
+This alphabet consists, first, of an arbitrarily large collection of symbols:
+
+$$
+  P, Q, R, \ldots
+$$
+
+referred to as atoms. In addition to the atoms, the alphabet
+also includes five special symbols:
+
+$$
+  \neg\hspace{0.05in},\hspace{0.05in} \conj\hspace{0.05in},\hspace{0.05in}
+  \disj\hspace{0.05in},\hspace{0.05in} \imp,\hspace{0.05in} \iff
+$$
+
+These five symbols are referred to collectively as propositional connectives, and,
+respectively, as the negation operator ($\neg$), the conjunction operator
+($\conj$), the disjunction operator ($\disj$), and the conditional operator
+($\imp$). The latter three connectives (i.e., $\conj, \disj$, and $\imp$) are
+referred to as binary connectives, whereas the negation operator is referred to
+as a unary connective.
+
+The intended meaning of the connectives is given by the following table:
+
+| Connective |   Operation   |            English Operator            |
+| :--------: | :-----------: | :------------------------------------: |
+|   $\neg$   |   negation    | It is not the case that $\smallblank$. |
+|  $\conj$   |  conjunction  |      $\cdots$ and $\smallblank$.       |
+|  $\disj$   |  disjunction  |  $\cdots$ or $\smallblank$ (or both).  |
+|   $\imp$   |  conditional  |    If $\cdots$, then $\smallblank$.    |
+|   $\iff$   | biconditional | $\cdots$ if and only if $\smallblank$. |
+
+: The intended meanings of the propositional connectives
+
+Lastly, in addition to the atoms and connectives, the alphabet for L$_P$ also includes the left and right parentheses:
+
+$$
+(\hspace{0.07in},\hspace{0.07in})
+$$
+
+As before, we will call an _expression_ of the language any finite string of symbols taken from
+its alphabet. The sentences of the language will be constructed through the
+recursive application of the propositional connectives to the atoms. We will
+define the sentences in the following, somewhat akward way:
+
+:::{#def-sentences-p .definition}
+
+A sentences of L$_P$ is any expression that can be judged to be a sentence by
+appeal to the following facts:
+
+1. Any expression consisting of a single atom is a sentence.
+
+2. If $\ph$ is a sentence, then the expression $\neg \ph$ is a sentence.
+
+3. If $\ph$ and $\psi$ are sentences and $\ast$ is a binary connective, then the expression $(\ph\ast\psi)$ is a sentence.
+
+:::
+
+This sort of definition is what is called in mathematics and logic an _inductive_ definition. We
+will say more about how inductive definitions work in the next section. For now,
+we simply note that the following are all examples of sentences of $\Lp$:
+
+$$P$$
+
+$$\neg Q$$
+
+$$(R \iff S)$$
+
+$$\neg \neg (P \conj Q)$$
+
+$$((P\iff \neg Q) \conj (Q\disj R))$$
+
+$$((Q\imp(R\conj (S \imp P))) \iff (P\imp \neg Q))$$
+
+Note that, unlike the sentences of L$_S$, the sentences of the formal language
+L$_P$ can grow to be arbitrarily complex.
+
+We refer to those sentences consisting of a single atom as atomic sentences. The
+sentence $\neg \ph$ is referred to as the negation of $\ph$. The sentence
+$(\ph\conj\psi)$ is referred to as the conjunction with left conjunct $\ph$ and
+right conjunct $\psi$, or simply the conjunction of $\ph$ and $\psi$. The
+sentence $(\ph\disj \psi)$ is referred to as the disjunction with left disjunct
+$\ph$ and right disjunct $\psi$, or simply the disjunction of $\ph$ and $\psi$.
+The sentence $(\ph\imp \psi)$ is referred to as the conditional with antecedent
+$\ph$ and consequent $\psi$. The sentence $(\ph\iff\psi)$ is referred
+to as the biconditional with left term $\ph$ and right term $\psi$.
+Conjunctions, disjunctions, conditionals, and biconditionals are referred to,
+collectively, as binary compounds.
+
+:::{#exr-translations-in-p .exercise}
+{{< include /content/exercises/translations-in-p.qmd >}}
+:::
+
+### Inductive Definitions
+
+Let's go back and look more closely at our definition of a sentence of L$_P$:
+
+:::{#def-sentences-p .definition}
+
+A sentences of L$_P$ is any expression that can be judged to be a sentence by
+appeal to the following facts:
+
+1. Any expression consisting of a single atom is a sentence.
+
+2. If $\ph$ is a sentence, then the expression $\neg \ph$ is a sentence.
+
+3. If $\ph$ and $\psi$ are sentences and $\ast$ is a binary connective, then the expression $(\ph\ast\psi)$ is a sentence.
+
+:::
+
+Consider the expression:
+
+$$ \neg (P \conj Q)$$
+
+Is this expression a sentence, according to the above definition? The definition
+says that the expression is a sentence provided it can be judged to be so on the
+bases of clauses 1--3. Let's first look at clause 2. This clause states that if
+$\ph$ is a sentence, then $\neg\ph$ is a sentences as well. So, in the case of
+the expression $\neg(P\conj Q)$, it suffices to show that this is a sentence to
+show that $(P\conj Q)$ is a sentence. How can we confirm that this is true? Have
+a look at clause 3. This clause says that if $\ph$ and $\psi$ are sentences,
+then $(\ph\ast\psi)$ is also a sentence, where $\ast$ is any binary connective.
+It follows from this that the expression $(P\conj Q)$ is a sentence if both $P$
+and $Q$ are sentences. How can we confirm that this is true? Look at clause 1.
+This clause says that any expression consisting of a single atom is a sentence,
+so since $P$ and $Q$ are both expressions of this sort, they are both sentences.
+
+So, it turns out, $\neg(P\conj Q)$ is a sentence of L$_P$. How do we know this? Because $P$
+and $Q$ are both sentences (by clause 1), and so $(P\conj Q)$ is a sentence (by
+clause 3), and so $\neg(P\conj Q)$ is a sentence (by clause 2).
+
+A definition that works like this is called an _inductive_ definition. Inductive
+definitions are very common in mathematics, logic, computer science, and
+linguistics---any field in which the items to be studied exhibit a recursive
+compositional structure, like the sentences of a language. Inductive definitions take
+the following form: they first tell us, flatly, that certain items fall under
+the defined term. They then make one or more claims to the effect that _if_
+certain items fall under that term, then certain other items fall under that
+term as well. In this way, inductive definitions specify a kind of repeatable,
+or recursive, procedure by which new items falling under the defined term can be
+generated or constructed from older ones, and they stipulate that an object
+belongs to defined class of itms just in case it can be constructed in this way.
+The clause specifying the starting items from which the construction can
+proceed is called the _base_ clause of the inductive definition, the rest of the
+clauses that tell us how to construct new items from old ones, are called the
+_inductive_ clauses. So, in the above definition of L$_P$, clause 1 is the base
+clause and clauses 2 and 3 the inductive ones.
+
+Let's consider another example of an inductive definition. Suppose we want
+to give an inductive definition of the natural numbers, that is, the numbers belonging
+to the set:
+
+$$\{1, 2, 3, \ldots\}$$
+
+One way of thinking about how a number gets into this set is as follows: First,
+we stipulate that $1$ is in the set. Then, we posit that _if_ a number,
+say $n$, is already in the set, then $n+1$ goes into the set as well. We can
+turn this idea into an inductive definition as follows:
+
+:::{#def-number-1 .definition}
+
+A _natural number_ is any number that can be judged to be a natural number by
+appeal to the following facts:
+
+1. $1$ is a natural number.
+
+2. If $n$ is a natural number, then $n+1$ is a natural number.
+
+:::
+
+It is easy to see that a number like $17$ is a natural number according to this
+definition. For, $1$ is a natural number (by clause 1), and so $2$ is a natural
+number (by clause 2), and so $3$ is a natural number (by clause 2), and so ... $17$ is a
+natural number (by clause 2).
+
+Note that a single term or notion may have several different inductive
+definitions. For example, here are two more inductive definitions of the notion of a
+natural number. The first is fairly obvious, the second less so:
+
+:::{#def-number-2 .definition}
+
+A _natural number_ is any number that can be judged to be a natural number by
+appeal to the following facts:
+
+1. $1$ is a natural number.
+
+2. If $1, 2, \ldots, n$ are all natural numbers, then $n+1$ is a natural number.
+
+:::
+
+:::{#def-number-3 .definition}
+
+A _natural number_ is any number that can be judged to be a natural number by
+appeal to the following facts:
+
+1. Every number that is either $1$ or a prime is a natural number.
+
+2. If $n$ and $m$ are natural numbers, then $n\times m$ is a natural number.
+
+:::
+
+One of the main advantages of inductive definitions is that such definitions
+can provide a straightforward means of proving that a certain property is
+possessed by every item belonging to the defined class. In particular, if a
+item is defined inductively, then it suffices to show that:
+
+1.  Every item mentioned in the base clause of the definition has the property
+    in question.
+
+2.  The property is preserved under each of the inductive clauses of the
+    definition. In other words, if all items to which the inductive clause is applied
+    possess the property in question, then any new items which fall under the
+    term in accordance with this clause have that property as well.
+
+A proof that proceeds in this way is called a proof by induction, or an
+inductive proof---not to be confused with an inductive argument in the sense of
+David Hume! Here is an example of an inductive proof, using the above
+definition of a natural number.
+
+:::{#thm-proof-by-induction .theorem .unnumbered}
+For any natural number $n$:
+
+$$ 1+2+\cdots+n = \frac{n(n+1)}{2} $$
+
+:::{.proof}
+We first observe that the claim holds for $n=1$:
+
+$$
+ 1 = \frac{1(2)}{2}
+$$
+
+Now, suppose that the claim holds for the natural number $n$. Then:
+
+$$
+\begin{align}
+        1 + 2 + \cdots + n + (n + 1) & = \frac{n(n + 1)}{2} + (n + 1)\quad \\
+                                     & = \frac{n(n + 1) + 2(n + 1)}{2}\:   \\
+                                     & = \frac{(n + 1)(n + 2)}{2}
+\end{align}
+$$
+
+So the claim also holds for $n+1$. This completes the proof.
+:::
+:::
+
+While an inductive proof such as this may seem like magic, much of the challenge
+of supplying inductive proofs consists in identifying suitable
+inductive definitions for the defined class of items.
+
+:::{#exr-prime-decomposition .exercise}
+{{< include /content/exercises/prime-decomposition.qmd >}}
+:::
+
+:::{#exr-counting-coins .exercise}
+{{< include /content/exercises/counting-coins.qmd >}}
+:::
+
+One useful way of conceptualizing the items picked out by an inductive definition is
+by means of a 'formation tree'. This is a tree structure, each node of which is
+labeled by an item falling under the defined term. The direct descendants
+of any given node in the tree are items which generate their parent node in
+accordance with one of inductive clauses of the definition, and the root nodes
+of the tree (the nodes with no direct descendants) are items falling under the
+term in accordance with the base clause of the definition.
+
+So, for example, a formation tree for the sentence $\neg(P\conj Q)$ is as
+follows:
+
+![](/content/static/images/sentence-tree-simple.svg){fig-align="center"
+width=120 fig-alt="sentences formation tree"}
+
+Here is a formation tree for the sentence $((P\iff \neg Q)\wedge(Q\vee R))$:
+
+![](/content/static/images/sentence-tree-complex.svg){fig-align="center"
+width=300 fig-alt="sentences formation tree"}
+
+While it is true that every object belonging to an inductively defined set has a
+formation tree, it need not be the case that every object in the set has a
+_unique_ formation tree. Suppose for example, we were to omit parentheses from
+the alphabet of L$_P$ and define the sentences of L$_P$ as follows:
+
+:::{#def-sentences-p-noparen .definition}
+
+A sentences of L$_P$ is any expression that can be judged to be a sentence by
+appeal to the following facts:
+
+1. Any expression consisting of a single atom is a sentence.
+
+2. If $\ph$ is a sentence, then the expression $\neg \ph$ is a sentence.
+
+3. If $\ph$ and $\psi$ are sentences and $\ast$ is a binary connective, then the expression $\ph\ast\psi$ is a sentence.
+
+:::
+
+In accordance with this definition, the expression $P \conj Q \disj R$ is a
+sentence of the language. Note, however, that the sentence has two distinct
+formation trees:
+
+![](/content/static/images/noparen-tree-1.svg){width=250 fig-align="center" fig-alt="sentences
+formation tree"}
+
+and:
+
+![](/content/static/images/noparen-tree-2.svg){width=250 fig-align="center" fig-alt="sentences formation tree"}
+
+We will shortly see why it is important to preclude the possibility of this sort
+of syntactic ambiguity in our language.

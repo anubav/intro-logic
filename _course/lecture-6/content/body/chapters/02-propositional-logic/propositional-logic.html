@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Logic - 2&nbsp; Propositional Logic</title>
+<title>2&nbsp; Propositional Logic – Introduction to Logic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,17 +50,16 @@ div.csl-indent {
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
-<link href="../../../../content/body/chapters/03-propositional-logic/propositional-logic.html" rel="next">
 <link href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" rel="prev">
 <script src="../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
 <link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -98,7 +97,7 @@ div.csl-indent {
 </script>
 <script src="../../../../assets/scripts/definitions.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -140,13 +139,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -192,12 +191,6 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../content/body/chapters/03-propositional-logic/propositional-logic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -211,8 +204,9 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
   <li><a href="#the-syntax-of-propositional-logic" id="toc-the-syntax-of-propositional-logic" class="nav-link" data-scroll-target="#the-syntax-of-propositional-logic"><span class="header-section-number">2.2</span> The Syntax of Propositional Logic</a>
   <ul class="collapse">
-  <li><a href="#the-language-l_mathbfp" id="toc-the-language-l_mathbfp" class="nav-link" data-scroll-target="#the-language-l_mathbfp"><span class="header-section-number">2.2.1</span> The Language <span class="math inline">\(L_{\mathbf{P}}\)</span></a></li>
-  <li><a href="#truth-functions-and-the-propositional-connectives" id="toc-truth-functions-and-the-propositional-connectives" class="nav-link" data-scroll-target="#truth-functions-and-the-propositional-connectives"><span class="header-section-number">2.2.2</span> Truth Functions and the Propositional Connectives</a></li>
+  <li><a href="#truth-functional-operations" id="toc-truth-functional-operations" class="nav-link" data-scroll-target="#truth-functional-operations"><span class="header-section-number">2.2.1</span> Truth-Functional Operations</a></li>
+  <li><a href="#the-formal-language-l_p" id="toc-the-formal-language-l_p" class="nav-link" data-scroll-target="#the-formal-language-l_p"><span class="header-section-number">2.2.2</span> The Formal Language L<span class="math inline">\(_P\)</span></a></li>
+  <li><a href="#inductive-definitions" id="toc-inductive-definitions" class="nav-link" data-scroll-target="#inductive-definitions"><span class="header-section-number">2.2.3</span> Inductive Definitions</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -252,70 +246,308 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
-<p>Propositional logic is the study of the inferential relations that obtain between compound propositions that are built up from other more simple propositions through the application of various logical operations. The specific system of propositional logic that we will study in this chapter will focus on a particular kind of proposition forming operation, namely, that which yields a compound proposition the truth value of which is a function of the truth values of the component propositions from which it is constructed. For example:</p>
-<p>Alice is a philosophy major <strong>and</strong> Bob is majoring in economics.</p>
-<p><strong>Either</strong> the train is late <strong>or</strong> the schedule that is posted online is wrong.</p>
-<p><strong>If</strong> the battery is not dead, <strong>then</strong> the computer will turn on.</p>
-<p>You are eligible to vote <strong>if and only if</strong> you are a resident of the county.</p>
-<p>Such operations are all called ‘truth-functional’ operations, or, ‘Boolean’ operations, for short.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Truth-functional propositional logic forms the core of most other systems of logic utilized in philosophical analysis, including first-order quantificational logic and modal logic.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> It also provides the standard context in which the theory of probability is developed. It thus constitutes the first essential entry in a philosophy student’s logical toolkit.</p>
-<p>In this chapter, we will introduce a formal language in which to represent arguments of propositional logic, a semantic framework in which to assess their validity, and a proof system in which to carry out propositional reasoning.</p>
+<p>Propositional logic is the study of the inferential relations that obtain between compound propositions, such as:</p>
+<p><span class="math display">\[
+\textrm{Alice is a philosophy major \emph{and} Bob is majoring in economics.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Either} the train is late \emph{or} the schedule that is posted online is wrong}.
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{If} the battery is not dead, \emph{then} the computer will turn on.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
+\]</span></p>
+<p>Such compound propositions are called ‘truth-functional’ compounds, or, ‘Boolean’ compounds, for short.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Truth-functional propositional logic forms the core of most other systems of logic utilized in philosophical analysis, including first-order quantificational logic and modal logic.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> It also provides the standard context in which the theory of probability is developed. It thus constitutes the first essential entry in a philosophy student’s logical toolkit. In this chapter, we will introduce a formal language in which to represent arguments of propositional logic, a semantic framework in which to assess their validity, and a proof system in which to carry out propositional reasoning.</p>
 </section>
 <section id="the-syntax-of-propositional-logic" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="the-syntax-of-propositional-logic"><span class="header-section-number">2.2</span> The Syntax of Propositional Logic</h2>
-<section id="the-language-l_mathbfp" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="the-language-l_mathbfp"><span class="header-section-number">2.2.1</span> The Language <span class="math inline">\(L_{\mathbf{P}}\)</span></h3>
-<p>We begin by defining a formal language for propositional logic, which we will refer to as <span class="math inline">\(L_{\mathbf{P}}\)</span>. The alphabet for the language consists, first, of an infinite number of symbols:</p>
+<section id="truth-functional-operations" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="truth-functional-operations"><span class="header-section-number">2.2.1</span> Truth-Functional Operations</h3>
+<p>In natural language, many of the sentences that we assert have a <em>compositional</em> structure. They are, that is, built up from other sentences through the use of certain compound sentence forming operations. Let’s take a simple example. Consider the sentence:</p>
 <p><span class="math display">\[
-  \mathbf{P}_1,\mathbf{P}_2,\ldots,\mathbf{P}_n,\ldots
+\textrm{Tomorrow it will rain.}
 \]</span></p>
-<p>We refer to these symbols as atoms. In addition to the atoms, the alphabet also includes four special symbols:</p>
+<p>From this sentence, we can construct a new sentence by adding to the verb the negating particle <em>not</em>:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will \emph{not} rain.}
+\]</span></p>
+<p>Moreover, we can perform the very same operation on other sentences. For example, by negating the verb in the sentence:</p>
+<p><span class="math display">\[
+\textrm{Alice is a philosophy major.}
+\]</span></p>
+<p>we obtain a new sentence:</p>
+<p><span class="math display">\[
+\textrm{Alice is \emph{not} a philosophy major.}
+\]</span></p>
+<p>It is thus natural to think of the act of negating the verb as a general operation which takes us from one sentence to another, the latter being a compound sentence that is, in some way, made up of the former. We can also imagine compound sentence forming operations which act on more than one sentence. For example, given the two sentences:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain.}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\textrm{Saturday will be sunny. }
+\]</span></p>
+<p>we can conjoin these sentences using the coordinating particle <em>and</em> to yield the new sentence:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p>Here we have an operation which takes two sentences and returns a new compound sentence of which both of the original sentences are a part. Since it takes two sentences, we might call such an operation a <em>binary</em> operation, whereas negation, since it acts on only one sentence, would be <em>unary</em>.</p>
+<p>How exactly is the sentence ‘Tomorrow it will not rain’, that results from performing the unary operation of negating the verb, related to the sentence ‘Tomorrow it will rain’ on which this operation is performed. The answer should be clear: the sentence which results from performing the operation of negation is one which is true just in case the sentence on which the operation was performed is false. This is likewise the case, for the sentence ‘Alice is not a philosophy major’ obtained by negating the sentence ‘Alice is a philosophy major’. So, we can think of negation as a general operation that takes a sentence to another sentence which is true just in case the original sentence is false.</p>
+<p>What about the conjunction of two sentences? The conjunction of two sentences via the the coordinating particle <em>and</em> yields a sentence which is true just in case <em>both</em> of its component sentences are true. For example:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p>is true just in case tomorrow there is rain and Saturday is sunny. Thus understood, both negation and conjunction, viewed as compound sentence forming operations, have something in common. Both operations result in sentences the truth value of which is entirely determined by the truth values of the component sentences on which these operations are performed. We will call such operations <em>truth-functional</em> operations since the truth or falsehood of their output is a function of the truth and falsehood of their inputs.</p>
+<p>There are lots of examples of non-truth-functional compound sentence forming operations in natural language. Take, for example, the result of combining the sentences:</p>
+<p><span class="math display">\[
+\textrm{The stock market went down.}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\textrm{There was a snowstorm in Boston.}
+\]</span></p>
+<p>via the subordinating conjunction ‘because’ to yield the sentence:</p>
+<p><span class="math display">\[
+\textrm{The stock market went down \emph{because} there was a snowstorm in Boston.}
+\]</span></p>
+<p>The truth or falsehood of this claim cannot be determined by that of the component sentences alone. In particular, if both sentences are true, the claim could be either true or false depending on whether the sentences stand in a suitable causal relationship to one another. Here are a few more examples of non-truth-functional compounds:</p>
+<p><span class="math display">\[
+\textrm{\emph{It could have been the case that} life developed on Mars.  }
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Lois Lane believes that} Superman is Clark Kent.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{Caesar crossed the Rubicon \emph{after} he was declared emperor
+of Rome.}
+\]</span></p>
+<p>In all of these cases, the truth value of the compound sentence is not determined by the truth values of its component parts.</p>
+<p>In this chapter, we will be concerned to study the logic of truth-functional operations, like negation and conjunction. Other examples of truth-functional compounds include:</p>
+<p><span class="math display">\[
+\textrm{\emph{Either} the train is late \emph{or} the schedule that is posted online is wrong}.
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{If} the battery is not dead, \emph{then} the computer will turn on.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
+\]</span></p>
+<p>Our aim will be to develop tools to assess the validity arguments involving such compound sentences—arguments such as:</p>
+<p><span class="math display">\[
+\frac{\textrm{Either James is sick at home or the store is closed
+\hspace{3mm},\hspace{3mm} The store is not closed}}{\textrm{James is sick at home}}
+\]</span></p>
+<p>Just as before, we will study this logic in the context of a simplified formal language. This will allow us to avoid the unnecessary complexity of having to deal with natural language constructions. In English, for example, there are many ways to express the truth-functional operation of conjuntion, such as:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain, \emph{but} Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{While} tomorrow it will rain, Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Even though} Tomorrow it will rain, Saturday will be sunny.}
+\]</span></p>
+<p>Moreover, in natural language, sentence forming operators that typically effect truth-functional operations do not always work in a uniform way. For instance, not every act of negating the verb has the effect of producing a sentence that is true just in case the original sentence is false. For example:</p>
+<p><span class="math display">\[
+\textrm{Thomas is not in a good mood.}
+\]</span></p>
+<p>does not appear to be true just in case:</p>
+<p><span class="math display">\[
+\textrm{Thomas is in a good mood.}
+\]</span></p>
+<p>is false. Both could perhaps be false, if Thomas happens to be in a state of resigned indifference.</p>
+<p>To avoid such complications, we will formulate arguments of propositional logic in an artificial language devised for the express purpose of modeling the sort of arguments we are concerned to assess. We will call this formal language L<span class="math inline">\(_P\)</span>.</p>
+</section>
+<section id="the-formal-language-l_p" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="the-formal-language-l_p"><span class="header-section-number">2.2.2</span> The Formal Language L<span class="math inline">\(_P\)</span></h3>
+<p>To define the language L<span class="math inline">\(_P\)</span>, we begin by defining an alphabet for the language. This alphabet consists, first, of an arbitrarily large collection of symbols:</p>
+<p><span class="math display">\[
+  P, Q, R, \ldots
+\]</span></p>
+<p>referred to as atoms. In addition to the atoms, the alphabet also includes five special symbols:</p>
 <p><span class="math display">\[
   \neg\hspace{0.05in},\hspace{0.05in} \wedge\hspace{0.05in},\hspace{0.05in}
-  \vee\hspace{0.05in},\hspace{0.05in} \rightarrow
+  \vee\hspace{0.05in},\hspace{0.05in} \rightarrow,\hspace{0.05in} \leftrightarrow
 \]</span></p>
-<p>These are referred to collectively as propositional connectives, and, respectively, as the negation operator (<span class="math inline">\(\neg\)</span>), the conjunction operator (<span class="math inline">\(\wedge\)</span>), the disjunction operator (<span class="math inline">\(\vee\)</span>), and the conditional operator (<span class="math inline">\(\rightarrow\)</span>). The latter three connectives (i.e., <span class="math inline">\(\wedge, \vee\)</span>, and <span class="math inline">\(\rightarrow\)</span>) are referred to as binary connectives, whereas the negation operator is referred to as a unary connective.</p>
-<p>Lastly, the alphabet for <span class="math inline">\(L_{\mathbf{P}}\)</span> also includes the left and right parentheses:</p>
+<p>These five symbols are referred to collectively as propositional connectives, and, respectively, as the negation operator (<span class="math inline">\(\neg\)</span>), the conjunction operator (<span class="math inline">\(\wedge\)</span>), the disjunction operator (<span class="math inline">\(\vee\)</span>), and the conditional operator (<span class="math inline">\(\rightarrow\)</span>). The latter three connectives (i.e., <span class="math inline">\(\wedge, \vee\)</span>, and <span class="math inline">\(\rightarrow\)</span>) are referred to as binary connectives, whereas the negation operator is referred to as a unary connective.</p>
+<p>The intended meaning of the connectives is given by the following table:</p>
+<table class="caption-top table">
+<caption>The intended meanings of the propositional connectives</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Connective</th>
+<th style="text-align: center;">Operation</th>
+<th style="text-align: center;">English Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\neg\)</span></td>
+<td style="text-align: center;">negation</td>
+<td style="text-align: center;">It is not the case that <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\wedge\)</span></td>
+<td style="text-align: center;">conjunction</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> and <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\vee\)</span></td>
+<td style="text-align: center;">disjunction</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> or <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span> (or both).</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\rightarrow\)</span></td>
+<td style="text-align: center;">conditional</td>
+<td style="text-align: center;">If <span class="math inline">\(\cdots\)</span>, then <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\leftrightarrow\)</span></td>
+<td style="text-align: center;">biconditional</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> if and only if <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>Lastly, in addition to the atoms and connectives, the alphabet for L<span class="math inline">\(_P\)</span> also includes the left and right parentheses:</p>
 <p><span class="math display">\[
 (\hspace{0.07in},\hspace{0.07in})
 \]</span></p>
-<p>As always, expressions of the language are finite strings of symbols taken from its alphabet. The sentences of the language are given by the following inductive definition:</p>
+<p>As before, we will call an <em>expression</em> of the language any finite string of symbols taken from its alphabet. The sentences of the language will be constructed through the recursive application of the propositional connectives to the atoms. We will define the sentences in the following, somewhat akward way:</p>
 <div id="def-sentences-p" class="definition theorem">
-<p><span class="theorem-title"><strong>Definition 2.1</strong></span> The sentences of <span class="math inline">\(L_{\mathbf{P}}\)</span> are defined inductively as follows:</p>
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
 <ol type="1">
 <li><p>Any expression consisting of a single atom is a sentence.</p></li>
-<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\((\neg \varphi)\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
 <li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\((\varphi\ast\psi)\)</span> is a sentence.</p></li>
 </ol>
 </div>
-<p>Sentences of <span class="math inline">\(L_{\mathbf{P}}\)</span> include:</p>
-<ol type="i">
-<li><p><span class="math inline">\(\mathbf{P}_7\)</span></p></li>
-<li><p><span class="math inline">\((\neg \mathbf{P}_2)\)</span></p></li>
-<li><p><span class="math inline">\((\mathbf{P}_4 \vee\mathbf{P}_{21})\)</span></p></li>
-<li><p><span class="math inline">\((\neg(\neg \mathbf{P}_{14}))\)</span></p></li>
-<li><p><span class="math inline">\(((\mathbf{P}_3\rightarrow(\neg \mathbf{P}_3)) \wedge(\mathbf{P}_{21}\vee\mathbf{P}_{3}))\)</span></p></li>
-<li><p><span class="math inline">\((\mathbf{P}_{16}\rightarrow(\mathbf{P}_{16}\wedge(\mathbf{P}_{16} \rightarrow\mathbf{P}_{16})))\)</span></p></li>
-</ol>
-<p>We refer to those sentences consisting of a single atom as atomic sentences. The sentence <span class="math inline">\((\neg \varphi)\)</span> is referred to as the negation of <span class="math inline">\(\varphi\)</span>. If <span class="math inline">\(\varphi\)</span> is either an atomic sentence or the negation of an atomic sentence, we refer to <span class="math inline">\(\varphi\)</span> as a literal. The sentence <span class="math inline">\((\varphi\wedge\psi)\)</span> is referred to as the conjunction with left conjunct <span class="math inline">\(\varphi\)</span> and right conjunct <span class="math inline">\(\psi\)</span>, or simply the conjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\vee\psi)\)</span> is referred to as the disjunction with left disjunct <span class="math inline">\(\varphi\)</span> and right disjunct <span class="math inline">\(\psi\)</span>, or simply the disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\rightarrow\psi)\)</span> is referred to as the conditional with antecedent <span class="math inline">\(\varphi\)</span> and consequent <span class="math inline">\(\psi\)</span>. Conjunctions, disjunctions, and conditionals are referred to, collectively, as binary compounds.</p>
-<p>We have not yet shown that the labels negation, conjunction, disjunction, etc., are mutually exclusive. That is, we have not yet shown that a given sentence cannot, for example, be both a conjunction and a conditional. Nor have we shown that a sentence which is a conjunction must have unique left and right conjuncts. We will soon confirm that this is indeed the case, but for now we turn to the task of specifying a semantics for the language.</p>
-<div id="exr-omit-parens" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Rewrite <a href="../03-propositional-logic/propositional-logic.html#def-sentences-p" class="quarto-xref">Definition&nbsp;<span>3.1</span></a> so that the sentences of the language <span class="math inline">\(L_{\mathbf{P}}\)</span> are exactly as before with the one exception that the outermost pair of parentheses in a sentence is omitted.</p>
-</div>
-<div id="exr-Lp-syntax" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> &nbsp;</p>
-<ol type="a">
-<li><p>Show that the number of non-atoms appearing in a sentence is a multiple of <span class="math inline">\(3\)</span>.</p></li>
-<li><p>What is the smallest number <span class="math inline">\(n\)</span>, such that there exists both a negation and a binary compound of length <span class="math inline">\(n\)</span>?</p></li>
-<li><p>For any sentence <span class="math inline">\(\varphi\)</span>, let <span class="math inline">\(a(\varphi)\)</span> be the number of distinct occurrences of atoms in <span class="math inline">\(\varphi\)</span> and let <span class="math inline">\(c(\varphi)\)</span> be the number of distinct occurrences of connectives in <span class="math inline">\(\varphi\)</span>. Show that, for any sentence <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(a(\varphi)-c(\varphi)\leq 1\)</span>.</p></li>
-<li><p>For any sentence <span class="math inline">\(\varphi\)</span>, let <span class="math inline">\(c^*(\varphi)\)</span> be the number of distinct occurrences of connectives in <span class="math inline">\(\varphi\)</span> that occur prior to any occurrence of the right parenthesis symbol, <span class="math inline">\()\)</span> (when read from left to right). Show that, for any sentence <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(c^*(\varphi)\leq c(\varphi)-a(\varphi)+1\)</span>.</p></li>
-</ol>
+<p>This sort of definition is what is called in mathematics and logic an <em>inductive</em> definition. We will say more about how inductive definitions work in the next section. For now, we simply note that the following are all examples of sentences of <span class="math inline">\(L_{\mathbf{P}}\)</span>:</p>
+<p><span class="math display">\[P\]</span></p>
+<p><span class="math display">\[\neg Q\]</span></p>
+<p><span class="math display">\[(R \leftrightarrow S)\]</span></p>
+<p><span class="math display">\[\neg \neg (P \wedge Q)\]</span></p>
+<p><span class="math display">\[((P\leftrightarrow\neg Q) \wedge(Q\vee R))\]</span></p>
+<p><span class="math display">\[((Q\rightarrow(R\wedge(S \rightarrow P))) \leftrightarrow(P\rightarrow\neg Q))\]</span></p>
+<p>Note that, unlike the sentences of L<span class="math inline">\(_S\)</span>, the sentences of the formal language L<span class="math inline">\(_P\)</span> can grow to be arbitrarily complex.</p>
+<p>We refer to those sentences consisting of a single atom as atomic sentences. The sentence <span class="math inline">\(\neg \varphi\)</span> is referred to as the negation of <span class="math inline">\(\varphi\)</span>. The sentence <span class="math inline">\((\varphi\wedge\psi)\)</span> is referred to as the conjunction with left conjunct <span class="math inline">\(\varphi\)</span> and right conjunct <span class="math inline">\(\psi\)</span>, or simply the conjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\vee\psi)\)</span> is referred to as the disjunction with left disjunct <span class="math inline">\(\varphi\)</span> and right disjunct <span class="math inline">\(\psi\)</span>, or simply the disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\rightarrow\psi)\)</span> is referred to as the conditional with antecedent <span class="math inline">\(\varphi\)</span> and consequent <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\leftrightarrow\psi)\)</span> is referred to as the biconditional with left term <span class="math inline">\(\varphi\)</span> and right term <span class="math inline">\(\psi\)</span>. Conjunctions, disjunctions, conditionals, and biconditionals are referred to, collectively, as binary compounds.</p>
+<div id="exr-translations-in-p" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> &nbsp;</p>
 </div>
 </section>
-<section id="truth-functions-and-the-propositional-connectives" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="truth-functions-and-the-propositional-connectives"><span class="header-section-number">2.2.2</span> Truth Functions and the Propositional Connectives</h3>
-<p>The non-logical elements of the syntax of <span class="math inline">\(L_{\mathbf{P}}\)</span> are the atoms. These, naturally, are meant to stand for the simple propositions out of which compound propositions will be constructed. But what exactly is a proposition? How we choose to model propositions in our semantics will depend, in large part, on the patterns of inference that we seek to represent in our logic. This, in turn, will depend on the intended meanings of the logical elements of the syntax—that is, on the intended meanings of the propositional connectives.</p>
-<p>Consider the conjunction operator <span class="math inline">\(\wedge\)</span>. Viewed as a proposition forming operation, this operator maps two propositions, signified by the sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, to a new compound proposition signified by their conjunction <span class="math inline">\((\varphi\wedge\psi)\)</span>. By the latter, we mean a proposition that is true just in case both of the propositions signified by its conjuncts are true. Setting aside the particulars, the conjunction operator, then, maps two propositions to a new proposition whose truth value is a function of the truth values of the two propositions from which it was constructed. The negation operator, works the same way. It maps a single proposition, signified by the sentence <span class="math inline">\(\varphi\)</span>, to a new proposition, signified by <span class="math inline">\((\neg\varphi)\)</span>, the truth value of which is a function of the truth value of <span class="math inline">\(\varphi\)</span> – false, if it is true, and true if it is false. Our intended semantics for the logical connectives may thus be described as a ‘truth-functional’ semantics. This means that the truth values of compound sentences will be fully determined by the truth values of the component sentences out of which they are formed. In this way, the truth values of all the sentences of the language will supervene on the truth values of the atomic ones.</p>
-<p>While it is true that the atomic sentences represent simple propositions, the only feature of these propositions that is semantically relevant in the sense that it contributes to assessing the truth values of the sentences in the language is their own truth or falsehood. Thus, in this context, we may think of a simple proposition as nothing more than the bearer of a truth value, and the possible semantic values of the atoms as the possible truth values of the propositions they express. The only assumptions we will make about these simple propositions are (1) that each is <em>logically contingent</em> in the sense that each may be either true or false; and (2) that they are <em>logically independent</em> of each other in the sense that the truth or falsehood of any one such proposition imposes no constraints on the truth or falsehood of any other. In sum, we will include among our interpretations of the language all possible assignments of truth values to the atoms.</p>
+<section id="inductive-definitions" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="inductive-definitions"><span class="header-section-number">2.2.3</span> Inductive Definitions</h3>
+<p>Let’s go back and look more closely at our definition of a sentence of L<span class="math inline">\(_P\)</span>:</p>
+<div id="def-sentences-p" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\((\varphi\ast\psi)\)</span> is a sentence.</p></li>
+</ol>
+</div>
+<p>Consider the expression:</p>
+<p><span class="math display">\[ \neg (P \wedge Q)\]</span></p>
+<p>Is this expression a sentence, according to the above definition? The definition says that the expression is a sentence provided it can be judged to be so on the bases of clauses 1–3. Let’s first look at clause 2. This clause states that if <span class="math inline">\(\varphi\)</span> is a sentence, then <span class="math inline">\(\neg\varphi\)</span> is a sentences as well. So, in the case of the expression <span class="math inline">\(\neg(P\wedge Q)\)</span>, it suffices to show that this is a sentence to show that <span class="math inline">\((P\wedge Q)\)</span> is a sentence. How can we confirm that this is true? Have a look at clause 3. This clause says that if <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences, then <span class="math inline">\((\varphi\ast\psi)\)</span> is also a sentence, where <span class="math inline">\(\ast\)</span> is any binary connective. It follows from this that the expression <span class="math inline">\((P\wedge Q)\)</span> is a sentence if both <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are sentences. How can we confirm that this is true? Look at clause 1. This clause says that any expression consisting of a single atom is a sentence, so since <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are both expressions of this sort, they are both sentences.</p>
+<p>So, it turns out, <span class="math inline">\(\neg(P\wedge Q)\)</span> is a sentence of L<span class="math inline">\(_P\)</span>. How do we know this? Because <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are both sentences (by clause 1), and so <span class="math inline">\((P\wedge Q)\)</span> is a sentence (by clause 3), and so <span class="math inline">\(\neg(P\wedge Q)\)</span> is a sentence (by clause 2).</p>
+<p>A definition that works like this is called an <em>inductive</em> definition. Inductive definitions are very common in mathematics, logic, computer science, and linguistics—any field in which the items to be studied exhibit a recursive compositional structure, like the sentences of a language. Inductive definitions take the following form: they first tell us, flatly, that certain items fall under the defined term. They then make one or more claims to the effect that <em>if</em> certain items fall under that term, then certain other items fall under that term as well. In this way, inductive definitions specify a kind of repeatable, or recursive, procedure by which new items falling under the defined term can be generated or constructed from older ones, and they stipulate that an object belongs to defined class of itms just in case it can be constructed in this way. The clause specifying the starting items from which the construction can proceed is called the <em>base</em> clause of the inductive definition, the rest of the clauses that tell us how to construct new items from old ones, are called the <em>inductive</em> clauses. So, in the above definition of L<span class="math inline">\(_P\)</span>, clause 1 is the base clause and clauses 2 and 3 the inductive ones.</p>
+<p>Let’s consider another example of an inductive definition. Suppose we want to give an inductive definition of the natural numbers, that is, the numbers belonging to the set:</p>
+<p><span class="math display">\[\{1, 2, 3, \ldots\}\]</span></p>
+<p>One way of thinking about how a number gets into this set is as follows: First, we stipulate that <span class="math inline">\(1\)</span> is in the set. Then, we posit that <em>if</em> a number, say <span class="math inline">\(n\)</span>, is already in the set, then <span class="math inline">\(n+1\)</span> goes into the set as well. We can turn this idea into an inductive definition as follows:</p>
+<div id="def-number-1" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p><span class="math inline">\(1\)</span> is a natural number.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a natural number, then <span class="math inline">\(n+1\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<p>It is easy to see that a number like <span class="math inline">\(17\)</span> is a natural number according to this definition. For, <span class="math inline">\(1\)</span> is a natural number (by clause 1), and so <span class="math inline">\(2\)</span> is a natural number (by clause 2), and so <span class="math inline">\(3\)</span> is a natural number (by clause 2), and so … <span class="math inline">\(17\)</span> is a natural number (by clause 2).</p>
+<p>Note that a single term or notion may have several different inductive definitions. For example, here are two more inductive definitions of the notion of a natural number. The first is fairly obvious, the second less so:</p>
+<div id="def-number-2" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.4</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p><span class="math inline">\(1\)</span> is a natural number.</p></li>
+<li><p>If <span class="math inline">\(1, 2, \ldots, n\)</span> are all natural numbers, then <span class="math inline">\(n+1\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<div id="def-number-3" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.5</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Every number that is either <span class="math inline">\(1\)</span> or a prime is a natural number.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are natural numbers, then <span class="math inline">\(n\times m\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<p>One of the main advantages of inductive definitions is that such definitions can provide a straightforward means of proving that a certain property is possessed by every item belonging to the defined class. In particular, if a item is defined inductively, then it suffices to show that:</p>
+<ol type="1">
+<li><p>Every item mentioned in the base clause of the definition has the property in question.</p></li>
+<li><p>The property is preserved under each of the inductive clauses of the definition. In other words, if all items to which the inductive clause is applied possess the property in question, then any new items which fall under the term in accordance with this clause have that property as well.</p></li>
+</ol>
+<p>A proof that proceeds in this way is called a proof by induction, or an inductive proof—not to be confused with an inductive argument in the sense of David Hume! Here is an example of an inductive proof, using the above definition of a natural number.</p>
+<div id="thm-proof-by-induction" class="theorem unnumbered">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> For any natural number <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[ 1+2+\cdots+n = \frac{n(n+1)}{2} \]</span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first observe that the claim holds for <span class="math inline">\(n=1\)</span>:</p>
+<p><span class="math display">\[
+1 = \frac{1(2)}{2}
+\]</span></p>
+<p>Now, suppose that the claim holds for the natural number <span class="math inline">\(n\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{align}
+        1 + 2 + \cdots + n + (n + 1) &amp; = \frac{n(n + 1)}{2} + (n + 1)\quad \\
+                                     &amp; = \frac{n(n + 1) + 2(n + 1)}{2}\:   \\
+                                     &amp; = \frac{(n + 1)(n + 2)}{2}
+\end{align}
+\]</span></p>
+<p>So the claim also holds for <span class="math inline">\(n+1\)</span>. This completes the proof.</p>
+</div>
+</div>
+<p>While an inductive proof such as this may seem like magic, much of the challenge of supplying inductive proofs consists in identifying suitable inductive definitions for the defined class of items.</p>
+<div id="exr-prime-decomposition" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> &nbsp;</p>
+</div>
+<div id="exr-counting-coins" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> &nbsp;</p>
+</div>
+<p>One useful way of conceptualizing the items picked out by an inductive definition is by means of a ‘formation tree’. This is a tree structure, each node of which is labeled by an item falling under the defined term. The direct descendants of any given node in the tree are items which generate their parent node in accordance with one of inductive clauses of the definition, and the root nodes of the tree (the nodes with no direct descendants) are items falling under the term in accordance with the base clause of the definition.</p>
+<p>So, for example, a formation tree for the sentence <span class="math inline">\(\neg(P\wedge Q)\)</span> is as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/sentence-tree-simple.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="120"></p>
+</figure>
+</div>
+<p>Here is a formation tree for the sentence <span class="math inline">\(((P\leftrightarrow\neg Q)\wedge(Q\vee R))\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/sentence-tree-complex.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="300"></p>
+</figure>
+</div>
+<p>While it is true that every object belonging to an inductively defined set has a formation tree, it need not be the case that every object in the set has a <em>unique</em> formation tree. Suppose for example, we were to omit parentheses from the alphabet of L<span class="math inline">\(_P\)</span> and define the sentences of L<span class="math inline">\(_P\)</span> as follows:</p>
+<div id="def-sentences-p-noparen" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.6</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\(\varphi\ast\psi\)</span> is a sentence.</p></li>
+</ol>
+</div>
+<p>In accordance with this definition, the expression <span class="math inline">\(P \wedge Q \vee R\)</span> is a sentence of the language. Note, however, that the sentence has two distinct formation trees:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>and:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-2.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>We will shortly see why it is important to preclude the possibility of this sort of syntactic ambiguity in our language.</p>
 </section>
 </section>
 <section id="references" class="level2 unnumbered">
@@ -372,18 +604,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -415,7 +636,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -450,7 +709,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -498,7 +761,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -731,9 +993,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../content/body/chapters/03-propositional-logic/propositional-logic.html" class="pagination-link" aria-label="Propositional Logic">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
