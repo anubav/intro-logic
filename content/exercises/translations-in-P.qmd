@@ -1,0 +1,13 @@
+Translate the following arguments into the language L$_P$, indicating the
+meaning of all the atoms appearing in your translation.
+
+(a). The professor is speaking and either the students are taking notes or they are recording the lecture.
+
+(b). The meeting will be held if and only if the keynote speaker does not miss her flight.
+
+(c). Either the file is not accessible or the password is incorrect.
+
+(d). If the library is open and I have finished studying, then I will either go
+there or stay at home and read.
+
+(e). If it is warm, we will sit outside, but if not, we will stay inside.

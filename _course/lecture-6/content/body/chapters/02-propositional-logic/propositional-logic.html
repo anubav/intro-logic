@@ -50,6 +50,7 @@ div.csl-indent {
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
+<link href="../../../../content/back-matter/solutions.html" rel="next">
 <link href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" rel="prev">
 <script src="../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
@@ -191,6 +192,23 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/back-matter/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions to Selected Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -436,7 +454,12 @@ of Rome.}
 <p>Note that, unlike the sentences of L<span class="math inline">\(_S\)</span>, the sentences of the formal language L<span class="math inline">\(_P\)</span> can grow to be arbitrarily complex.</p>
 <p>We refer to those sentences consisting of a single atom as atomic sentences. The sentence <span class="math inline">\(\neg \varphi\)</span> is referred to as the negation of <span class="math inline">\(\varphi\)</span>. The sentence <span class="math inline">\((\varphi\wedge\psi)\)</span> is referred to as the conjunction with left conjunct <span class="math inline">\(\varphi\)</span> and right conjunct <span class="math inline">\(\psi\)</span>, or simply the conjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\vee\psi)\)</span> is referred to as the disjunction with left disjunct <span class="math inline">\(\varphi\)</span> and right disjunct <span class="math inline">\(\psi\)</span>, or simply the disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\rightarrow\psi)\)</span> is referred to as the conditional with antecedent <span class="math inline">\(\varphi\)</span> and consequent <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\leftrightarrow\psi)\)</span> is referred to as the biconditional with left term <span class="math inline">\(\varphi\)</span> and right term <span class="math inline">\(\psi\)</span>. Conjunctions, disjunctions, conditionals, and biconditionals are referred to, collectively, as binary compounds.</p>
 <div id="exr-translations-in-p" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Translate the following arguments into the language L<span class="math inline">\(_P\)</span>, indicating the meaning of all the atoms appearing in your translation.</p>
+<p>(a). The professor is speaking and either the students are taking notes or they are recording the lecture.</p>
+<p>(b). The meeting will be held if and only if the keynote speaker does not miss her flight.</p>
+<p>(c). Either the file is not accessible or the password is incorrect.</p>
+<p>(d). If the library is open and I have finished studying, then I will either go there or stay at home and read.</p>
+<p>(e). If it is warm, we will sit outside, but if not, we will stay inside.</p>
 </div>
 </section>
 <section id="inductive-definitions" class="level3" data-number="2.2.3">
@@ -508,10 +531,24 @@ of Rome.}
 </div>
 <p>While an inductive proof such as this may seem like magic, much of the challenge of supplying inductive proofs consists in identifying suitable inductive definitions for the defined class of items.</p>
 <div id="exr-prime-decomposition" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Using <a href="#def-number-2" class="quarto-xref">Definition&nbsp;<span>2.4</span></a>, give a proof by induction that every natural number is either equal to 1 or can be expressed as a product of primes.</p>
 </div>
 <div id="exr-counting-coins" class="exercise theorem">
-<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> The various ways of making change for a dollar using pennies, nickels, dimes, and quarters may be represented by the members of the following set of 4-tuples of numbers:</p>
+<p><span class="math display">\[
+D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
+\]</span></p>
+<p>The members of this set can be given the following inductive definition:</p>
+<ol type="1">
+<li><p><span class="math inline">\((0,0,0,4)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(q&gt; 0\)</span>, then <span class="math inline">\((p,n+1,d+2,q-1)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(q&gt;1\)</span>, then <span class="math inline">\((p, n, d+5, q-2)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(d&gt; 0\)</span>, then <span class="math inline">\((p,n+2,d-1,q)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(n&gt; 0\)</span>, then <span class="math inline">\((p+5, n-1, d, q)\in D\)</span>.</p></li>
+</ol>
+<p>Using this inductive definition, show that the following two claims are true:</p>
+<p>(a). There is no way to make change for a dollar from exactly five coins.</p>
+<p>(b). There is no way to make change for a dollar from an assortment of coins in which the total number of non-dimes (i.e., pennies, nickels, and quarters) is odd.</p>
 </div>
 <p>One useful way of conceptualizing the items picked out by an inductive definition is by means of a ‘formation tree’. This is a tree structure, each node of which is labeled by an item falling under the defined term. The direct descendants of any given node in the tree are items which generate their parent node in accordance with one of inductive clauses of the definition, and the root nodes of the tree (the nodes with no direct descendants) are items falling under the term in accordance with the base clause of the definition.</p>
 <p>So, for example, a formation tree for the sentence <span class="math inline">\(\neg(P\wedge Q)\)</span> is as follows:</p>
@@ -993,6 +1030,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../../../content/back-matter/solutions.html" class="pagination-link" aria-label="Solutions to Selected Exercises">
+        <span class="nav-page-text">Solutions to Selected Exercises</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

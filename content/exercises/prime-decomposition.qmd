@@ -1,0 +1,2 @@
+Using @def-number-2, give a proof by induction that every natural number is
+either equal to 1 or can be expressed as a product of primes.

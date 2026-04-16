@@ -1,0 +1,27 @@
+The various ways of making change for a dollar using pennies, nickels, dimes,
+and quarters may be represented by the members of the following set of 4-tuples
+of numbers:
+
+$$
+D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
+$$
+
+The members of this set can be given the following inductive definition:
+
+1.  $(0,0,0,4)\in D$.
+
+2.  If $(p,n,d,q)\in D$ and $q> 0$, then $(p,n+1,d+2,q-1)\in D$.
+
+3.  If $(p,n,d,q)\in D$ and $q>1$, then $(p, n, d+5, q-2)\in D$.
+
+4.  If $(p,n,d,q)\in D$ and $d> 0$, then $(p,n+2,d-1,q)\in D$.
+
+5.  If $(p,n,d,q)\in D$ and $n> 0$, then $(p+5, n-1, d, q)\in D$.
+
+Using this inductive definition, show that the following two
+claims are true:
+
+(a). There is no way to make change for a dollar from exactly five coins.
+
+(b). There is no way to make change for a dollar from an assortment of coins
+in which the total number of non-dimes (i.e., pennies, nickels, and quarters) is odd.
