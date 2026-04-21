@@ -213,7 +213,7 @@ non-classical systems of propositional logic (such as intuitionistic
 propositional logic or relevantist propositional logic) that began to be
 studied more widely at that time.
 
-### The Formal Language L$_P$
+### The Formal Language L$_P$ {#sec-Lp .section}
 
 To define the language L$_P$, we begin by defining an alphabet for the language.
 This alphabet consists, first, of an arbitrarily large collection of symbols:
@@ -239,7 +239,7 @@ as a unary connective.
 
 The intended meaning of the connectives is given by the following table:
 
-:::{#fig-connectives .figure}
+:::{#fig-connectives .figure .center}
 
 | Connective |   Operation   |            English Operator            |
 | :--------: | :-----------: | :------------------------------------: |
@@ -280,6 +280,8 @@ This sort of definition is what is called in mathematics and logic an _inductive
 will say more about how inductive definitions work in the next section. For now,
 we simply note that the following are all examples of sentences of $\Lp$:
 
+:::{#sentences-Lp}
+
 $$P$$
 
 $$\neg Q$$
@@ -291,6 +293,8 @@ $$\neg \neg (P \conj Q)$$
 $$((P\iff \neg Q) \conj (Q\disj R))$$
 
 $$((Q\imp(R\conj (S \imp P))) \iff (P\imp \neg Q))$$
+
+:::
 
 Note that, unlike the sentences of L$_S$, the sentences of the formal language
 L$_P$ can grow to be arbitrarily complex.
@@ -311,7 +315,7 @@ collectively, as binary compounds.
 {{< include /content/exercises/translations-in-p.qmd >}}
 :::
 
-### Inductive Definitions
+### Inductive Definitions {#sec-induction .section}
 
 Let's go back and look more closely at our definition of a sentence of L$_P$:
 

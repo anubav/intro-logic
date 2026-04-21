@@ -1,0 +1,2 @@
+Let $\ph$ and $\psi$ be any sentences of L$_P$. Write down a sentence of L$_P$
+that expresses the _exclusive_ disjunction of $\ph$ and $\psi$.

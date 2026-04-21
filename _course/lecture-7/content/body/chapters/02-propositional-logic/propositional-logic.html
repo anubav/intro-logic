@@ -226,6 +226,11 @@ window.Quarto = {
   <li><a href="#sec-Lp" id="toc-sec-Lp" class="nav-link" data-scroll-target="#sec-Lp"><span class="header-section-number">2.2.2</span> The Formal Language L<span class="math inline">\(_P\)</span></a></li>
   <li><a href="#sec-induction" id="toc-sec-induction" class="nav-link" data-scroll-target="#sec-induction"><span class="header-section-number">2.2.3</span> Inductive Definitions</a></li>
   </ul></li>
+  <li><a href="#the-meaning-of-the-propositional-connectives" id="toc-the-meaning-of-the-propositional-connectives" class="nav-link" data-scroll-target="#the-meaning-of-the-propositional-connectives"><span class="header-section-number">2.3</span> The Meaning of the Propositional Connectives</a>
+  <ul class="collapse">
+  <li><a href="#truth-tables" id="toc-truth-tables" class="nav-link" data-scroll-target="#truth-tables"><span class="header-section-number">2.3.1</span> Truth Tables</a></li>
+  <li><a href="#logical-equivalence" id="toc-logical-equivalence" class="nav-link" data-scroll-target="#logical-equivalence"><span class="header-section-number">2.3.2</span> Logical Equivalence</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -597,6 +602,204 @@ D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
 <p>We will shortly see why it is important to preclude the possibility of this sort of syntactic ambiguity in our language, by enforcing a strict order of operations.</p>
 </section>
 </section>
+<section id="the-meaning-of-the-propositional-connectives" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-meaning-of-the-propositional-connectives"><span class="header-section-number">2.3</span> The Meaning of the Propositional Connectives</h2>
+<section id="truth-tables" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="truth-tables"><span class="header-section-number">2.3.1</span> Truth Tables</h3>
+<p>Our next task is to explain what makes an argument in the language L<span class="math inline">\(_P\)</span> a valid argument. Just as before, the idea of argumentative validity will be expressed in terms of necessary truth preservation. An argument is valid just in case the truth of the conclusion follows necessarily from that of the premises. Moreover, the relevant notion of necessity will still be made out in semantic terms. An argument is valid just in case there is no interpretation of the non-logical elements of the language under which the premises are true and the conclusion false.</p>
+<p>What are the non-logical elements of the language L<span class="math inline">\(_P\)</span>? In this case, they are the atoms. These, naturally, are meant to stand for the sort of simple propositions out of which compound propositions are constructed. So, an argument is valid just in case the truth of the conclusion follows from that of the premises, no matter what propositions the atoms stand for.</p>
+<p>But what exactly is a proposition? From the perspective of the general philosophy of language, this, of course, is a complicated question. But from the point of view of truth-functional propositional logic, it admits of a fairly straightforward answer. In the context of logic, what is important about an interpretation of a language is that it serves to underwrite a specific truth valuation of the sentences of the language. Since we are dealing exclusively with truth-functional operations, the truth values of compound sentences will be fully determined by the truth values of the component sentences out of which they are formed. In this way, the truth values of all the sentences of the language will supervene on the truth values of the atomic ones.</p>
+<p>So, while the atomic sentences do represent simple propositions, the only feature of these propositions that is semantically relevant in the sense that it contributes to assessing the truth values of others sentences in the language, is their own truth or falsehood. Thus, in this context, we may think of a simple proposition as nothing more than the bearer of a truth value, and the possible semantic values of the atoms as the possible truth values of the propositions they express. The only assumptions we will make about these simple propositions are (1) that each is <em>logically contingent</em> in the sense that each is a proposition that may be either true or false; and (2) that they are <em>logically independent</em> of each other in the sense that the truth or falsehood of any one such proposition imposes no constraints on the truth or falsehood of any other.</p>
+<p>This means that, we will include among our interpretations of the language all possible assignments of truth values to the atoms. We thus arrive at the following definition:</p>
+<div id="def-p-interpretation" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.7</strong></span> An <em>interpretation</em> of the language L<span class="math inline">\(_P\)</span> is a function <span class="math inline">\(\sigma\)</span> which assigns to each of the atoms a truth value, i.e., an object from the set <span class="math inline">\(\{\mathbf{T},
+  \mathbf{F}\}\)</span>.</p>
+</div>
+<p>To complete our specification of the semantics for the language, we must explain how a given interpretation <span class="math inline">\(\sigma\)</span> determines a unique truth valuation <span class="math inline">\(v^\sigma\)</span> for the language. In doing so, we will, in effect, be explaining the meanings of the logical elements of the syntax, that is, the propositional connectives.</p>
+<p>For the atomic sentences, the truth value of a sentence is given directly by the interpretation as follows:</p>
+<p>(Atomic Sentences): If <span class="math inline">\(\varphi\)</span> is an atom, then <span class="math inline">\(v^\sigma(\varphi)=\sigma(\varphi)\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>To assign truth values to compound sentences, we must introduce additional semantic rules, specifying the meaning of the propositional connectives. We do so with the aim of interpreting the propositional connectives as effecting roughly the same semantic operations as the ordinary English locutions to which they correspond in <a href="#fig-connectives" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</p>
+<p>Let’s begin with negation. We have already said that the truth-functional operation effected by negation is that of transforming one sentence into another sentence that is true just in case the original sentence is false. This can be captured by the following rule:</p>
+<p>(Negation): For any sentence <span class="math inline">\(\varphi\)</span>: <span class="math inline">\(v^\sigma(\neg\varphi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+<p>Notice the ‘iff’ here. Since we are still assuming that every sentence is either true or false, and that no sentence is both, it follows from our rule for negation that if <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>, then <span class="math inline">\(v^\sigma(\neg\varphi)=\mathbf{F}\)</span>.</p>
+<p>Now, let’s consider conjunction. Again, as we’ve already said the truth-functional operation of conjunction takes two sentences and returns a new sentence which is true iff both of its component sentences—or <em>conjuncts</em>—are true. We can describe this operation as follows:</p>
+<p>(Conjunction): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma((\varphi\wedge\psi))=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span>.</p>
+<p>With the rules for negation and conjunction in place, we can now consider the truth conditions for more complicated compound sentences, such as <span class="math inline">\(\neg(P\wedge
+\neg Q)\)</span>. How does the truth value of this sentence depend upon the truth values of the atoms <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>? By the rule for negation, the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is true iff the sentence <span class="math inline">\((P\wedge\neg Q)\)</span> is false. By the rule for conjunction, <span class="math inline">\((P\wedge\neg Q)\)</span> is false iff either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(\neg Q\)</span> is false (or both). Since <span class="math inline">\(\neg Q\)</span> is false iff <span class="math inline">\(Q\)</span> is true, the whole sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is true iff either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(Q\)</span> is true (or both).</p>
+<p>One particularly convenient format for expressing the truth conditions for compound sentences is called a truth table. In a truth table, each of the atoms appearing in the sentence is assigned a separate column and each row corresponds to a different possible assignment of truth values to these atoms. The final column in the table then specifies the truth values of the compound sentence in question for each interpretation of the atoms. For example, a truth table for the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg(P\wedge\neg Q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note that this truth table has four rows. That is because the sentence in question contains two atoms. Since each atom can take one of two truth values, in order to countenance all possible interpretations, we need <span class="math inline">\(2\times 2 = 4\)</span> rows. If we considered a sentence containing three distinct atoms, we would need a truth table with <span class="math inline">\(2 \times 2\times 2 = 8\)</span> rows. In general, a sentence with <span class="math inline">\(n\)</span> distinct atoms requires a truth table with <span class="math inline">\(2^n\)</span> rows.</p>
+<p>When populating the initial columns in a truth table, it is important to ensure that all possible interpretations of the atoms are countenanced. The most straightforward way to ensure that this is the case is to enumerate the truth values of the atoms in accordance with the following systematic procedure: in the first column, fill in the first half of the rows with <span class="math inline">\(\mathbf{T}\)</span> and the second half with <span class="math inline">\(\mathbf{F}\)</span>. In the second column, fill in the first quarter of the rows with <span class="math inline">\(\mathbf{T}\)</span>, the second quarter with <span class="math inline">\(\mathbf{F}\)</span>, the third quarter with <span class="math inline">\(\mathbf{T}\)</span>, and the last quarter with <span class="math inline">\(\mathbf{F}\)</span>. Continue in this way, writing down alternating blocks of <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> and at each new column cutting the size of the blocks in half, until you reach the last column for an atom in which <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> alternate row by row.</p>
+</section>
+<section id="logical-equivalence" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="logical-equivalence"><span class="header-section-number">2.3.2</span> Logical Equivalence</h3>
+<p>Now, let’s return to our specification of the meanings of the propositional connectives. Disjunction corresponds to the English language operation ‘either … or —’. Now, in natural language there exists a certain ambiguity in how we interpret such expressions. Sometimes we interpret these expressions ‘exclusively’ as meaning that one of the two component sentences is true, but not both. For instance:</p>
+<p>Either you may have coffee or you may have tea.</p>
+<p>In other cases, we interpret disjunctions ‘inclusively’ as meaning that at least one, and possibly both, of the component sentences are true, as in:</p>
+<p>Either the train is late or the schedule posted online is wrong.</p>
+<p>In specifying the meaning of the disjunction operator in the language L<span class="math inline">\(_P\)</span>, we will assume that it signifies inclusive disjunction, and hence that a disjunction is true just in case either (or both) of its component sentences—or, <em>disjuncts</em>—is true:</p>
+<p>(Disjunction): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma((\varphi\wedge\psi))=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> or <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span> (or both).</p>
+<p>The truth table for the sentence <span class="math inline">\(P\vee Q\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\vee Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="exr-exclusive-or" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.4</strong></span> Let <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> be any sentences of L<span class="math inline">\(_P\)</span>. Write down a sentence of L<span class="math inline">\(_P\)</span> that expresses the <em>exclusive</em> disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>.</p>
+</div>
+<p>We are now in a position to understand why we needed to introduce parentheses into our language of propositional logic. Suppose we omitted the parentheses and allowed for unparenthesized sentences such as <span class="math inline">\(P\wedge Q\vee R\)</span>. As we observed in <a href="#sec-induction" class="quarto-xref"><span>Section 2.2.3</span></a>, this sentence would have two distinct formation trees. What the semantic rules for conjunction and disjunction tell us is, in effect, how truth values assigned to the terminal nodes of such a tree, labeled by atoms, are transmitted up through the tree to the compound sentence labeling the root node of the tree, in which those atoms figure. It would, of course, be a bad thing if some assignment of truth values to the atoms, transmits to the root node of one of the formation trees for a sentence a truth value that is different from that which it transmits to the root node of another formation tree for that same sentence. For in this case, the rules would generate an inconsistency, implying that the sentence is both true and false.</p>
+<p>It turns out that this sort of incoherency would be possible if we omitted parentheses from the language. For example, let <span class="math inline">\(\sigma(P)=\mathbf{F}\)</span>, <span class="math inline">\(\sigma(Q)=\mathbf{T}\)</span>, and <span class="math inline">\(\sigma(R)=\mathbf{T}\)</span>. Then, transmitting these values up through the two formation trees for the sentence <span class="math inline">\(P\wedge Q\vee R\)</span> in accordance with the rules for conjunction and disjunction results in different truth values being assigned to this sentence. Following one tree it is assigned the value false:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-1-tv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>But following the other it is assigned the value true:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-2-tv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>To avoid this sort of semantic incoherence, we need our language to distinguish between these two sentences. This is why we introduced parentheses into our language. By means of parentheses, we enforce a strict ‘order of operations’ which ensures that no sentence admits of multiple distinct formation trees. In this way, we disambiguate the sentence <span class="math inline">\(P\wedge Q\vee R\)</span>, associating its first formation tree with the sentence <span class="math inline">\((P\wedge(Q\vee R))\)</span> and its second formation tree with the sentence <span class="math inline">\(((P\wedge Q)\vee R)\)</span>.</p>
+<p>Now, that we have better understood the need for parentheses, we can be a bit more lax in our use of parentheses for the sake of readability. In particular, when writing sentences, we will omit the outermost pair of parentheses. We will also assume an order of operations for the propositional connectives that will allow us to express sentences using fewer parentheses than are strictly required by the grammatical rules of L<span class="math inline">\(_P\)</span>. In accordance with this order of operations, negations are to be parenthesized first, in as narrow a manner as possible, then conjunctions and disjunctions, then conditionals and, finally, biconditionals. Thus, for example, to express the sentence: <span class="math display">\[ ((\neg P\wedge Q)\rightarrow
+\neg R) \]</span> we may write: <span class="math display">\[ \neg P \wedge Q \rightarrow\neg R \]</span></p>
+<div id="exr-polish" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> If we wish to omit the parentheses from our language in a manner which avoids semantic ambiguity, we can adopt what is called a prefix (rather than the standard infix) notation for expressing sentential compounds. This prefix notation is sometimes referred to as Polish notation.</p>
+<p>In Polish notation, we define the sentences of the language inductively as follows:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is an sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence then <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(*\)</span> is a binary connective, then the expression <span class="math inline">\(\ast \varphi
+\psi\)</span> is a sentence.</p></li>
+</ol>
+<p>For example, in Polish notation, the sentence with the same formation tree as <span class="math inline">\((P\wedge (Q\vee R))\)</span> is written:</p>
+<p><span class="math display">\[ \wedge P\!\vee\! Q R \]</span></p>
+<p>while the sentence with the same formation tree as <span class="math inline">\(((P\wedge Q)\vee R)\)</span> is written:</p>
+<p><span class="math display">\[ \vee \!\wedge\! P Q R \]</span></p>
+<p>Rewrite the sentences of L<span class="math inline">\(_P\)</span> listed at the end of <a href="#sec-Lp" class="quarto-xref"><span>Section 2.2.2</span></a> in Polish notation.</p>
+</div>
+<p>Let’s now consider the conditional operator. This operator is meant to model the English language construction ‘if …, then —’. But of all the connectives, it is however, perhaps the farthest removed from its natural language counterpart. This is because conditional constructions are used to express a variety of different relationships between sentences, most of which are not truth-functional. For example:</p>
+<p><span class="math display">\[
+\textrm{If the match is struck, then it will light.}
+\]</span></p>
+<p>This conditional expresses a causal relationship, and so, as we have already noted, its truth value does not depend on the truth value of its component sentences—referred to as its <em>antecedent</em> and <em>consequent</em>, respectively.</p>
+<p>So, how should we think of a conditional in strictly truth-functional terms? To begin with, we may assume that a conditional is true if both its antecedent and consequent are true. Moreover, we may assume that it is false if its antecedent is true and its consequent false. The harder cases to handle are those in which the antecedent is false. What truth value should we assign to the conditional in these cases? We will adopt the convention, odd as it may seem, that a conditional with a false antecedent is true. As we will see later, there is a proof theoretic rationale for this policy.</p>
+<p>So, the semantic rule for conditionals is as follows:</p>
+<p>(Conditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\rightarrow\psi)=\mathbf{F}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{F}\)</span>.</p>
+<p>The truth table for <span class="math inline">\(P\rightarrow Q\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\rightarrow Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that the truth conditions for the conditional <span class="math inline">\(P\rightarrow Q\)</span> are exactly the same as the truth conditions for the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span>. Both are true just in case either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(Q\)</span> is true (or both). This highlights the fact that the syntax of the language L<span class="math inline">\(_P\)</span> now greatly exceeds its expressive capacity. That is, in the language, there are many distinct ways of saying the same thing.</p>
+<p>When two sentences have exactly the same truth conditions, we say that they are <em>logically equivalent</em>.</p>
+<div id="def-logical-equivalence" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.8</strong></span> Two sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are logically equivalent, written <span class="math inline">\(\varphi\equiv
+\psi\)</span>, if, for any interpretation <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+</div>
+<p>Two other important semantic notions are those of logical truth and logical falsehood:</p>
+<div id="def-logical-equivalence" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.9</strong></span> A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical truth</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>. A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical falsehood</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+</div>
+<p>In the context of propositional logic, logical truths are sometimes referred to as <em>tautologies</em> and logical falsehoods as <em>contradiction</em>. In fact, our final connective, the biconditional, allows us to express logical equivalence in terms of logical truth. The rule for the biconditional is as follows:</p>
+<p>(Biconditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\leftrightarrow\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+<p>Convince yourself that, for any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\varphi\equiv\psi\)</span> iff the sentence <span class="math inline">\(\varphi\leftrightarrow\psi\)</span> is a tautology.</p>
+<div id="exr-truth-tables" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.6</strong></span> Use truth tables to establish the following claims, where <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(\psi\)</span>, and <span class="math inline">\(\chi\)</span> are any sentences:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\neg(\varphi\wedge\psi) \equiv \neg\varphi\vee\neg\psi\)</span></p></li>
+<li><p><span class="math inline">\((\varphi\wedge\neg\varphi)\vee\psi\equiv \psi\)</span></p></li>
+<li><p><span class="math inline">\(\neg\neg\varphi\equiv \varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\rightarrow\psi\equiv\neg\psi\rightarrow\neg\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi)\equiv (\varphi\wedge\psi)\rightarrow\chi\)</span></p></li>
+</ol>
+</div>
+</section>
+</section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
@@ -612,6 +815,7 @@ Boole, G. 1854. <em>An Investigation of the Laws of Thought: On Which Are Founde
 <ol>
 <li id="fn1"><p>Truth-functional operations are also sometimes called Boolean operations in honor of the English mathematician George Boole, whose seminal work, <em>An Investigation of the Laws of Thought</em> <span class="citation" data-cites="Boole1854-ur">(<a href="#ref-Boole1854-ur" role="doc-biblioref">1854</a>)</span>, layed the foundation for the branch of mathematics now called Boolean algebra. Boolean algebra turns out to be equivalent to the logic of propositions that we will study in this chapter.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Truth-functional, or Boolean, propositional logic is often referred to as <em>classical</em> propositional logic. This label is a misnomer, for truth-functional propositional logic is neither classical in the sense of being the first system of propositional logic to have been studied, nor in the sense of having its origin in Greek or Latin antiquity. The use of the label ‘classical’ to describe truth-functional propositional logic seems to have gained widespread usage in the mid-20th century, mainly to distinguish truth-functional propositional logic from alternative non-classical systems of propositional logic (such as intuitionistic propositional logic or relevantist propositional logic) that began to be studied more widely at that time.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Strictly speaking, the occurrence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(v^\sigma\)</span> stands for an atomic sentence, whereas the occcurence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(\sigma\)</span> stands for an atom. However, for ease of exposition, we will generally treat as identical an atomic sentence and the atom from which it is composed.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

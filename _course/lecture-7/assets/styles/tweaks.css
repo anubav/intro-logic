@@ -1,0 +1,10 @@
+/* Correct vertical spacing for navigation page text */
+
+.nav-page-text {
+  margin-bottom: 0.5em;
+}
+
+/* eliminate top margin for first heading on page */
+h1 {
+  margin-top: 0em;
+}
