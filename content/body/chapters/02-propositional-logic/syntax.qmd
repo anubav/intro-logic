@@ -78,14 +78,20 @@ $$
 
 is true just in case tomorrow there is rain and Saturday is sunny. Thus
 understood, both negation and conjunction, viewed as compound sentence forming
-operations, have something in common. Both operations result in sentences the truth
-value of which is entirely determined by the truth values of the component
-sentences on which these operations are performed. We will call such operations
+operations, have something in common. Both operations result in sentences the
+truth value of which is entirely determined by the truth values of the component
+sentences on which these operations are performed. Such operations are called
 _truth-functional_ operations since the truth or falsehood of their output is a
-function of the truth and falsehood of their inputs.
+function of the truth and falsehood of their inputs.[^Boole]
 
-There are lots of examples of non-truth-functional compound sentence forming operations in natural language.
-Take, for example, the result of combining the sentences:
+[^Boole]:
+    Truth-functional operations are also sometimes called Boolean operations in honor of the English mathematician George Boole, whose seminal work, _An Investigation of the Laws of Thought_ [-@Boole1854-ur], layed the foundation for the branch of mathematics now
+    called Boolean algebra. Boolean algebra turns out to be equivalent to the
+    logic of propositions that we will study in this chapter.
+
+There are lots of examples of non-truth-functional compound sentence forming
+operations in natural language. Take, for example, the result of combining the
+sentences:
 
 $$
 \textrm{The stock market went down.}
@@ -141,7 +147,7 @@ $$
 \textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
 $$
 
-Our aim will be to develop tools to assess the validity arguments involving such compound
+Our aim will be to develop tools to assess the validity of arguments involving such compound
 sentences---arguments such as:
 
 $$
@@ -191,7 +197,21 @@ resigned indifference.
 To avoid such complications, we will formulate arguments of propositional logic
 in an artificial language devised for the express purpose of modeling the sort
 of arguments we are concerned to assess. We will call this formal language
-L$_P$.
+L$_P$.[^classical]
+
+[^classical]:
+
+Truth-functional, or Boolean, propositional logic is often
+referred to as _classical_ propositional logic. This label is a misnomer,
+for truth-functional propositional logic is neither classical in the sense
+of being the first system of propositional logic to have been studied, nor
+in the sense of having its origin in Greek or Latin antiquity. The use of
+the label 'classical' to describe truth-functional propositional logic seems
+to have gained widespread usage in the mid-20th century, mainly to
+distinguish truth-functional propositional logic from alternative
+non-classical systems of propositional logic (such as intuitionistic
+propositional logic or relevantist propositional logic) that began to be
+studied more widely at that time.
 
 ### The Formal Language L$_P$
 
@@ -219,6 +239,8 @@ as a unary connective.
 
 The intended meaning of the connectives is given by the following table:
 
+:::{#fig-connectives .figure}
+
 | Connective |   Operation   |            English Operator            |
 | :--------: | :-----------: | :------------------------------------: |
 |   $\neg$   |   negation    | It is not the case that $\smallblank$. |
@@ -228,6 +250,7 @@ The intended meaning of the connectives is given by the following table:
 |   $\iff$   | biconditional | $\cdots$ if and only if $\smallblank$. |
 
 : The intended meanings of the propositional connectives
+:::
 
 Lastly, in addition to the atoms and connectives, the alphabet for L$_P$ also includes the left and right parentheses:
 
@@ -238,7 +261,7 @@ $$
 As before, we will call an _expression_ of the language any finite string of symbols taken from
 its alphabet. The sentences of the language will be constructed through the
 recursive application of the propositional connectives to the atoms. We will
-define the sentences in the following, somewhat akward way:
+define the sentences in the following, somewhat awkward way:
 
 :::{#def-sentences-p .definition}
 
@@ -336,7 +359,7 @@ certain items fall under that term, then certain other items fall under that
 term as well. In this way, inductive definitions specify a kind of repeatable,
 or recursive, procedure by which new items falling under the defined term can be
 generated or constructed from older ones, and they stipulate that an object
-belongs to defined class of itms just in case it can be constructed in this way.
+belongs to defined class of items just in case it can be constructed in this way.
 The clause specifying the starting items from which the construction can
 proceed is called the _base_ clause of the inductive definition, the rest of the
 clauses that tell us how to construct new items from old ones, are called the
@@ -349,7 +372,7 @@ to the set:
 
 $$\{1, 2, 3, \ldots\}$$
 
-One way of thinking about how a number gets into this set is as follows: First,
+One way of thinking about how a number gets into this set is as follows: first,
 we stipulate that $1$ is in the set. Then, we posit that _if_ a number,
 say $n$, is already in the set, then $n+1$ goes into the set as well. We can
 turn this idea into an inductive definition as follows:
@@ -398,7 +421,7 @@ appeal to the following facts:
 
 One of the main advantages of inductive definitions is that such definitions
 can provide a straightforward means of proving that a certain property is
-possessed by every item belonging to the defined class. In particular, if a
+possessed by every item belonging to the defined class. In particular, if an
 item is defined inductively, then it suffices to show that:
 
 1.  Every item mentioned in the base clause of the definition has the property
@@ -456,7 +479,7 @@ One useful way of conceptualizing the items picked out by an inductive definitio
 by means of a 'formation tree'. This is a tree structure, each node of which is
 labeled by an item falling under the defined term. The direct descendants
 of any given node in the tree are items which generate their parent node in
-accordance with one of inductive clauses of the definition, and the root nodes
+accordance with one of the inductive clauses of the definition, and the root nodes
 of the tree (the nodes with no direct descendants) are items falling under the
 term in accordance with the base clause of the definition.
 
@@ -501,4 +524,4 @@ and:
 ![](/content/static/images/noparen-tree-2.svg){width=250 fig-align="center" fig-alt="sentences formation tree"}
 
 We will shortly see why it is important to preclude the possibility of this sort
-of syntactic ambiguity in our language.
+of syntactic ambiguity in our language, by enforcing a strict order of operations.

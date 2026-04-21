@@ -7,6 +7,5 @@ book:
       - index.qmd
       - content/front-matter/00-introduction/introduction.qmd
       - content/body/chapters/01-argument-validity-proof/argument-validity-proof.qmd
-      - content/body/chapters/02-propositional-logic/propositional-logic.qmd   
-  appendices: 
-      - content/back-matter/solutions.qmd
+      - content/body/chapters/02-propositional-logic/propositional-logic.qmd
+      - content/body/chapters/03-propositional-logic/propositional-logic.qmd
