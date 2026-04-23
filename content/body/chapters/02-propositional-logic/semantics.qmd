@@ -275,6 +275,18 @@ The truth table for $P\imp Q$ is as follows:
 | $\false$ | $\true$  |  $\true$  |
 | $\false$ | $\false$ |  $\true$  |
 
+Here is a fact about the conditional that is worth noting:
+
+$$\Ga, \ph\models\psi\textrm{ iff }\Ga\models\ph\imp\psi$$
+
+The claim $\Ga,\ph\models\psi$ is true iff there is no interpretation under
+which every sentence in $\Ga\cup\{\ph\}$ is true and $\psi$ is false. This just
+means that there is no interpretation under which every sentence in $\Ga$ is
+true, $\ph$ is true, and $\psi$ is false. But, given the meaning of the
+conditional, this is equivalent to the claim that there is no
+interpretation under which every sentence in $\Ga$ is true and $\ph\imp \psi$ is
+false, i.e., $\Ga\models\ph\imp\psi$.
+
 Notice that the truth conditions for the conditional $P\imp Q$ are exactly the
 same as the truth conditions for the sentence $\neg(P\conj \neg Q)$. Both are
 true just in case either $P$ is false or $Q$ is true (or both). This highlights
@@ -300,7 +312,7 @@ $v^\si(\ph)=\false$.
 :::
 
 In the context of propositional logic, logical truths are sometimes referred to
-as _tautologies_ and logical falsehoods as _contradiction_. In fact, our
+as _tautologies_ and logical falsehoods as _contradictions_. In fact, our
 final connective, the biconditional, allows us to express logical equivalence in
 terms of logical truth. The rule for the biconditional is as follows:
 
@@ -313,4 +325,8 @@ the sentence $\ph\iff\psi$ is a tautology.
 
 :::{#exr-truth-tables .exercise}
 {{< include /content/exercises/truth-tables.qmd >}}
+:::
+
+:::{#exr-dual .exercise}
+{{< include /content/exercises/dual.qmd >}}
 :::

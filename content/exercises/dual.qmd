@@ -1,24 +1,27 @@
-For any $n$-ary truth function $g$, we refer to the function:
-$$
-g^d(\al_1,\ldots,\al_n) = f_{\neg}(g(f_\neg(\al_1),\ldots,f_\neg(\al_n)))
-$$
-as the _dual_ of $g$. With each sentence $\ph$ expressible in $\{\neg,\conj,\disj\}$ we associate a sentence $\ph_d$, referred to as the
-_dual_ of $\ph$, as follows:
+Let $\ph$ be a sentence in which the only connectives are $\neg$, $\conj$, and
+$\disj$. The _dual_ of $\ph$ is the sentence which results from replacing every
+occurrence of the connective $\wedge$ in $\ph$ with the connective $\vee$, and
+vice versa. For example, the dual of the sentence:
 
-1. If $\ph$ is an atomic sentence, then $\ph^d=\ph$. 
+$$ (P\conj Q)\vee R $$
 
-2. $(\neg\ph)^d = \neg(\ph^d)$
+is the sentence:
 
-3. $(\ph\conj\psi)^d = \ph^d\disj\psi^d$
+$$ (P\disj Q)\conj R$$
 
-4. $(\ph\disj\psi)^d = \ph^d\conj\psi^d$
+If two sentences $\ph$ and $\psi$ are logically equivalent,
+then so are their duals. Illustrate this by confirming (using truth tables) that the following
+equivalences are still true when the sentences are replaced with their duals:
 
-a. 
-    Show that if $g$ is the $n$-ary truth function for some sentence $\ph$ expressible in
-    $\{\neg,\conj,\disj\}$, then $g^d$ is the $n$-ary truth function for $\ph^d$. Convince yourself
-    that for any sentences $\ph$ and $\psi$ expressible in $\{\neg,\conj,\disj\}$, $\ph\equiv \psi$ if and only if $\ph^d\equiv \psi^d$.\vspace{2mm}
+a. $\neg(P\conj Q)\equiv \neg P\disj\neg Q$
 
-b. 
-    A sentence $\ph$ expressible in  $\{\neg,\conj,\disj\}$ is _self-dual_ if
-    $\ph\equiv\ph^d$. Provide an example of a self-dual sentence containing more than one atom that is expressible in
-    $\{\conj,\disj\}$.
+b. $P\conj(Q\vee R)\equiv (P\conj Q)\vee (P\conj R)$
+
+A sentence is _self-dual_ if it is logically equivalent to its own dual.
+
+c. Show that the sentence:
+
+$$ (P\conj Q)\vee(Q\conj R)\vee (P\conj R) $$
+
+is self-dual. Describe what this sentence means in way that explains why
+it is self-dual.
