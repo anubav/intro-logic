@@ -1,17 +1,17 @@
 ---
 bibliography: "propositional-logic.bib"
 number-sections: true
-crossref: 
-    chapters: true
+crossref:
+  chapters: true
 ---
 
 {{< include /assets/macros/macros.qmd >}}
 
-# Propositional Logic  
-      
-{{< include introduction.qmd >}}    
+# Propositional Logic
 
-{{< include syntax-semantics.qmd >}} 
+{{< include introduction.qmd >}}
+
+{{< include syntax-semantics.qmd >}}
 
 :::{.content-hidden when-profile="lecture-9"}
 {{< include proofs.qmd >}}
@@ -23,5 +23,4 @@ crossref:
 :::
 :::
 
-## References {.unnumbered}               
- 
+## References {.unnumbered}

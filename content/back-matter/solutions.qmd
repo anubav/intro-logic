@@ -47,3 +47,21 @@ crossrefs-hover: false
 
 {{< include /content/solutions/proofs-in-S.qmd >}}
 :::
+
+## Chapter 2 - Propositional Logic
+
+@exr-translations-in-p
+
+{{< include /content/solutions/translations-in-p.qmd >}}
+
+@exr-counting-coins
+
+{{< include /content/solutions/counting-coins.qmd >}}
+
+@exr-exclusive-or
+
+{{< include /content/solutions/exclusive-or.qmd >}}
+
+@exr-truth-tables
+
+{{< include /content/solutions/truth-tables.qmd >}}

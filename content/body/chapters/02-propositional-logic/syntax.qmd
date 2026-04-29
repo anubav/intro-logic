@@ -201,7 +201,7 @@ L$_P$.[^classical]
 
 [^classical]:
 
-Truth-functional, or Boolean, propositional logic is often
+Truth-functional propositional logic is often
 referred to as _classical_ propositional logic. This label is a misnomer,
 for truth-functional propositional logic is neither classical in the sense
 of being the first system of propositional logic to have been studied, nor
@@ -239,7 +239,7 @@ as a unary connective.
 
 The intended meaning of the connectives is given by the following table:
 
-:::{#fig-connectives .figure .center}
+:::{#fig-connectives .figure style="text-align: center;"}
 
 | Connective |   Operation   |            English Operator            |
 | :--------: | :-----------: | :------------------------------------: |

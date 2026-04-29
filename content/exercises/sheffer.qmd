@@ -1,16 +1,14 @@
-a. Prove that $f_\imp$ is not expressible in $\{\conj,\disj\}$.
+Let $\uparrow$ be the binary propositional connective, defined by the following truth table:
 
-Let $\uparrow$ be the binary propositional connective, whose corresponding truth function is given
-by:
-$$
-    f_\uparrow(\al,\be)=f_\neg(f_\conj(\al,\be))
-$$
-and let $\downarrow$ be the binary propositional connective, whose corresponding truth function is given by:
-$$
-    f_\downarrow(\al,\be)=f_\neg(f_\disj(\al,\be))
-$$
+|   $P$    |   $Q$    | $P\uparrow Q$ |
+| :------: | :------: | :-----------: |
+| $\true$  | $\true$  |   $\false$    |
+| $\true$  | $\false$ |   $\false$    |
+| $\false$ | $\true$  |   $\false$    |
+| $\false$ | $\false$ |    $\true$    |
 
-b. Show that $\{\uparrow\}$ and $\{\downarrow\}$ are truth functionally complete.
+a. Show that the operations $\neg$ and $\conj$ are both expressible in terms of
+$\uparrow$.
 
-c. Let $\ast$ be any binary propositional connective. Show that if  $\{\ast\}$ is truth functionally complete, then $\ph*\psi$ is equivalent to
-either $\ph\uparrow \psi$ or $\ph\downarrow\psi$.
+b. Write a sentence that is logically equivalent to $P\imp Q$ that uses only the
+connective $\uparrow$.

@@ -21,7 +21,7 @@ A sentence is _self-dual_ if it is logically equivalent to its own dual.
 
 c. Show that the sentence:
 
-$$ (P\conj Q)\vee(Q\conj R)\vee (P\conj R) $$
+    $$ (P\conj Q)\vee(Q\conj R)\vee (P\conj R) $$
 
-is self-dual. Describe what this sentence means in way that explains why
-it is self-dual.
+    is self-dual. Describe what this sentence means in way that explains why
+    it is self-dual.

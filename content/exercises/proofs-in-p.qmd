@@ -1,17 +1,17 @@
-Provide proofs to establish the following claims:
+Provide proofs to establish the validity of the following arguments:
 
-a. $\ph\conj\psi\provesp\psi\conj\ph$
+a. $\ph\conj\psi\proves\psi\conj\ph$
 
-b. $\provesp \neg(\ph\conj\neg\ph)$
+b. $\proves \neg(\ph\conj\neg\ph)$
 
-c. $\provesp \ph\vee\neg\ph$
+c. $\ph\imp(\psi\imp\chi), \ph\imp\psi\proves\ph\imp\chi$
 
-d. $\neg\ph\provesp\ph\imp\psi$
+d. $\neg\ph\imp\neg\psi\proves\psi\imp\ph$
 
-e. $\ph\provesp\ph\imp\psi$
+e. $\ph\proves\neg\neg\ph$
 
-f. $\ph, \neg\psi\provesp\neg(\ph\imp\psi)$
+f. $\neg\ph\proves\ph\imp\psi$
 
-g. $\neg(\ph\vee\psi)\provesp\neg\ph\conj\neg\psi$
+g. $\ph\proves\ph\imp\psi$
 
-h. $\neg(\ph\conj\psi)\provesp\neg\ph\disj\neg\psi$
+h. $\ph, \neg\psi\proves\neg(\ph\imp\psi)$

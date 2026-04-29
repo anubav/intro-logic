@@ -303,6 +303,10 @@ Two sentences $\ph$ and $\psi$ are logically equivalent, written $\ph\equiv
 interpretation $\si$, $v^\si(\ph)=v^\si(\psi)$.
 :::
 
+:::{#exr-truth-tables .exercise}
+{{< include /content/exercises/truth-tables.qmd >}}
+:::
+
 Two other important semantic notions are those of logical truth and logical falsehood:
 
 :::{#def-logical-equivalence .definition}
@@ -323,9 +327,75 @@ $v^\si(\ph)=v^\si(\psi)$.
 Convince yourself that, for any sentences $\ph$ and $\psi$, $\ph\equiv\psi$ iff
 the sentence $\ph\iff\psi$ is a tautology.
 
-:::{#exr-truth-tables .exercise}
-{{< include /content/exercises/truth-tables.qmd >}}
+Now, let's see how biconditionals can be utilized in ordinary reasoning. First, watch the following
+clip from the 1986 film _Labryinth_:
+
+::: {#fig-labyrinth .figure}
+{{< video /content/static/video/labyrinth.mp4 >}}
+The Puzzle of the Two Doors. Clip from _Labyrinth_ (1986), directed by Jim Henson. © TriStar Pictures / Henson Associates / Lucasfilm Ltd. Used for commentary and analysis.
 :::
+
+In the scene depicted, the heroine is confronted with a logical puzzle: she must
+choose between two doors, one of which leads to the castle and the other to
+certain death. In front of one of the two doors is a red guard and in front of
+the other is a blue guard. The heroine knows that one of the guards always tells
+the truth and the other always lies. She is allowed to ask one of the guards a
+question, and so she asks the red guard what the blue guard would say if he were asked
+where the door behind the red guard leads. The red guard replies that the
+blue guard would say that this door leads to the castle. Based on this response,
+the heroine (rightly) concludes that it is, in fact, the door behind the blue
+guard that leads to the castle.
+
+How do we formulate the heroine's argument? The first premise of the argument is
+that one of the guards always tells the truth and the other guard always lies. Let:
+
+$R$: The red guard is the truth-teller
+
+$B$: The blue guard is the truth-teller
+
+The premise states that one of these claims is true and the other is false. This
+can be expressed by the sentence:
+
+$$ R\iff \neg B$$
+
+When asked, the red guard tells the heroine that the blue guard would report that
+the door behind the red guard leads to the castle. To say that this is what the
+blue guard reports is tantamount to saying that the blue guard speaks the truth
+just in case the door behind the red guard leads to the castle. Let:
+
+$C$: The door behind the red guard leads the castle
+
+So, the fact that the blue guard reports this can be captured by the biconditional:
+
+$$ B\iff C $$
+
+Now, the Heroine is not yet in a position to conclude that the blue guard will
+actually say what the red guard says that he will say---that the door behind the
+red guard leads to the castle---since it may be the case that the red guard is
+lying. But what she does know is that the red guard is telling the truth if and
+only if this is what the blue guard will say. That is:
+
+$$ R\iff (B\iff C) $$
+
+From these two assumptions, the heroine concludes that it is not the door behind
+the red guard, but the door behind the blue guard, that leads to the castle. We
+can validate the heroine's argument by means of the following truth table:
+
+|   $R$    |   $B$    |   $C$    | $R\iff\neg B$ | $R\iff(B\iff C)$ |
+| :------: | :------: | :------: | :-----------: | :--------------: |
+| $\true$  | $\true$  | $\true$  |   $\false$    |     $\true$      |
+| $\true$  | $\true$  | $\false$ |   $\false$    |     $\false$     |
+| $\true$  | $\false$ | $\true$  |    $\true$    |     $\false$     |
+| $\true$  | $\false$ | $\false$ |    $\true$    |     $\true$      |
+| $\false$ | $\true$  | $\true$  |    $\true$    |     $\false$     |
+| $\false$ | $\true$  | $\false$ |    $\true$    |     $\true$      |
+| $\false$ | $\false$ | $\true$  |   $\false$    |     $\true$      |
+| $\false$ | $\false$ | $\false$ |   $\false$    |     $\false$     |
+
+Note that the only two rows in which both assumptions are true (rows $4$ and
+$6$) are rows in which $C$ is false. Hence, from these two assumptions it
+follows that the door behind the blue guard leads to the castle. Propositional
+logic to the rescue!
 
 :::{#exr-dual .exercise}
 {{< include /content/exercises/dual.qmd >}}

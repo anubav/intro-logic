@@ -63,6 +63,8 @@ div.csl-indent {
 <link href="../../../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
 <link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -399,7 +401,7 @@ of Rome.}
 \]</span></p>
 <p>These five symbols are referred to collectively as propositional connectives, and, respectively, as the negation operator (<span class="math inline">\(\neg\)</span>), the conjunction operator (<span class="math inline">\(\wedge\)</span>), the disjunction operator (<span class="math inline">\(\vee\)</span>), and the conditional operator (<span class="math inline">\(\rightarrow\)</span>). The latter three connectives (i.e., <span class="math inline">\(\wedge, \vee\)</span>, and <span class="math inline">\(\rightarrow\)</span>) are referred to as binary connectives, whereas the negation operator is referred to as a unary connective.</p>
 <p>The intended meaning of the connectives is given by the following table:</p>
-<div id="fig-connectives" class="figure center quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-connectives" class="figure quarto-float quarto-figure quarto-figure-center anchored" style="text-align: center;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-connectives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -775,19 +777,15 @@ D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
 </tr>
 </tbody>
 </table>
+<p>Here is a fact about the conditional that is worth noting:</p>
+<p><span class="math display">\[\Gamma, \varphi\models\psi\textrm{ iff }\Gamma\models\varphi\rightarrow\psi\]</span></p>
+<p>The claim <span class="math inline">\(\Gamma,\varphi\models\psi\)</span> is true iff there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\cup\{\varphi\}\)</span> is true and <span class="math inline">\(\psi\)</span> is false. This just means that there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\)</span> is true, <span class="math inline">\(\varphi\)</span> is true, and <span class="math inline">\(\psi\)</span> is false. But, given the meaning of the conditional, this is equivalent to the claim that there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\)</span> is true and <span class="math inline">\(\varphi\rightarrow\psi\)</span> is false, i.e., <span class="math inline">\(\Gamma\models\varphi\rightarrow\psi\)</span>.</p>
 <p>Notice that the truth conditions for the conditional <span class="math inline">\(P\rightarrow Q\)</span> are exactly the same as the truth conditions for the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span>. Both are true just in case either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(Q\)</span> is true (or both). This highlights the fact that the syntax of the language L<span class="math inline">\(_P\)</span> now greatly exceeds its expressive capacity. That is, in the language, there are many distinct ways of saying the same thing.</p>
 <p>When two sentences have exactly the same truth conditions, we say that they are <em>logically equivalent</em>.</p>
 <div id="def-logical-equivalence" class="definition theorem">
 <p><span class="theorem-title"><strong>Definition 2.8</strong></span> Two sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are logically equivalent, written <span class="math inline">\(\varphi\equiv
 \psi\)</span>, if, for any interpretation <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
 </div>
-<p>Two other important semantic notions are those of logical truth and logical falsehood:</p>
-<div id="def-logical-equivalence" class="definition theorem">
-<p><span class="theorem-title"><strong>Definition 2.9</strong></span> A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical truth</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>. A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical falsehood</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
-</div>
-<p>In the context of propositional logic, logical truths are sometimes referred to as <em>tautologies</em> and logical falsehoods as <em>contradiction</em>. In fact, our final connective, the biconditional, allows us to express logical equivalence in terms of logical truth. The rule for the biconditional is as follows:</p>
-<p>(Biconditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\leftrightarrow\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
-<p>Convince yourself that, for any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\varphi\equiv\psi\)</span> iff the sentence <span class="math inline">\(\varphi\leftrightarrow\psi\)</span> is a tautology.</p>
 <div id="exr-truth-tables" class="exercise theorem">
 <p><span class="theorem-title"><strong>Exercise 2.6</strong></span> Use truth tables to establish the following claims, where <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(\psi\)</span>, and <span class="math inline">\(\chi\)</span> are any sentences:</p>
 <ol type="a">
@@ -796,6 +794,124 @@ D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
 <li><p><span class="math inline">\(\neg\neg\varphi\equiv \varphi\)</span></p></li>
 <li><p><span class="math inline">\(\varphi\rightarrow\psi\equiv\neg\psi\rightarrow\neg\varphi\)</span></p></li>
 <li><p><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi)\equiv (\varphi\wedge\psi)\rightarrow\chi\)</span></p></li>
+</ol>
+</div>
+<p>Two other important semantic notions are those of logical truth and logical falsehood:</p>
+<div id="def-logical-equivalence" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.9</strong></span> A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical truth</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>. A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical falsehood</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+</div>
+<p>In the context of propositional logic, logical truths are sometimes referred to as <em>tautologies</em> and logical falsehoods as <em>contradictions</em>. In fact, our final connective, the biconditional, allows us to express logical equivalence in terms of logical truth. The rule for the biconditional is as follows:</p>
+<p>(Biconditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\leftrightarrow\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+<p>Convince yourself that, for any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\varphi\equiv\psi\)</span> iff the sentence <span class="math inline">\(\varphi\leftrightarrow\psi\)</span> is a tautology.</p>
+<p>Now, let’s see how biconditionals can be utilized in ordinary reasoning. First, watch the following clip from the 1986 film <em>Labryinth</em>:</p>
+<div id="fig-labyrinth" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-labyrinth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../../../../content/static/video/labyrinth.mp4"></video></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labyrinth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: The Puzzle of the Two Doors. Clip from <em>Labyrinth</em> (1986), directed by Jim Henson. © TriStar Pictures / Henson Associates / Lucasfilm Ltd.&nbsp;Used for commentary and analysis.
+</figcaption>
+</figure>
+</div>
+<p>In the scene depicted, the heroine is confronted with a logical puzzle: she must choose between two doors, one of which leads to the castle and the other to certain death. In front of one of the two doors is a red guard and in front of the other is a blue guard. The heroine knows that one of the guards always tells the truth and the other always lies. She is allowed to ask one of the guards a question, and so she asks the red guard what the blue guard would say if he were asked where the door behind the red guard leads. The red guard replies that the blue guard would say that this door leads to the castle. Based on this response, the heroine (rightly) concludes that it is, in fact, the door behind the blue guard that leads to the castle.</p>
+<p>How do we formulate the heroine’s argument? The first premise of the argument is that one of the guards always tells the truth and the other guard always lies. Let:</p>
+<p><span class="math inline">\(R\)</span>: The red guard is the truth-teller</p>
+<p><span class="math inline">\(B\)</span>: The blue guard is the truth-teller</p>
+<p>The premise states that one of these claims is true and the other is false. This can be expressed by the sentence:</p>
+<p><span class="math display">\[ R\leftrightarrow\neg B\]</span></p>
+<p>When asked, the red guard tells the heroine that the blue guard would report that the door behind the red guard leads to the castle. To say that this is what the blue guard reports is tantamount to saying that the blue guard speaks the truth just in case the door behind the red guard leads to the castle. Let:</p>
+<p><span class="math inline">\(C\)</span>: The door behind the red guard leads the castle</p>
+<p>So, the fact that the blue guard reports this can be captured by the biconditional:</p>
+<p><span class="math display">\[ B\leftrightarrow C \]</span></p>
+<p>Now, the Heroine is not yet in a position to conclude that the blue guard will actually say what the red guard says that he will say—that the door behind the red guard leads to the castle—since it may be the case that the red guard is lying. But what she does know is that the red guard is telling the truth if and only if this is what the blue guard will say. That is:</p>
+<p><span class="math display">\[ R\leftrightarrow(B\leftrightarrow C) \]</span></p>
+<p>From these two assumptions, the heroine concludes that it is not the door behind the red guard, but the door behind the blue guard, that leads to the castle. We can validate the heroine’s argument by means of the following truth table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(R\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\leftrightarrow\neg B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\leftrightarrow(B\leftrightarrow C)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the only two rows in which both assumptions are true (rows <span class="math inline">\(4\)</span> and <span class="math inline">\(6\)</span>) are rows in which <span class="math inline">\(C\)</span> is false. Hence, from these two assumptions it follows that the door behind the blue guard leads to the castle. Propositional logic to the rescue!</p>
+<div id="exr-dual" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.7</strong></span> Let <span class="math inline">\(\varphi\)</span> be a sentence in which the only connectives are <span class="math inline">\(\neg\)</span>, <span class="math inline">\(\wedge\)</span>, and <span class="math inline">\(\vee\)</span>. The <em>dual</em> of <span class="math inline">\(\varphi\)</span> is the sentence which results from replacing every occurrence of the connective <span class="math inline">\(\wedge\)</span> in <span class="math inline">\(\varphi\)</span> with the connective <span class="math inline">\(\vee\)</span>, and vice versa. For example, the dual of the sentence:</p>
+<p><span class="math display">\[ (P\wedge Q)\vee R \]</span></p>
+<p>is the sentence:</p>
+<p><span class="math display">\[ (P\vee Q)\wedge R\]</span></p>
+<p>If two sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are logically equivalent, then so are their duals. Illustrate this by confirming (using truth tables) that the following equivalences are still true when the sentences are replaced with their duals:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\neg(P\wedge Q)\equiv \neg P\vee\neg Q\)</span></p></li>
+<li><p><span class="math inline">\(P\wedge(Q\vee R)\equiv (P\wedge Q)\vee (P\wedge R)\)</span></p></li>
+</ol>
+<p>A sentence is <em>self-dual</em> if it is logically equivalent to its own dual.</p>
+<ol start="3" type="a">
+<li><p>Show that the sentence:</p>
+<p><span class="math display">\[ (P\wedge Q)\vee(Q\wedge R)\vee (P\wedge R) \]</span></p>
+<p>is self-dual. Describe what this sentence means in way that explains why it is self-dual.</p></li>
 </ol>
 </div>
 </section>
@@ -814,7 +930,7 @@ Boole, G. 1854. <em>An Investigation of the Laws of Thought: On Which Are Founde
 <hr>
 <ol>
 <li id="fn1"><p>Truth-functional operations are also sometimes called Boolean operations in honor of the English mathematician George Boole, whose seminal work, <em>An Investigation of the Laws of Thought</em> <span class="citation" data-cites="Boole1854-ur">(<a href="#ref-Boole1854-ur" role="doc-biblioref">1854</a>)</span>, layed the foundation for the branch of mathematics now called Boolean algebra. Boolean algebra turns out to be equivalent to the logic of propositions that we will study in this chapter.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Truth-functional, or Boolean, propositional logic is often referred to as <em>classical</em> propositional logic. This label is a misnomer, for truth-functional propositional logic is neither classical in the sense of being the first system of propositional logic to have been studied, nor in the sense of having its origin in Greek or Latin antiquity. The use of the label ‘classical’ to describe truth-functional propositional logic seems to have gained widespread usage in the mid-20th century, mainly to distinguish truth-functional propositional logic from alternative non-classical systems of propositional logic (such as intuitionistic propositional logic or relevantist propositional logic) that began to be studied more widely at that time.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Truth-functional propositional logic is often referred to as <em>classical</em> propositional logic. This label is a misnomer, for truth-functional propositional logic is neither classical in the sense of being the first system of propositional logic to have been studied, nor in the sense of having its origin in Greek or Latin antiquity. The use of the label ‘classical’ to describe truth-functional propositional logic seems to have gained widespread usage in the mid-20th century, mainly to distinguish truth-functional propositional logic from alternative non-classical systems of propositional logic (such as intuitionistic propositional logic or relevantist propositional logic) that began to be studied more widely at that time.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Strictly speaking, the occurrence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(v^\sigma\)</span> stands for an atomic sentence, whereas the occcurence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(\sigma\)</span> stands for an atom. However, for ease of exposition, we will generally treat as identical an atomic sentence and the atom from which it is composed.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -1250,6 +1366,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

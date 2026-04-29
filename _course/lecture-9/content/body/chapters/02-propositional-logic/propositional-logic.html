@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Propositional Logic – Introduction to Logic</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../content/back-matter/solutions.html" rel="next">
+<link href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
+<link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="../../../../assets/scripts/definitions.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../assets/styles/fonts.css">
+<link rel="stylesheet" href="../../../../assets/styles/environments.css">
+<link rel="stylesheet" href="../../../../assets/styles/tweaks.css">
+<link rel="stylesheet" href="../../../../assets/styles/custom.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Introduction to Logic</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Front Matter</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/front-matter/00-introduction/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/back-matter/solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions to Selected Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#the-syntax-of-propositional-logic" id="toc-the-syntax-of-propositional-logic" class="nav-link" data-scroll-target="#the-syntax-of-propositional-logic"><span class="header-section-number">2.2</span> The Syntax of Propositional Logic</a>
+  <ul class="collapse">
+  <li><a href="#truth-functional-operations" id="toc-truth-functional-operations" class="nav-link" data-scroll-target="#truth-functional-operations"><span class="header-section-number">2.2.1</span> Truth-Functional Operations</a></li>
+  <li><a href="#sec-Lp" id="toc-sec-Lp" class="nav-link" data-scroll-target="#sec-Lp"><span class="header-section-number">2.2.2</span> The Formal Language L<span class="math inline">\(_P\)</span></a></li>
+  <li><a href="#sec-induction" id="toc-sec-induction" class="nav-link" data-scroll-target="#sec-induction"><span class="header-section-number">2.2.3</span> Inductive Definitions</a></li>
+  </ul></li>
+  <li><a href="#the-meaning-of-the-propositional-connectives" id="toc-the-meaning-of-the-propositional-connectives" class="nav-link" data-scroll-target="#the-meaning-of-the-propositional-connectives"><span class="header-section-number">2.3</span> The Meaning of the Propositional Connectives</a>
+  <ul class="collapse">
+  <li><a href="#truth-tables" id="toc-truth-tables" class="nav-link" data-scroll-target="#truth-tables"><span class="header-section-number">2.3.1</span> Truth Tables</a></li>
+  <li><a href="#logical-equivalence" id="toc-logical-equivalence" class="nav-link" data-scroll-target="#logical-equivalence"><span class="header-section-number">2.3.2</span> Logical Equivalence</a></li>
+  <li><a href="#truth-functional-completeness" id="toc-truth-functional-completeness" class="nav-link" data-scroll-target="#truth-functional-completeness"><span class="header-section-number">2.3.3</span> Truth-Functional Completeness</a></li>
+  <li><a href="#validity" id="toc-validity" class="nav-link" data-scroll-target="#validity"><span class="header-section-number">2.3.4</span> Validity</a></li>
+  </ul></li>
+  <li><a href="#proofs-in-propositional-logic" id="toc-proofs-in-propositional-logic" class="nav-link" data-scroll-target="#proofs-in-propositional-logic"><span class="header-section-number">2.4</span> Proofs in Propositional Logic</a>
+  <ul class="collapse">
+  <li><a href="#the-rules-for-negation" id="toc-the-rules-for-negation" class="nav-link" data-scroll-target="#the-rules-for-negation"><span class="header-section-number">2.4.1</span> The Rules for Negation</a></li>
+  <li><a href="#the-rules-for-the-conditional" id="toc-the-rules-for-the-conditional" class="nav-link" data-scroll-target="#the-rules-for-the-conditional"><span class="header-section-number">2.4.2</span> The Rules for the Conditional</a></li>
+  <li><a href="#the-rules-for-conjunction" id="toc-the-rules-for-conjunction" class="nav-link" data-scroll-target="#the-rules-for-conjunction"><span class="header-section-number">2.4.3</span> The Rules for Conjunction</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+<!-- Greek letters -->
+<!-- set operations -->
+<!-- script letters -->
+<!-- bold letters -->
+<!-- logic -->
+<!-- propositional logic -->
+<!-- syllogistic logic -->
+<!-- miscellaneous -->
+</div>
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<p>Propositional logic is the study of the inferential relations that obtain between compound propositions, such as:</p>
+<p><span class="math display">\[
+\textrm{Alice is a philosophy major \emph{and} Bob is majoring in economics.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Either} the train is late \emph{or} the schedule that is posted online is wrong}.
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{If} the battery is not dead, \emph{then} the computer will turn on.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
+\]</span></p>
+<p>Propositional logic forms the core of most other systems of logic utilized in philosophical analysis, including first-order quantificational logic and modal logic. It also provides the standard context in which the theory of probability is developed. It thus constitutes the first essential entry in a philosophy student’s logical toolkit. In this chapter, we will introduce a formal language in which to represent arguments of propositional logic, a semantic framework in which to assess their validity, and a proof system in which to carry out propositional reasoning.</p>
+</section>
+<section id="the-syntax-of-propositional-logic" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-syntax-of-propositional-logic"><span class="header-section-number">2.2</span> The Syntax of Propositional Logic</h2>
+<section id="truth-functional-operations" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="truth-functional-operations"><span class="header-section-number">2.2.1</span> Truth-Functional Operations</h3>
+<p>In natural language, many of the sentences that we assert have a <em>compositional</em> structure. They are, that is, built up from other sentences through the use of certain compound sentence forming operations. Let’s take a simple example. Consider the sentence:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain.}
+\]</span></p>
+<p>From this sentence, we can construct a new sentence by adding to the verb the negating particle <em>not</em>:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will \emph{not} rain.}
+\]</span></p>
+<p>Moreover, we can perform the very same operation on other sentences. For example, by negating the verb in the sentence:</p>
+<p><span class="math display">\[
+\textrm{Alice is a philosophy major.}
+\]</span></p>
+<p>we obtain a new sentence:</p>
+<p><span class="math display">\[
+\textrm{Alice is \emph{not} a philosophy major.}
+\]</span></p>
+<p>It is thus natural to think of the act of negating the verb as a general operation which takes us from one sentence to another, the latter being a compound sentence that is, in some way, made up of the former. We can also imagine compound sentence forming operations which act on more than one sentence. For example, given the two sentences:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain.}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\textrm{Saturday will be sunny. }
+\]</span></p>
+<p>we can conjoin these sentences using the coordinating particle <em>and</em> to yield the new sentence:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p>Here we have an operation which takes two sentences and returns a new compound sentence of which both of the original sentences are a part. Since it takes two sentences, we might call such an operation a <em>binary</em> operation, whereas negation, since it acts on only one sentence, would be <em>unary</em>.</p>
+<p>How exactly is the sentence ‘Tomorrow it will not rain’, that results from performing the unary operation of negating the verb, related to the sentence ‘Tomorrow it will rain’ on which this operation is performed. The answer should be clear: the sentence which results from performing the operation of negation is one which is true just in case the sentence on which the operation was performed is false. This is likewise the case, for the sentence ‘Alice is not a philosophy major’ obtained by negating the sentence ‘Alice is a philosophy major’. So, we can think of negation as a general operation that takes a sentence to another sentence which is true just in case the original sentence is false.</p>
+<p>What about the conjunction of two sentences? The conjunction of two sentences via the the coordinating particle <em>and</em> yields a sentence which is true just in case <em>both</em> of its component sentences are true. For example:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p>is true just in case tomorrow there is rain and Saturday is sunny. Thus understood, both negation and conjunction, viewed as compound sentence forming operations, have something in common. Both operations result in sentences the truth value of which is entirely determined by the truth values of the component sentences on which these operations are performed. Such operations are called <em>truth-functional</em> operations since the truth or falsehood of their output is a function of the truth and falsehood of their inputs.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>There are lots of examples of non-truth-functional compound sentence forming operations in natural language. Take, for example, the result of combining the sentences:</p>
+<p><span class="math display">\[
+\textrm{The stock market went down.}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\textrm{There was a snowstorm in Boston.}
+\]</span></p>
+<p>via the subordinating conjunction ‘because’ to yield the sentence:</p>
+<p><span class="math display">\[
+\textrm{The stock market went down \emph{because} there was a snowstorm in Boston.}
+\]</span></p>
+<p>The truth or falsehood of this claim cannot be determined by that of the component sentences alone. In particular, if both sentences are true, the claim could be either true or false depending on whether the sentences stand in a suitable causal relationship to one another. Here are a few more examples of non-truth-functional compounds:</p>
+<p><span class="math display">\[
+\textrm{\emph{It could have been the case that} life developed on Mars.  }
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Lois Lane believes that} Superman is Clark Kent.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{Caesar crossed the Rubicon \emph{after} he was declared emperor
+of Rome.}
+\]</span></p>
+<p>In all of these cases, the truth value of the compound sentence is not determined by the truth values of its component parts.</p>
+<p>In this chapter, we will be concerned to study the logic of truth-functional operations, like negation and conjunction. Other examples of truth-functional compounds include:</p>
+<p><span class="math display">\[
+\textrm{\emph{Either} the train is late \emph{or} the schedule that is posted online is wrong}.
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{If} the battery is not dead, \emph{then} the computer will turn on.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{You are eligible to vote \emph{if and only if} you are a resident of the county}.
+\]</span></p>
+<p>Our aim will be to develop tools to assess the validity of arguments involving such compound sentences—arguments such as:</p>
+<p><span class="math display">\[
+\frac{\textrm{Either James is sick at home or the store is closed
+\hspace{3mm},\hspace{3mm} The store is not closed}}{\textrm{James is sick at home}}
+\]</span></p>
+<p>Just as before, we will study this logic in the context of a simplified formal language. This will allow us to avoid the unnecessary complexity of having to deal with natural language constructions. In English, for example, there are many ways to express the truth-functional operation of conjuntion, such as:</p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain \emph{and} Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{Tomorrow it will rain, \emph{but} Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{While} tomorrow it will rain, Saturday will be sunny.}
+\]</span></p>
+<p><span class="math display">\[
+\textrm{\emph{Even though} Tomorrow it will rain, Saturday will be sunny.}
+\]</span></p>
+<p>Moreover, in natural language, sentence forming operators that typically effect truth-functional operations do not always work in a uniform way. For instance, not every act of negating the verb has the effect of producing a sentence that is true just in case the original sentence is false. For example:</p>
+<p><span class="math display">\[
+\textrm{Thomas is not in a good mood.}
+\]</span></p>
+<p>does not appear to be true just in case:</p>
+<p><span class="math display">\[
+\textrm{Thomas is in a good mood.}
+\]</span></p>
+<p>is false. Both could perhaps be false, if Thomas happens to be in a state of resigned indifference.</p>
+<p>To avoid such complications, we will formulate arguments of propositional logic in an artificial language devised for the express purpose of modeling the sort of arguments we are concerned to assess. We will call this formal language L<span class="math inline">\(_P\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="sec-Lp" class="level3 section" data-number="2.2.2">
+<h3 class="section anchored" data-number="2.2.2" data-anchor-id="sec-Lp"><span class="header-section-number">2.2.2</span> The Formal Language L<span class="math inline">\(_P\)</span></h3>
+<p>To define the language L<span class="math inline">\(_P\)</span>, we begin by defining an alphabet for the language. This alphabet consists, first, of an arbitrarily large collection of symbols:</p>
+<p><span class="math display">\[
+  P, Q, R, \ldots
+\]</span></p>
+<p>referred to as atoms. In addition to the atoms, the alphabet also includes five special symbols:</p>
+<p><span class="math display">\[
+  \neg\hspace{0.05in},\hspace{0.05in} \wedge\hspace{0.05in},\hspace{0.05in}
+  \vee\hspace{0.05in},\hspace{0.05in} \rightarrow,\hspace{0.05in} \leftrightarrow
+\]</span></p>
+<p>These five symbols are referred to collectively as propositional connectives, and, respectively, as the negation operator (<span class="math inline">\(\neg\)</span>), the conjunction operator (<span class="math inline">\(\wedge\)</span>), the disjunction operator (<span class="math inline">\(\vee\)</span>), and the conditional operator (<span class="math inline">\(\rightarrow\)</span>). The latter three connectives (i.e., <span class="math inline">\(\wedge, \vee\)</span>, and <span class="math inline">\(\rightarrow\)</span>) are referred to as binary connectives, whereas the negation operator is referred to as a unary connective.</p>
+<p>The intended meaning of the connectives is given by the following table:</p>
+<div id="fig-connectives" class="figure quarto-float quarto-figure quarto-figure-center anchored" style="text-align: center;">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-connectives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Connective</th>
+<th style="text-align: center;">Operation</th>
+<th style="text-align: center;">English Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\neg\)</span></td>
+<td style="text-align: center;">negation</td>
+<td style="text-align: center;">It is not the case that <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\wedge\)</span></td>
+<td style="text-align: center;">conjunction</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> and <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\vee\)</span></td>
+<td style="text-align: center;">disjunction</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> or <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span> (or both).</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\rightarrow\)</span></td>
+<td style="text-align: center;">conditional</td>
+<td style="text-align: center;">If <span class="math inline">\(\cdots\)</span>, then <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\leftrightarrow\)</span></td>
+<td style="text-align: center;">biconditional</td>
+<td style="text-align: center;"><span class="math inline">\(\cdots\)</span> if and only if <span class="math inline">\(\,\underline{\hspace{0.5cm}}\,\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-connectives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: The intended meanings of the propositional connectives
+</figcaption>
+</figure>
+</div>
+<p>Lastly, in addition to the atoms and connectives, the alphabet for L<span class="math inline">\(_P\)</span> also includes the left and right parentheses:</p>
+<p><span class="math display">\[
+(\hspace{0.07in},\hspace{0.07in})
+\]</span></p>
+<p>As before, we will call an <em>expression</em> of the language any finite string of symbols taken from its alphabet. The sentences of the language will be constructed through the recursive application of the propositional connectives to the atoms. We will define the sentences in the following, somewhat awkward way:</p>
+<div id="def-sentences-p" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\((\varphi\ast\psi)\)</span> is a sentence.</p></li>
+</ol>
+</div>
+<p>This sort of definition is what is called in mathematics and logic an <em>inductive</em> definition. We will say more about how inductive definitions work in the next section. For now, we simply note that the following are all examples of sentences of <span class="math inline">\(L_{\mathbf{P}}\)</span>:</p>
+<div id="sentences-Lp">
+<p><span class="math display">\[P\]</span></p>
+<p><span class="math display">\[\neg Q\]</span></p>
+<p><span class="math display">\[(R \leftrightarrow S)\]</span></p>
+<p><span class="math display">\[\neg \neg (P \wedge Q)\]</span></p>
+<p><span class="math display">\[((P\leftrightarrow\neg Q) \wedge(Q\vee R))\]</span></p>
+<p><span class="math display">\[((Q\rightarrow(R\wedge(S \rightarrow P))) \leftrightarrow(P\rightarrow\neg Q))\]</span></p>
+</div>
+<p>Note that, unlike the sentences of L<span class="math inline">\(_S\)</span>, the sentences of the formal language L<span class="math inline">\(_P\)</span> can grow to be arbitrarily complex.</p>
+<p>We refer to those sentences consisting of a single atom as atomic sentences. The sentence <span class="math inline">\(\neg \varphi\)</span> is referred to as the negation of <span class="math inline">\(\varphi\)</span>. The sentence <span class="math inline">\((\varphi\wedge\psi)\)</span> is referred to as the conjunction with left conjunct <span class="math inline">\(\varphi\)</span> and right conjunct <span class="math inline">\(\psi\)</span>, or simply the conjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\vee\psi)\)</span> is referred to as the disjunction with left disjunct <span class="math inline">\(\varphi\)</span> and right disjunct <span class="math inline">\(\psi\)</span>, or simply the disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\rightarrow\psi)\)</span> is referred to as the conditional with antecedent <span class="math inline">\(\varphi\)</span> and consequent <span class="math inline">\(\psi\)</span>. The sentence <span class="math inline">\((\varphi\leftrightarrow\psi)\)</span> is referred to as the biconditional with left term <span class="math inline">\(\varphi\)</span> and right term <span class="math inline">\(\psi\)</span>. Conjunctions, disjunctions, conditionals, and biconditionals are referred to, collectively, as binary compounds.</p>
+<div id="exr-translations-in-p" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Translate the following arguments into the language L<span class="math inline">\(_P\)</span>, indicating the meaning of all the atoms appearing in your translation.</p>
+<p>(a). The professor is speaking and either the students are taking notes or they are recording the lecture.</p>
+<p>(b). The meeting will be held if and only if the keynote speaker does not miss her flight.</p>
+<p>(c). Either the file is not accessible or the password is incorrect.</p>
+<p>(d). If the library is open and I have finished studying, then I will either go there or stay at home and read.</p>
+<p>(e). If it is warm, we will sit outside, but if not, we will stay inside.</p>
+</div>
+</section>
+<section id="sec-induction" class="level3 section" data-number="2.2.3">
+<h3 class="section anchored" data-number="2.2.3" data-anchor-id="sec-induction"><span class="header-section-number">2.2.3</span> Inductive Definitions</h3>
+<p>Let’s go back and look more closely at our definition of a sentence of L<span class="math inline">\(_P\)</span>:</p>
+<div id="def-sentences-p" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\((\varphi\ast\psi)\)</span> is a sentence.</p></li>
+</ol>
+</div>
+<p>Consider the expression:</p>
+<p><span class="math display">\[ \neg (P \wedge Q)\]</span></p>
+<p>Is this expression a sentence, according to the above definition? The definition says that the expression is a sentence provided it can be judged to be so on the bases of clauses 1–3. Let’s first look at clause 2. This clause states that if <span class="math inline">\(\varphi\)</span> is a sentence, then <span class="math inline">\(\neg\varphi\)</span> is a sentences as well. So, in the case of the expression <span class="math inline">\(\neg(P\wedge Q)\)</span>, it suffices to show that this is a sentence to show that <span class="math inline">\((P\wedge Q)\)</span> is a sentence. How can we confirm that this is true? Have a look at clause 3. This clause says that if <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences, then <span class="math inline">\((\varphi\ast\psi)\)</span> is also a sentence, where <span class="math inline">\(\ast\)</span> is any binary connective. It follows from this that the expression <span class="math inline">\((P\wedge Q)\)</span> is a sentence if both <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are sentences. How can we confirm that this is true? Look at clause 1. This clause says that any expression consisting of a single atom is a sentence, so since <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are both expressions of this sort, they are both sentences.</p>
+<p>So, it turns out, <span class="math inline">\(\neg(P\wedge Q)\)</span> is a sentence of L<span class="math inline">\(_P\)</span>. How do we know this? Because <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are both sentences (by clause 1), and so <span class="math inline">\((P\wedge Q)\)</span> is a sentence (by clause 3), and so <span class="math inline">\(\neg(P\wedge Q)\)</span> is a sentence (by clause 2).</p>
+<p>A definition that works like this is called an <em>inductive</em> definition. Inductive definitions are very common in mathematics, logic, computer science, and linguistics—any field in which the items to be studied exhibit a recursive compositional structure, like the sentences of a language. Inductive definitions take the following form: they first tell us, flatly, that certain items fall under the defined term. They then make one or more claims to the effect that <em>if</em> certain items fall under that term, then certain other items fall under that term as well. In this way, inductive definitions specify a kind of repeatable, or recursive, procedure by which new items falling under the defined term can be generated or constructed from older ones, and they stipulate that an object belongs to defined class of items just in case it can be constructed in this way. The clause specifying the starting items from which the construction can proceed is called the <em>base</em> clause of the inductive definition, the rest of the clauses that tell us how to construct new items from old ones, are called the <em>inductive</em> clauses. So, in the above definition of L<span class="math inline">\(_P\)</span>, clause 1 is the base clause and clauses 2 and 3 the inductive ones.</p>
+<p>Let’s consider another example of an inductive definition. Suppose we want to give an inductive definition of the natural numbers, that is, the numbers belonging to the set:</p>
+<p><span class="math display">\[\{1, 2, 3, \ldots\}\]</span></p>
+<p>One way of thinking about how a number gets into this set is as follows: first, we stipulate that <span class="math inline">\(1\)</span> is in the set. Then, we posit that <em>if</em> a number, say <span class="math inline">\(n\)</span>, is already in the set, then <span class="math inline">\(n+1\)</span> goes into the set as well. We can turn this idea into an inductive definition as follows:</p>
+<div id="def-number-1" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p><span class="math inline">\(1\)</span> is a natural number.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is a natural number, then <span class="math inline">\(n+1\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<p>It is easy to see that a number like <span class="math inline">\(17\)</span> is a natural number according to this definition. For, <span class="math inline">\(1\)</span> is a natural number (by clause 1), and so <span class="math inline">\(2\)</span> is a natural number (by clause 2), and so <span class="math inline">\(3\)</span> is a natural number (by clause 2), and so … <span class="math inline">\(17\)</span> is a natural number (by clause 2).</p>
+<p>Note that a single term or notion may have several different inductive definitions. For example, here are two more inductive definitions of the notion of a natural number. The first is fairly obvious, the second less so:</p>
+<div id="def-number-2" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.4</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p><span class="math inline">\(1\)</span> is a natural number.</p></li>
+<li><p>If <span class="math inline">\(1, 2, \ldots, n\)</span> are all natural numbers, then <span class="math inline">\(n+1\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<div id="def-number-3" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.5</strong></span> A <em>natural number</em> is any number that can be judged to be a natural number by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Every number that is either <span class="math inline">\(1\)</span> or a prime is a natural number.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are natural numbers, then <span class="math inline">\(n\times m\)</span> is a natural number.</p></li>
+</ol>
+</div>
+<p>One of the main advantages of inductive definitions is that such definitions can provide a straightforward means of proving that a certain property is possessed by every item belonging to the defined class. In particular, if an item is defined inductively, then it suffices to show that:</p>
+<ol type="1">
+<li><p>Every item mentioned in the base clause of the definition has the property in question.</p></li>
+<li><p>The property is preserved under each of the inductive clauses of the definition. In other words, if all items to which the inductive clause is applied possess the property in question, then any new items which fall under the term in accordance with this clause have that property as well.</p></li>
+</ol>
+<p>A proof that proceeds in this way is called a proof by induction, or an inductive proof—not to be confused with an inductive argument in the sense of David Hume! Here is an example of an inductive proof, using the above definition of a natural number.</p>
+<div id="thm-proof-by-induction" class="theorem unnumbered">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> For any natural number <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[ 1+2+\cdots+n = \frac{n(n+1)}{2} \]</span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first observe that the claim holds for <span class="math inline">\(n=1\)</span>:</p>
+<p><span class="math display">\[
+1 = \frac{1(2)}{2}
+\]</span></p>
+<p>Now, suppose that the claim holds for the natural number <span class="math inline">\(n\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{align}
+        1 + 2 + \cdots + n + (n + 1) &amp; = \frac{n(n + 1)}{2} + (n + 1)\quad \\
+                                     &amp; = \frac{n(n + 1) + 2(n + 1)}{2}\:   \\
+                                     &amp; = \frac{(n + 1)(n + 2)}{2}
+\end{align}
+\]</span></p>
+<p>So the claim also holds for <span class="math inline">\(n+1\)</span>. This completes the proof.</p>
+</div>
+</div>
+<p>While an inductive proof such as this may seem like magic, much of the challenge of supplying inductive proofs consists in identifying suitable inductive definitions for the defined class of items.</p>
+<div id="exr-prime-decomposition" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Using <a href="#def-number-2" class="quarto-xref">Definition&nbsp;<span>2.4</span></a>, give a proof by induction that every natural number is either equal to 1 or can be expressed as a product of primes.</p>
+</div>
+<div id="exr-counting-coins" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> The various ways of making change for a dollar using pennies, nickels, dimes, and quarters may be represented by the members of the following set of 4-tuples of numbers:</p>
+<p><span class="math display">\[
+D = \{(p,n,d,q): (1\times p) + (5\times n) + (10\times d) + (25\times q) = 100\}
+\]</span></p>
+<p>The members of this set can be given the following inductive definition:</p>
+<ol type="1">
+<li><p><span class="math inline">\((0,0,0,4)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(q&gt; 0\)</span>, then <span class="math inline">\((p,n+1,d+2,q-1)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(q&gt;1\)</span>, then <span class="math inline">\((p, n, d+5, q-2)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(d&gt; 0\)</span>, then <span class="math inline">\((p,n+2,d-1,q)\in D\)</span>.</p></li>
+<li><p>If <span class="math inline">\((p,n,d,q)\in D\)</span> and <span class="math inline">\(n&gt; 0\)</span>, then <span class="math inline">\((p+5, n-1, d, q)\in D\)</span>.</p></li>
+</ol>
+<p>Using this inductive definition, show that the following two claims are true:</p>
+<p>(a). There is no way to make change for a dollar from exactly five coins.</p>
+<p>(b). There is no way to make change for a dollar from an assortment of coins in which the total number of non-dimes (i.e., pennies, nickels, and quarters) is odd.</p>
+</div>
+<p>One useful way of conceptualizing the items picked out by an inductive definition is by means of a ‘formation tree’. This is a tree structure, each node of which is labeled by an item falling under the defined term. The direct descendants of any given node in the tree are items which generate their parent node in accordance with one of the inductive clauses of the definition, and the root nodes of the tree (the nodes with no direct descendants) are items falling under the term in accordance with the base clause of the definition.</p>
+<p>So, for example, a formation tree for the sentence <span class="math inline">\(\neg(P\wedge Q)\)</span> is as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/sentence-tree-simple.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="120"></p>
+</figure>
+</div>
+<p>Here is a formation tree for the sentence <span class="math inline">\(((P\leftrightarrow\neg Q)\wedge(Q\vee R))\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/sentence-tree-complex.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="300"></p>
+</figure>
+</div>
+<p>While it is true that every object belonging to an inductively defined set has a formation tree, it need not be the case that every object in the set has a <em>unique</em> formation tree. Suppose for example, we were to omit parentheses from the alphabet of L<span class="math inline">\(_P\)</span> and define the sentences of L<span class="math inline">\(_P\)</span> as follows:</p>
+<div id="def-sentences-p-noparen" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.6</strong></span> A sentences of L<span class="math inline">\(_P\)</span> is any expression that can be judged to be a sentence by appeal to the following facts:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence, then the expression <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(\ast\)</span> is a binary connective, then the expression <span class="math inline">\(\varphi\ast\psi\)</span> is a sentence.</p></li>
+</ol>
+</div>
+<p>In accordance with this definition, the expression <span class="math inline">\(P \wedge Q \vee R\)</span> is a sentence of the language. Note, however, that the sentence has two distinct formation trees:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>and:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-2.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>We will shortly see why it is important to preclude the possibility of this sort of syntactic ambiguity in our language, by enforcing a strict order of operations.</p>
+</section>
+</section>
+<section id="the-meaning-of-the-propositional-connectives" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-meaning-of-the-propositional-connectives"><span class="header-section-number">2.3</span> The Meaning of the Propositional Connectives</h2>
+<section id="truth-tables" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="truth-tables"><span class="header-section-number">2.3.1</span> Truth Tables</h3>
+<p>Our next task is to explain what makes an argument in the language L<span class="math inline">\(_P\)</span> a valid argument. Just as before, the idea of argumentative validity will be expressed in terms of necessary truth preservation. An argument is valid just in case the truth of the conclusion follows necessarily from that of the premises. Moreover, the relevant notion of necessity will still be made out in semantic terms. An argument is valid just in case there is no interpretation of the non-logical elements of the language under which the premises are true and the conclusion false.</p>
+<p>What are the non-logical elements of the language L<span class="math inline">\(_P\)</span>? In this case, they are the atoms. These, naturally, are meant to stand for the sort of simple propositions out of which compound propositions are constructed. So, an argument is valid just in case the truth of the conclusion follows from that of the premises, no matter what propositions the atoms stand for.</p>
+<p>But what exactly is a proposition? From the perspective of the general philosophy of language, this, of course, is a complicated question. But from the point of view of truth-functional propositional logic, it admits of a fairly straightforward answer. In the context of logic, what is important about an interpretation of a language is that it serves to underwrite a specific truth valuation of the sentences of the language. Since we are dealing exclusively with truth-functional operations, the truth values of compound sentences will be fully determined by the truth values of the component sentences out of which they are formed. In this way, the truth values of all the sentences of the language will supervene on the truth values of the atomic ones.</p>
+<p>So, while the atomic sentences do represent simple propositions, the only feature of these propositions that is semantically relevant in the sense that it contributes to assessing the truth values of others sentences in the language, is their own truth or falsehood. Thus, in this context, we may think of a simple proposition as nothing more than the bearer of a truth value, and the possible semantic values of the atoms as the possible truth values of the propositions they express. The only assumptions we will make about these simple propositions are (1) that each is <em>logically contingent</em> in the sense that each is a proposition that may be either true or false; and (2) that they are <em>logically independent</em> of each other in the sense that the truth or falsehood of any one such proposition imposes no constraints on the truth or falsehood of any other.</p>
+<p>This means that, we will include among our interpretations of the language all possible assignments of truth values to the atoms. We thus arrive at the following definition:</p>
+<div id="def-p-interpretation" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.7</strong></span> An <em>interpretation</em> of the language L<span class="math inline">\(_P\)</span> is a function <span class="math inline">\(\sigma\)</span> which assigns to each of the atoms a truth value, i.e., an object from the set <span class="math inline">\(\{\mathbf{T},
+  \mathbf{F}\}\)</span>.</p>
+</div>
+<p>To complete our specification of the semantics for the language, we must explain how a given interpretation <span class="math inline">\(\sigma\)</span> determines a unique truth valuation <span class="math inline">\(v^\sigma\)</span> for the language. In doing so, we will, in effect, be explaining the meanings of the logical elements of the syntax, that is, the propositional connectives.</p>
+<p>For the atomic sentences, the truth value of a sentence is given directly by the interpretation as follows:</p>
+<p>(Atomic Sentences): If <span class="math inline">\(\varphi\)</span> is an atom, then <span class="math inline">\(v^\sigma(\varphi)=\sigma(\varphi)\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>To assign truth values to compound sentences, we must introduce additional semantic rules, specifying the meaning of the propositional connectives. We do so with the aim of interpreting the propositional connectives as effecting roughly the same semantic operations as the ordinary English locutions to which they correspond in <a href="#fig-connectives" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</p>
+<p>Let’s begin with negation. We have already said that the truth-functional operation effected by negation is that of transforming one sentence into another sentence that is true just in case the original sentence is false. This can be captured by the following rule:</p>
+<p>(Negation): For any sentence <span class="math inline">\(\varphi\)</span>: <span class="math inline">\(v^\sigma(\neg\varphi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+<p>Notice the ‘iff’ here. Since we are still assuming that every sentence is either true or false, and that no sentence is both, it follows from our rule for negation that if <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>, then <span class="math inline">\(v^\sigma(\neg\varphi)=\mathbf{F}\)</span>.</p>
+<p>Now, let’s consider conjunction. Again, as we’ve already said the truth-functional operation of conjunction takes two sentences and returns a new sentence which is true iff both of its component sentences—or <em>conjuncts</em>—are true. We can describe this operation as follows:</p>
+<p>(Conjunction): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma((\varphi\wedge\psi))=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span>.</p>
+<p>With the rules for negation and conjunction in place, we can now consider the truth conditions for more complicated compound sentences, such as <span class="math inline">\(\neg(P\wedge
+\neg Q)\)</span>. How does the truth value of this sentence depend upon the truth values of the atoms <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>? By the rule for negation, the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is true iff the sentence <span class="math inline">\((P\wedge\neg Q)\)</span> is false. By the rule for conjunction, <span class="math inline">\((P\wedge\neg Q)\)</span> is false iff either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(\neg Q\)</span> is false (or both). Since <span class="math inline">\(\neg Q\)</span> is false iff <span class="math inline">\(Q\)</span> is true, the whole sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is true iff either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(Q\)</span> is true (or both).</p>
+<p>One particularly convenient format for expressing the truth conditions for compound sentences is called a truth table. In a truth table, each of the atoms appearing in the sentence is assigned a separate column and each row corresponds to a different possible assignment of truth values to these atoms. The final column in the table then specifies the truth values of the compound sentence in question for each interpretation of the atoms. For example, a truth table for the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg(P\wedge\neg Q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note that this truth table has four rows. That is because the sentence in question contains two atoms. Since each atom can take one of two truth values, in order to countenance all possible interpretations, we need <span class="math inline">\(2\times 2 = 4\)</span> rows. If we considered a sentence containing three distinct atoms, we would need a truth table with <span class="math inline">\(2 \times 2\times 2 = 8\)</span> rows. In general, a sentence with <span class="math inline">\(n\)</span> distinct atoms requires a truth table with <span class="math inline">\(2^n\)</span> rows.</p>
+<p>When populating the initial columns in a truth table, it is important to ensure that all possible interpretations of the atoms are countenanced. The most straightforward way to ensure that this is the case is to enumerate the truth values of the atoms in accordance with the following systematic procedure: in the first column, fill in the first half of the rows with <span class="math inline">\(\mathbf{T}\)</span> and the second half with <span class="math inline">\(\mathbf{F}\)</span>. In the second column, fill in the first quarter of the rows with <span class="math inline">\(\mathbf{T}\)</span>, the second quarter with <span class="math inline">\(\mathbf{F}\)</span>, the third quarter with <span class="math inline">\(\mathbf{T}\)</span>, and the last quarter with <span class="math inline">\(\mathbf{F}\)</span>. Continue in this way, writing down alternating blocks of <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> and at each new column cutting the size of the blocks in half, until you reach the last column for an atom in which <span class="math inline">\(\mathbf{T}\)</span> and <span class="math inline">\(\mathbf{F}\)</span> alternate row by row.</p>
+</section>
+<section id="logical-equivalence" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="logical-equivalence"><span class="header-section-number">2.3.2</span> Logical Equivalence</h3>
+<p>Now, let’s return to our specification of the meanings of the propositional connectives. Disjunction corresponds to the English language operation ‘either … or —’. Now, in natural language there exists a certain ambiguity in how we interpret such expressions. Sometimes we interpret these expressions ‘exclusively’ as meaning that one of the two component sentences is true, but not both. For instance:</p>
+<p>Either you may have coffee or you may have tea.</p>
+<p>In other cases, we interpret disjunctions ‘inclusively’ as meaning that at least one, and possibly both, of the component sentences are true, as in:</p>
+<p>Either the train is late or the schedule posted online is wrong.</p>
+<p>In specifying the meaning of the disjunction operator in the language L<span class="math inline">\(_P\)</span>, we will assume that it signifies inclusive disjunction, and hence that a disjunction is true just in case either (or both) of its component sentences—or, <em>disjuncts</em>—is true:</p>
+<p>(Disjunction): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma((\varphi\wedge\psi))=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> or <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span> (or both).</p>
+<p>The truth table for the sentence <span class="math inline">\(P\vee Q\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\vee Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="exr-exclusive-or" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.4</strong></span> Let <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> be any sentences of L<span class="math inline">\(_P\)</span>. Write down a sentence of L<span class="math inline">\(_P\)</span> that expresses the <em>exclusive</em> disjunction of <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>. Confirm this by giving a truth table.</p>
+</div>
+<p>We are now in a position to understand why we needed to introduce parentheses into our language of propositional logic. Suppose we omitted the parentheses and allowed for unparenthesized sentences such as <span class="math inline">\(P\wedge Q\vee R\)</span>. As we observed in <a href="#sec-induction" class="quarto-xref"><span>Section 2.2.3</span></a>, this sentence would have two distinct formation trees. What the semantic rules for conjunction and disjunction tell us is, in effect, how truth values assigned to the terminal nodes of such a tree, labeled by atoms, are transmitted up through the tree to the compound sentence labeling the root node of the tree, in which those atoms figure. It would, of course, be a bad thing if some assignment of truth values to the atoms, transmits to the root node of one of the formation trees for a sentence a truth value that is different from that which it transmits to the root node of another formation tree for that same sentence. For in this case, the rules would generate an inconsistency, implying that the sentence is both true and false.</p>
+<p>It turns out that this sort of incoherency would be possible if we omitted parentheses from the language. For example, let <span class="math inline">\(\sigma(P)=\mathbf{F}\)</span>, <span class="math inline">\(\sigma(Q)=\mathbf{T}\)</span>, and <span class="math inline">\(\sigma(R)=\mathbf{T}\)</span>. Then, transmitting these values up through the two formation trees for the sentence <span class="math inline">\(P\wedge Q\vee R\)</span> in accordance with the rules for conjunction and disjunction results in different truth values being assigned to this sentence. Following one tree it is assigned the value false:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-1-tv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>But following the other it is assigned the value true:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/noparen-tree-2-tv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="sentences formation tree" width="250"></p>
+</figure>
+</div>
+<p>To avoid this sort of semantic incoherence, we need our language to distinguish between these two sentences. This is why we introduced parentheses into our language. By means of parentheses, we enforce a strict ‘order of operations’ which ensures that no sentence admits of multiple distinct formation trees. In this way, we disambiguate the sentence <span class="math inline">\(P\wedge Q\vee R\)</span>, associating its first formation tree with the sentence <span class="math inline">\((P\wedge(Q\vee R))\)</span> and its second formation tree with the sentence <span class="math inline">\(((P\wedge Q)\vee R)\)</span>.</p>
+<p>Now, that we have better understood the need for parentheses, we can be a bit more lax in our use of parentheses for the sake of readability. In particular, when writing sentences, we will omit the outermost pair of parentheses. We will also assume an order of operations for the propositional connectives that will allow us to express sentences using fewer parentheses than are strictly required by the grammatical rules of L<span class="math inline">\(_P\)</span>. In accordance with this order of operations, negations are to be parenthesized first, in as narrow a manner as possible, then conjunctions and disjunctions, then conditionals and, finally, biconditionals. Thus, for example, to express the sentence: <span class="math display">\[ ((\neg P\wedge Q)\rightarrow
+\neg R) \]</span> we may write: <span class="math display">\[ \neg P \wedge Q \rightarrow\neg R \]</span></p>
+<div id="exr-polish" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> If we wish to omit the parentheses from our language in a manner which avoids semantic ambiguity, we can adopt what is called a prefix (rather than the standard infix) notation for expressing sentential compounds. This prefix notation is sometimes referred to as Polish notation.</p>
+<p>In Polish notation, we define the sentences of the language inductively as follows:</p>
+<ol type="1">
+<li><p>Any expression consisting of a single atom is an sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a sentence then <span class="math inline">\(\neg \varphi\)</span> is a sentence.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are sentences and <span class="math inline">\(*\)</span> is a binary connective, then the expression <span class="math inline">\(\ast \varphi
+\psi\)</span> is a sentence.</p></li>
+</ol>
+<p>For example, in Polish notation, the sentence with the same formation tree as <span class="math inline">\((P\wedge (Q\vee R))\)</span> is written:</p>
+<p><span class="math display">\[ \wedge P\!\vee\! Q R \]</span></p>
+<p>while the sentence with the same formation tree as <span class="math inline">\(((P\wedge Q)\vee R)\)</span> is written:</p>
+<p><span class="math display">\[ \vee \!\wedge\! P Q R \]</span></p>
+<p>Rewrite the sentences of L<span class="math inline">\(_P\)</span> listed at the end of <a href="#sec-Lp" class="quarto-xref"><span>Section 2.2.2</span></a> in Polish notation.</p>
+</div>
+<p>Let’s now consider the conditional operator. This operator is meant to model the English language construction ‘if …, then —’. But of all the connectives, it is however, perhaps the farthest removed from its natural language counterpart. This is because conditional constructions are used to express a variety of different relationships between sentences, most of which are not truth-functional. For example:</p>
+<p><span class="math display">\[
+\textrm{If the match is struck, then it will light.}
+\]</span></p>
+<p>This conditional expresses a causal relationship, and so, as we have already noted, its truth value does not depend on the truth value of its component sentences—referred to as its <em>antecedent</em> and <em>consequent</em>, respectively.</p>
+<p>So, how should we think of a conditional in strictly truth-functional terms? To begin with, we may assume that a conditional is true if both its antecedent and consequent are true. Moreover, we may assume that it is false if its antecedent is true and its consequent false. The harder cases to handle are those in which the antecedent is false. What truth value should we assign to the conditional in these cases? We will adopt the convention, odd as it may seem, that a conditional with a false antecedent is true. As we will see later, there is a proof theoretic rationale for this policy.</p>
+<p>So, the semantic rule for conditionals is as follows:</p>
+<p>(Conditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\rightarrow\psi)=\mathbf{F}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{F}\)</span>.</p>
+<p>The truth table for <span class="math inline">\(P\rightarrow Q\)</span> is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\rightarrow Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here is a fact about the conditional that is worth noting:</p>
+<p><span class="math display">\[\Gamma, \varphi\models\psi\textrm{ iff }\Gamma\models\varphi\rightarrow\psi\]</span></p>
+<p>The claim <span class="math inline">\(\Gamma,\varphi\models\psi\)</span> is true iff there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\cup\{\varphi\}\)</span> is true and <span class="math inline">\(\psi\)</span> is false. This just means that there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\)</span> is true, <span class="math inline">\(\varphi\)</span> is true, and <span class="math inline">\(\psi\)</span> is false. But, given the meaning of the conditional, this is equivalent to the claim that there is no interpretation under which every sentence in <span class="math inline">\(\Gamma\)</span> is true and <span class="math inline">\(\varphi\rightarrow\psi\)</span> is false, i.e., <span class="math inline">\(\Gamma\models\varphi\rightarrow\psi\)</span>.</p>
+<p>Notice that the truth conditions for the conditional <span class="math inline">\(P\rightarrow Q\)</span> are exactly the same as the truth conditions for the sentence <span class="math inline">\(\neg(P\wedge\neg Q)\)</span>. Both are true just in case either <span class="math inline">\(P\)</span> is false or <span class="math inline">\(Q\)</span> is true (or both). This highlights the fact that the syntax of the language L<span class="math inline">\(_P\)</span> now greatly exceeds its expressive capacity. That is, in the language, there are many distinct ways of saying the same thing.</p>
+<p>When two sentences have exactly the same truth conditions, we say that they are <em>logically equivalent</em>.</p>
+<div id="def-logical-equivalence" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.8</strong></span> Two sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are logically equivalent, written <span class="math inline">\(\varphi\equiv
+\psi\)</span>, if, for any interpretation <span class="math inline">\(\sigma\)</span>, <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+</div>
+<div id="exr-truth-tables" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.6</strong></span> Use truth tables to establish the following claims, where <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(\psi\)</span>, and <span class="math inline">\(\chi\)</span> are any sentences:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\neg(\varphi\wedge\psi) \equiv \neg\varphi\vee\neg\psi\)</span></p></li>
+<li><p><span class="math inline">\((\varphi\wedge\neg\varphi)\vee\psi\equiv \psi\)</span></p></li>
+<li><p><span class="math inline">\(\neg\neg\varphi\equiv \varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\rightarrow\psi\equiv\neg\psi\rightarrow\neg\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi)\equiv (\varphi\wedge\psi)\rightarrow\chi\)</span></p></li>
+</ol>
+</div>
+<p>Two other important semantic notions are those of logical truth and logical falsehood:</p>
+<div id="def-logical-equivalence" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2.9</strong></span> A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical truth</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span>. A sentence <span class="math inline">\(\varphi\)</span> is a <em>logical falsehood</em> if, for every interpretation <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+</div>
+<p>In the context of propositional logic, logical truths are sometimes referred to as <em>tautologies</em> and logical falsehoods as <em>contradictions</em>. In fact, our final connective, the biconditional, allows us to express logical equivalence in terms of logical truth. The rule for the biconditional is as follows:</p>
+<p>(Biconditional): For any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>: <span class="math inline">\(v^\sigma(\varphi\leftrightarrow\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+<p>Convince yourself that, for any sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\varphi\equiv\psi\)</span> iff the sentence <span class="math inline">\(\varphi\leftrightarrow\psi\)</span> is a tautology.</p>
+<p>Now, let’s see how biconditionals can be utilized in ordinary reasoning. First, watch the following clip from the 1986 film <em>Labryinth</em>:</p>
+<div id="fig-labyrinth" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-labyrinth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="../../../../content/static/video/labyrinth.mp4"></video></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labyrinth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: The Puzzle of the Two Doors. Clip from <em>Labyrinth</em> (1986), directed by Jim Henson. © TriStar Pictures / Henson Associates / Lucasfilm Ltd.&nbsp;Used for commentary and analysis.
+</figcaption>
+</figure>
+</div>
+<p>In the scene depicted, the heroine is confronted with a logical puzzle: she must choose between two doors, one of which leads to the castle and the other to certain death. In front of one of the two doors is a red guard and in front of the other is a blue guard. The heroine knows that one of the guards always tells the truth and the other always lies. She is allowed to ask one of the guards a question, and so she asks the red guard what the blue guard would say if he were asked where the door behind the red guard leads. The red guard replies that the blue guard would say that this door leads to the castle. Based on this response, the heroine (rightly) concludes that it is, in fact, the door behind the blue guard that leads to the castle.</p>
+<p>How do we formulate the heroine’s argument? The first premise of the argument is that one of the guards always tells the truth and the other guard always lies. Let:</p>
+<p><span class="math inline">\(R\)</span>: The red guard is the truth-teller</p>
+<p><span class="math inline">\(B\)</span>: The blue guard is the truth-teller</p>
+<p>The premise states that one of these claims is true and the other is false. This can be expressed by the sentence:</p>
+<p><span class="math display">\[ R\leftrightarrow\neg B\]</span></p>
+<p>When asked, the red guard tells the heroine that the blue guard would report that the door behind the red guard leads to the castle. To say that this is what the blue guard reports is tantamount to saying that the blue guard speaks the truth just in case the door behind the red guard leads to the castle. Let:</p>
+<p><span class="math inline">\(C\)</span>: The door behind the red guard leads the castle</p>
+<p>So, the fact that the blue guard reports this can be captured by the biconditional:</p>
+<p><span class="math display">\[ B\leftrightarrow C \]</span></p>
+<p>Now, the Heroine is not yet in a position to conclude that the blue guard will actually say what the red guard says that he will say—that the door behind the red guard leads to the castle—since it may be the case that the red guard is lying. But what she does know is that the red guard is telling the truth if and only if this is what the blue guard will say. That is:</p>
+<p><span class="math display">\[ R\leftrightarrow(B\leftrightarrow C) \]</span></p>
+<p>From these two assumptions, the heroine concludes that it is not the door behind the red guard, but the door behind the blue guard, that leads to the castle. We can validate the heroine’s argument by means of the following truth table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(R\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\leftrightarrow\neg B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\leftrightarrow(B\leftrightarrow C)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the only two rows in which both assumptions are true (rows <span class="math inline">\(4\)</span> and <span class="math inline">\(6\)</span>) are rows in which <span class="math inline">\(C\)</span> is false. Hence, from these two assumptions it follows that the door behind the blue guard leads to the castle. Propositional logic to the rescue!</p>
+<div id="exr-dual" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.7</strong></span> Let <span class="math inline">\(\varphi\)</span> be a sentence in which the only connectives are <span class="math inline">\(\neg\)</span>, <span class="math inline">\(\wedge\)</span>, and <span class="math inline">\(\vee\)</span>. The <em>dual</em> of <span class="math inline">\(\varphi\)</span> is the sentence which results from replacing every occurrence of the connective <span class="math inline">\(\wedge\)</span> in <span class="math inline">\(\varphi\)</span> with the connective <span class="math inline">\(\vee\)</span>, and vice versa. For example, the dual of the sentence:</p>
+<p><span class="math display">\[ (P\wedge Q)\vee R \]</span></p>
+<p>is the sentence:</p>
+<p><span class="math display">\[ (P\vee Q)\wedge R\]</span></p>
+<p>If two sentences <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are logically equivalent, then so are their duals. Illustrate this by confirming (using truth tables) that the following equivalences are still true when the sentences are replaced with their duals:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\neg(P\wedge Q)\equiv \neg P\vee\neg Q\)</span></p></li>
+<li><p><span class="math inline">\(P\wedge(Q\vee R)\equiv (P\wedge Q)\vee (P\wedge R)\)</span></p></li>
+</ol>
+<p>A sentence is <em>self-dual</em> if it is logically equivalent to its own dual.</p>
+<ol start="3" type="a">
+<li><p>Show that the sentence:</p>
+<p><span class="math display">\[ (P\wedge Q)\vee(Q\wedge R)\vee (P\wedge R) \]</span></p>
+<p>is self-dual. Describe what this sentence means in way that explains why it is self-dual.</p></li>
+</ol>
+</div>
+</section>
+<section id="truth-functional-completeness" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="truth-functional-completeness"><span class="header-section-number">2.3.3</span> Truth-Functional Completeness</h3>
+<p>When we set up the formal language L<span class="math inline">\(_P\)</span>, we posited five propositional connectives, <span class="math inline">\(\neg\)</span>, <span class="math inline">\(\wedge\)</span>, <span class="math inline">\(\vee\)</span>, <span class="math inline">\(\rightarrow\)</span>, and <span class="math inline">\(\leftrightarrow\)</span>. But why did we stop there? Is there something special about this particular set of connectives? Why did we not add more connectives to make our language even more expressive?</p>
+<p>When we talk about the expressive power of the language, what we mean to ask is whether or not our language is capable of capturing various truth-functional relationships that may obtain between the atoms. Truth-functional relationships are, after all, the only kind of relationship that we are interested in. Here is one way of thinking about this question: consider a truth table in which we fill in the final column in a totally haphazard way, randomly assigning <span class="math inline">\(\mathbf{T}\)</span>’s and <span class="math inline">\(\mathbf{F}\)</span>’s to the rows. The resulting truth table will express some, possibly complex, truth-functional relationship between the atoms appearing in the initial columns. The question is, are we able to express that relationship by means of a sentence of the language L<span class="math inline">\(_P\)</span>. Or are there some truth-functional relationships for which we would need to add to the language additional propositional connectives?</p>
+<p>As we shall see, the answer to this last question is no. Our current set of connectives is truth-functionally complete, in the sense that it is able to express any truth-functional relationship whatsoever. Moreover, it is even redundant in the sense that we could omit certain connectives from the language without any loss of expressive power.</p>
+<p>Consider the following truth table in which the last column has been randomly populated:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\)</span></th>
+<th style="text-align: center;">???</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Is there a sentence of L<span class="math inline">\(_P\)</span> that corresponds to this truth table? Note that such a sentence should be <span class="math inline">\(\mathbf{T}\)</span> iff its arguments are those given in either the first, third, fifth, or sixth rows of the table. So, we might start by formulating our desired sentence as a disjunction of these four possibilities:</p>
+<p><span class="math display">\[
+  Row_1 \vee Row_3 \vee Row_5 \vee Row_6
+\]</span></p>
+<p>Now, to be in row 1 means that <span class="math inline">\(P, Q,\)</span> and <span class="math inline">\(R\)</span> are all true. So, the sentence <span class="math inline">\(Row_1\)</span> can be formulated by means of the following conjunction:</p>
+<p><span class="math display">\[
+  P\wedge Q\wedge R
+\]</span></p>
+<p><span class="math inline">\(Row_3\)</span> is a sentence asserting that <span class="math inline">\(P\)</span> is true, <span class="math inline">\(Q\)</span> is false, and $ R$ is true. This can be formulated as follows:</p>
+<p><span class="math display">\[
+  P\wedge\neg Q\wedge R
+\]</span></p>
+<p>Formulating the sentences <span class="math inline">\(Row_5\)</span> and <span class="math inline">\(Row_6\)</span> in similar fashion, we can express the desired sentence corresponding to the above truth table by the following disjunction:</p>
+<p><span class="math display">\[
+  (P\wedge Q\wedge R) \vee (P\wedge\neg  Q\wedge R) \vee (\neg P\wedge Q\wedge R)
+  \vee (\neg P\wedge Q\wedge\neg R)
+\]</span></p>
+<p>With only one exception, this technique is fully generalizable, and can be used to construct a sentence using only <span class="math inline">\(\neg,\wedge,\)</span> and <span class="math inline">\(\vee\)</span> which expresses any truth function with any number of arguments. The one case that it doesn’t cover is the degenerate case in which the truth function in question always returns the truth value <span class="math inline">\(\mathbf{F}\)</span>. But this truth function is expressible by the sentence <span class="math inline">\(P\wedge\neg P\)</span>. So, it appears that the set of connectives <span class="math inline">\(\neg,\wedge,\vee\)</span> is all that we need complete.</p>
+<p>In fact, we can push things a little further. Given the following equivalence:a</p>
+<p><span class="math display">\[ \varphi\wedge\psi \equiv \neg\varphi\vee\neg\psi \]</span></p>
+<p>every conjunction can be replaced with a sentence that uses only <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\vee\)</span>. So these two connectives alone would suffice.</p>
+<p>Can we make do with just one connective? The answer, it turns out, is yes (see <a href="#exr-sheffer" class="quarto-xref">Exercise&nbsp;<span>2.8</span></a> below)!</p>
+<div id="exr-sheffer" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Let <span class="math inline">\(\uparrow\)</span> be the binary propositional connective, defined by the following truth table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\uparrow Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li><p>Show that the operations <span class="math inline">\(\neg\)</span> and <span class="math inline">\(\wedge\)</span> are both expressible in terms of <span class="math inline">\(\uparrow\)</span>.</p></li>
+<li><p>Write a sentence that is logically equivalent to <span class="math inline">\(P\rightarrow Q\)</span> that uses only the connective <span class="math inline">\(\uparrow\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="validity" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="validity"><span class="header-section-number">2.3.4</span> Validity</h3>
+<p>Let us gather all of our semantic rules together. For any sentences, <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>:</p>
+<p>(Atomic Sentences): If <span class="math inline">\(\varphi\)</span> is an atom, then <span class="math inline">\(v^\sigma(\varphi)=\sigma(\varphi)\)</span>.</p>
+<p>(Negation): <span class="math inline">\(v^\sigma(\neg\varphi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{F}\)</span>.</p>
+<p>(Conjunction): <span class="math inline">\(v^\sigma(\varphi\wedge\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span>.</p>
+<p>(Disjunction): <span class="math inline">\(v^\sigma(\varphi\vee\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> or <span class="math inline">\(v^\sigma(\psi)=\mathbf{T}\)</span>.</p>
+<p>(Conditional): <span class="math inline">\(v^\sigma(\varphi\rightarrow\psi)=\mathbf{F}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=\mathbf{T}\)</span> and <span class="math inline">\(v^\sigma(\psi)=\mathbf{F}\)</span>.</p>
+<p>(Biconditional): <span class="math inline">\(v^\sigma(\varphi\leftrightarrow\psi)=\mathbf{T}\)</span> iff <span class="math inline">\(v^\sigma(\varphi)=v^\sigma(\psi)\)</span>.</p>
+<p>Taken together, these rules specify the meanings of the propositional connectives, and they allow us to compute the truth or falsehood of any sentence in the language L<span class="math inline">\(_P\)</span> on a given interpretation of the language. This is enough to supply us with a precise standard for argumentative validity.</p>
+<p>Consider, for example, the argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Either James is sick at home or the store is closed
+\hspace{3mm},\hspace{3mm} The store is not closed}}{\textrm{James is sick at home}}
+\]</span></p>
+<p>Letting:</p>
+<p><span class="math inline">\(P\)</span>: James is sick at home</p>
+<p><span class="math inline">\(Q\)</span>: The store is closed</p>
+<p>we can translate this argument into the language L<span class="math inline">\(_P\)</span> as follows:</p>
+<p><span class="math display">\[ P\vee Q, \neg Q\vdash P \]</span></p>
+<p>To confirm that this argument is valid, we must make sure that there is no interpretation under which the premises are true and the conclusion false. This can be verified by means of a truth table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\vee Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>As this truth table confirms, there is only one way of assigning truth values to the atoms on which both of the premises are true and the conclusion false. So, the argument is valid.</p>
+<p>Let’s evaluate another argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{The team improves if they either train hard or
+get a new coach
+\hspace{3mm},\hspace{3mm} The team improves but they did not get a
+new coach}}{\textrm{The team trained hard}}
+\]</span></p>
+<p>Letting:</p>
+<p><span class="math inline">\(P\)</span>: The team improves</p>
+<p><span class="math inline">\(Q\)</span>: The team trains hard</p>
+<p><span class="math inline">\(R\)</span>: The team gets a new coach</p>
+<p>the argument is:</p>
+<p><span class="math display">\[ (Q\vee R)\rightarrow P, P\wedge\neg R\vdash Q \]</span></p>
+<p>Again we can check the validity of this argument by means of a truth table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 26%">
+<col style="width: 23%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((Q\vee R)\rightarrow P\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(P\wedge\neg R\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The fourth row of the table provides us with a counterexample. If <span class="math inline">\(P\)</span> is true and <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are both false, then the premises are both true and the conclusion false. So, the argument is invalid.</p>
+</section>
+</section>
+<section id="proofs-in-propositional-logic" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="proofs-in-propositional-logic"><span class="header-section-number">2.4</span> Proofs in Propositional Logic</h2>
+<p>The truth table method is a perfectly adequate means of assessing argumentative validity. To ascertain whether or not an argument is valid simply check all the possible assignment of truth and falsehood to the atoms, and confirm that there is no assignment under which all of the premises are true and the conclusion false. While adequate, this approach very quickly becomes unwieldy—an argument involving <span class="math inline">\(n\)</span> atoms, requires a truth table with <span class="math inline">\(2^n\)</span> rows. A much more tractable approach would be to develop a system of reasoning by which an argument can be shown to be valid by giving a proof of its conclusion from its premises. In the remainder of this chapter, we will develop such a proof system for propositional logic.</p>
+<p>We will represent proofs in propositional logic using the same Fitch-style notation for nested sequences that we employed in the context of syllogistic logic. Our proof system will be based on several rules of inference. These rules will be organized so that we have exactly two rules describing the logical behavior of each of the five connectives—so ten rules in total. With each of the connectives, there will be associated one rule which describes how connectives of that sort are introduced into proofs, and another which describes how they are removed, or eliminated, from proofs. Let’s begin with the rules for negation.</p>
+<section id="the-rules-for-negation" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="the-rules-for-negation"><span class="header-section-number">2.4.1</span> The Rules for Negation</h3>
+<p>The rule by which negations are eliminated from proofs asserts that double negations can be cancelled. We will call this rule ‘negation elimination’ and represent it by <span class="math inline">\(\neg\)</span>E.</p>
+<p>(<span class="math inline">\(\neg\)</span>E): From the sentence <span class="math inline">\(\neg\neg\varphi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\)</span>.</p>
+<p>The rule of ‘negation introduction’ is essentially the same as the rule of reductio underwriting proofs by contradiction in syllogistic logic. In this case, to apply the rule, we posit a hypothesis and deduce from it a pair of contradictory sentences, that is, a sentence and its negation. Having done so, we discharge the initial hypothesis and conclude that its negation is true. The rule can be stated as follows:</p>
+<p>(<span class="math inline">\(\neg\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\neg\psi\)</span>, you may infer the sentence <span class="math inline">\(\neg\varphi\)</span>.</p>
+<p>Using these rules, we can establish the validity of the law of explosion:</p>
+<p><span class="math display">\[ \varphi,\neg\varphi\vdash\psi \]</span></p>
+<p>in much the same way that we did in the setting of syllogistic logic. Here is the proof:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg\neg\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>E: <span class="math inline">\(4\)</span></span>
+</div>
+</div>
+<p>The proof begins by positing <span class="math inline">\(\neg\psi\)</span> as a hypothesis. Because we already have a contradiction at our disposal in the pair of premises <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\neg\varphi\)</span>, we can immediately lay them down and discharge the hypothesis and infer, by the rule of negation introduction, the sentence <span class="math inline">\(\neg\neg\psi\)</span>. From this, we can infer <span class="math inline">\(\psi\)</span> by the rule of negation elimination.</p>
+</section>
+<section id="the-rules-for-the-conditional" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="the-rules-for-the-conditional"><span class="header-section-number">2.4.2</span> The Rules for the Conditional</h3>
+<p>Next, we will describe the rules that determine the logical behavior of the conditional operator. As was the case with negation, we will have two rules, one describing the elimination of conditionals from proofs and the other describing their introduction into proofs. The rule of ‘conditional elimination’ is as follows:</p>
+<p>(<span class="math inline">\(\rightarrow\)</span>E): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\rightarrow\psi\)</span>, you may infer <span class="math inline">\(\psi\)</span>.</p>
+<p>This rule is sometimes referred to by its Latin designation <em>modus ponens</em>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> To see how the rule can be applied in a proof, consider the following argument, often referred to as <em>modus tollens</em>:</p>
+<p><span class="math display">\[ \neg\psi, \varphi\rightarrow\psi\vdash\neg\varphi\]</span></p>
+<p>The proof of this argument’s validity is as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1,2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(3, 4\)</span></span>
+</div>
+</div>
+<p>The rule for ‘conditional introduction’, like the rule for negation introduction, licenses a method of hypothetical reasoning. In particular, it licenses the method of conditional proof, whereby we establish a conditional by assuming its antecedent and deriving its consequent:</p>
+<p>(<span class="math inline">\(\rightarrow\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\rightarrow\psi\)</span>.</p>
+<p>To see how this rule work, let us validate the following argument by giving a proof of the conclusion from the premises:</p>
+<p><span class="math display">\[\varphi\rightarrow\psi, \psi\rightarrow\chi\vdash\varphi\rightarrow\chi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1,2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\rightarrow\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="1" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(5\)</span></span>
+</div>
+</div>
+<p>This proof begins by positing the hypothesis <span class="math inline">\(\varphi\)</span>, which is the antecedent of the conditional that we would like to prove. By means of the premises we derive the sentence <span class="math inline">\(\chi\)</span> by two applications of conditional elimination. We then discharge the initial hypothesis, and infer, by conditional introduction, the conditional conclusion <span class="math inline">\(\varphi\rightarrow\chi\)</span>.</p>
+<p>As another example, let us show that the sentence <span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\varphi)\)</span> is a logical truth. This is equivalent to showing that the following argument is valid:</p>
+<p><span class="math display">\[ \vdash\varphi\rightarrow(\psi\rightarrow\varphi) \]</span></p>
+<p>Here is the proof:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\rightarrow\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\varphi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(4\)</span></span>
+</div>
+</div>
+<p>Note that in line 3, the hypothesis posited in line 1 is reiterated in the context of a subproof. This is generally allowed, provided the subproof appears in the same context in which the sentence that is reiterated is first derived.</p>
+<p>One final example:</p>
+<p><span class="math display">\[\varphi\rightarrow\psi\vdash\neg\psi\rightarrow\neg\varphi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="3" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="3" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="1" data-crossrefs="6">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\rightarrow\neg\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(6\)</span></span>
+</div>
+</div>
+</section>
+<section id="the-rules-for-conjunction" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="the-rules-for-conjunction"><span class="header-section-number">2.4.3</span> The Rules for Conjunction</h3>
+<p>Next, we turn to the rules governing the conjunction operator. Here, the introduction and elimination rules are relatively straightforward:</p>
+<p>(<span class="math inline">\(\wedge\)</span>E): From <span class="math inline">\(\varphi\wedge\psi\)</span>, you may infer either the sentence <span class="math inline">\(\varphi\)</span> or the sentence <span class="math inline">\(\psi\)</span>.</p>
+<p>(<span class="math inline">\(\wedge\)</span>I): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\wedge\psi\)</span>.</p>
+<p>It is easy to verify, using truth tables, that the following equivalence holds:</p>
+<p><span class="math display">\[ \varphi\rightarrow(\psi\rightarrow\chi) \equiv (\varphi\wedge\psi)\rightarrow\chi \]</span></p>
+<p>Let’s give a proof-theoretic demonstration of this equivalence by showing that the following two arguments are valid:</p>
+<p><span class="math display">\[\varphi\rightarrow(\psi\rightarrow\chi) \vdash(\varphi\wedge\psi)\rightarrow\chi\]</span></p>
+<p>and</p>
+<p><span class="math display">\[(\varphi\wedge\psi)\rightarrow\chi \vdash\varphi\rightarrow(\psi\rightarrow\chi)\]</span></p>
+<p>The proof of the first is as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\wedge\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\rightarrow\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="1" data-crossrefs="6">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\((\varphi\wedge\psi)\rightarrow\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(6\)</span></span>
+</div>
+</div>
+<p>Here’s the proof of the second:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="3" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\wedge\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\((\varphi\wedge\psi)\rightarrow\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="6" data-depth="3" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="6">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\rightarrow\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(6\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="1" data-crossrefs="7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(7\)</span></span>
+</div>
+</div>
+<div id="exr-proofs-in-p" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Provide proofs to establish the validity of the following arguments:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\varphi\wedge\psi\vdash\psi\wedge\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\vdash\neg(\varphi\wedge\neg\varphi)\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\rightarrow(\psi\rightarrow\chi), \varphi\rightarrow\psi\vdash\varphi\rightarrow\chi\)</span></p></li>
+<li><p><span class="math inline">\(\neg\varphi\rightarrow\neg\psi\vdash\psi\rightarrow\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\vdash\neg\neg\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\neg\varphi\vdash\varphi\rightarrow\psi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\vdash\varphi\rightarrow\psi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi, \neg\psi\vdash\neg(\varphi\rightarrow\psi)\)</span></p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Boole1854-ur" class="csl-entry" role="listitem">
+Boole, G. 1854. <em>An Investigation of the Laws of Thought: On Which Are Founded the Mathematical Theories of Logic and Probabilities</em>. Walton; Maberly.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Truth-functional operations are also sometimes called Boolean operations in honor of the English mathematician George Boole, whose seminal work, <em>An Investigation of the Laws of Thought</em> <span class="citation" data-cites="Boole1854-ur">(<a href="#ref-Boole1854-ur" role="doc-biblioref">1854</a>)</span>, layed the foundation for the branch of mathematics now called Boolean algebra. Boolean algebra turns out to be equivalent to the logic of propositions that we will study in this chapter.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Truth-functional propositional logic is often referred to as <em>classical</em> propositional logic. This label is a misnomer, for truth-functional propositional logic is neither classical in the sense of being the first system of propositional logic to have been studied, nor in the sense of having its origin in Greek or Latin antiquity. The use of the label ‘classical’ to describe truth-functional propositional logic seems to have gained widespread usage in the mid-20th century, mainly to distinguish truth-functional propositional logic from alternative non-classical systems of propositional logic (such as intuitionistic propositional logic or relevantist propositional logic) that began to be studied more widely at that time.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Strictly speaking, the occurrence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(v^\sigma\)</span> stands for an atomic sentence, whereas the occcurence of ‘<span class="math inline">\(\varphi\)</span>’ that appears as an argument of <span class="math inline">\(\sigma\)</span> stands for an atom. However, for ease of exposition, we will generally treat as identical an atomic sentence and the atom from which it is composed.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><em>Modus ponens</em> is short for <em>modus ponendo ponens</em>, which means roughly ‘the mode, which by putting down, puts down’.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="pagination-link" aria-label="Argument, Validity &amp; Proof">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../content/back-matter/solutions.html" class="pagination-link" aria-label="Solutions to Selected Exercises">
+        <span class="nav-page-text">Solutions to Selected Exercises</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
+
+
+
+
+</body></html>
