@@ -14,4 +14,4 @@ f. $\neg\ph\proves\ph\imp\psi$
 
 g. $\ph\proves\ph\imp\psi$
 
-h. $\ph, \neg\psi\proves\neg(\ph\imp\psi)$
+h. $\ph\conj\neg\psi\proves\neg(\ph\imp\psi)$
