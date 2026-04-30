@@ -240,6 +240,8 @@ window.Quarto = {
   <li><a href="#the-rules-for-negation" id="toc-the-rules-for-negation" class="nav-link" data-scroll-target="#the-rules-for-negation"><span class="header-section-number">2.4.1</span> The Rules for Negation</a></li>
   <li><a href="#the-rules-for-the-conditional" id="toc-the-rules-for-the-conditional" class="nav-link" data-scroll-target="#the-rules-for-the-conditional"><span class="header-section-number">2.4.2</span> The Rules for the Conditional</a></li>
   <li><a href="#the-rules-for-conjunction" id="toc-the-rules-for-conjunction" class="nav-link" data-scroll-target="#the-rules-for-conjunction"><span class="header-section-number">2.4.3</span> The Rules for Conjunction</a></li>
+  <li><a href="#the-rules-for-disjunction" id="toc-the-rules-for-disjunction" class="nav-link" data-scroll-target="#the-rules-for-disjunction"><span class="header-section-number">2.4.4</span> The Rules for Disjunction</a></li>
+  <li><a href="#the-rules-for-the-biconditional" id="toc-the-rules-for-the-biconditional" class="nav-link" data-scroll-target="#the-rules-for-the-biconditional"><span class="header-section-number">2.4.5</span> The Rules for the Biconditional</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -1590,8 +1592,446 @@ new coach}}{\textrm{The team trained hard}}
 <li><p><span class="math inline">\(\neg\varphi\rightarrow\neg\psi\vdash\psi\rightarrow\varphi\)</span></p></li>
 <li><p><span class="math inline">\(\varphi\vdash\neg\neg\varphi\)</span></p></li>
 <li><p><span class="math inline">\(\neg\varphi\vdash\varphi\rightarrow\psi\)</span></p></li>
-<li><p><span class="math inline">\(\psi\vdash\varphi\rightarrow\psi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\vdash\varphi\rightarrow\psi\)</span></p></li>
 <li><p><span class="math inline">\(\varphi\wedge\neg\psi\vdash\neg(\varphi\rightarrow\psi)\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="the-rules-for-disjunction" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="the-rules-for-disjunction"><span class="header-section-number">2.4.4</span> The Rules for Disjunction</h3>
+<p>The rule for the introduction of disjunctions into proofs is straightforward:</p>
+<p>(<span class="math inline">\(\vee\)</span>I): From either <span class="math inline">\(\varphi\)</span> or <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\vee\psi\)</span>.</p>
+<p>Consider, for example, the following argument:</p>
+<p><span class="math display">\[ \varphi, (\psi\vee\varphi)\rightarrow\chi\vdash\chi \]</span></p>
+<p>It’s proof is as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\vee\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>I: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\((\psi\vee\varphi)\rightarrow\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(2, 3\)</span></span>
+</div>
+</div>
+<p>The rule for disjunction elimination is somewhat more involved:</p>
+<p>(<span class="math inline">\(\vee\)</span>E): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\chi\)</span> and from the hypothesis <span class="math inline">\(\psi\)</span> you can derive <span class="math inline">\(\chi\)</span>, then from <span class="math inline">\(\varphi\vee\psi\)</span> you may infer the sentence <span class="math inline">\(\chi\)</span>.</p>
+<p>This rule is intended to capture the method of reasoning by cases. The rule says that if a certain sentence follows from either of two hypotheses, then it follows from their disjunction. To apply this rule in the context of a proof, we have to give two subproofs both of which conclude in the same sentence. From these two subproofs along with the disjunction of the two hypotheses initiating them, we may infer their shared conclusion.</p>
+<p>Let’s see how this rule can be used to validate the following argument:</p>
+<p><span class="math display">\[ \varphi\vee\psi, \varphi\rightarrow\chi, \psi\rightarrow\chi \vdash\chi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\rightarrow\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1,2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\rightarrow\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\vee\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="1" data-crossrefs="3,6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>E: <span class="math inline">\(3, 6, 7\)</span></span>
+</div>
+</div>
+<p>The subproof appearing in lines 1–3 of the proof establishes that <span class="math inline">\(\chi\)</span> follows from the hypothesis <span class="math inline">\(\varphi\)</span>. The subproof appearing in lines 4–6 establishes that <span class="math inline">\(\chi\)</span> follows from the hypothesis <span class="math inline">\(\psi\)</span>. It therefore follows that <span class="math inline">\(\chi\)</span> follows from <span class="math inline">\(\varphi\vee\psi\)</span> by the rule of disjunction elimination.</p>
+<p>Here’s another example:</p>
+<p><span class="math display">\[ \varphi\vee\psi, \neg\varphi\vdash\psi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\neg\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>E: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\vee\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1" data-crossrefs="6,7,8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>E: <span class="math inline">\(6, 7, 8\)</span></span>
+</div>
+</div>
+<p>Note that the second subproof is just one line since the hypothesis that initiates the subproof is the conclusion that we aim to establish.</p>
+<p>Here’s one last example that is a bit more involved:</p>
+<p><span class="math display">\[ \varphi\vee\psi\vdash\neg(\neg\varphi\wedge\neg\psi) \]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="0">
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\vee\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\wedge\neg\psi\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="3" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="3" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg(\neg\varphi\wedge\neg\psi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\varphi\wedge\neg\psi\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="3" data-crossrefs="8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(8\)</span></span>
+</div>
+<div class="proof-line" data-number="10" data-depth="3" data-crossrefs="7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(10\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(7\)</span></span>
+</div>
+<div class="proof-line" data-number="11" data-depth="2" data-crossrefs="9,10">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(11\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg(\neg\varphi\wedge\neg\psi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>E: <span class="math inline">\(9, 10\)</span></span>
+</div>
+<div class="proof-line" data-number="12" data-depth="0" data-crossrefs="1,6,11">
+<span class="line-number"><span class="math inline">\(12\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg(\neg\varphi\wedge\neg\psi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>E: <span class="math inline">\(1, 6, 11\)</span></span>
+</div>
+</div>
+</section>
+<section id="the-rules-for-the-biconditional" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="the-rules-for-the-biconditional"><span class="header-section-number">2.4.5</span> The Rules for the Biconditional</h3>
+<p>A biconditional may be thought of as two conjoined conditionals. After all:</p>
+<p><span class="math display">\[ \varphi\leftrightarrow\psi \equiv (\varphi\rightarrow\psi)\wedge(\psi\rightarrow\varphi)\]</span></p>
+<p>Accordingly, the rules for reasoning with biconditionals are similar to those for conditionals, only they exhibit the kind of symmetry indicated by the above equivalence. For example the rule for biconditional elimination is:</p>
+<p>(<span class="math inline">\(\leftrightarrow\)</span>E): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>, you may infer <span class="math inline">\(\psi\)</span>, and from <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>, you may infer <span class="math inline">\(\varphi\)</span>.</p>
+<p>Here is an example of how this rule can be applied:</p>
+<p><span class="math display">\[\varphi\leftrightarrow\psi, \varphi\wedge\chi \vdash\psi\wedge\chi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\leftrightarrow\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\wedge\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="1,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\leftrightarrow\)</span>E: <span class="math inline">\(1, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="1" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\wedge\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(4, 5\)</span></span>
+</div>
+</div>
+<p>As this last example illustrates, biconditionals license a kind of general substitution of one term for the other. Here is another example that makes the same point:</p>
+<p><span class="math display">\[\varphi\leftrightarrow\psi, \varphi\vee\chi \vdash\psi\vee\chi\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\leftrightarrow\psi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1,2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\leftrightarrow\)</span>E: <span class="math inline">\(1, 2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\vee\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>I: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\chi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\vee\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>I: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\vee\chi\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="1" data-crossrefs="4,6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\psi\vee\chi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>E: <span class="math inline">\(4, 6, 7\)</span></span>
+</div>
+</div>
+<p>The rule for biconditional introduction is as follows:</p>
+<p>(<span class="math inline">\(\leftrightarrow\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span> and from the hypothesis <span class="math inline">\(\psi\)</span> you can derive <span class="math inline">\(\varphi\)</span>, then you may infer <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>.</p>
+<p>As was the case with the rule of disjunction elimination, the rule of biconditional introduction requires two subproofs. Together, these two subproofs show that one term of the biconditional can be inferred from the other and vice versa.</p>
+<p>Suppose, for example, we wish to establish that <span class="math inline">\((\varphi\wedge\psi)\leftrightarrow(\psi\wedge\varphi)\)</span> is a logical truth, i.e., that the following argument is valid:</p>
+<p><span class="math display">\[\vdash(\varphi\wedge\psi)\leftrightarrow(\psi\wedge\varphi)\]</span></p>
+<p>The proof is as follows:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\wedge\psi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\wedge\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\wedge\varphi\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\varphi\wedge\psi\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(6, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1" data-crossrefs="4,8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\((\varphi\wedge\psi)\leftrightarrow(\psi\wedge\varphi)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\leftrightarrow\)</span>I: <span class="math inline">\(4, 8\)</span></span>
+</div>
+</div>
+<p>Together, the rules for negation, conjunction, disjunction, conditionals and biconditionals allow us to give proofs of every valid argument in the language of propositional logic.</p>
+<div id="exr-proofs-in-p-2" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 2.10</strong></span> Provide proofs to establish the validity of the following arguments:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\varphi\vee\psi\vdash\psi\vee\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\vdash\varphi\vee\neg\varphi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\wedge\psi\vdash\neg(\neg\varphi\vee\neg\psi)\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\wedge(\psi\vee\chi)\vdash(\varphi\wedge\psi)\vee(\varphi\wedge\chi)\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\leftrightarrow\psi\vdash\neg\varphi\leftrightarrow\neg\psi\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\leftrightarrow\neg\psi, \varphi\leftrightarrow(\psi\leftrightarrow\chi)\vdash\neg\chi\)</span></p></li>
 </ol>
 </div>
 </section>

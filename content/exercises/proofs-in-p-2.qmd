@@ -1,0 +1,13 @@
+Provide proofs to establish the validity of the following arguments:
+
+a. $\ph\disj\psi\proves\psi\disj\ph$
+
+b. $\proves \ph\disj\neg\ph$
+
+c. $\ph\conj\psi\proves\neg(\neg\ph\disj\neg\psi)$
+
+d. $\ph\conj(\psi\vee\chi)\proves(\ph\conj\psi)\vee(\ph\conj\chi)$
+
+e. $\ph\iff\psi\proves\neg\ph\iff\neg\psi$
+
+f. $\ph\iff\neg\psi, \ph\iff(\psi\iff\chi)\proves\neg\chi$
