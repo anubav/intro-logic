@@ -7,7 +7,7 @@ Let $\uparrow$ be the binary propositional connective, defined by the following 
 | $\false$ | $\true$  |   $\false$    |
 | $\false$ | $\false$ |    $\true$    |
 
-a. Show that the operations $\neg$ and $\conj$ are both expressible in terms of
+a. Show that the operations $\neg$ and $\vee$ are both expressible in terms of
 $\uparrow$.
 
 b. Write a sentence that is logically equivalent to $P\imp Q$ that uses only the

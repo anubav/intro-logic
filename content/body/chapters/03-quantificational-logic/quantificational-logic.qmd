@@ -1,0 +1,57 @@
+---
+bibliography: "quantificational-logic.bib"
+number-sections: true
+crossref:
+  chapters: true
+---
+
+{{< include /assets/macros/macros.qmd >}}
+
+# Quantificational Logic
+
+## Introduction
+
+Thus far in this course, we have studied two distinct systems of logic:
+syllogistic logic and propositional logic. The first allowed us to recognize as
+valid such arguments as:
+
+Every Chicago winter is cold. Some Chicago winters are not snowy. Therefore, not
+all seasons that are cold are snowy.
+
+Propositional logic, on the other hand, taught us how to recognize the validity
+of arguments such as:
+
+The cat is either on the bed or under the bed. The cat is not on the bed.
+Therefore, the cat must be under the bed.
+
+But what about the following argument?
+
+Every student in the class is either right- or left-handed. Some students in the
+class are not left-handed. Therefore, some students in the class must be
+right-handed.
+
+The validity of this argument turns not only on the significance of such
+syllogistic constructions as 'Every $\ldots$ is ---' and 'Some $\ldots$ is ---',
+but also on the meaning of propositional operators, like 'either $\ldots$ or
+---' and 'not $\ldots$'. Thus, to formulate standards for argumentative validity that
+can apply to such arguments, we need a single system of logic that can comprehend
+_both_ syllogistic and propositional modes of reasoning.
+
+In this chapter, we introduce such a system of logic. We will call this system
+'quantificational' logic. Another standard name for this system is first-order
+predicate logic. In addition to mixed syllogistic-propositional reasoning, the
+language of quantificational logic will also allow us to do more than merely
+ascribe properties to objects. It will also allow us to express relations that
+obtain between objects, so that we can recognize as valid such arguments as:
+
+This capacity for relational reasoning, makes the logic
+very powerful.
+
+$$\forall x (L(x)\vee R(x)), \exists x \neg L(x)\proves\exists x R(x)$$
+
+{{< include introduction.qmd >}}
+
+## References {.unnumbered}
+
+$$
+$$

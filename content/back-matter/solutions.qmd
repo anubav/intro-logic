@@ -6,62 +6,20 @@ crossrefs-hover: false
 
 # Solutions to Selected Exercises {.unnumbered}
 
-## Chapter 1 - Argument, Validity & Proof
-
-@exr-syllogism-translations
-
-{{< include /content/solutions/syllogism-translations.qmd >}}
-
-@exr-denoting-sets
-
-{{< include /content/solutions/denoting-sets.qmd >}}
-
-@exr-set-facts
-
-{{< include /content/solutions/set-facts.qmd >}}
-
-@exr-venn-diagrams
-
-{{< include /content/solutions/venn-diagrams.qmd >}}
-
-:::{.content-hidden when-profile="lecture-4"}
-@exr-relative-validity
-
-{{< include /content/solutions/relative-validity.qmd >}}
-:::
-
-:::{.content-hidden when-profile="lecture-4"}
-@exr-cut-validity
-
-{{< include /content/solutions/cut-validity.qmd >}}
-:::
-
-:::{.content-hidden when-profile="lecture-4"}
-@exr-syllogisms-validity
-
-{{< include /content/solutions/syllogisms-validity.qmd >}}
-:::
-
-:::{.content-hidden when-profile="lecture-4"}
-@exr-proofs-in-S
-
-{{< include /content/solutions/proofs-in-S.qmd >}}
-:::
-
 ## Chapter 2 - Propositional Logic
 
-@exr-translations-in-p
+@exr-polish
 
-{{< include /content/solutions/translations-in-p.qmd >}}
+{{< include /content/solutions/polish.qmd >}}
 
-@exr-counting-coins
+@exr-sheffer
 
-{{< include /content/solutions/counting-coins.qmd >}}
+{{< include /content/solutions/sheffer.qmd >}}
 
-@exr-exclusive-or
+@exr-proofs-in-p
 
-{{< include /content/solutions/exclusive-or.qmd >}}
+{{< include /content/solutions/proofs-in-p.qmd >}}
 
-@exr-truth-tables
+@exr-proofs-in-p-2
 
-{{< include /content/solutions/truth-tables.qmd >}}
+{{< include /content/solutions/proofs-in-p-2.qmd >}}
