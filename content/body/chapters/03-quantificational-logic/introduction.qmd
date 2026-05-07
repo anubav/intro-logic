@@ -1,0 +1,53 @@
+## Introduction
+
+Thus far in this course, we have studied two distinct systems of logic:
+syllogistic logic and propositional logic. The first allowed us to recognize as
+valid such arguments as:
+
+$$
+\frac{\textrm{Every Chicago winter is cold\hspace{3mm},\hspace{3mm}Some Chicago winters are not snowy}}{\textrm{Not
+all seasons that are cold are snowy}}
+$$
+
+Propositional logic, on the other hand, taught us how to recognize the validity
+of arguments such as:
+
+$$
+\frac{\textrm{The cat is either on the bed or under the bed\hspace{3mm},\hspace{3mm} The cat is not on the bed}}{\textrm{The cat must be under the bed}}
+$$
+
+What about the following argument?
+
+$$
+\frac{\textrm{Everyone in the classroom is either in first or second
+grade\hspace{3mm},\hspace{3mm} Amy is in the classroom and she is not
+in first grade}}{\textrm{Amy is in second grade}}
+$$
+
+While this seems like a valid argument, its validity turns not only on the
+significance of such syllogistic constructions as 'Every $\ldots$ is ---', but
+also on the meaning of propositional operators, like 'either $\ldots$ or ---'
+and 'not $\ldots$'. Thus, to formulate standards for argumentative validity that
+can apply to such arguments, we need a single system of logic that can
+comprehend _both_ syllogistic and propositional modes of reasoning.
+
+In this chapter, we will introduce such a system of logic. We will call this
+system 'quantificational' logic.[^fol] In addition to mixed
+syllogistic-propositional reasoning, the language of quantificational logic will
+also extend syllogistic logic in another direction. In addition to allowing us
+to ascribe properties to objects, it will allow us to express relations that
+obtain between objects, so that we can recognize as valid such arguments as:
+
+$$
+\frac{\textrm{Anyone can go on the trip if they are given a parent's approval\hspace{3mm},\hspace{3mm} Adam is
+Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
+$$
+
+[^fol]:
+    Another standard name for this system is first-order
+    predicate logic.
+
+This capacity for relational reasoning makes quantificational logic very
+powerful. It so powerful, in fact, that, with only minor additions, it is
+capable of formalizing nearly every mathematical proof or deductive argument
+that you are ever likely to encounter.
