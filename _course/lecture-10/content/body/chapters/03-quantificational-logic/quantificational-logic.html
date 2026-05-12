@@ -207,6 +207,11 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
   <li><a href="#the-syntax-of-quantificational-logic" id="toc-the-syntax-of-quantificational-logic" class="nav-link" data-scroll-target="#the-syntax-of-quantificational-logic"><span class="header-section-number">3.2</span> The Syntax of Quantificational Logic</a></li>
+  <li><a href="#the-semantics-of-quantificational-logic" id="toc-the-semantics-of-quantificational-logic" class="nav-link" data-scroll-target="#the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</a>
+  <ul class="collapse">
+  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models"><span class="header-section-number">3.3.1</span> Models</a></li>
+  <li><a href="#orders-equivalences-and-identity" id="toc-orders-equivalences-and-identity" class="nav-link" data-scroll-target="#orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -245,7 +250,7 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
-<p>Thus far in this course, we have studied two distinct systems of logic: syllogistic logic and propositional logic. The first allowed us to recognize as valid such arguments as:</p>
+<p>In this course, we have studied two distinct systems of logic: syllogistic logic and propositional logic. The first allowed us to recognize as valid such arguments as:</p>
 <p><span class="math display">\[
 \frac{\textrm{Every Chicago winter is cold\hspace{3mm},\hspace{3mm}Some Chicago winters are not snowy}}{\textrm{Not
 all seasons that are cold are snowy}}
@@ -260,17 +265,18 @@ all seasons that are cold are snowy}}
 grade\hspace{3mm},\hspace{3mm} Amy is in the classroom and she is not
 in first grade}}{\textrm{Amy is in second grade}}
 \]</span></p>
-<p>While this seems like a valid argument, its validity turns not only on the significance of such syllogistic constructions as ‘Every <span class="math inline">\(\ldots\)</span> is —’, but also on the meaning of propositional operators, like ‘either <span class="math inline">\(\ldots\)</span> or —’ and ‘not <span class="math inline">\(\ldots\)</span>’. Thus, to formulate standards for argumentative validity that can apply to such arguments, we need a single system of logic that can comprehend <em>both</em> syllogistic and propositional modes of reasoning.</p>
-<p>In this chapter, we will introduce such a system of logic. We will call this system ‘quantificational’ logic.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In addition to mixed syllogistic-propositional reasoning, the language of quantificational logic will also extend syllogistic logic in another direction. In addition to allowing us to ascribe properties to objects, it will allow us to express relations that obtain between objects, so that we can recognize as valid such arguments as:</p>
+<p>While this seems like a valid argument, its validity turns not only on the significance of such syllogistic constructions as ‘every <span class="math inline">\(\ldots\)</span> is —’, but also on the meaning of propositional operators, like ‘either <span class="math inline">\(\ldots\)</span> or —’ and ‘not <span class="math inline">\(\ldots\)</span>’. Thus, to formulate standards for argumentative validity that can apply to such arguments, we need a single system of logic that can comprehend <em>both</em> syllogistic and propositional modes of reasoning.</p>
+<p>In this chapter, we will introduce such a system of logic. We will call this system ‘quantificational’ logic.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In addition to mixed syllogistic-propositional reasoning, the language of quantificational logic will also extend syllogistic logic in another direction. In addition to allowing us to ascribe properties to individual objects, it will allow us to express relations that obtain between multiple objects, so that we can recognize as valid such arguments as:</p>
 <p><span class="math display">\[
-\frac{\textrm{Anyone can go on the trip if they are given a parent's approval\hspace{3mm},\hspace{3mm} Adam is
-Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
+\frac{\textrm{Anyone can go on the trip with a parent's
+approval\hspace{3mm},\hspace{3mm} Adam is Julia's parent}}{\textrm{If Adam gives
+Julia approval, she can go on the trip}}
 \]</span></p>
-<p>This capacity for relational reasoning makes quantificational logic very powerful. It so powerful, in fact, that, with only minor additions, it is capable of formalizing nearly every mathematical proof or deductive argument that you are ever likely to encounter.</p>
+<p>This capacity for relational reasoning makes quantificational logic very powerful. It so powerful, in fact, that, with only minor emendations, it is capable of formalizing nearly every mathematical proof or deductive argument that you are ever likely to encounter.</p>
 </section>
 <section id="the-syntax-of-quantificational-logic" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="the-syntax-of-quantificational-logic"><span class="header-section-number">3.2</span> The Syntax of Quantificational Logic</h2>
-<p>Before proceeding to give a detailed specification of the language of quantificational logic, let’s begin by considering a few specific arguments. By formalizing these arguments, we will get a rough sense for the various kinds of syntactic items that we will need to include in our language. Consider the argument:</p>
+<p>Before introducing the formal language of quantificational logic, let’s begin by considering a few specific arguments. By formalizing these arguments, we will get a rough sense for the various kinds of syntactic items that we will need to include in our language. Consider the argument:</p>
 <p><span class="math display">\[
 \frac{\textrm{Everyone in the classroom is either in first or second
 grade\hspace{3mm},\hspace{3mm} Amy is in the classroom and she is not
@@ -281,21 +287,21 @@ in first grade}}{\textrm{Amy is in second grade}}
 \textrm{Amy is in the classroom and she is not
 in first grade}
 \]</span></p>
-<p>This looks like a propositional compound, more specifically a conjunction, and even more specifically a conjunction with a negated right conjunct. Thus, in the language of propositional logic, we might have formalized this sentence as follows:</p>
+<p>This looks like a propositional compound, more specifically, it looks like a conjunction, and even more specifically a conjunction with a negated right conjunct. Thus, in the language of propositional logic, we might have formalized this sentence as follows:</p>
 <p><span class="math display">\[C\wedge\neg F\]</span></p>
 <p>where</p>
 <p><span class="math inline">\(C\)</span>: Amy is in the classroom</p>
 <p><span class="math inline">\(F\)</span>: Amy is in first grade</p>
-<p>To express propositional compounds, our formal language will still need to include all the propositional connectives that we introduced in the context of propositional logic, namely:</p>
+<p>To express such propositional compounds, our formal language will still need to include all the propositional connectives that we introduced in the context of propositional logic, namely:</p>
 <p><span class="math display">\[ \neg, \wedge, \vee, \rightarrow, \leftrightarrow \]</span></p>
-<p>The above formalization in the language of propositional logic, however, is probably not going to do the trick. This is because it fails to capture the sort of fine-grained structure that we are going to need to appeal to see why the argument is valid. To see this consider the conclusion of the argument:</p>
+<p>The above formalization in the language of propositional logic, is probably not going to suffice. To see why, consider the conclusion of the argument:</p>
 <p><span class="math display">\[\textrm{Amy is in second grade}\]</span></p>
-<p>How should we formalize this sentence? Since it is not a propositional compound, in the language of propositional logic it would simply be formalized by another atomic sentence, say <span class="math inline">\(S\)</span>. But this completely obscures the crucial relationship that obtains between the second premise and the conclusion, namely, that they are both sentences which say something about a specific person, Amy. Now, if we want to refer to Amy in our formal language, we will need to give her a name. So, our formal language will need to have names of individuals. Let’s use the letter ‘<span class="math inline">\(a\)</span>’ as a name for Amy. The second premise says two things about Amy. The first is that she is in the classroom and the second is that she is not in the first grade.</p>
-<p>When we say that Amy is in the classroom, we are ascribing to Amy a specific property. So, our language will need to include not only names for objects, but names for properties as well. Let <span class="math inline">\(C\)</span> be a name for the property ‘… is in the classroom’. We want to assert that this property holds of Amy. To attribute this property to Amy, we will first write down a name of the property, followed by a name of Amy. So, all told, the claim that Amy is in the classroom will be written:</p>
+<p>How should we formalize this sentence? Since it is not a propositional compound, in the language of propositional logic it would simply be formalized by another atomic sentence, such as <span class="math inline">\(S\)</span>. But representing the second premise as <span class="math inline">\(C\wedge\neg F\)</span> and the conclusion as <span class="math inline">\(S\)</span> obscures the crucial relationship that obtains between the two, namely, that they are both sentences which say something about the same person, Amy. So both sentences must somehow refer to Amy. Now, if we want to refer to Amy in our formal language, we will need to give her a name. So, our formal language will need to have names of individuals. Let’s use the letter ‘<span class="math inline">\(a\)</span>’ as a name for Amy.</p>
+<p>The second premise says two things about Amy. The first is that she is in the classroom and the second is that she is not in the first grade. When we say that Amy is in the classroom, we are ascribing to Amy a specific property. So, our language will need to include not only names for objects, but names for properties as well. Let <span class="math inline">\(C\)</span> be a name for the property ‘… is in the classroom’. We want to assert that this property holds of Amy. To attribute this property to Amy, we will first write down a name of the property, followed by a name of Amy. So, all told, the claim that Amy is in the classroom will be written:</p>
 <p><span class="math display">\[ Ca \]</span></p>
 <p>Let <span class="math inline">\(F\)</span> name the property ‘… is in the first grade’. Then the second premise can be formalized as follows:</p>
 <p><span class="math display">\[ Ca\wedge \neg Fa\]</span></p>
-<p>While this rendering conveys the compound propositional structure just as clearly as the formalization of the sentence in propositional logic, it adds structure to the components sentences from which this compound is built up. Instead of treating these component sentences as structureless, or atomic, we have now indicated something about these sentences, namely, that they attribute properties to a specific individual, an individual who is referred to by name and who can be referred to again by that same name elsewhere in the argument. For example, letting <span class="math inline">\(S\)</span> be the property ‘… is in the second grade’, the conclusion of the argument can be rendered: <span class="math display">\[ Sa \]</span></p>
+<p>While this rendering conveys the compound propositional structure just as clearly as the formalization of the sentence in propositional logic, it adds internal structure to the components sentences out of which this compound is built. Instead of treating these component sentences as structureless, or atomic, we have now indicated something about these sentences, namely, that they attribute properties to a specific individual, an individual who is referred to by name and who can be referred to again by that same name elsewhere in the argument. For example, letting <span class="math inline">\(S\)</span> be the property ‘… is in the second grade’, the conclusion of the argument can now be rendered: <span class="math display">\[ Sa \]</span></p>
 <p>Now, let’s look at the first premise of the argument:</p>
 <p><span class="math display">\[
 \textrm{Everyone in the classroom is either in first or second
@@ -303,23 +309,25 @@ grade}
 \]</span></p>
 <p>In the language of syllogistic logic, we might have formalized this sentence as follows:</p>
 <p><span class="math display">\[C\textrm{\textbf{a}}E\]</span></p>
-<p>where the term <span class="math inline">\(C\)</span> denotes the property ‘… is in the classroom’ and <span class="math inline">\(E\)</span> the property ‘… is either in first or second grade’. This sort of rendering is also unlikely to be adequate because it doesn’t capture the disjunctive structure of the predicate term, which plays an essential role in the reasoning.</p>
-<p>Now, this sentence clearly says something about individuals, but it does so without mentioning anyone by name. Since the sentence doesn’t name anyone, let’s just imagine some arbitrary individual, and call this arbitrary individual <span class="math inline">\(x\)</span>. What does the sentence imply about <span class="math inline">\(x\)</span>? It implies that if <span class="math inline">\(x\)</span> is in the classroom, then <span class="math inline">\(x\)</span> is either in first or second grade. Using the same notation introduced in our above formalization of the second premise and the conclusion, we can express this fact about <span class="math inline">\(x\)</span> as follows:</p>
+<p>where the term <span class="math inline">\(C\)</span> denotes the property ‘… is in the classroom’ and <span class="math inline">\(E\)</span> the property ‘… is either in first or second grade’. This sort of rendering is also unlikely to be adequate because it doesn’t expose the disjunctive structure of the predicate term, which plays an essential role in the reasoning.</p>
+<p>Now, this sentence clearly says something about individuals, but it does so without mentioning anyone by name. Since the sentence doesn’t name anyone, let’s just imagine some arbitrary individual, and call this arbitrary individual <span class="math inline">\(x\)</span>. What does the sentence imply about <span class="math inline">\(x\)</span>? It implies that if <span class="math inline">\(x\)</span> is in the classroom, then <span class="math inline">\(x\)</span> is either in first or second grade. Using the same notation introduced in our above formalization, we can express this fact about <span class="math inline">\(x\)</span> as follows:</p>
 <p><span class="math display">\[ Cx \rightarrow (Fx \vee Sx) \]</span></p>
 <p>Now what the premise says is that the above claim is true not just of some particular individual, but of <em>every</em> individual. To convey this fact, we need a way of indicating that the claim is meant to be true <em>regardless</em> of who <span class="math inline">\(x\)</span> stands for. We could indicate this as follows:</p>
 <p><span class="math display">\[ \textrm{For all $x$: } Cx \rightarrow (Fx \vee Sx) \]</span></p>
 <p>In the language of quantificational logic, in place of the prefix ‘For all <span class="math inline">\(x\)</span> …:’ we write <span class="math inline">\(\forall x\)</span>. The upside-down ‘A’ written before the name <span class="math inline">\(x\)</span> is called a quantifier, and more specifically the universal quantifier. All told then, the first premise can be written:</p>
 <p><span class="math display">\[\forall x(Cx\rightarrow (Fx \vee Sx))\]</span></p>
-<p>To express this sentence, we needed to introduce two new elements in into the language. The universal quantifier, and the symbol <span class="math inline">\(x\)</span>. We will call the symbol <span class="math inline">\(x\)</span> a <em>variable</em>. Syntactically, it will function very much like a name, but its reference will be allowed to vary.</p>
+<p>To express this sentence, we needed to introduce two new elements into the language: the universal quantifier and the symbol <span class="math inline">\(x\)</span>. We will call the symbol <span class="math inline">\(x\)</span> a <em>variable</em>. Syntactically, it will function very much like a name, but its reference will be allowed to vary.</p>
 <p>The entire argument, formalized in the language of quantificational logic is:</p>
 <p><span class="math display">\[
 \forall x(Cx\rightarrow (Fx \vee Sx)),Ca\wedge
 \neg Fa\vdash Sa
 \]</span></p>
+<p>We will later see how to assess the validity of this argument.</p>
 <p>Now, let’s examine the second argument mentioned above:</p>
 <p><span class="math display">\[
-\frac{\textrm{Anyone can go on the trip if they are given a parent's approval\hspace{3mm},\hspace{3mm} Adam is
-Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
+\frac{\textrm{Anyone can go on the trip with a parent's
+approval\hspace{3mm},\hspace{3mm} Adam is Julia's parent}}{\textrm{If Adam gives
+Julia approval, she can go on the trip}}
 \]</span></p>
 <p>Consider the second premise:</p>
 <p><span class="math display">\[ \textrm{Adam is Julia's parent} \]</span></p>
@@ -327,8 +335,8 @@ Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
 <p><span class="math display">\[ Paj \]</span></p>
 <p>Note here that the order in which the names appears matters. If we had instead written <span class="math inline">\(Pja\)</span> this would mean that Julia is a parent of Adam. This, of course, is not the case since the relation of parent to child is asymmetrical. Why not write <span class="math inline">\(aRj\)</span> to make the order a bit more perspicuous? We could, but our logic will later allow for relations between three or more things, and the prefix (as opposed to the infix) notation can be more straightforwardly adapted to handle these more complex relations.</p>
 <p>So now we see that, in addition to names for properties, we will also need to include in our language names for relations. Syntactically, names for relations will function very much like names for properties, only instead of applying to a single individual they will apply to two (or three, or possibly more) individuals. We will call both names for properties and names for relations, <em>predicates</em>. Predicates may be <em>unary</em> if they denote properties of individuals, or they may be <em>binary</em> if they denote two-place relations, or <em>ternary</em> if they denote three-place relations, or quaternary etc..</p>
-<p>Now let’s look at the conclusion. Clearly, this is a conditional sentence. The antecedent of the conditional is ‘Adam gives Julia approval’. Again, this states that a certain relation obtains between Adam and Julia, namely, the relation ‘… gives approval to —’. Call this binary predicate <span class="math inline">\(A\)</span>. The consequent of the conditional is the sentence ‘Julia can go on the trip’. Here we are simply ascribing a property to Julia. Let <span class="math inline">\(T\)</span> be the unary predicate ‘… can go on the trip’. Then the conclusion of the argument can be written: <span class="math display">\[ Aaj\rightarrow Tj\]</span></p>
-<p>Now for the first premise. This says something about individuals without naming any individual explicitly. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two arbitrary individuals, then the sentence implies that <span class="math inline">\(x\)</span> can go on the trip, provided <span class="math inline">\(x\)</span> gets the approval of <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is a parent of <span class="math inline">\(x\)</span>. Let’s focus on the proviso first, which states that <span class="math inline">\(x\)</span> must have a parent’s approval. We could write down this proviso as follows: <span class="math display">\[Pyx \wedge Ayx\]</span> Note here that the proviso does not state that <span class="math inline">\(x\)</span> needs the approval of <em>all</em> of their parents, just that <span class="math inline">\(x\)</span> needs the approval of some one of them. The first stronger proviso, requiring approval from all parents, could be written: <span class="math display">\[\forall y(Pyx \wedge Ayx)\]</span> What we need instead is a way to say something like <span class="math display">\[\textrm{For some $y$:} Pyx \wedge Ayx\]</span> To say this, we will introduce a second quantifier, which we will call the <em>existential</em> quantifier and which we will denote by the symbol, <span class="math inline">\(\exists\)</span>. The proviso can thus be written:</p>
+<p>Now let’s look at the conclusion. Clearly, this is a conditional sentence. The antecedent of the conditional is ‘Adam gives Julia approval’. Again, this states that a certain relation obtains between Adam and Julia, namely, the relation ‘… gives approval to —’. Let’s name this two-place relation by the binary predicate <span class="math inline">\(A\)</span>. The consequent of the conditional is the sentence ‘Julia can go on the trip’. Here we are simply ascribing a property to Julia. Let <span class="math inline">\(T\)</span> be the unary predicate that names the property ‘… can go on the trip’. Then the conclusion of the argument can be written: <span class="math display">\[ Aaj\rightarrow Tj\]</span></p>
+<p>Now for the first premise. This says something about individuals without naming any individual explicitly. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two arbitrary individuals, then the sentence implies that <span class="math inline">\(x\)</span> can go on the trip, provided <span class="math inline">\(x\)</span> gets the approval of <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is a parent of <span class="math inline">\(x\)</span>. Let’s focus on the proviso first, which states that <span class="math inline">\(x\)</span> must have a parent’s approval. We could write down this proviso as follows: <span class="math display">\[Pyx \wedge Ayx\]</span> Note that the proviso does not state that <span class="math inline">\(x\)</span> needs the approval of <em>all</em> of their parents, just that <span class="math inline">\(x\)</span> needs the approval of some one of them. The first stronger proviso, requiring approval from all parents, could be written: <span class="math display">\[\forall y(Pyx \wedge Ayx)\]</span> But what we need instead is a way to say something like <span class="math display">\[\textrm{For some $y$:} Pyx \wedge Ayx\]</span> To say this, we will introduce a second quantifier, which we will call the <em>existential</em> quantifier and which we will denote by the symbol, <span class="math inline">\(\exists\)</span>. The proviso can thus be written:</p>
 <p><span class="math display">\[\exists y(Pyx\wedge Ayx)\]</span></p>
 <p>This says that <span class="math inline">\(x\)</span> gets approval from some parent. What we want to say about <span class="math inline">\(x\)</span> is that if <span class="math inline">\(x\)</span> gets parent approval, then <span class="math inline">\(x\)</span> can go on the trip:</p>
 <p><span class="math display">\[\exists y(Pyx\wedge Ayx)\rightarrow T(x)\]</span></p>
@@ -340,34 +348,34 @@ Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
 <p><span class="math display">\[
 \forall x(\exists y(Pyx\wedge Ayx)\rightarrow T(x)), Paj\vdash Aaj\rightarrow Tj
 \]</span></p>
-<p>Now that we have a sense of the types of syntactic item needed to formalize arguments in quantificational logic, we can give a more precise specification of the language, which we will call L<span class="math inline">\(_Q\)</span>. As usual, we begin by supplying an alphabet for the language.</p>
+<p>Now that we have a sense of the types of syntactic item needed to formalize arguments in quantificational logic, we can give a more precise specification of the language. We will call the language L<span class="math inline">\(_Q\)</span>. As usual, we begin by supplying an alphabet for the language.</p>
 <p>The alphabet for L<span class="math inline">\(_Q\)</span> includes an arbitrarily large stock of symbols that we will refer to as <em>constants</em>. The constant symbols will serve as our names for individual objects. In addition to constants, the language also includes an arbitrarily large stock of symbols that we will refer to as <em>variables</em>. Collectively, the constants and variables will be referred to as <em>terms</em>. We could, of course, use whatever symbols we like for the terms of the language, but we will generally adopt the convention of using lowercase letters from the beginning or middle of the Latin alphabet for constants, and lowercase letters from the end of the Latin alphabet for variables.</p>
 <ul>
 <li>Terms:
 <ul>
-<li><p>Constants: <span class="math inline">\(a,b,c,...\)</span></p></li>
+<li><p>Constants: <span class="math inline">\(a,b,c,...j,k,l,...\)</span></p></li>
 <li><p>Variables: <span class="math inline">\(x,y,z,u,v,w,...\)</span></p></li>
 </ul></li>
 </ul>
-<p>In addition to the terms, we also need predicate symbols that can serve as names for properties and relations. Again, any symbols will do, but, by convention, we will typically use uppercase Latin letters for predicate symbols.</p>
+<p>In addition to the terms, we will also need predicate symbols that can serve as names for properties and relations. Again, any symbols will do, but, by convention, we will typically use uppercase Latin letters for predicate symbols.</p>
 <ul>
 <li>Predicates: <span class="math inline">\(A,B,C,\ldots,P,Q,R,\ldots\)</span></li>
 </ul>
-<p>We will assume that every predicate in the language has associated with it a predetermined number, called its <em>arity</em>, which indicates how many objects are related by the property or relation it signifies. If the arity of a predicate is <span class="math inline">\(2\)</span>, say, then it is a binary predicate and names a two-place relation. If it is <span class="math inline">\(1\)</span>, then it is a unary predicate and names a property. When we wish to indicate that the predicate symbol <span class="math inline">\(F\)</span> has arity <span class="math inline">\(n\)</span>, we will denote it by <span class="math inline">\(F^n\)</span>.</p>
+<p>We will assume that every predicate in the language has associated with it a predetermined number, called its <em>arity</em>, which indicates how many objects are related by the property or relation it signifies. If the arity of a predicate is <span class="math inline">\(2\)</span>, say, then it is a binary predicate and names a two-place relation. If it is <span class="math inline">\(1\)</span>, then it is a unary predicate and names a property. When we wish to indicate that the predicate symbol <span class="math inline">\(P\)</span> has arity <span class="math inline">\(n\)</span>, we will denote it by <span class="math inline">\(P^n\)</span>.</p>
 <p>The language of quantificational logic also include the five propositional connectives:</p>
 <ul>
 <li>Propositional Connectives: <span class="math inline">\(\neg, \wedge, \vee, \rightarrow, \leftrightarrow\)</span></li>
-</ul>
-<p>Finally, the language also include two additional symbols representing the universal and existential quantifiers:</p>
-<ul>
-<li>Quantifiers: <span class="math inline">\(\forall, \exists\)</span></li>
 </ul>
 <p>and parentheses that can be used for delimiting their scope:</p>
 <ul>
 <li>Parentheses: <span class="math inline">\((\,,\,)\)</span></li>
 </ul>
+<p>Finally, the language also include two additional symbols representing the universal and existential quantifiers:</p>
+<ul>
+<li>Quantifiers: <span class="math inline">\(\forall, \exists\)</span></li>
+</ul>
 <p>That’s it. If you go back to the arguments that we just formalized, you can verify for yourself that every symbol appearing in every sentence in these arguments falls into one of these five categories.</p>
-<p>Next, we need to say which expressions–that is, which strings of symbols from the alphabet–constitute sentences of L<span class="math inline">\(_Q\)</span>. We will do this in two stages. First we will define the more general notion of a formula. Then we will say which of the formulas will count as sentences.</p>
+<p>Next, we need to say which expressions–that is, which strings of symbols from the alphabet–constitute sentences of L<span class="math inline">\(_Q\)</span>. First we will define the notion of a <em>formula</em> of L<span class="math inline">\(_Q\)</span>.</p>
 <div id="def-formula" class="definition theorem">
 <p><span class="theorem-title"><strong>Definition 3.1</strong></span> The <em>formulas</em> of L<span class="math inline">\(_Q\)</span> are defined inductively as follows:</p>
 <ol type="1">
@@ -397,14 +405,14 @@ Rbx\)</span>. In this formula <span class="math inline">\(x\)</span> occurs, but
 <div id="def-formula" class="definition theorem">
 <p><span class="theorem-title"><strong>Definition 3.2</strong></span> A formula of L<span class="math inline">\(_Q\)</span> is a sentence if every variable that occurs in it is bound.</p>
 </div>
-<p>Only sentences of the language can serve as the premises or conclusion of an argument, but non-sentential formulas are important as well. For these formulas effectively allow us to introduce into the language new properties and relations. Recall our attempt to formalize the claim:</p>
+<p>Only sentences of the language can serve as the premises or conclusion of an argument, but non-sentential formulas are important as well. For these formulas effectively allow us to introduce into the language new properties and relations not names by the predicates of the language. Recall our attempt to formalize the claim:</p>
 <p><span class="math display">\[ \textrm{Anyone can go on the trip if they are given a parent's approval}\]</span></p>
 <p>To capture the relevant proviso, we began by writing down the following formula:</p>
 <p><span class="math display">\[ Pyx \wedge Ayx \]</span></p>
-<p>This is not a sentence since the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do not occur within the scope of any quantifiers. Because <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occur freely in this formula, the formula in effect says something about the items to which they refer. What does it say? It says that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand in a certain relation to one another, namely, the relation of <span class="math inline">\(y\)</span> being a parent of <span class="math inline">\(x\)</span> who gives to <span class="math inline">\(x\)</span> approval. Notice that this relation is not named by any of the primitive predicates that we introduced. Rather, it is a newly defined binary relation (we will discuss how to apply this relation later).</p>
-<p>To capture the proviso in question, we then said that <span class="math inline">\(x\)</span> satisfies the request condition of there is <em>some</em> person who stands in this defined relation to <span class="math inline">\(x\)</span>. To express this fact, we applied to the above the existential quantifier to the above formula, resulting in:</p>
+<p>This is a formula but not a sentence since the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do not occur within the scope of any quantifiers. Because <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occur freely in this formula, the formula in effect says something about the items to which they refer. What does it say? It says that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand in a certain relation to one another, namely, the relation of <span class="math inline">\(y\)</span> being a parent of <span class="math inline">\(x\)</span> who gives to <span class="math inline">\(x\)</span> their approval. Notice that this relation is not named by any of the primitive predicates that we used in our formalization of the argument. Rather, it may be thought of as a newly defined binary relation (we will discuss how to apply this relation later).</p>
+<p>To capture the proviso, we then said that <span class="math inline">\(x\)</span> satisfies the required condition if there is <em>some</em> person who stands in this defined relation to <span class="math inline">\(x\)</span>. To express this fact, we applied the existential quantifier to the above formula, resulting in the formula:</p>
 <p><span class="math display">\[ \exists y(Pyx \wedge Ayx) \]</span></p>
-<p>Notice that the variable <span class="math inline">\(y\)</span> no longer occurs freely in the formula since it has been captured, or bound, by the quantifier <span class="math inline">\(\exists y\)</span>. Still this is not a sentence, since both occurrences of the variable <span class="math inline">\(x\)</span> still occur freely in it. Thus, the formula still says something about <span class="math inline">\(x\)</span>. What does it say? It says that <span class="math inline">\(x\)</span> has a certain property, namely the property of having a parent who has given them approval. This again can be thought of as a defined property, since the language as specified does not provide us with a unary predicate to express this property directly. To see that this property no longer says anything about <span class="math inline">\(y\)</span>, note that we could define the same property by replacing every occurrence with <span class="math inline">\(y\)</span> with a different variable, say <span class="math inline">\(z\)</span>:</p>
+<p>Notice that the variable <span class="math inline">\(y\)</span> no longer occurs freely in the formula since it has been captured, or bound, by the quantifier <span class="math inline">\(\exists y\)</span>. Still this formula is not a sentence, since both occurrences of the variable <span class="math inline">\(x\)</span> still occur freely in it. Thus, the formula still says something about <span class="math inline">\(x\)</span>. What does it say? It says that <span class="math inline">\(x\)</span> has a certain property, namely the property of having some parent’s approval. This again can be thought of as a defined property, since the language as specified does not include a unary predicate that names this property directly. To see that this property no longer says anything about <span class="math inline">\(y\)</span>, note that we could define the same property by replacing every occurrence with <span class="math inline">\(y\)</span> with a different variable, say <span class="math inline">\(z\)</span>:</p>
 <p><span class="math display">\[ \exists z(Pzx \wedge Azx) \]</span></p>
 <p>What does this formula say about <span class="math inline">\(x\)</span>? The same thing as it did before the variable replacement, namely, that <span class="math inline">\(x\)</span> has a parent who has given them approval. Thus bound variables don’t really name anything, they are, so to speak, ‘dummy’ names. Like pronouns, they are useful, to ensure consistency of reference across a discursive context, as when we say:</p>
 <p><span class="math display">\[
@@ -414,7 +422,17 @@ Rbx\)</span>. In this formula <span class="math inline">\(x\)</span> occurs, but
 <p><span class="math display">\[
 \forall x(\exists z(Pzx \wedge Azx)\rightarrow T(x))
 \]</span></p>
-<p>Now, we have bound all the variables and at last arrived at a sentence. All the variables are now bound, and so they are just dummy names. As we shall see in the next section, when we introduce the semantics for quantificational logic, the truth value of a sentence does not depend on which individuals the variables name.</p>
+<p>We have at last arrived at a sentence. All the variables are now bound, and so they are just dummy names. As we shall see in the next section, when we introduce the semantics for quantificational logic, it will turn out on the truth value of a sentence does not depend on which individuals the variables name.</p>
+<p>Exercise: For each of the formulas listed below, determine whether the formula is a sentence, and, if not, underline all the free occurrences of variables occurring in the formula.</p>
+</section>
+<section id="the-semantics-of-quantificational-logic" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</h2>
+<section id="models" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="models"><span class="header-section-number">3.3.1</span> Models</h3>
+</section>
+<section id="orders-equivalences-and-identity" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</h3>
+</section>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>

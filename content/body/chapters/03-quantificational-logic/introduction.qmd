@@ -1,6 +1,6 @@
 ## Introduction
 
-Thus far in this course, we have studied two distinct systems of logic:
+In this course, we have studied two distinct systems of logic:
 syllogistic logic and propositional logic. The first allowed us to recognize as
 valid such arguments as:
 
@@ -25,7 +25,7 @@ in first grade}}{\textrm{Amy is in second grade}}
 $$
 
 While this seems like a valid argument, its validity turns not only on the
-significance of such syllogistic constructions as 'Every $\ldots$ is ---', but
+significance of such syllogistic constructions as 'every $\ldots$ is ---', but
 also on the meaning of propositional operators, like 'either $\ldots$ or ---'
 and 'not $\ldots$'. Thus, to formulate standards for argumentative validity that
 can apply to such arguments, we need a single system of logic that can
@@ -35,12 +35,14 @@ In this chapter, we will introduce such a system of logic. We will call this
 system 'quantificational' logic.[^fol] In addition to mixed
 syllogistic-propositional reasoning, the language of quantificational logic will
 also extend syllogistic logic in another direction. In addition to allowing us
-to ascribe properties to objects, it will allow us to express relations that
-obtain between objects, so that we can recognize as valid such arguments as:
+to ascribe properties to individual objects, it will allow us to express
+relations that obtain between multiple objects, so that we can recognize as
+valid such arguments as:
 
 $$
-\frac{\textrm{Anyone can go on the trip if they are given a parent's approval\hspace{3mm},\hspace{3mm} Adam is
-Julia's parent}}{\textrm{If Adam gives Julia approval, she can go on the trip}}
+\frac{\textrm{Anyone can go on the trip with a parent's
+approval\hspace{3mm},\hspace{3mm} Adam is Julia's parent}}{\textrm{If Adam gives
+Julia approval, she can go on the trip}}
 $$
 
 [^fol]:
@@ -48,6 +50,6 @@ $$
     predicate logic.
 
 This capacity for relational reasoning makes quantificational logic very
-powerful. It so powerful, in fact, that, with only minor additions, it is
+powerful. It so powerful, in fact, that, with only minor emendations, it is
 capable of formalizing nearly every mathematical proof or deductive argument
 that you are ever likely to encounter.
