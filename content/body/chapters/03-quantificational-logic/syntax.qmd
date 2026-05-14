@@ -31,13 +31,13 @@ $C$: Amy is in the classroom
 
 $F$: Amy is in first grade
 
-To express such propositional compounds, our formal language will still need to
+To express such propositional compounds, our formal language will need to
 include all the propositional connectives that we introduced in the context of
 propositional logic, namely:
 
 $$ \neg, \conj, \disj, \rightarrow, \leftrightarrow $$
 
-The above formalization in the language of propositional logic, is probably not
+The above formalization in the language of propositional logic is probably not
 going to suffice. To see why, consider the conclusion of the argument:
 
 $$\textrm{Amy is in second grade}$$
@@ -47,10 +47,10 @@ in the language of propositional logic it would simply be formalized by another
 atomic sentence, such as $S$. But representing the second premise as
 $C\wedge\neg F$ and the conclusion as $S$ obscures the crucial relationship that
 obtains between the two, namely, that they are both sentences which say
-something about the same person, Amy. So both sentences must somehow refer to
-Amy. Now, if we want to refer to Amy in our formal language, we will need to
-give her a name. So, our formal language will need to have names of individuals.
-Let's use the letter '$a$' as a name for Amy.
+something about one and the same person, Amy. So both sentences must somehow
+refer to Amy. Now, if we want to refer to Amy in our formal language, we will
+need to give her a name. So, our formal language will also need to have names of
+individuals. For now, let's use the letter '$a$' as a name for Amy.
 
 The second premise says two things about Amy. The first is that she is in the
 classroom and the second is that she is not in the first grade. When we say that
@@ -59,25 +59,25 @@ language will need to include not only names for objects, but names for
 properties as well. Let $C$ be a name for the property '... is in the
 classroom'. We want to assert that this property holds of Amy. To attribute this
 property to Amy, we will first write down a name of the property, followed by a
-name of Amy. So, all told, the claim that Amy is in the classroom will be
-written:
+name of Amy. In this way, the claim that Amy is in the classroom will be
+expressed:
 
 $$ Ca $$
 
-Let $F$ name the property '... is in the first grade'. Then the second premise
-can be formalized as follows:
+Let $F$ name the property '... is in the first grade'. Then, all told, the
+second premise can be formalized as follows:
 
 $$ Ca\wedge \neg Fa$$
 
 While this rendering conveys the compound propositional structure just as
 clearly as the formalization of the sentence in propositional logic, it adds
-internal structure to the components sentences out of which this compound is
-built. Instead of treating these component sentences as structureless, or
-atomic, we have now indicated something about these sentences, namely, that they
-attribute properties to a specific individual, an individual who is referred to
-by name and who can be referred to again by that same name elsewhere in the
-argument. For example, letting $S$ be the property '... is in the second grade',
-the conclusion of the argument can now be rendered: $$ Sa $$
+internal structure to the component sentences out of which this compound is
+built. Instead of treating these component sentences as structureless atoms, we
+have now indicated something about these sentences, namely, that they attribute
+properties to a specific individual, an individual who is referred to by name
+and who can be referred to again by that same name elsewhere in the argument.
+For example, letting $S$ be the property '... is in second grade', the
+conclusion of the argument can now be rendered: $$ Sa $$
 
 Now, let's look at the first premise of the argument:
 
@@ -106,17 +106,17 @@ follows:
 
 $$ Cx \rightarrow (Fx \vee Sx) $$
 
-Now what the premise says is that the above claim is true not just of some
+What the premise says is that the above claim is true not just of some
 particular individual, but of _every_ individual. To convey this fact, we need a
 way of indicating that the claim is meant to be true _regardless_ of who $x$
 stands for. We could indicate this as follows:
 
 $$ \textrm{For all $x$: } Cx \rightarrow (Fx \vee Sx) $$
 
-In the language of quantificational logic, in place of the prefix 'For all $x$
-...:' we write $\forall x$. The upside-down 'A' written before the name $x$ is
-called a quantifier, and more specifically the universal quantifier. All told
-then, the first premise can be written:
+In the language of quantificational logic, in place of the prefix 'For all $x$:
+...:' we write $\forall x(\cdots)$. The upside-down 'A' written before the name $x$ is
+called a quantifier. More specifically, it is called the universal quantifier.
+All told then, the first premise can be written:
 
 $$\forall x(Cx\rightarrow (Fx \vee Sx))$$
 
@@ -148,41 +148,40 @@ $$ \textrm{Adam is Julia's parent} $$
 
 This sentence says something not just about one individual, but about two,
 namely Adam and Julia. What does it say about them? It says that they stand in a
-certain relation to each other, in particular, that Adam is a parent of Julia.
+certain relation to each other, in particular, that Adam is Julia's parent.
 To capture this fact we will need to give a name to the two-place relation '... is a
-parent of ---'. Let's call it $P$. To express the fact that Adam stands in this
+parent of ---'. Let's call this relation $P$. To express the fact that Adam stands in this
 relation to Julia, we will first write down the name of the relation, then the
 names of Adam and Julia in that order. If 'a' names Adam and 'j' names Julia,
 then we can formalize the sentence as follows:
 
 $$ Paj $$
 
-Note here that the order in which the names appears matters. If we
-had instead written $Pja$ this would mean that Julia is a parent of Adam. This,
-of course, is not the case since the relation of parent to child is
-asymmetrical. Why not write $aRj$ to make the order a bit more perspicuous? We
-could, but our logic will later allow for relations between three or more
-things, and the prefix (as opposed to the
-infix) notation can be more straightforwardly adapted to handle these more
-complex relations.
+Note here that the order in which the names appears matters. If we had instead
+written $Pja$ this would mean that Julia is a parent of Adam. This, of course,
+is not the case since the relation of parent to child is asymmetrical. Why not
+write $aRj$ to make the order a bit more perspicuous? We could, but our logic
+will later allow for relations between three or more things, and the prefix (as
+opposed to the infix) notation can be more straightforwardly adapted to handle
+such complex relations.
 
-So now we see that, in addition to names for properties, we will also need to include
-in our language names for relations. Syntactically, names for relations will
-function very much like names for properties, only instead of applying to a
+So now we see that, in addition to names for properties, we will also need to
+include in our language names for relations. Syntactically, names for relations
+will function very much like names for properties, only instead of applying to a
 single individual they will apply to two (or three, or possibly more)
 individuals. We will call both names for properties and names for relations,
-_predicates_. Predicates may be _unary_ if they denote properties of individuals,
-or they may be _binary_ if they denote two-place relations, or _ternary_ if they denote
-three-place relations, or quaternary etc..
+_predicates_. Predicates may be _unary_ if they denote properties of
+individuals, or they may be _binary_ if they denote two-place relations, or they
+may be _ternary_ if they denote three-place relations, or _quaternary_ etc..
 
 Now let's look at the conclusion. Clearly, this is a conditional sentence. The
 antecedent of the conditional is 'Adam gives Julia approval'. Again, this states
 that a certain relation obtains between Adam and Julia, namely, the relation
-'... gives approval to ---'. Let's name this two-place relation by the binary
-predicate $A$. The consequent of the conditional is the sentence 'Julia can go
-on the trip'. Here we are simply ascribing a property to Julia. Let $T$ be the
-unary predicate that names the property '... can go on the trip'. Then the
-conclusion of the argument can be written: $$ Aaj\rightarrow Tj$$
+'... gives approval to ---'. Let's use the binary predicate $A$ to stand for
+this two-place relation. The consequent of the conditional is the sentence
+'Julia can go on the trip'. Here we are simply ascribing a property to Julia.
+Let $T$ be the unary predicate that names the property '... can go on the trip'.
+Then the conclusion of the argument can be written: $$ Aaj\rightarrow Tj$$
 
 Now for the first premise. This says something about individuals without naming
 any individual explicitly. If $x$ and $y$ are two arbitrary individuals, then
@@ -193,7 +192,7 @@ as follows: $$Pyx \wedge Ayx$$ Note that the proviso does not state that
 $x$ needs the approval of _all_ of their parents, just that $x$ needs the
 approval of some one of them. The first stronger proviso, requiring approval
 from all parents, could be written: $$\forall y(Pyx \wedge Ayx)$$ But what we need
-instead is a way to say something like $$\textrm{For some $y$:} Pyx \wedge Ayx$$
+instead is a way to say something weaker like $$\textrm{For some $y$:} Pyx \wedge Ayx$$
 To say this, we will introduce a second quantifier, which we will call the
 _existential_ quantifier and which we will denote by the symbol, $\exists$. The
 proviso can thus be written:
@@ -201,26 +200,26 @@ proviso can thus be written:
 $$\exists y(Pyx\wedge Ayx)$$
 
 This says that $x$ gets approval from some parent. What we want to say about $x$
-is that if $x$ gets parent approval, then $x$ can go on the trip:
+is that if $x$ gets a parent's approval, then $x$ can go on the trip:
 
 $$\exists y(Pyx\wedge Ayx)\rightarrow T(x)$$
 
-What the sentence says is that this is true not just of some $x$, but of every
+What the first premise says is that this is true not just of some $x$, but of every
 $x$. So, all told the premise can be written:
 
 $$
-\forall x(\exists y(Pyx\wedge Ayx)\rightarrow T(x))
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx)
 $$
 
 The argument can thus be formalized:
 
 $$
-\forall x(\exists y(Pyx\wedge Ayx)\rightarrow T(x)), Paj\proves Aaj\rightarrow Tj
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx), Paj\proves Aaj\rightarrow Tj
 $$
 
 Now that we have a sense of the types of syntactic item needed to formalize
 arguments in quantificational logic, we can give a more precise specification of
-the language. We will call the language L$_Q$. As usual, we begin by supplying
+the language. Let's call the language L$_Q$. As usual, we begin by supplying
 an alphabet for the language.
 
 The alphabet for L$_Q$ includes an arbitrarily large stock of symbols
@@ -260,7 +259,7 @@ and parentheses that can be used for delimiting their scope:
 
 - Parentheses: $(\,,\,)$
 
-Finally, the language also include two additional symbols representing the
+Finally, the language also include two additional symbols, the
 universal and existential quantifiers:
 
 - Quantifiers: $\forall, \exists$
@@ -269,8 +268,8 @@ That's it. If you go back to the arguments that we just formalized, you can
 verify for yourself that every symbol appearing in every sentence in these
 arguments falls into one of these five categories.
 
-Next, we need to say which expressions--that is, which strings of symbols from the
-alphabet--constitute sentences of L$_Q$. First we will
+Next, we need to say which expressions---that is, which strings of symbols from the
+alphabet---constitute sentences of L$_Q$. First we will
 define the notion of a _formula_ of L$_Q$.
 
 :::{#def-formula .definition}
@@ -323,26 +322,25 @@ $$\forall x(Rxa\rightarrow Px)$$
 Ignoring the $x$ attached to the quantifier, the other two occurrences of the
 variable $x$ both occur within the (parenthetically delimited) scope of the
 quantifier $\forall x$. In this case, we say that these occurrences of $x$ are
-not free, but _bound_. Now, consider the formula:
+_bound_. Now, consider the formula:
 
 $$\neg\exists y (Pz \wedge \forall z(Rxy\vee Pz))$$
 
 Ignoring the variables attached to quantifiers, which variables in the formula
 are free and which bound? The first occurrence of the variable $z$ is free, as is
-the only occurence of the variable $x$, but the only occurrence of the variable
-$y$ and the second occurrence of the variable $z$ are bound.
+the only occurence of the variable $x$, but the one occurrence of the variable
+$y$ and the second occurrence of the variable $z$ are both bound.
 
-We define a sentence of the language to be any formula in which no variable
-occurs freely.
+We now define the sentences of the language as follows
 
 :::{#def-formula .definition}
-A formula of L$_Q$ is a sentence if every variable that occurs in it is bound.
+A _sentence of L$_Q$_ is a formula in which no variable occurs freely.
 :::
 
 Only sentences of the language can serve as the premises or conclusion of an
 argument, but non-sentential formulas are important as well. For these formulas
 effectively allow us to introduce into the language new properties and relations
-not names by the predicates of the language. Recall our attempt to formalize the
+not named by the predicates of the language. Recall our attempt to formalize the
 claim:
 
 $$ \textrm{Anyone can go on the trip if they are given a parent's approval}$$
@@ -354,7 +352,7 @@ $$ Pyx \wedge Ayx $$
 This is a formula but not a sentence since the variables $x$ and $y$ do not
 occur within the scope of any quantifiers. Because $x$ and $y$ occur freely in
 this formula, the formula in effect says something about the items to which they
-refer. What does it say? It says that $x$ and $y$ stand in a certain relation to
+refer. What does it say about these items? It says that $x$ and $y$ stand in a certain relation to
 one another, namely, the relation of $y$ being a parent of $x$ who gives to $x$
 their approval. Notice that this relation is not named by any of the primitive
 predicates that we used in our formalization of the argument. Rather, it may be
@@ -363,8 +361,8 @@ relation later).
 
 To capture the proviso, we then said that $x$ satisfies the required condition
 if there is _some_ person who stands in this defined relation to $x$. To express
-this fact, we applied the existential quantifier to the above formula, resulting
-in the formula:
+this fact, we applied the existential quantifier to the above formula, which
+resulted in the formula:
 
 $$ \exists y(Pyx \wedge Ayx) $$
 
@@ -376,14 +374,14 @@ that $x$ has a certain property, namely the property of having some parent's
 approval. This again can be thought of as a defined property, since the language
 as specified does not include a unary predicate that names this property
 directly. To see that this property no longer says anything about $y$, note that
-we could define the same property by replacing every occurrence with $y$ with a
+we could define the same property by replacing every occurrence of $y$ with a
 different variable, say $z$:
 
 $$ \exists z(Pzx \wedge Azx) $$
 
 What does this formula say about $x$? The same thing as it did before the
 variable replacement, namely, that $x$ has a parent who has given them approval.
-Thus bound variables don't really name anything, they are, so to speak, 'dummy'
+Thus, bound variables don't really name anything, they are, so to speak, 'dummy'
 names. Like pronouns, they are useful, to ensure consistency of reference across
 a discursive context, as when we say:
 
@@ -400,11 +398,18 @@ $$
 $$
 
 We have at last arrived at a sentence. All the variables are now bound, and so
-they are just dummy names. As we shall see in the next section, when we
-introduce the semantics for quantificational logic, it will turn out on the
-truth value of a sentence does not depend on which individuals the variables
-name.
+they are all just dummy names. This means that we can now ask whether the
+sentence is true or false without saying anything about what $x$ and $z$ stand
+for.
 
-Exercise: For each of the formulas listed below, determine whether the formula
-is a sentence, and, if not, underline all the free occurrences of variables
-occurring in the formula.
+:::{#exr-free-versus-bound .exercise}
+
+{{< include /content/exercises/free-versus-bound.qmd >}}
+
+:::
+
+:::{#exr-translations-to-Lq .exercise}
+
+{{< include /content/exercises/translations-to-Lq.qmd >}}
+
+:::

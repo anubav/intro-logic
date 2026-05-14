@@ -1,0 +1,18 @@
+For each of the expressions listed below, determine whether it is a non-formula,
+a formula, or a sentence. If it is a formula but not a sentence, then underline all
+occurrences of free variables in the formula. You may assume that $P$ is a unary
+predicate; $R$ a binary predicate; and $S$ a ternary predicate.
+
+a. $\forall x(\exists y (Rxy))$
+
+b. $\neg\exists P(\forall x (Px))$
+
+c. $Px\rightarrow \forall x(Rxy\disj Ryx)$
+
+d. $\forall x(Px \rightarrow \exists(Rxy \wedge Pyx))$
+
+e. $\forall x(\exists x(Sxax))$
+
+e. $(\exists x(\forall y (Rxy)))\leftrightarrow(\forall z(\exists x(Rzx)))$
+
+f. $\neg\neg\forall x(Sabc\rightarrow Px)$

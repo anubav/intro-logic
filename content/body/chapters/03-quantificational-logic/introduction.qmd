@@ -13,7 +13,7 @@ Propositional logic, on the other hand, taught us how to recognize the validity
 of arguments such as:
 
 $$
-\frac{\textrm{The cat is either on the bed or under the bed\hspace{3mm},\hspace{3mm} The cat is not on the bed}}{\textrm{The cat must be under the bed}}
+\frac{\textrm{The cat is either on the bed or under the bed\hspace{3mm},\hspace{3mm} The cat is not on the bed}}{\textrm{The cat is under the bed}}
 $$
 
 What about the following argument?

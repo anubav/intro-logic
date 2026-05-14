@@ -1,0 +1,38 @@
+Assume that the constants and predicates of L$_Q$ stand for the following people, properties, and
+relations:
+
+$a$: Anna
+
+$j$: Jim
+
+$s$: Sam
+
+$C^1$: '... is in the class'
+
+$F^1$: '... is a freshman'
+
+$K^2$: '... knows ---'
+
+$S^2$: '... shared notes with ---'
+
+$G^3$: '... introduced --- to \_\_\_'
+
+Translate the following sentences in the language L$_Q$:
+
+a. Anna is a freshman.
+
+b. Jim introduced Anna to Sam.
+
+c. Someone in the class shared notes with Sam.
+
+d. Someone who is not in the class shared notes with Anna.
+
+e. Every freshman in the class shared notes with someone they know.
+
+f. If a freshman in the class knows Anna, then they were introduced to Anna by
+Jim.
+
+g. There is a class member who shared notes with everyone they know.
+
+h. Jim introduced Anna to everyone he knows who is either a freshman or is in the
+class.

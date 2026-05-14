@@ -1,0 +1,14 @@
+Show that the following arguments are invalid by providing diagrammatic
+counterexamples. In your diagrams, use arrows to represent the relation $R$,
+circle any points that have the property $P$, and draw a square around any
+points that have the property $Q$.
+
+a. $\exists x(\forall y (Rxy))\proves \forall x(\exists y(Rxy))$
+
+b. $\forall x(\exists y (Rxy))\proves \exists x(\forall y(Ryx))$
+
+c. $\forall x(Px\imp Qx)\proves \forall x(Px)\imp \forall x(Qx)$
+
+d. $\forall x(\exists y (Py\wedge Rxy))\proves\exists y(\forall x(Py\wedge Rxy))$
+
+e. $\forall x(P(x)\imp \exists y(Rxy))\proves\forall x(\exists y(Py\wedge Rxy))$

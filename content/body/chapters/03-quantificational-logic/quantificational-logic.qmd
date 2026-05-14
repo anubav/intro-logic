@@ -13,10 +13,243 @@ crossref:
 
 {{< include syntax.qmd >}}
 
+:::{.content-hidden when-profile="lecture-10"}
+
 ## The Semantics of Quantificational Logic
 
-### Models
+### The Significance of the Quantifiers
 
-### Orders, Equivalences and Identity
+Having introduced the formal language L$_Q$, we must now specify a semantics for
+this language which will allow us to determine which arguments are valid. As
+usual, such a semantics must tell us how to intepret the non-logical elements of
+the language. In the case of L$_Q$, the non-logical elements are the constants
+and the predicates. How should we interpret these items?
+
+Since constants are meant to function as names of individual objects, our
+interpretations must take place against the background of a fixed set, or
+domain, of objects. An interpretation must assign to each name an object in this
+set. What about the predicates? Unary predicates are meant to denote properties
+of objects, and, so following the extensional approach discuss in Chapter 1, we
+can interpret a unary predicate as a set of objects in the domain. This set of
+objects signifies the set of all objects possessing the property named by the
+predicate. What about binary predicates?
+
+Binary predicates are meant to stand for two-place relations. We can represent
+such relations not by a set of objects in the domain, but instead by a set of
+_ordered pairs_ of objects taken from the domain. The pairs in this set stand
+for those pairs of objects the first member of which stands in said relation to
+the second. If we wish to represent such a set of order pairs diagramatically,
+we can do by means of a collection of directed edges, or arrows. For example:
+
+:::{#fig-binary-relation}
+![](/content/static/images/binary-relation.svg){width=200 fig-align="center"
+fig-alt="Binary Relation"}
+
+Diagrammatic depiction of a two-place relation
+:::
+
+In this diagram, an ordered pair belongs to the extension of the relation
+depicted just in case an arrow points from the first member of the pair to the
+second. So, in set theoretic notation, the diagram represents the two-place
+relation whose extension is given by the set:
+
+$$\{(a, b), (b, c), (c, b), (c, c), (b, d) \}$$
+
+What about a ternary predicate symbol? Following along with the above idea, a
+ternary predicate symbol---denoting a three-place relation---will be represented
+by a set of ordered _triples_ of objects taken from the domain. Three-place (or
+more) relations are a bit harder to depict diagrammatically, so it's better to
+just use the set notation. The same approach can be extended so as to apply to
+predicates of higher arity. In general, an $n$-ary predicate will be interpreted
+as a set of ordered $n$-tuples of objects taken from the domain.
+
+All told, then, we have the following definition of an interpretation of the
+language L$_Q$:
+
+:::{#def-interpretation-Lq .definition}
+Take as given a fixed set of objects, $\W$, referred to as the domain. An interpretation of
+the language is a function $\si$ such that:
+
+1. For each constant $a$, $\si(a)\in \W$ (we will assume that, for every $x\in
+   \W$, $\si(a)=x$, for some constant $a$).
+
+2. For each predicate $P^1$, $\si(P)\subset \W$.
+
+3. For each predicate $P^n$, $\si(P)$ is a set of ordered $n$-tuples of objects
+   in $\W$, i.e.:
+
+   $$\si(P)\subset\{(a_1,a_2,\ldots,a_n): a_i\in \W\textrm{, for }i=1,\ldots,n\} $$
+
+:::
+
+Now, that we know what an interpretation is, our semantics must tell us how to
+assess the truth or falsehood of sentences in a given interpretation. In
+specifying how we go from an intepretation to a truth valuation, we will have
+provided an account of the intended meanings of the logical elements of the
+syntax, most notably, the quantifiers.
+
+The simplest sentences in the language are those of the form:
+
+$$ Pa_1 a_2\cdots a_n$$
+
+where $P$ is an $n$-ary predicate symbol and $a_1,\ldots,a_n$ are constants. In
+this case, the sentence should be true just in case the objects named by the
+constants stand in the specific $n$-place relation named by the predicate. This
+semantic rule for such elementary sentences can be summarized as follows. For
+any interpretation $\si$:
+
+$$
+v^\si(Pa_1 a_2\cdots a_n) = \true\textrm{\quad iff \quad}
+(\si(a_1),\si(a_2),\ldots,\si(a_n))\in \si(P)
+$$
+
+The propositional connectives will be given the same truth-functional meaning as
+was ascribed to them in Chapter 2. In particular, the truth values of
+propositional compounds will be determined by the truth values of their
+component sentences in accordance with the following semantic rules:
+
+$$
+v^\si(\neg\ph) = \true \textrm{\quad iff \quad} v^\si(\ph)=\false
+$$
+
+$$
+v^\si(\ph\conj\psi) = \true \textrm{\quad iff \quad} v^\si(\ph)=\true\textrm{
+and }v^\si(\psi)=\true
+$$
+
+$$
+v^\si(\ph\disj\psi) = \true \textrm{\quad iff \quad} v^\si(\ph)=\true\textrm{
+or }v^\si(\psi)=\true \textrm{ (or both)}
+$$
+
+$$
+v^\si(\ph\imp\psi) = \false \textrm{\quad iff \quad} v^\si(\ph)=\true\textrm{
+and }v^\si(\psi)=\false
+$$
+
+$$
+v^\si(\ph\iff\psi) = \true \textrm{\quad iff \quad} v^\si(\ph)=v^\si(\psi)
+$$
+
+Lastly, we must explain how to assess the truth values of quantified sentences
+in a given interpretation. To do so, we must introduce one further piece of
+terminology. Let $\ph$ be a formula, such as:
+
+$$\forall z(Rxz\rightarrow Py)$$
+
+In this formula, the only variables that occur freely are the variables $x$ and $y$. To
+indicate this fact, we denote the formula as follows:
+
+$$ \ph(x,y) $$
+
+Note that this not a new formula. It is just another name for the formula given
+above, but one which carries with it additional information about which
+variables occur freely in it. In particular, this way of denoting the formula
+indicates that no variables other than $x$ and $y$ occur freely in $\ph$. As
+discussed above, the formula $\ph(x,y)$, having two free variables, can be
+thought of as a defined two-place relation. How do I assert that this relation
+holds of the objects named by the constants $a$ and $b$? I do so by substituting
+$a$ for every free occurrence of $x$ in the formula, and substituting $b$ for
+every free occurrence of $y$. This results in the sentence:
+
+$$\forall z(Raz\rightarrow Pb)$$
+
+which we will denote by:
+
+$$ \ph(a,b) $$
+
+We will term this process, whereby a formula is turned
+into a sentence by replacing the free occurrences of variables in it with
+constants, _instantiation_.
+
+With this idea in hand, we can now can return to the question of how to assess
+the truth or falsehood of quantified sentences. Consider the sentence:
+
+$$\forall x(\ph)$$
+
+Note that this may be a sentence despite the fact that the formula $\ph$
+appearing in the scope of the quantifier is not itself a sentence. But if so,
+then it must be the case that the _only_ variable occurring freely in the
+formula $\ph$ is $x$, and so we can denote $\ph$ by $\ph(x)$. The universal
+quantifier means that _every_ instantiation of this formula, that is every
+sentence of the forma $\ph(a)$, expresses a true
+sentence. We can capture this fact, by the following semantic rule:
+
+$$
+v^\si(\forall x(\ph))=\true\textrm{\quad iff \quad}
+v^\si(\ph(a))=\true\textrm{, for every constant $a$.}
+$$
+
+In similar fashion, the existential quantifier can be interpreted as meaning
+that _some_ instantiation of the formula to which the quantifier applies is a true sentence.
+
+$$
+v^\si(\exists x(\ph))=\true\textrm{\quad iff \quad}
+v^\si(\ph(a))=\true\textrm{, for some constant $a$.}
+$$
+
+This completes our semantic specification of the truth conditions for the
+sentences of L$_Q$. Let's see how this semantics allows us to assess the
+validity of arguments. Consider the argument introduced in the previous section:
+
+$$
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx), Paj\proves Aaj\rightarrow Tj
+$$
+
+Suppose that the first premise is true in some interpretation $\si$, i.e.:
+
+$$ v^\si(\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx))=\true$$
+
+In accordance with our above rule, this means that every instantiation of the
+formula:
+
+$$\exists y(Pyx\wedge Ayx)\rightarrow Tx$$
+
+in which $x$ occurs freely, is true in the intepretation $\si$. In particular:
+
+$$
+v^\si(\exists y(Pyj\wedge Ayj)\rightarrow Tj)=\true
+$$
+
+The second premise says that $Paj$ is true in $\si$. To show that the truth of
+the conclusion follows, let's suppose that $Aaj$ is true and try to argue for the
+truth of $Tj$. If $Aaj$ is true, then:
+
+$$ v^\si(Paj\wedge Aaj)=\true $$
+
+Now, by our rule for existentially quantified sentencs, it follows that:
+
+$$ v^\si(\exists x (Pxj\wedge Axj))=\true $$
+
+But since we have already seen that the conditional $\exists y(Pyj\wedge
+Ayj)\rightarrow Tj$ is true, it follows that $Tj$ is true as well. So the truth
+of the conclusion follows from the truth of the premises, i.e., the argument is
+valid.
+
+Let's now consider an invalid argument:
+
+$$ \forall x(\exists y (Rxy))\proves \exists x(\forall y (Rxy)) $$
+
+To show that this argument is invalid, we must provide an interpretation under
+which the premise is true and the conclusion false. The premise says that
+everything stands in the relation $R$ to something. The conclusion says that
+something stands in the relation $R$ to everything. One interpretation of the
+relation $R$ on which the first of these claims is true and the second false is
+the following:
+
+![](/content/static/images/binary-relation-2.svg){width=160 fig-align="center"
+fig-alt="Binary Relation"}
+
+In this diagram, every object points to something, but no object points to
+everything. In particular $a$ does not point to itself and neither does $b$. So,
+the premise is true but the conclusion is false. The argument is invalid.
+
+:::{#exr-countermodels .exercise}
+
+{{< include /content/exercises/countermodels.qmd >}}
+
+:::
+
+:::
 
 ## References {.unnumbered}

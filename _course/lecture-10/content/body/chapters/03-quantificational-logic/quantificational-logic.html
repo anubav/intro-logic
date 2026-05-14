@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
-<link href="../../../../content/back-matter/solutions.html" rel="next">
 <link href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html" rel="prev">
 <script src="../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
@@ -178,23 +177,6 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantificational Logic</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../content/back-matter/solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Solutions to Selected Exercises</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -207,11 +189,6 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
   <li><a href="#the-syntax-of-quantificational-logic" id="toc-the-syntax-of-quantificational-logic" class="nav-link" data-scroll-target="#the-syntax-of-quantificational-logic"><span class="header-section-number">3.2</span> The Syntax of Quantificational Logic</a></li>
-  <li><a href="#the-semantics-of-quantificational-logic" id="toc-the-semantics-of-quantificational-logic" class="nav-link" data-scroll-target="#the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</a>
-  <ul class="collapse">
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models"><span class="header-section-number">3.3.1</span> Models</a></li>
-  <li><a href="#orders-equivalences-and-identity" id="toc-orders-equivalences-and-identity" class="nav-link" data-scroll-target="#orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</a></li>
-  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -422,17 +399,19 @@ Rbx\)</span>. In this formula <span class="math inline">\(x\)</span> occurs, but
 <p><span class="math display">\[
 \forall x(\exists z(Pzx \wedge Azx)\rightarrow T(x))
 \]</span></p>
-<p>We have at last arrived at a sentence. All the variables are now bound, and so they are just dummy names. As we shall see in the next section, when we introduce the semantics for quantificational logic, it will turn out on the truth value of a sentence does not depend on which individuals the variables name.</p>
-<p>Exercise: For each of the formulas listed below, determine whether the formula is a sentence, and, if not, underline all the free occurrences of variables occurring in the formula.</p>
-</section>
-<section id="the-semantics-of-quantificational-logic" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</h2>
-<section id="models" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="models"><span class="header-section-number">3.3.1</span> Models</h3>
-</section>
-<section id="orders-equivalences-and-identity" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</h3>
-</section>
+<p>We have at last arrived at a sentence. All the variables are now bound, and so they are just dummy names. As we shall see in the next section, when we introduce the semantics for quantificational logic, it will turn out that the truth value of a sentence does not depend on which individuals the variables name.</p>
+<div id="exr-free-versus-bound" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> For each of the expressions listed below, determine whether it is a non-formula, a formula, or a sentence. If it is a formula but not a sentence, then underline all occurrences of free variables in the formula. You may assume that <span class="math inline">\(P\)</span> is a unary predicate; <span class="math inline">\(R\)</span> a binary predicate; and <span class="math inline">\(S\)</span> a ternary predicate.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\forall x(\exists y (Rxy))\)</span></p></li>
+<li><p><span class="math inline">\(\neg\exists P(\forall x (Px))\)</span></p></li>
+<li><p><span class="math inline">\(Px\rightarrow \forall x(Rxy\vee Ryx)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(Px \rightarrow \exists(Rxy \wedge Pyx))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(\exists x(Sxax))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x(\forall y (Rxy)))\leftrightarrow(\forall z(\exists x(Rzx)))\)</span></p></li>
+<li><p><span class="math inline">\(\neg\neg\forall x(Sabc\rightarrow Px)\)</span></p></li>
+</ol>
+</div>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
@@ -871,9 +850,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../content/back-matter/solutions.html" class="pagination-link" aria-label="Solutions to Selected Exercises">
-        <span class="nav-page-text">Solutions to Selected Exercises</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
