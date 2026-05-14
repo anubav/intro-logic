@@ -13,6 +13,6 @@ d. $\forall x(Px \rightarrow \exists(Rxy \wedge Pyx))$
 
 e. $\forall x(\exists x(Sxax))$
 
-e. $(\exists x(\forall y (Rxy)))\leftrightarrow(\forall z(\exists x(Rzx)))$
+f. $(\exists x(\forall y (Rxy)))\leftrightarrow(\forall z(\exists x(Rzx)))$
 
-f. $\neg\neg\forall x(Sabc\rightarrow Px)$
+g. $\neg\neg\forall x(Sabc\rightarrow Px)$
