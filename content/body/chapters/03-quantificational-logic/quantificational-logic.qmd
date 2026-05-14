@@ -252,4 +252,165 @@ the premise is true but the conclusion is false. The argument is invalid.
 
 :::
 
+:::{.content-hidden when-profile="lecture-10"}
+:::{.content-hidden when-profile="lecture-11"}
+
+### Orders, Equivalences and Identity
+
+Consider the following argument:
+
+$$
+\frac{\textrm{Sue is taller than James\hspace{3mm},\hspace{3mm} Sue is not
+taller than Bob}}{\textrm{James is not taller than Bob}}
+$$
+
+Intuitively, this seems like a good argument, for the truth of the premises does
+seem to entail the truth of the conclusion. But suppose we formalize this
+argument in L$_Q$ by introducing constants naming Sue ($s$), James ($j$), and
+Bob ($b$), and a binary predicate $T$ that stands for the two-place relation
+'... is taller than ---'. The argument would then be rendered as follows:
+
+$$
+Tsj, \neg Tsb\proves \neg Tjb
+$$
+
+But this is _not_ a valid argument, for it is easy to give an interpretation of
+the language in which the premises are true and the conclusion false. All that
+is required is to interpret $T$ such that its extension includes the ordered
+pairs $(\textrm{Sue}, \textrm{James})$ and $(\textrm{James}, \textrm{Bob})$, but does not include the ordered pair
+$(\textrm{Sue}, \textrm{Bob})$.
+
+Why then does the argument appear to be valid? The answer is that the relation
+'... is taller than ---' is not just any relatio. It is a special kind of
+relation. It does not just relate arbitrary individuals, but it relates
+individuals by _ordering_ them according to their height. We call relations like
+'... is taller than ---' ordering relations, or simply _orders_, for short. In
+addition to '... is taller than ---', there are lots of other orders as well. The
+relation '... is older than ---' is an order (by age), and the relation '... is to
+the left of ---' is an order (by position), and the relation '... is a proper subset of
+---' is an order (by set-theoretic content).
+
+To recognize the above argument as valid, we need to include among our
+assumptions the additional posit that the two place relation '... is taller than
+---' is an order. How do we do so? It turns out that orders have certain special
+features that not all relations possess and which single them out as orders. In
+particular, an order is any two place relation $R$ which satisfies the following
+two properties:
+
+Irreflexivity: Nothing stands in the relation $R$ to itself.
+
+Transitivity: If $x$ stands in the relation $R$ to $y$, and $y$ stands in the
+relation $R$ to $z$, then $x$ stands in the relation $R$ to $z$.
+
+To see that '... is taller than---' is an order, it is enough to note that it is
+an irreflexive, transitive relation. After all, nobody is taller
+than themself, and if one person is taller than another, and that other person is
+taller than a third, then the first person is taller than the third. Note that
+both the conditions of irreflexivity and transitivity can be expressed in the
+language L$_Q$. Applied to the binary predicate $T$, we can state these
+conditions as follows:
+
+Irreflexivity: $\forall x(\neg Txx)$
+
+Transitivity: $\forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow Txz)))$
+
+To stipulate that $T$ is an order, we simply add
+these two sentences to the argument as premises:
+
+$$
+\forall x(\neg Txx), \forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow
+Txz))), Tsj, \neg Tsb\proves \neg Tjb
+$$
+
+This argument is valid. To see why, suppose for contradiction that the
+premises are all true, but that the conclusion is false. If the conclusion is
+false it means that $Tjb$ is true. Now, $Tsj$ is true as well. Since the
+transitivity condition is also true, by the truth conditions for universally
+quantified sentences, we have that the sentence:
+
+$$Tsj\wedge Tjb\rightarrow Tsb$$
+
+Hence, $Tsb$ is true, which contradicts the assumption that the premise $\neg
+Tsb$ is true. Hence, the argument is valid.
+
+Exercise:
+
+Here's another example of a valid argument that relies on the ordering
+assumption:
+
+$$
+\frac{\textrm{Sue is taller than James}}{\textrm{James is not taller than Sue}}
+$$
+
+Equivalences:
+
+$$
+\frac{\textrm{Sue is in the same grade as James\hspace{3mm},\hspace{3mm} Bob
+is in the same grade as James}}{\textrm{Sue is in the same grade than Bob}}
+$$
+
+Again, this is not a valid argument as formulated. But the relation '... is in
+the same grade as ---' is not an order, since it is reflexive. Instead it is
+another kind of special relation, one which relates things by grouping them
+together in accordance with some shared property. These relations are called
+equivalence relations, or _equivalences_, for short.
+
+Reflexivity: $\forall x(\neg Gxx)$
+
+Symmetry: $\forall x(\forall y(Gxy\imp Gyx))$
+
+Transitivity: $\forall x(\forall y(\forall z(Gxy \wedge Gyz \rightarrow Gxz)))$
+
+Exercise:
+
+$P(x)\iff P(y)$
+
+There is one special equivalence relation that is so fundamental to our
+reasoning, that it is often treated as part of the logical syntax of the
+language. This is the relation '... is identical to ---', or the so-called
+_identity_ relation. It is the relation that obtains between any object and
+itself, but fails to obtain between any object and any other. Because it so
+fundamental, we often give this relation a special name in the language, `='. In
+the case of this one predicate, it is also standard to use the infix instead the prefix
+notation. Thus, we write $x = y$ in place of $=xy$. Also, for the formula $\neg x
+= y$, we adopt the shorthand $x\neq y$.
+
+When we say that identity is sometimes treated as a logical notion, what we mean
+is that its meaning is fixed across all interpretations. In particular, we
+stipulate that, in any interpretation, the extension of the binary predicate '$=$'
+is just:
+
+$$\{(a,a): a\in \W\}$$
+
+There is exactly one object in the universe with property $P$. There are exactly
+two objects in the universe with property $P$.
+
+$L^2$: '... is to the left of ---'
+$R^2$: '... is to the right of ---'
+
+We will assume that $L$ and $R$ are orders and that:
+
+$$ \forall x(\forall y((x\neq y)\imp (Lxy\iff\neg Rxy)))$$
+
+Define the following properties and relations:
+
+$B^3$: '... is between --- and \_\_\_'
+
+$R^1$: '... is right-most'
+
+$L^1$: '... is left-most'
+
+$I$: '... is immediately to the right of ---'
+
+Write down sentences expressing the following claims:
+
+There is someone two places to the right of John.
+
+There are exactly two people between John and Amy.
+
+John is one person away from the left of the line.
+
+:::
+:::
+
 ## References {.unnumbered}

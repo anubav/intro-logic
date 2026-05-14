@@ -446,7 +446,7 @@ Rbx\)</span>. In this formula <span class="math inline">\(x\)</span> occurs, but
 <p>Having introduced the formal language L<span class="math inline">\(_Q\)</span>, we must now specify a semantics for this language which will allow us to determine which arguments are valid. As usual, such a semantics must tell us how to intepret the non-logical elements of the language. In the case of L<span class="math inline">\(_Q\)</span>, the non-logical elements are the constants and the predicates. How should we interpret these items?</p>
 <p>Since constants are meant to function as names of individual objects, our interpretations must take place against the background of a fixed set, or domain, of objects. An interpretation must assign to each name an object in this set. What about the predicates? Unary predicates are meant to denote properties of objects, and, so following the extensional approach discuss in Chapter 1, we can interpret a unary predicate as a set of objects in the domain. This set of objects signifies the set of all objects possessing the property named by the predicate. What about binary predicates?</p>
 <p>Binary predicates are meant to stand for two-place relations. We can represent such relations not by a set of objects in the domain, but instead by a set of <em>ordered pairs</em> of objects taken from the domain. The pairs in this set stand for those pairs of objects the first member of which stands in said relation to the second. If we wish to represent such a set of order pairs diagramatically, we can do by means of a collection of directed edges, or arrows. For example:</p>
-<div id="fig-binary-relation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Binary Relation" data-fig-align="center">
+<div id="fig-binary-relation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Binary Relation">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-binary-relation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../../../content/static/images/binary-relation.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Binary Relation" width="200">
@@ -550,7 +550,7 @@ Ayj)\rightarrow Tj\)</span> is true, it follows that <span class="math inline">\
 <ol type="a">
 <li><p><span class="math inline">\(\exists x(\forall y (Rxy))\vdash\forall x(\exists y(Rxy))\)</span></p></li>
 <li><p><span class="math inline">\(\forall x(\exists y (Rxy))\vdash\exists x(\forall y(Ryx))\)</span></p></li>
-<li><p><span class="math inline">\(\forall x(Px\rightarrow Qx)\vdash\forall x(Px)\rightarrow\forall x(Qx)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(Px)\rightarrow\forall x(Qx)\vdash\forall x(Px\rightarrow Qx)\)</span></p></li>
 <li><p><span class="math inline">\(\forall x(\exists y (Py\wedge Rxy))\vdash\exists y(\forall x(Py\wedge Rxy))\)</span></p></li>
 <li><p><span class="math inline">\(\forall x(P(x)\rightarrow\exists y(Rxy))\vdash\forall x(\exists y(Py\wedge Rxy))\)</span></p></li>
 </ol>

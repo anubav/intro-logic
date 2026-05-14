@@ -7,7 +7,7 @@ a. $\exists x(\forall y (Rxy))\proves \forall x(\exists y(Rxy))$
 
 b. $\forall x(\exists y (Rxy))\proves \exists x(\forall y(Ryx))$
 
-c. $\forall x(Px\imp Qx)\proves \forall x(Px)\imp \forall x(Qx)$
+c. $\forall x(Px)\imp \forall x(Qx)\proves\forall x(Px\imp Qx)$
 
 d. $\forall x(\exists y (Py\wedge Rxy))\proves\exists y(\forall x(Py\wedge Rxy))$
 
