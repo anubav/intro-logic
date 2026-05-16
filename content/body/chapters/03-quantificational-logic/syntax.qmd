@@ -31,7 +31,7 @@ $C$: Amy is in the classroom
 
 $F$: Amy is in first grade
 
-To express such propositional compounds, our formal language will need to
+So a first observation is that to express propositional compounds, our formal language will need to
 include all the propositional connectives that we introduced in the context of
 propositional logic, namely:
 
@@ -122,8 +122,8 @@ $$\forall x(Cx\rightarrow (Fx \vee Sx))$$
 
 To express this sentence, we needed to introduce two new elements into the
 language: the universal quantifier and the symbol $x$. We will call the symbol
-$x$ a _variable_. Syntactically, it will function very much like a name, but its
-reference will be allowed to vary.
+$x$ a _variable_. Syntactically, it will function very much like a name, but, as
+we shall see, semantically variables will have a different meaning.
 
 The entire argument, formalized in the language of quantificational logic is:
 
@@ -152,7 +152,7 @@ certain relation to each other, in particular, that Adam is Julia's parent.
 To capture this fact we will need to give a name to the two-place relation '... is a
 parent of ---'. Let's call this relation $P$. To express the fact that Adam stands in this
 relation to Julia, we will first write down the name of the relation, then the
-names of Adam and Julia in that order. If 'a' names Adam and 'j' names Julia,
+names of Adam and Julia in that order. If '$a$' names Adam and '$j$' names Julia,
 then we can formalize the sentence as follows:
 
 $$ Paj $$
@@ -172,7 +172,7 @@ single individual they will apply to two (or three, or possibly more)
 individuals. We will call both names for properties and names for relations,
 _predicates_. Predicates may be _unary_ if they denote properties of
 individuals, or they may be _binary_ if they denote two-place relations, or they
-may be _ternary_ if they denote three-place relations, or _quaternary_ etc..
+may be _ternary_ if they denote three-place relations, or _quaternary_, etc..
 
 Now let's look at the conclusion. Clearly, this is a conditional sentence. The
 antecedent of the conditional is 'Adam gives Julia approval'. Again, this states
@@ -189,7 +189,7 @@ the sentence implies that $x$ can go on the trip, provided $x$ gets the approval
 of $y$ and $y$ is a parent of $x$. Let's focus on the proviso first, which
 states that $x$ must have a parent's approval. We could write down this proviso
 as follows: $$Pyx \wedge Ayx$$ Note that the proviso does not state that
-$x$ needs the approval of _all_ of their parents, just that $x$ needs the
+$x$ needs the approval of _all_ of his or her parents, just that $x$ needs the
 approval of some one of them. The first stronger proviso, requiring approval
 from all parents, could be written: $$\forall y(Pyx \wedge Ayx)$$ But what we need
 instead is a way to say something weaker like $$\textrm{For some $y$:} Pyx \wedge Ayx$$
@@ -219,7 +219,7 @@ $$
 
 Now that we have a sense of the types of syntactic item needed to formalize
 arguments in quantificational logic, we can give a more precise specification of
-the language. Let's call the language L$_Q$. As usual, we begin by supplying
+the language, which we shall call L$_Q$. As usual, we begin by supplying
 an alphabet for the language.
 
 The alphabet for L$_Q$ includes an arbitrarily large stock of symbols
@@ -292,8 +292,8 @@ The _formulas_ of L$_Q$ are defined inductively as follows:
 
 :::
 
-Assuming that $P$ is a unary predicate, $R$ is a binary predicate, and $S$ is a
-ternary predicate, then the following expressions are all formulas of L$_Q$:
+Assuming that $P$ is a unary predicate, $R$ a binary predicate, and $S$ a
+ternary predicate, the following expressions are all formulas of L$_Q$:
 
 :::{#sentences-Lp}
 
@@ -312,7 +312,7 @@ $$\exists x(\forall y((Pa \wedge Px)\rightarrow Rxy))$$
 :::
 
 Notice that, in some of these formulas, there are variables that do not occur in
-the scope of a corresponding quantifier. For example, $Rax\leftrightarrow \neg
+the scope of a corresponding quantifier. Take, for example, the formula $Rax\leftrightarrow \neg
 Rbx$. In this formula $x$ occurs, but it does not fall within the scope of
 either $\forall x$ or $\exists x$. In this case, we say that $x$ occurs _freely_
 in the formula. Contrast this with the next formula:
@@ -338,10 +338,10 @@ A _sentence of L$_Q$_ is a formula in which no variable occurs freely.
 :::
 
 Only sentences of the language can serve as the premises or conclusion of an
-argument, but non-sentential formulas are important as well. For these formulas
-effectively allow us to introduce into the language new properties and relations
-not named by the predicates of the language. Recall our attempt to formalize the
-claim:
+argument, but non-sentential formulas are important as well. These so-called
+'open' formulas effectively allow us to introduce into the language new
+properties and relations not named by the predicates of the language. Recall our
+attempt to formalize the claim:
 
 $$ \textrm{Anyone can go on the trip if they are given a parent's approval}$$
 
@@ -349,15 +349,15 @@ To capture the relevant proviso, we began by writing down the following formula:
 
 $$ Pyx \wedge Ayx $$
 
-This is a formula but not a sentence since the variables $x$ and $y$ do not
+This is an open formula, not a sentence, since the variables $x$ and $y$ do not
 occur within the scope of any quantifiers. Because $x$ and $y$ occur freely in
-this formula, the formula in effect says something about the items to which they
-refer. What does it say about these items? It says that $x$ and $y$ stand in a certain relation to
-one another, namely, the relation of $y$ being a parent of $x$ who gives to $x$
-their approval. Notice that this relation is not named by any of the primitive
-predicates that we used in our formalization of the argument. Rather, it may be
-thought of as a newly defined binary relation (we will discuss how to apply this
-relation later).
+this formula, the formula in effect says something about the particular items to
+which they refer. What does it say about these items? It says that $x$ and $y$
+stand in a certain relation to one another, namely, the relation of $y$ being a
+parent of $x$ who gives to $x$ their approval. Notice that this relation is not
+named by any of the primitive predicates that we used in our formalization of
+the argument. Rather, it may be thought of as a newly defined binary relation
+(we will discuss how to apply this relation shortly).
 
 To capture the proviso, we then said that $x$ satisfies the required condition
 if there is _some_ person who stands in this defined relation to $x$. To express

@@ -17,7 +17,7 @@ $S^2$: '... shared notes with ---'
 
 $G^3$: '... introduced --- to \_\_\_'
 
-Translate the following sentences in the language L$_Q$:
+Translate the following sentences into the language L$_Q$:
 
 a. Anna is a freshman.
 

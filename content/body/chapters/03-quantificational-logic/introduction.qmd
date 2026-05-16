@@ -27,8 +27,8 @@ $$
 While this seems like a valid argument, its validity turns not only on the
 significance of such syllogistic constructions as 'every $\ldots$ is ---', but
 also on the meaning of propositional operators, like 'either $\ldots$ or ---'
-and 'not $\ldots$'. Thus, to formulate standards for argumentative validity that
-can apply to such arguments, we need a single system of logic that can
+and 'not $\ldots$'. To formulate precise standards for argumentative validity
+that can apply to such arguments, we need a single system of logic that can
 comprehend _both_ syllogistic and propositional modes of reasoning.
 
 In this chapter, we will introduce such a system of logic. We will call this

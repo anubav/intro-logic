@@ -1,0 +1,33 @@
+Let $L$ and $R$ be binary predicates that stand for:
+
+$L$: '... is to the left of ---'
+$R$: '... is to the right of ---'
+
+We will assume that $L$ and $R$ are orders and that:
+
+$$ \forall x(\forall y((x\neq y)\imp (Lxy\iff\neg Rxy)))$$
+
+This means that for any two distinct objects in the domain, either the first is
+to the left of the second, or the first is to the right of the second but not
+both. So, every object in the domain is positioned somewhere in a line from
+left to right.
+
+a. Define the following propertoes and relations (you may use the identity
+predicate if need be):
+
+    $B^3$: '... is between --- and \_\_\_'
+
+    $R^1$: '... is right-most'
+
+    $L^1$: '... is left-most'
+
+    $I$: '... is immediately to the right of ---'
+
+b. Write down sentences expressing the following claims. You may use the properties
+and relations that you defined in part (a):
+
+    There is someone two places to the right of John.
+
+    There are exactly two people between John and Amy.
+
+    John is one person away from the left of the line.

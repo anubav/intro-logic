@@ -1,5 +1,5 @@
 For each of the expressions listed below, determine whether it is a non-formula,
-a formula, or a sentence. If it is a formula but not a sentence, then underline all
+an open formula, or a sentence. If it is an open formula, underline all
 occurrences of free variables in the formula. You may assume that $P$ is a unary
 predicate; $R$ a binary predicate; and $S$ a ternary predicate.
 

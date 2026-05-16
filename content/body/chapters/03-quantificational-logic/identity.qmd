@@ -1,0 +1,184 @@
+### Orders, Equivalences and Identity
+
+Consider the following argument:
+
+$$
+\frac{\textrm{Sue is taller than James\hspace{3mm},\hspace{3mm} Sue is not
+taller than Bob}}{\textrm{James is not taller than Bob}}
+$$
+
+Intuitively, this seems like a good argument, for the truth of the premises does
+seem to entail the truth of the conclusion. But suppose we formalize this
+argument in L$_Q$ by introducing constants naming Sue ($s$), James ($j$), and
+Bob ($b$), and a binary predicate $T$ that stands for the two-place relation
+'... is taller than ---'. The argument would then be rendered as follows:
+
+$$
+Tsj, \neg Tsb\proves \neg Tjb
+$$
+
+As stated, this is _not_ a valid argument, for it is easy to give an interpretation of
+the language in which the premises are true and the conclusion false. All that
+is required is to interpret $T$ such that its extension includes the ordered
+pairs $(\textrm{Sue}, \textrm{James})$ and $(\textrm{James}, \textrm{Bob})$, but does not include the ordered pair
+$(\textrm{Sue}, \textrm{Bob})$.
+
+Why then does the argument appear to be valid? The answer is that the relation
+'... is taller than ---' is not just any old relation. It is a special kind of
+relation, one which does not just relate arbitrary individuals, but relates them
+in a special sort of way. In praticular, it relates individuals by _ordering_
+them according to their height. We call relations like '... is taller than ---'
+ordering relations, or simply _orders_, for short. When you start looking for
+them, orders are easy to find. The relation '... is older than ---' is an order
+(by age), and the relation '... is to the left of ---' is an order (by
+position), and the relation '... is a proper subset of ---' is an order (by
+set-theoretic content).
+
+To recognize the above argument as valid, we need to include among our
+assumptions the additional posit that the two place relation '... is taller than
+---' is an order. How do we do so? It turns out that orders have certain special
+features that not all relations possess and which can be used to single them out. In
+particular, an order is any two place relation $R$ which satisfies the following
+two properties:
+
+Irreflexivity: Nothing stands in the relation $R$ to itself.
+
+Transitivity: If $x$ stands in the relation $R$ to $y$, and $y$ stands in the
+relation $R$ to $z$, then $x$ stands in the relation $R$ to $z$.
+
+To see that '... is taller than---' is an order, it is enough to note that it is
+an irreflexive, transitive relation. Nobody, after all, is taller
+than himself, and if one person is taller than another, and that other person is
+taller than a third, then the first person is taller than the third. Note that
+both the conditions of irreflexivity and transitivity can be expressed in the
+language L$_Q$. Applied to the binary predicate $T$, we can state these
+conditions as follows:
+
+Irreflexivity: $\forall x(\neg Txx)$
+
+Transitivity: $\forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow Txz)))$
+
+To stipulate that $T$ is an order, we can simply add these two sentences to the
+argument as premises:
+
+$$
+\forall x(\neg Txx), \forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow
+Txz))), Tsj, \neg Tsb\proves \neg Tjb
+$$
+
+This argument is valid. To see why, suppose for contradiction that the premises
+are all true, but that the conclusion is false. If the conclusion is false it
+means that $Tjb$ is true. Now, the premise $Tsj$ is true as well. But since the
+transitivity condition is also true, by the truth conditions for universally
+quantified sentences, the following sentence is true:
+
+$$Tsj\wedge Tjb\rightarrow Tsb$$
+
+Hence, $Tsb$ is true, which contradicts the assumption that the premise $\neg
+Tsb$ is true. So, our original intuition that the argument is valid is born out,
+only now we see that that intuition was grounded in the unstated assumption that
+'... is taller than ---' is an order.
+
+Exercise:
+
+Here's another example of a valid argument that relies on the ordering
+assumption:
+
+$$
+\frac{\textrm{Sue is taller than James}}{\textrm{James is not taller than Sue}}
+$$
+
+Now, consider the following argument:
+
+$$
+\frac{\textrm{Sue is in the same grade as James\hspace{3mm},\hspace{3mm} Bob
+is in the same grade as James}}{\textrm{Sue is in the same grade as Bob}}
+$$
+
+Again, this is not a valid argument if formulated as follows:
+
+$$
+Gsj, Gbj\proves Gsb
+$$
+
+So, it's validity must turn on some special fact about the relation '... is in
+the same grade as ---'. Note, however, that this relation is not an order, since it
+is reflexive: everyone, after all, is in the same grade as him or herself. Instead it is
+another kind of special relation, one which relates things by grouping them
+together in accordance with some shared property. These relations are called
+equivalence relations, or _equivalences_, for short.
+
+The three properties which make the binary predicate $G$ an equivalence relation
+are as follows:
+
+Reflexivity: $\forall x(\neg Gxx)$
+
+Symmetry: $\forall x(\forall y(Gxy\imp Gyx))$
+
+Transitivity: $\forall x(\forall y(\forall z(Gxy \wedge Gyz \rightarrow Gxz)))$
+
+If we add these three relations as premises to the argument, then the argument
+becomes valid. To see why observes that, by symmetry and $Gbj$, we have $Gjb$. But
+by $Gsj$ and $Gjb$, we have $Gsb$, by transitivity.
+
+Exercise:
+
+$P(x)\iff P(y)$
+
+There is one special equivalence relation that is so fundamental to our
+reasoning, that it is often treated as part of the logical syntax of the
+language. This is the relation '... is identical to ---', or the so-called
+_identity_ relation. It is the relation that obtains between any object and
+itself, but fails to obtain between any object and any other. Because it so
+fundamental, we often give this relation a special name in the language, '='. In
+the case of this one predicate, it is also standard to use the infix instead of the prefix
+notation. Thus, we write $x = y$ in place of $=xy$. Also, for the formula $\neg x
+= y$, we adopt the shorthand $x\neq y$.
+
+When we say that identity is sometimes treated as a logical notion, what we mean
+is that its meaning is fixed across all interpretations. In particular, we
+stipulate that, in any interpretation, the extension of the binary predicate '$=$'
+is just:
+
+$$\{(a,a): a\in \W\}$$
+
+With the help of the identity relation we can express claims not just about
+which objects have which properties or stand in which relations to each other, but _how many_
+objects have those properties or stand in those relations. For example, suppose
+we want to say there are exactly two objects that have the property $P$. One
+natural idea would be to express this claim as follows:
+
+$$ \exists x (\exists y (Px\wedge Py))$$
+
+This says that there exists some $x$ and there exists some $y$ such that $x$ has
+the property $P$ and $y$ has the property $P$. But this doesn't do the trick.
+For simply because we have used two different variables, $x$ and $y$, this does
+not ensure that these variables stand for different things. Hence, the above
+sentence would still be true if there was only one object in the domain with the
+property $P$. What we need to add to the above sentence is the further condition
+that $x$ and $y$ are names of distinct objects. We can do this using the
+identity predicate as follows:
+
+$$ \exists x (\exists y (Px\wedge Py \wedge x\neq y))$$
+
+There is exactly one object in the universe with property $P$. There are exactly
+two objects in the universe with property $P$. Now this says that some $x$ and
+there exists some $y$ such that $x$ has the property $P$, and $y$ has the
+property $P$, and $x$ and $y$ are not identical. From this it does follow that
+there are two objects with the property $P$. But this sentence, by itslef, does
+not rule out the possibility of there being more than two objects with this
+property. To rule out this possibility, we have to say, in addition to $x$ and
+$y$ being distinct objects with the property $P$, any object which has this
+property is identical to either $x$ or $y$. Again, we can say this by means of
+the identity predicate:
+
+$$
+\exists x (\exists y ((Px\wedge Py \wedge x\neq y)\wedge \forall
+z(Pz\imp(z=x\vee z=y))))
+$$
+
+:::{#exr-to-the-left .exercise}
+
+{{< include /content/exercises/to-the-left.qmd >}}
+
+:::

@@ -192,6 +192,7 @@ window.Quarto = {
   <li><a href="#the-semantics-of-quantificational-logic" id="toc-the-semantics-of-quantificational-logic" class="nav-link" data-scroll-target="#the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</a>
   <ul class="collapse">
   <li><a href="#the-significance-of-the-quantifiers" id="toc-the-significance-of-the-quantifiers" class="nav-link" data-scroll-target="#the-significance-of-the-quantifiers"><span class="header-section-number">3.3.1</span> The Significance of the Quantifiers</a></li>
+  <li><a href="#orders-equivalences-and-identity" id="toc-orders-equivalences-and-identity" class="nav-link" data-scroll-target="#orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -555,6 +556,68 @@ Ayj)\rightarrow Tj\)</span> is true, it follows that <span class="math inline">\
 <li><p><span class="math inline">\(\forall x(P(x)\rightarrow\exists y(Rxy))\vdash\forall x(\exists y(Py\wedge Rxy))\)</span></p></li>
 </ol>
 </div>
+</section>
+<section id="orders-equivalences-and-identity" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</h3>
+<p>Consider the following argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is taller than James\hspace{3mm},\hspace{3mm} Sue is not
+taller than Bob}}{\textrm{James is not taller than Bob}}
+\]</span></p>
+<p>Intuitively, this seems like a good argument, for the truth of the premises does seem to entail the truth of the conclusion. But suppose we formalize this argument in L<span class="math inline">\(_Q\)</span> by introducing constants naming Sue (<span class="math inline">\(s\)</span>), James (<span class="math inline">\(j\)</span>), and Bob (<span class="math inline">\(b\)</span>), and a binary predicate <span class="math inline">\(T\)</span> that stands for the two-place relation ‘… is taller than —’. The argument would then be rendered as follows:</p>
+<p><span class="math display">\[
+Tsj, \neg Tsb\vdash\neg Tjb
+\]</span></p>
+<p>But this is <em>not</em> a valid argument, for it is easy to give an interpretation of the language in which the premises are true and the conclusion false. All that is required is to interpret <span class="math inline">\(T\)</span> such that its extension includes the ordered pairs <span class="math inline">\((\textrm{Sue}, \textrm{James})\)</span> and <span class="math inline">\((\textrm{James}, \textrm{Bob})\)</span>, but does not include the ordered pair <span class="math inline">\((\textrm{Sue}, \textrm{Bob})\)</span>.</p>
+<p>Why then does the argument appear to be valid? The answer is that the relation ‘… is taller than —’ is not just any relatio. It is a special kind of relation. It does not just relate arbitrary individuals, but it relates individuals by <em>ordering</em> them according to their height. We call relations like ‘… is taller than —’ ordering relations, or simply <em>orders</em>, for short. In addition to ‘… is taller than —’, there are lots of other orders as well. The relation ‘… is older than —’ is an order (by age), and the relation ‘… is to the left of —’ is an order (by position), and the relation ‘… is a proper subset of —’ is an order (by set-theoretic content).</p>
+<p>To recognize the above argument as valid, we need to include among our assumptions the additional posit that the two place relation ‘… is taller than —’ is an order. How do we do so? It turns out that orders have certain special features that not all relations possess and which single them out as orders. In particular, an order is any two place relation <span class="math inline">\(R\)</span> which satisfies the following two properties:</p>
+<p>Irreflexivity: Nothing stands in the relation <span class="math inline">\(R\)</span> to itself.</p>
+<p>Transitivity: If <span class="math inline">\(x\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(y\)</span>, and <span class="math inline">\(y\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(z\)</span>, then <span class="math inline">\(x\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(z\)</span>.</p>
+<p>To see that ‘… is taller than—’ is an order, it is enough to note that it is an irreflexive, transitive relation. After all, nobody is taller than themself, and if one person is taller than another, and that other person is taller than a third, then the first person is taller than the third. Note that both the conditions of irreflexivity and transitivity can be expressed in the language L<span class="math inline">\(_Q\)</span>. Applied to the binary predicate <span class="math inline">\(T\)</span>, we can state these conditions as follows:</p>
+<p>Irreflexivity: <span class="math inline">\(\forall x(\neg Txx)\)</span></p>
+<p>Transitivity: <span class="math inline">\(\forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow Txz)))\)</span></p>
+<p>To stipulate that <span class="math inline">\(T\)</span> is an order, we simply add these two sentences to the argument as premises:</p>
+<p><span class="math display">\[
+\forall x(\neg Txx), \forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow
+Txz))), Tsj, \neg Tsb\vdash\neg Tjb
+\]</span></p>
+<p>This argument is valid. To see why, suppose for contradiction that the premises are all true, but that the conclusion is false. If the conclusion is false it means that <span class="math inline">\(Tjb\)</span> is true. Now, <span class="math inline">\(Tsj\)</span> is true as well. Since the transitivity condition is also true, by the truth conditions for universally quantified sentences, we have that the sentence:</p>
+<p><span class="math display">\[Tsj\wedge Tjb\rightarrow Tsb\]</span></p>
+<p>Hence, <span class="math inline">\(Tsb\)</span> is true, which contradicts the assumption that the premise <span class="math inline">\(\neg
+Tsb\)</span> is true. Hence, the argument is valid.</p>
+<p>Exercise:</p>
+<p>Here’s another example of a valid argument that relies on the ordering assumption:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is taller than James}}{\textrm{James is not taller than Sue}}
+\]</span></p>
+<p>Equivalences:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is in the same grade as James\hspace{3mm},\hspace{3mm} Bob
+is in the same grade as James}}{\textrm{Sue is in the same grade than Bob}}
+\]</span></p>
+<p>Again, this is not a valid argument as formulated. But the relation ‘… is in the same grade as —’ is not an order, since it is reflexive. Instead it is another kind of special relation, one which relates things by grouping them together in accordance with some shared property. These relations are called equivalence relations, or <em>equivalences</em>, for short.</p>
+<p>Reflexivity: <span class="math inline">\(\forall x(\neg Gxx)\)</span></p>
+<p>Symmetry: <span class="math inline">\(\forall x(\forall y(Gxy\rightarrow Gyx))\)</span></p>
+<p>Transitivity: <span class="math inline">\(\forall x(\forall y(\forall z(Gxy \wedge Gyz \rightarrow Gxz)))\)</span></p>
+<p>Exercise:</p>
+<p><span class="math inline">\(P(x)\leftrightarrow P(y)\)</span></p>
+<p>There is one special equivalence relation that is so fundamental to our reasoning, that it is often treated as part of the logical syntax of the language. This is the relation ‘… is identical to —’, or the so-called <em>identity</em> relation. It is the relation that obtains between any object and itself, but fails to obtain between any object and any other. Because it so fundamental, we often give this relation a special name in the language, `=’. In the case of this one predicate, it is also standard to use the infix instead the prefix notation. Thus, we write <span class="math inline">\(x = y\)</span> in place of <span class="math inline">\(=xy\)</span>. Also, for the formula <span class="math inline">\(\neg x
+= y\)</span>, we adopt the shorthand <span class="math inline">\(x\neq y\)</span>.</p>
+<p>When we say that identity is sometimes treated as a logical notion, what we mean is that its meaning is fixed across all interpretations. In particular, we stipulate that, in any interpretation, the extension of the binary predicate ‘<span class="math inline">\(=\)</span>’ is just:</p>
+<p><span class="math display">\[\{(a,a): a\in \Omega\}\]</span></p>
+<p>There is exactly one object in the universe with property <span class="math inline">\(P\)</span>. There are exactly two objects in the universe with property <span class="math inline">\(P\)</span>.</p>
+<p><span class="math inline">\(L^2\)</span>: ‘… is to the left of —’ <span class="math inline">\(R^2\)</span>: ‘… is to the right of —’</p>
+<p>We will assume that <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> are orders and that:</p>
+<p><span class="math display">\[ \forall x(\forall y((x\neq y)\rightarrow(Lxy\leftrightarrow\neg Rxy)))\]</span></p>
+<p>Define the following properties and relations:</p>
+<p><span class="math inline">\(B^3\)</span>: ‘… is between — and ___’</p>
+<p><span class="math inline">\(R^1\)</span>: ‘… is right-most’</p>
+<p><span class="math inline">\(L^1\)</span>: ‘… is left-most’</p>
+<p><span class="math inline">\(I\)</span>: ‘… is immediately to the right of —’</p>
+<p>Write down sentences expressing the following claims:</p>
+<p>There is someone two places to the right of John.</p>
+<p>There are exactly two people between John and Amy.</p>
+<p>John is one person away from the left of the line.</p>
 </section>
 </section>
 <section id="references" class="level2 unnumbered">
