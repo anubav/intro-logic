@@ -1018,13 +1018,226 @@ Pa\vdash\exists y(Py\vee Qy)
 </div>
 </div>
 <p>Note here that while the constant <span class="math inline">\(a\)</span> appears in the hypothesis in line 1, at the point at which the rule <span class="math inline">\(\forall I\)</span> is applied to it in line 4, that assumption has been discharged. And so this is a correct application of the rule.</p>
-<p>Now, let’s turn to the last of our rules, existential elimination. This rule is suppose to allow us to infer</p>
+<p>Now, let’s turn to the last of our rules, existential elimination. In the elimination of existentials, we are faced with another problem. How can we infer anything from an existential claim, such as <span class="math inline">\(\exists x \varphi(x)\)</span> without knowing which object bears witness to the claim? Here the idea will be that we can give a name to this witness, and reason as if it names one of the objects whose existence is attested to by the existential claim, provided that the name is a ‘new’ name that has not yet appeared in the proof, and provided that we do not draw any substantive conclusions about the object so named. In our proofs, we will implement this idea by means of the following rule:</p>
+<p>(<span class="math inline">\(\exists\)</span>E): Let <span class="math inline">\(x\)</span> be any variable and let <span class="math inline">\(\varphi(x)\)</span> be any open formula in which <span class="math inline">\(x\)</span> occurs freely. If from the hypothesis <span class="math inline">\(\varphi(a)\)</span>, where <span class="math inline">\(a\)</span> is a new constant not appearing previously in the proof, you can derive a sentence <span class="math inline">\(\psi\)</span> which does not contain the constant <span class="math inline">\(a\)</span>, then from <span class="math inline">\(\exists
+x(\varphi)\)</span> you may infer the sentence <span class="math inline">\(\psi\)</span>.</p>
+<p>Here is an example of how this rule can be applied:</p>
+<p><span class="math display">\[
+\forall x(Px\rightarrow Qx), \exists x(Px \wedge Rx)\vdash\exists x(Qx\wedge Rx)
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Px\wedge Rx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \wedge Ra\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\forall x (Px \rightarrow Qx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \rightarrow Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa \wedge Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(6, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="2" data-crossrefs="8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Qx \wedge Rx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>I: <span class="math inline">\(8\)</span></span>
+</div>
+<div class="proof-line" data-number="10" data-depth="1" data-crossrefs="1,9">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(10\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Qx\wedge Rx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>E: <span class="math inline">\(1, 9\)</span></span>
+</div>
+</div>
+<p>We introduce the constant symbol <span class="math inline">\(a\)</span> in the hypothesis that initiates the subproof in line 2 as a witness to the existential claim appearing in line 1. In doing so, it is important that <span class="math inline">\(a\)</span> is a new name that does not occur in any of the premises or undischarged hypotheses or previous lines of the proof. We then reason from this instance of the existential to the desired claim, at which point we discharge the assumption and write down the sentence that we have proved, by appeal to the initial existential claim alone.</p>
+<p>It may be useful again to consider a few misapplications of the rule. First suppose that we tried to discharge the hypothesis at line <span class="math inline">\(8\)</span> instead of line <span class="math inline">\(9\)</span> to establish the validity of the following argument:</p>
+<p><span class="math display">\[
+\forall x(Px\rightarrow Qx), \exists x(Px \wedge Rx)\vdash Qa\wedge Ra
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Px\wedge Rx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \wedge Ra\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\forall x (Px \rightarrow Qx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \rightarrow Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="4,5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(4, 5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa \wedge Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(6, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Qa \wedge Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>E: <span class="math inline">\(1, 8\qquad\color{red}\textrm{No!}\)</span></span>
+</div>
+</div>
+<p>This application of the rule is forbidden by the fact that the constant <span class="math inline">\(a\)</span> that we introduced as a new name to bear witness to the existential appears in the conclusion of the subproof, which we then infer on the basis of the existential alone. This should obviously not be allowed or else we could infer from the existential claim <span class="math inline">\(\exists x(\varphi)\)</span> that <span class="math inline">\(\varphi(a)\)</span>, for some specific <span class="math inline">\(a\)</span>.</p>
+<p>Another misapplication of the rule involves introducing a witness to the existential that is not a new name but is a constant about which something has already been said. For example:</p>
+<p><span class="math display">\[
+Pa\rightarrow Qa, \exists x(Px \wedge Rx)\vdash\exists x(Qx\wedge Rx)
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Px\wedge Rx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \wedge Ra\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa \rightarrow Qa\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="5,6">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Qa \wedge Ra\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(5, 6\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Qx \wedge Rx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>I: <span class="math inline">\(7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists x(Qx\wedge Rx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>E: <span class="math inline">\(1, 8\qquad\color{red}\textrm{No!}\)</span></span>
+</div>
+</div>
+<p>Here the problem is with the hypothesis in line 2. The name <span class="math inline">\(a\)</span> which witnesses the existential claim in line 1, is not a <em>new</em> name, for it appears in the premise <span class="math inline">\(Pa\rightarrow Qa\)</span>. So <span class="math inline">\(a\)</span> is a specific object that we have already said something about, namely, that it is a <span class="math inline">\(Q\)</span> only if it is a <span class="math inline">\(P\)</span>. We cannot then treat this specific object as an unspecified, or indefinite, witness to the existential, and so we cannot apply existential elimination to line 8.</p>
+<p>Let’s consider a few more proofs of arguments in quantificational logic:</p>
+<p>Exercise: Proofs</p>
 </section>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<p><span class="math display">\[
-\]</span></p>
 
 
 </section>
