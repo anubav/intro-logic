@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Quantificational Logic – Introduction to Logic</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-01d45fadf03ded040e3b1c6cd3885c1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.js"></script>
+<link href="../../../../site_libs/quarto-contrib/lproof-1.0.0/lproof.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="../../../../assets/scripts/definitions.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../assets/styles/fonts.css">
+<link rel="stylesheet" href="../../../../assets/styles/environments.css">
+<link rel="stylesheet" href="../../../../assets/styles/tweaks.css">
+<link rel="stylesheet" href="../../../../assets/styles/custom.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../content/body/chapters/03-quantificational-logic/quantificational-logic.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantificational Logic</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Introduction to Logic</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Front Matter</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/front-matter/00-introduction/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/01-argument-validity-proof/argument-validity-proof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Argument, Validity &amp; Proof</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/body/chapters/03-quantificational-logic/quantificational-logic.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantificational Logic</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#the-syntax-of-quantificational-logic" id="toc-the-syntax-of-quantificational-logic" class="nav-link" data-scroll-target="#the-syntax-of-quantificational-logic"><span class="header-section-number">3.2</span> The Syntax of Quantificational Logic</a></li>
+  <li><a href="#the-semantics-of-quantificational-logic" id="toc-the-semantics-of-quantificational-logic" class="nav-link" data-scroll-target="#the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</a>
+  <ul class="collapse">
+  <li><a href="#the-significance-of-the-quantifiers" id="toc-the-significance-of-the-quantifiers" class="nav-link" data-scroll-target="#the-significance-of-the-quantifiers"><span class="header-section-number">3.3.1</span> The Significance of the Quantifiers</a></li>
+  <li><a href="#orders-equivalences-and-identity" id="toc-orders-equivalences-and-identity" class="nav-link" data-scroll-target="#orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</a></li>
+  </ul></li>
+  <li><a href="#proofs-in-quantificational-logic" id="toc-proofs-in-quantificational-logic" class="nav-link" data-scroll-target="#proofs-in-quantificational-logic"><span class="header-section-number">3.4</span> Proofs in Quantificational Logic</a>
+  <ul class="collapse">
+  <li><a href="#universal-introduction-and-existential-elimination" id="toc-universal-introduction-and-existential-elimination" class="nav-link" data-scroll-target="#universal-introduction-and-existential-elimination"><span class="header-section-number">3.4.1</span> Universal Introduction and Existential Elimination</a></li>
+  <li><a href="#universal-introduction-and-existential-elimination-1" id="toc-universal-introduction-and-existential-elimination-1" class="nav-link" data-scroll-target="#universal-introduction-and-existential-elimination-1"><span class="header-section-number">3.4.2</span> Universal Introduction and Existential Elimination</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantificational Logic</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+<!-- Greek letters -->
+<!-- set operations -->
+<!-- script letters -->
+<!-- bold letters -->
+<!-- logic -->
+<!-- propositional logic -->
+<!-- syllogistic logic -->
+<!-- miscellaneous -->
+</div>
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In this course, we have studied two distinct systems of logic: syllogistic logic and propositional logic. The first allowed us to recognize as valid such arguments as:</p>
+<p><span class="math display">\[
+\frac{\textrm{Every Chicago winter is cold\hspace{3mm},\hspace{3mm}Some Chicago winters are not snowy}}{\textrm{Not
+all seasons that are cold are snowy}}
+\]</span></p>
+<p>Propositional logic, on the other hand, taught us how to recognize the validity of arguments such as:</p>
+<p><span class="math display">\[
+\frac{\textrm{The cat is either on the bed or under the bed\hspace{3mm},\hspace{3mm} The cat is not on the bed}}{\textrm{The cat is under the bed}}
+\]</span></p>
+<p>What about the following argument?</p>
+<p><span class="math display">\[
+\frac{\textrm{Everyone in the classroom is either in first or second
+grade\hspace{3mm},\hspace{3mm} Amy is in the classroom and she is not
+in first grade}}{\textrm{Amy is in second grade}}
+\]</span></p>
+<p>While this seems like a valid argument, its validity turns not only on the significance of such syllogistic constructions as ‘every <span class="math inline">\(\ldots\)</span> is —’, but also on the meaning of propositional operators, like ‘either <span class="math inline">\(\ldots\)</span> or —’ and ‘not <span class="math inline">\(\ldots\)</span>’. To formulate precise standards for argumentative validity that can apply to such arguments, we need a single system of logic that can comprehend <em>both</em> syllogistic and propositional modes of reasoning.</p>
+<p>In this chapter, we will introduce such a system of logic. We will call this system ‘quantificational’ logic.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In addition to mixed syllogistic-propositional reasoning, the language of quantificational logic will also extend syllogistic logic in another direction. In addition to allowing us to ascribe properties to individual objects, it will allow us to express relations that obtain between multiple objects, so that we can recognize as valid such arguments as:</p>
+<p><span class="math display">\[
+\frac{\textrm{Anyone can go on the trip with a parent's
+approval\hspace{3mm},\hspace{3mm} Adam is Julia's parent}}{\textrm{If Adam gives
+Julia approval, she can go on the trip}}
+\]</span></p>
+<p>This capacity for relational reasoning makes quantificational logic very powerful. It so powerful, in fact, that, with only minor emendations, it is capable of formalizing nearly every mathematical proof or deductive argument that you are ever likely to encounter.</p>
+</section>
+<section id="the-syntax-of-quantificational-logic" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-syntax-of-quantificational-logic"><span class="header-section-number">3.2</span> The Syntax of Quantificational Logic</h2>
+<p>Before introducing the formal language of quantificational logic, let’s begin by considering a few specific arguments. By formalizing these arguments, we will get a rough sense for the various kinds of syntactic items that we will need to include in our language. Consider the argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Everyone in the classroom is either in first or second
+grade\hspace{3mm},\hspace{3mm} Amy is in the classroom and she is not
+in first grade}}{\textrm{Amy is in second grade}}
+\]</span></p>
+<p>Take the second premise:</p>
+<p><span class="math display">\[
+\textrm{Amy is in the classroom and she is not
+in first grade}
+\]</span></p>
+<p>This looks like a propositional compound, more specifically, it looks like a conjunction, and even more specifically a conjunction with a negated right conjunct. Thus, in the language of propositional logic, we might have formalized this sentence as follows:</p>
+<p><span class="math display">\[C\wedge\neg F\]</span></p>
+<p>where</p>
+<p><span class="math inline">\(C\)</span>: Amy is in the classroom</p>
+<p><span class="math inline">\(F\)</span>: Amy is in first grade</p>
+<p>So a first observation is that to express propositional compounds, our formal language will need to include all the propositional connectives that we introduced in the context of propositional logic, namely:</p>
+<p><span class="math display">\[ \neg, \wedge, \vee, \rightarrow, \leftrightarrow \]</span></p>
+<p>The above formalization in the language of propositional logic is probably not going to suffice. To see why, consider the conclusion of the argument:</p>
+<p><span class="math display">\[\textrm{Amy is in second grade}\]</span></p>
+<p>How should we formalize this sentence? Since it is not a propositional compound, in the language of propositional logic it would simply be formalized by another atomic sentence, such as <span class="math inline">\(S\)</span>. But representing the second premise as <span class="math inline">\(C\wedge\neg F\)</span> and the conclusion as <span class="math inline">\(S\)</span> obscures the crucial relationship that obtains between the two, namely, that they are both sentences which say something about one and the same person, Amy. So both sentences must somehow refer to Amy. Now, if we want to refer to Amy in our formal language, we will need to give her a name. So, our formal language will also need to have names of individuals. For now, let’s use the letter ‘<span class="math inline">\(a\)</span>’ as a name for Amy.</p>
+<p>The second premise says two things about Amy. The first is that she is in the classroom and the second is that she is not in the first grade. When we say that Amy is in the classroom, we are ascribing to Amy a specific property. So, our language will need to include not only names for objects, but names for properties as well. Let <span class="math inline">\(C\)</span> be a name for the property ‘… is in the classroom’. We want to assert that this property holds of Amy. To attribute this property to Amy, we will first write down a name of the property, followed by a name of Amy. In this way, the claim that Amy is in the classroom will be expressed:</p>
+<p><span class="math display">\[ Ca \]</span></p>
+<p>Let <span class="math inline">\(F\)</span> name the property ‘… is in the first grade’. Then, all told, the second premise can be formalized as follows:</p>
+<p><span class="math display">\[ Ca\wedge \neg Fa\]</span></p>
+<p>While this rendering conveys the compound propositional structure just as clearly as the formalization of the sentence in propositional logic, it adds internal structure to the component sentences out of which this compound is built. Instead of treating these component sentences as structureless atoms, we have now indicated something about these sentences, namely, that they attribute properties to a specific individual, an individual who is referred to by name and who can be referred to again by that same name elsewhere in the argument. For example, letting <span class="math inline">\(S\)</span> be the property ‘… is in second grade’, the conclusion of the argument can now be rendered: <span class="math display">\[ Sa \]</span></p>
+<p>Now, let’s look at the first premise of the argument:</p>
+<p><span class="math display">\[
+\textrm{Everyone in the classroom is either in first or second
+grade}
+\]</span></p>
+<p>In the language of syllogistic logic, we might have formalized this sentence as follows:</p>
+<p><span class="math display">\[C\textrm{\textbf{a}}E\]</span></p>
+<p>where the term <span class="math inline">\(C\)</span> denotes the property ‘… is in the classroom’ and <span class="math inline">\(E\)</span> the property ‘… is either in first or second grade’. This sort of rendering is also unlikely to be adequate because it doesn’t expose the disjunctive structure of the predicate term, which plays an essential role in the reasoning.</p>
+<p>Now, this sentence clearly says something about individuals, but it does so without mentioning anyone by name. Since the sentence doesn’t name anyone, let’s just imagine some arbitrary individual, and call this arbitrary individual <span class="math inline">\(x\)</span>. What does the sentence imply about <span class="math inline">\(x\)</span>? It implies that if <span class="math inline">\(x\)</span> is in the classroom, then <span class="math inline">\(x\)</span> is either in first or second grade. Using the same notation introduced in our above formalization, we can express this fact about <span class="math inline">\(x\)</span> as follows:</p>
+<p><span class="math display">\[ Cx \rightarrow (Fx \vee Sx) \]</span></p>
+<p>What the premise says is that the above claim is true not just of some particular individual, but of <em>every</em> individual. To convey this fact, we need a way of indicating that the claim is meant to be true <em>regardless</em> of who <span class="math inline">\(x\)</span> stands for. We could indicate this as follows:</p>
+<p><span class="math display">\[ \textrm{For all $x$: } Cx \rightarrow (Fx \vee Sx) \]</span></p>
+<p>In the language of quantificational logic, in place of the prefix ‘For all <span class="math inline">\(x\)</span>: …:’ we write <span class="math inline">\(\forall x(\cdots)\)</span>. The upside-down ‘A’ written before the name <span class="math inline">\(x\)</span> is called a quantifier. More specifically, it is called the universal quantifier. All told then, the first premise can be written:</p>
+<p><span class="math display">\[\forall x(Cx\rightarrow (Fx \vee Sx))\]</span></p>
+<p>To express this sentence, we needed to introduce two new elements into the language: the universal quantifier and the symbol <span class="math inline">\(x\)</span>. We will call the symbol <span class="math inline">\(x\)</span> a <em>variable</em>. Syntactically, it will function very much like a name, but, as we shall see, semantically variables will have a different meaning.</p>
+<p>The entire argument, formalized in the language of quantificational logic is:</p>
+<p><span class="math display">\[
+\forall x(Cx\rightarrow (Fx \vee Sx)),Ca\wedge
+\neg Fa\vdash Sa
+\]</span></p>
+<p>We will later see how to assess the validity of this argument.</p>
+<p>Now, let’s examine the second argument mentioned above:</p>
+<p><span class="math display">\[
+\frac{\textrm{Anyone can go on the trip with a parent's
+approval\hspace{3mm},\hspace{3mm} Adam is Julia's parent}}{\textrm{If Adam gives
+Julia approval, she can go on the trip}}
+\]</span></p>
+<p>Consider the second premise:</p>
+<p><span class="math display">\[ \textrm{Adam is Julia's parent} \]</span></p>
+<p>This sentence says something not just about one individual, but about two, namely Adam and Julia. What does it say about them? It says that they stand in a certain relation to each other, in particular, that Adam is Julia’s parent. To capture this fact we will need to give a name to the two-place relation ‘… is a parent of —’. Let’s call this relation <span class="math inline">\(P\)</span>. To express the fact that Adam stands in this relation to Julia, we will first write down the name of the relation, then the names of Adam and Julia in that order. If ‘<span class="math inline">\(a\)</span>’ names Adam and ‘<span class="math inline">\(j\)</span>’ names Julia, then we can formalize the sentence as follows:</p>
+<p><span class="math display">\[ Paj \]</span></p>
+<p>Note here that the order in which the names appears matters. If we had instead written <span class="math inline">\(Pja\)</span> this would mean that Julia is a parent of Adam. This, of course, is not the case since the relation of parent to child is asymmetrical. Why not write <span class="math inline">\(aRj\)</span> to make the order a bit more perspicuous? We could, but our logic will later allow for relations between three or more things, and the prefix (as opposed to the infix) notation can be more straightforwardly adapted to handle such complex relations.</p>
+<p>So now we see that, in addition to names for properties, we will also need to include in our language names for relations. Syntactically, names for relations will function very much like names for properties, only instead of applying to a single individual they will apply to two (or three, or possibly more) individuals. We will call both names for properties and names for relations, <em>predicates</em>. Predicates may be <em>unary</em> if they denote properties of individuals, or they may be <em>binary</em> if they denote two-place relations, or they may be <em>ternary</em> if they denote three-place relations, or <em>quaternary</em>, etc..</p>
+<p>Now let’s look at the conclusion. Clearly, this is a conditional sentence. The antecedent of the conditional is ‘Adam gives Julia approval’. Again, this states that a certain relation obtains between Adam and Julia, namely, the relation ‘… gives approval to —’. Let’s use the binary predicate <span class="math inline">\(A\)</span> to stand for this two-place relation. The consequent of the conditional is the sentence ‘Julia can go on the trip’. Here we are simply ascribing a property to Julia. Let <span class="math inline">\(T\)</span> be the unary predicate that names the property ‘… can go on the trip’. Then the conclusion of the argument can be written: <span class="math display">\[ Aaj\rightarrow Tj\]</span></p>
+<p>Now for the first premise. This says something about individuals without naming any individual explicitly. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two arbitrary individuals, then the sentence implies that <span class="math inline">\(x\)</span> can go on the trip, provided <span class="math inline">\(x\)</span> gets the approval of <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> is a parent of <span class="math inline">\(x\)</span>. Let’s focus on the proviso first, which states that <span class="math inline">\(x\)</span> must have a parent’s approval. We could write down this proviso as follows: <span class="math display">\[Pyx \wedge Ayx\]</span> Note that the proviso does not state that <span class="math inline">\(x\)</span> needs the approval of <em>all</em> of his or her parents, just that <span class="math inline">\(x\)</span> needs the approval of some one of them. The first stronger proviso, requiring approval from all parents, could be written: <span class="math display">\[\forall y(Pyx \wedge Ayx)\]</span> But what we need instead is a way to say something weaker like <span class="math display">\[\textrm{For some $y$:} Pyx \wedge Ayx\]</span> To say this, we will introduce a second quantifier, which we will call the <em>existential</em> quantifier and which we will denote by the symbol, <span class="math inline">\(\exists\)</span>. The proviso can thus be written:</p>
+<p><span class="math display">\[\exists y(Pyx\wedge Ayx)\]</span></p>
+<p>This says that <span class="math inline">\(x\)</span> gets approval from some parent. What we want to say about <span class="math inline">\(x\)</span> is that if <span class="math inline">\(x\)</span> gets a parent’s approval, then <span class="math inline">\(x\)</span> can go on the trip:</p>
+<p><span class="math display">\[\exists y(Pyx\wedge Ayx)\rightarrow T(x)\]</span></p>
+<p>What the first premise says is that this is true not just of some <span class="math inline">\(x\)</span>, but of every <span class="math inline">\(x\)</span>. So, all told the premise can be written:</p>
+<p><span class="math display">\[
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx)
+\]</span></p>
+<p>The argument can thus be formalized:</p>
+<p><span class="math display">\[
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx), Paj\vdash Aaj\rightarrow Tj
+\]</span></p>
+<p>Now that we have a sense of the types of syntactic item needed to formalize arguments in quantificational logic, we can give a more precise specification of the language, which we shall call L<span class="math inline">\(_Q\)</span>. As usual, we begin by supplying an alphabet for the language.</p>
+<p>The alphabet for L<span class="math inline">\(_Q\)</span> includes an arbitrarily large stock of symbols that we will refer to as <em>constants</em>. The constant symbols will serve as our names for individual objects. In addition to constants, the language also includes an arbitrarily large stock of symbols that we will refer to as <em>variables</em>. Collectively, the constants and variables will be referred to as <em>terms</em>. We could, of course, use whatever symbols we like for the terms of the language, but we will generally adopt the convention of using lowercase letters from the beginning or middle of the Latin alphabet for constants, and lowercase letters from the end of the Latin alphabet for variables.</p>
+<ul>
+<li>Terms:
+<ul>
+<li><p>Constants: <span class="math inline">\(a,b,c,...j,k,l,...\)</span></p></li>
+<li><p>Variables: <span class="math inline">\(x,y,z,u,v,w,...\)</span></p></li>
+</ul></li>
+</ul>
+<p>In addition to the terms, we will also need predicate symbols that can serve as names for properties and relations. Again, any symbols will do, but, by convention, we will typically use uppercase Latin letters for predicate symbols.</p>
+<ul>
+<li>Predicates: <span class="math inline">\(A,B,C,\ldots,P,Q,R,\ldots\)</span></li>
+</ul>
+<p>We will assume that every predicate in the language has associated with it a predetermined number, called its <em>arity</em>, which indicates how many objects are related by the property or relation it signifies. If the arity of a predicate is <span class="math inline">\(2\)</span>, say, then it is a binary predicate and names a two-place relation. If it is <span class="math inline">\(1\)</span>, then it is a unary predicate and names a property. When we wish to indicate that the predicate symbol <span class="math inline">\(P\)</span> has arity <span class="math inline">\(n\)</span>, we will denote it by <span class="math inline">\(P^n\)</span>.</p>
+<p>The language of quantificational logic also include the five propositional connectives:</p>
+<ul>
+<li>Propositional Connectives: <span class="math inline">\(\neg, \wedge, \vee, \rightarrow, \leftrightarrow\)</span></li>
+</ul>
+<p>and parentheses that can be used for delimiting their scope:</p>
+<ul>
+<li>Parentheses: <span class="math inline">\((\,,\,)\)</span></li>
+</ul>
+<p>Finally, the language also include two additional symbols, the universal and existential quantifiers:</p>
+<ul>
+<li>Quantifiers: <span class="math inline">\(\forall, \exists\)</span></li>
+</ul>
+<p>That’s it. If you go back to the arguments that we just formalized, you can verify for yourself that every symbol appearing in every sentence in these arguments falls into one of these five categories.</p>
+<p>Next, we need to say which expressions—that is, which strings of symbols from the alphabet—constitute sentences of L<span class="math inline">\(_Q\)</span>. First we will define the notion of a <em>formula</em> of L<span class="math inline">\(_Q\)</span>.</p>
+<div id="def-formula" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 3.1</strong></span> The <em>formulas</em> of L<span class="math inline">\(_Q\)</span> are defined inductively as follows:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(P^n\)</span> is a predicate and <span class="math inline">\(a_1,\ldots,a_n\)</span> are terms, then: <span class="math display">\[P a_1a_2\cdots a_n\]</span> is a formula.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a formula, then <span class="math inline">\(\neg\varphi\)</span> is a formula.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span> are formulas and <span class="math inline">\(\ast\)</span> is a binary propositional connective, then <span class="math inline">\(\varphi\ast\psi\)</span> is a formula.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a formula and <span class="math inline">\(v\)</span> is a variable, then <span class="math inline">\(\forall v(\varphi)\)</span> is a formula.</p></li>
+<li><p>If <span class="math inline">\(\varphi\)</span> is a formula and <span class="math inline">\(v\)</span> is a variable, then <span class="math inline">\(\exists v(\varphi)\)</span> is a formula.</p></li>
+</ol>
+</div>
+<p>Assuming that <span class="math inline">\(P\)</span> is a unary predicate, <span class="math inline">\(R\)</span> a binary predicate, and <span class="math inline">\(S\)</span> a ternary predicate, the following expressions are all formulas of L<span class="math inline">\(_Q\)</span>:</p>
+<div id="sentences-Lp">
+<p><span class="math display">\[ Pa \]</span></p>
+<p><span class="math display">\[ Sxba\]</span></p>
+<p><span class="math display">\[ Rax\leftrightarrow \neg Rbx\]</span></p>
+<p><span class="math display">\[\forall x(Rxa\rightarrow Px)\]</span></p>
+<p><span class="math display">\[\neg\exists y (Pz \wedge \forall z(Rxy\vee Pz))\]</span></p>
+<p><span class="math display">\[\exists x(\forall y((Pa \wedge Px)\rightarrow Rxy))\]</span></p>
+</div>
+<p>Notice that, in some of these formulas, there are variables that do not occur in the scope of a corresponding quantifier. Take, for example, the formula <span class="math inline">\(Rax\leftrightarrow \neg
+Rbx\)</span>. In this formula <span class="math inline">\(x\)</span> occurs, but it does not fall within the scope of either <span class="math inline">\(\forall x\)</span> or <span class="math inline">\(\exists x\)</span>. In this case, we say that <span class="math inline">\(x\)</span> occurs <em>freely</em> in the formula. Contrast this with the next formula:</p>
+<p><span class="math display">\[\forall x(Rxa\rightarrow Px)\]</span></p>
+<p>Ignoring the <span class="math inline">\(x\)</span> attached to the quantifier, the other two occurrences of the variable <span class="math inline">\(x\)</span> both occur within the (parenthetically delimited) scope of the quantifier <span class="math inline">\(\forall x\)</span>. In this case, we say that these occurrences of <span class="math inline">\(x\)</span> are <em>bound</em>. Now, consider the formula:</p>
+<p><span class="math display">\[\neg\exists y (Pz \wedge \forall z(Rxy\vee Pz))\]</span></p>
+<p>Ignoring the variables attached to quantifiers, which variables in the formula are free and which bound? The first occurrence of the variable <span class="math inline">\(z\)</span> is free, as is the only occurence of the variable <span class="math inline">\(x\)</span>, but the one occurrence of the variable <span class="math inline">\(y\)</span> and the second occurrence of the variable <span class="math inline">\(z\)</span> are both bound.</p>
+<p>We now define the sentences of the language as follows</p>
+<div id="def-formula" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 3.2</strong></span> A <em>sentence of L<span class="math inline">\(_Q\)</span></em> is a formula in which no variable occurs freely.</p>
+</div>
+<p>Only sentences of the language can serve as the premises or conclusion of an argument, but non-sentential formulas are important as well. These so-called ‘open’ formulas effectively allow us to introduce into the language new properties and relations not named by the predicates of the language. Recall our attempt to formalize the claim:</p>
+<p><span class="math display">\[ \textrm{Anyone can go on the trip if they are given a parent's approval}\]</span></p>
+<p>To capture the relevant proviso, we began by writing down the following formula:</p>
+<p><span class="math display">\[ Pyx \wedge Ayx \]</span></p>
+<p>This is an open formula, not a sentence, since the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do not occur within the scope of any quantifiers. Because <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occur freely in this formula, the formula in effect says something about the particular items to which they refer. What does it say about these items? It says that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> stand in a certain relation to one another, namely, the relation of <span class="math inline">\(y\)</span> being a parent of <span class="math inline">\(x\)</span> who gives to <span class="math inline">\(x\)</span> their approval. Notice that this relation is not named by any of the primitive predicates that we used in our formalization of the argument. Rather, it may be thought of as a newly defined binary relation (we will discuss how to apply this relation shortly).</p>
+<p>To capture the proviso, we then said that <span class="math inline">\(x\)</span> satisfies the required condition if there is <em>some</em> person who stands in this defined relation to <span class="math inline">\(x\)</span>. To express this fact, we applied the existential quantifier to the above formula, which resulted in the formula:</p>
+<p><span class="math display">\[ \exists y(Pyx \wedge Ayx) \]</span></p>
+<p>Notice that the variable <span class="math inline">\(y\)</span> no longer occurs freely in the formula since it has been captured, or bound, by the quantifier <span class="math inline">\(\exists y\)</span>. Still this formula is not a sentence, since both occurrences of the variable <span class="math inline">\(x\)</span> still occur freely in it. Thus, the formula still says something about <span class="math inline">\(x\)</span>. What does it say? It says that <span class="math inline">\(x\)</span> has a certain property, namely the property of having some parent’s approval. This again can be thought of as a defined property, since the language as specified does not include a unary predicate that names this property directly. To see that this property no longer says anything about <span class="math inline">\(y\)</span>, note that we could define the same property by replacing every occurrence of <span class="math inline">\(y\)</span> with a different variable, say <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[ \exists z(Pzx \wedge Azx) \]</span></p>
+<p>What does this formula say about <span class="math inline">\(x\)</span>? The same thing as it did before the variable replacement, namely, that <span class="math inline">\(x\)</span> has a parent who has given them approval. Thus, bound variables don’t really name anything, they are, so to speak, ‘dummy’ names. Like pronouns, they are useful, to ensure consistency of reference across a discursive context, as when we say:</p>
+<p><span class="math display">\[
+\textrm{There is something on the table, and \emph{it} wasn't there before.}
+\]</span></p>
+<p>Now that we have defined the property of an individual having parental approval, the first premise in the argument is easy to formalize. It says that anyone who has that property can go on the trip.</p>
+<p><span class="math display">\[
+\forall x(\exists z(Pzx \wedge Azx)\rightarrow T(x))
+\]</span></p>
+<p>We have at last arrived at a sentence. All the variables are now bound, and so they are all just dummy names. This means that we can now ask whether the sentence is true or false without saying anything about what <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> stand for.</p>
+<div id="exr-free-versus-bound" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> For each of the expressions listed below, determine whether it is a non-formula, an open formula, or a sentence. If it is an open formula, underline all occurrences of free variables in the formula. You may assume that <span class="math inline">\(P\)</span> is a unary predicate; <span class="math inline">\(R\)</span> a binary predicate; and <span class="math inline">\(S\)</span> a ternary predicate.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\forall x(\exists y (Rxy))\)</span></p></li>
+<li><p><span class="math inline">\(\neg\exists P(\forall x (Px))\)</span></p></li>
+<li><p><span class="math inline">\(Px\rightarrow \forall x(Rxy\vee Ryx)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(Px \rightarrow \exists(Rxy \wedge Pyx))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(\exists x(Sxax))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x(\forall y (Rxy)))\leftrightarrow(\forall z(\exists x(Rzx)))\)</span></p></li>
+<li><p><span class="math inline">\(\neg\neg\forall x(Sabc\rightarrow Px)\)</span></p></li>
+</ol>
+</div>
+<div id="exr-translations-to-Lq" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Assume that the constants and predicates of L<span class="math inline">\(_Q\)</span> stand for the following people, properties, and relations:</p>
+<p><span class="math inline">\(a\)</span>: Anna</p>
+<p><span class="math inline">\(j\)</span>: Jim</p>
+<p><span class="math inline">\(s\)</span>: Sam</p>
+<p><span class="math inline">\(C^1\)</span>: ‘… is in the class’</p>
+<p><span class="math inline">\(F^1\)</span>: ‘… is a freshman’</p>
+<p><span class="math inline">\(K^2\)</span>: ‘… knows —’</p>
+<p><span class="math inline">\(S^2\)</span>: ‘… shared notes with —’</p>
+<p><span class="math inline">\(G^3\)</span>: ‘… introduced — to ___’</p>
+<p>Translate the following sentences into the language L<span class="math inline">\(_Q\)</span>:</p>
+<ol type="a">
+<li><p>Anna is a freshman.</p></li>
+<li><p>Jim introduced Anna to Sam.</p></li>
+<li><p>Someone in the class shared notes with Sam.</p></li>
+<li><p>Someone who is not in the class shared notes with Anna.</p></li>
+<li><p>Every freshman in the class shared notes with someone they know.</p></li>
+<li><p>If a freshman in the class knows Anna, then they were introduced to Anna by Jim.</p></li>
+<li><p>There is a class member who shared notes with everyone they know.</p></li>
+<li><p>Jim introduced Anna to everyone he knows who is either a freshman or is in the class.</p></li>
+</ol>
+</div>
+</section>
+<section id="the-semantics-of-quantificational-logic" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-semantics-of-quantificational-logic"><span class="header-section-number">3.3</span> The Semantics of Quantificational Logic</h2>
+<section id="the-significance-of-the-quantifiers" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="the-significance-of-the-quantifiers"><span class="header-section-number">3.3.1</span> The Significance of the Quantifiers</h3>
+<p>Having introduced the formal language L<span class="math inline">\(_Q\)</span>, we must now specify a semantics for this language which will allow us to determine which arguments are valid. As usual, such a semantics must tell us how to intepret the non-logical elements of the language. In the case of L<span class="math inline">\(_Q\)</span>, the non-logical elements are the constants and the predicates. How should we interpret these items?</p>
+<p>Since constants are meant to function as names of individual objects, our interpretations must take place against the background of a fixed set, or domain, of objects. An interpretation must assign to each name an object in this set. What about the predicates? Unary predicates are meant to denote properties of objects, and, so following the extensional approach discuss in Chapter 1, we can interpret a unary predicate as a set of objects in the domain. This set of objects signifies the set of all objects possessing the property named by the predicate.</p>
+<p>What about binary predicates? Binary predicates are meant to stand for two-place relations. We can represent such relations not by a set of objects in the domain, but instead by a set of <em>ordered pairs</em> of objects taken from the domain. The pairs in this set stand for those pairs of objects the first member of which stands in said relation to the second. If we wish to represent such a set of order pairs diagramatically, we can do by means of a collection of directed edges, or arrows. For example:</p>
+<div id="fig-binary-relation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Binary Relation" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binary-relation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../content/static/images/binary-relation.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Binary Relation" width="200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary-relation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Diagrammatic depiction of a two-place relation
+</figcaption>
+</figure>
+</div>
+<p>In this diagram, an ordered pair belongs to the extension of the relation depicted just in case an arrow points from the first member of the pair to the second. So, in set theoretic notation, the diagram represents the two-place relation whose extension is given by the set:</p>
+<p><span class="math display">\[\{(a, b), (b, c), (c, b), (c, c), (b, d) \}\]</span></p>
+<p>What about a ternary predicate symbol? Following along with the above approach, a ternary predicate symbol—denoting a three-place relation—will be represented by a set of ordered <em>triples</em> of objects taken from the domain. Three-place (or more) relations are a bit harder to depict diagrammatically, so it’s better to just use the set notation. The same approach can be extended so as to apply to predicates of higher arity. In general, an <span class="math inline">\(n\)</span>-ary predicate will be interpreted as a set of ordered <span class="math inline">\(n\)</span>-tuples of objects taken from the domain.</p>
+<p>All told, then, we have the following definition of an interpretation of the language L<span class="math inline">\(_Q\)</span>:</p>
+<div id="def-interpretation-Lq" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 3.3</strong></span> Take as given a fixed set of objects, <span class="math inline">\(\Omega\)</span>, referred to as the domain. An interpretation of the language is a function <span class="math inline">\(\sigma\)</span> such that:</p>
+<ol type="1">
+<li><p>For each constant <span class="math inline">\(a\)</span>, <span class="math inline">\(\sigma(a)\in \Omega\)</span> (we will assume that, for every <span class="math inline">\(x\in
+\Omega\)</span>, <span class="math inline">\(\sigma(a)=x\)</span>, for some constant <span class="math inline">\(a\)</span>).</p></li>
+<li><p>For each predicate <span class="math inline">\(P^1\)</span>, <span class="math inline">\(\sigma(P)\subset \Omega\)</span>.</p></li>
+<li><p>For each predicate <span class="math inline">\(P^n\)</span>, <span class="math inline">\(\sigma(P)\)</span> is a set of ordered <span class="math inline">\(n\)</span>-tuples of objects in <span class="math inline">\(\Omega\)</span>, i.e.:</p>
+<p><span class="math display">\[\sigma(P)\subset\{(a_1,a_2,\ldots,a_n): a_i\in \Omega\textrm{, for }i=1,\ldots,n\} \]</span></p></li>
+</ol>
+</div>
+<p>Now, that we know what an interpretation is, our semantics must tell us how to assess the truth or falsehood of sentences in a given interpretation. In specifying how we go from an intepretation to a truth valuation, we will have provided an account of the intended meanings of the logical elements of the syntax, most notably, the quantifiers.</p>
+<p>The simplest sentences in the language are those of the form:</p>
+<p><span class="math display">\[ Pa_1 a_2\cdots a_n\]</span></p>
+<p>where <span class="math inline">\(P\)</span> is an <span class="math inline">\(n\)</span>-ary predicate symbol and <span class="math inline">\(a_1,\ldots,a_n\)</span> are constants. In this case, the sentence should be true just in case the objects named by the constants stand in the specific <span class="math inline">\(n\)</span>-place relation named by the predicate. This semantic rule for such elementary sentences can be summarized as follows. For any interpretation <span class="math inline">\(\sigma\)</span>:</p>
+<p><span class="math display">\[
+v^\sigma(Pa_1 a_2\cdots a_n) = \mathbf{T}\textrm{\quad iff \quad}
+(\sigma(a_1),\sigma(a_2),\ldots,\sigma(a_n))\in \sigma(P)
+\]</span></p>
+<p>The propositional connectives will be given the same truth-functional meaning as was ascribed to them in Chapter 2. In particular, the truth values of propositional compounds will be determined by the truth values of their component sentences in accordance with the following semantic rules:</p>
+<p><span class="math display">\[
+v^\sigma(\neg\varphi) = \mathbf{T}\textrm{\quad iff \quad} v^\sigma(\varphi)=\mathbf{F}
+\]</span></p>
+<p><span class="math display">\[
+v^\sigma(\varphi\wedge\psi) = \mathbf{T}\textrm{\quad iff \quad} v^\sigma(\varphi)=\mathbf{T}\textrm{
+and }v^\sigma(\psi)=\mathbf{T}
+\]</span></p>
+<p><span class="math display">\[
+v^\sigma(\varphi\vee\psi) = \mathbf{T}\textrm{\quad iff \quad} v^\sigma(\varphi)=\mathbf{T}\textrm{
+or }v^\sigma(\psi)=\mathbf{T}\textrm{ (or both)}
+\]</span></p>
+<p><span class="math display">\[
+v^\sigma(\varphi\rightarrow\psi) = \mathbf{F}\textrm{\quad iff \quad} v^\sigma(\varphi)=\mathbf{T}\textrm{
+and }v^\sigma(\psi)=\mathbf{F}
+\]</span></p>
+<p><span class="math display">\[
+v^\sigma(\varphi\leftrightarrow\psi) = \mathbf{T}\textrm{\quad iff \quad} v^\sigma(\varphi)=v^\sigma(\psi)
+\]</span></p>
+<p>Lastly, we must explain how to assess the truth values of quantified sentences in a given interpretation. To do so, we must introduce one further piece of terminology. Let <span class="math inline">\(\varphi\)</span> be the open formula:</p>
+<p><span class="math display">\[\forall z(Rxz\rightarrow Py)\]</span></p>
+<p>In this formula, the only variables that occur freely are the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. To indicate this fact, we will denote the formula as follows:</p>
+<p><span class="math display">\[ \varphi(x,y) \]</span></p>
+<p>Note that this not a new formula. It is just another name for the formula given above, but one which carries with it additional information about which variables occur freely in it. In particular, this way of denoting the formula indicates that no variables other than <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occur freely in <span class="math inline">\(\varphi\)</span>. As discussed above, the formula <span class="math inline">\(\varphi(x,y)\)</span>, having two free variables, can be thought of as a defined two-place relation. How do I assert that this relation holds of the objects named by the constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? I do so by substituting <span class="math inline">\(a\)</span> for every free occurrence of <span class="math inline">\(x\)</span> in the formula, and substituting <span class="math inline">\(b\)</span> for every free occurrence of <span class="math inline">\(y\)</span>. This results in the sentence:</p>
+<p><span class="math display">\[\forall z(Raz\rightarrow Pb)\]</span></p>
+<p>which we will denote by:</p>
+<p><span class="math display">\[ \varphi(a,b) \]</span></p>
+<p>We will term this process, whereby a formula is turned into a sentence by replacing the free occurrences of variables in it with constants, <em>instantiation</em>.</p>
+<p>With this idea in hand, we can now can return to the question of how to assess the truth or falsehood of quantified sentences. Consider the sentence:</p>
+<p><span class="math display">\[\forall x(\varphi)\]</span></p>
+<p>Note that this may be a sentence despite the fact that the formula <span class="math inline">\(\varphi\)</span> appearing in the scope of the quantifier is not itself a sentence. But if so, then it must be the case that the <em>only</em> variable occurring freely in the formula <span class="math inline">\(\varphi\)</span> is <span class="math inline">\(x\)</span>, and so we can denote <span class="math inline">\(\varphi\)</span> by <span class="math inline">\(\varphi(x)\)</span>. The universal quantifier means that <em>every</em> instantiation of this formula, that is every sentence of the form <span class="math inline">\(\varphi(a)\)</span>, expresses a true sentence. We can capture this fact, by the following semantic rule:</p>
+<p><span class="math display">\[
+v^\sigma(\forall x(\varphi))=\mathbf{T}\textrm{\quad iff \quad}
+v^\sigma(\varphi(a))=\mathbf{T}\textrm{, for every constant $a$.}
+\]</span></p>
+<p>In similar fashion, the existential quantifier can be interpreted as meaning that <em>some</em> instantiation of the formula to which the quantifier applies is a true sentence.</p>
+<p><span class="math display">\[
+v^\sigma(\exists x(\varphi))=\mathbf{T}\textrm{\quad iff \quad}
+v^\sigma(\varphi(a))=\mathbf{T}\textrm{, for some constant $a$.}
+\]</span></p>
+<p>This completes our semantic specification of the truth conditions for the sentences of L<span class="math inline">\(_Q\)</span>. Let’s see how this semantics allows us to assess the validity of arguments. Consider the argument introduced in the previous section:</p>
+<p><span class="math display">\[
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx), Paj\vdash Aaj\rightarrow Tj
+\]</span></p>
+<p>Suppose that the first premise is true in some interpretation <span class="math inline">\(\sigma\)</span>, i.e.:</p>
+<p><span class="math display">\[ v^\sigma(\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx))=\mathbf{T}\]</span></p>
+<p>In accordance with our above rule, this means that every instantiation of the formula:</p>
+<p><span class="math display">\[\exists y(Pyx\wedge Ayx)\rightarrow Tx\]</span></p>
+<p>in which <span class="math inline">\(x\)</span> occurs freely, is true in the intepretation <span class="math inline">\(\sigma\)</span>. In particular:</p>
+<p><span class="math display">\[
+v^\sigma(\exists y(Pyj\wedge Ayj)\rightarrow Tj)=\mathbf{T}
+\]</span></p>
+<p>The second premise says that <span class="math inline">\(Paj\)</span> is true in <span class="math inline">\(\sigma\)</span>. To show that the truth of the conclusion follows, let’s suppose that <span class="math inline">\(Aaj\)</span> is true and try to argue for the truth of <span class="math inline">\(Tj\)</span>. If <span class="math inline">\(Aaj\)</span> is true, then:</p>
+<p><span class="math display">\[ v^\sigma(Paj\wedge Aaj)=\mathbf{T}\]</span></p>
+<p>Now, by our rule for existentially quantified sentencs, it follows that:</p>
+<p><span class="math display">\[ v^\sigma(\exists y (Pyj\wedge Ayj))=\mathbf{T}\]</span></p>
+<p>But since we have already seen that the conditional <span class="math inline">\(\exists y(Pyj\wedge
+Ayj)\rightarrow Tj\)</span> is true, it follows that <span class="math inline">\(Tj\)</span> is true as well. So the truth of the conclusion follows from the truth of the premises, i.e., the argument is valid.</p>
+<p>Let’s now consider an invalid argument:</p>
+<p><span class="math display">\[ \forall x(\exists y (Rxy))\vdash\exists x(\forall y (Rxy)) \]</span></p>
+<p>To show that this argument is invalid, we must provide an interpretation under which the premise is true and the conclusion false. The premise says that everything stands in the relation <span class="math inline">\(R\)</span> to something. The conclusion says that something stands in the relation <span class="math inline">\(R\)</span> to everything. One interpretation of the relation <span class="math inline">\(R\)</span> on which the first of these claims is true and the second false is the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../../content/static/images/binary-relation-2.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Binary Relation" width="160"></p>
+</figure>
+</div>
+<p>In this diagram, every object points to something, but no object points to everything. In particular <span class="math inline">\(a\)</span> does not point to itself and neither does <span class="math inline">\(b\)</span>. So, the premise is true but the conclusion is false. The argument is invalid.</p>
+<div id="exr-countermodels" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Show that the following arguments are invalid by providing diagrammatic counterexamples. In your diagrams, use arrows to represent the relation <span class="math inline">\(R\)</span>, circle any points that have the property <span class="math inline">\(P\)</span>, and draw a square around any points that have the property <span class="math inline">\(Q\)</span>.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\exists x(\forall y (Rxy))\vdash\forall x(\exists y(Rxy))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(\exists y (Rxy))\vdash\exists x(\forall y(Ryx))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(Px)\rightarrow\forall x(Qx)\vdash\forall x(Px\rightarrow Qx)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(\exists y (Py\wedge Rxy))\vdash\exists y(\forall x(Py\wedge Rxy))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x(P(x)\rightarrow\exists y(Rxy))\vdash\forall x(\exists y(Py\wedge Rxy))\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="orders-equivalences-and-identity" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="orders-equivalences-and-identity"><span class="header-section-number">3.3.2</span> Orders, Equivalences and Identity</h3>
+<p>Consider the following argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is taller than James\hspace{3mm},\hspace{3mm} Sue is not
+taller than Bob}}{\textrm{James is not taller than Bob}}
+\]</span></p>
+<p>Intuitively, this seems like a good argument, for the truth of the premises does seem to entail the truth of the conclusion. But suppose we formalize this argument in L<span class="math inline">\(_Q\)</span> by introducing constants naming Sue (<span class="math inline">\(s\)</span>), James (<span class="math inline">\(j\)</span>), and Bob (<span class="math inline">\(b\)</span>), and a binary predicate <span class="math inline">\(T\)</span> that stands for the two-place relation ‘… is taller than —’. The argument would then be rendered as follows:</p>
+<p><span class="math display">\[
+Tsj, \neg Tsb\vdash\neg Tjb
+\]</span></p>
+<p>As stated, this is <em>not</em> a valid argument, for it is easy to give an interpretation of the language in which the premises are true and the conclusion false. All that is required is to interpret <span class="math inline">\(T\)</span> such that its extension includes the ordered pairs <span class="math inline">\((\textrm{Sue}, \textrm{James})\)</span> and <span class="math inline">\((\textrm{James}, \textrm{Bob})\)</span>, but does not include the ordered pair <span class="math inline">\((\textrm{Sue}, \textrm{Bob})\)</span>.</p>
+<p>Why then does the argument appear to be valid? The answer is that the relation ‘… is taller than —’ is not just any old relation. It is a special kind of relation, one which does not just relate arbitrary individuals, but relates them in a special sort of way. In praticular, it relates individuals by <em>ordering</em> them according to their height. We call relations like ‘… is taller than —’ ordering relations, or simply <em>orders</em>, for short. When you start looking for them, orders are easy to find. The relation ‘… is older than —’ is an order (by age), and the relation ‘… is to the left of —’ is an order (by position), and the relation ‘… is a proper subset of —’ is an order (by set-theoretic content).</p>
+<p>To recognize the above argument as valid, we need to include among our assumptions the additional posit that the two place relation ‘… is taller than —’ is an order. How do we do so? It turns out that orders have certain special features that not all relations possess and which can be used to single them out. In particular, an order is any two place relation <span class="math inline">\(R\)</span> which satisfies the following two properties:</p>
+<p>Irreflexivity: Nothing stands in the relation <span class="math inline">\(R\)</span> to itself.</p>
+<p>Transitivity: If <span class="math inline">\(x\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(y\)</span>, and <span class="math inline">\(y\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(z\)</span>, then <span class="math inline">\(x\)</span> stands in the relation <span class="math inline">\(R\)</span> to <span class="math inline">\(z\)</span>.</p>
+<p>To see that ‘… is taller than—’ is an order, it is enough to note that it is an irreflexive, transitive relation. Nobody, after all, is taller than himself, and if one person is taller than another, and that other person is taller than a third, then the first person is taller than the third. Note that both the conditions of irreflexivity and transitivity can be expressed in the language L<span class="math inline">\(_Q\)</span>. Applied to the binary predicate <span class="math inline">\(T\)</span>, we can state these conditions as follows:</p>
+<p>Irreflexivity: <span class="math inline">\(\forall x(\neg Txx)\)</span></p>
+<p>Transitivity: <span class="math inline">\(\forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow Txz)))\)</span></p>
+<p>To stipulate that <span class="math inline">\(T\)</span> is an order, we can simply add these two sentences to the argument as premises:</p>
+<p><span class="math display">\[
+\forall x(\neg Txx), \forall x(\forall y(\forall z(Txy \wedge Tyz \rightarrow
+Txz))), Tsj, \neg Tsb\vdash\neg Tjb
+\]</span></p>
+<p>This argument is valid. To see why, suppose for contradiction that the premises are all true, but that the conclusion is false. If the conclusion is false it means that <span class="math inline">\(Tjb\)</span> is true. Now, the premise <span class="math inline">\(Tsj\)</span> is true as well. But since the transitivity condition is also true, by the truth conditions for universally quantified sentences, the following sentence is true:</p>
+<p><span class="math display">\[Tsj\wedge Tjb\rightarrow Tsb\]</span></p>
+<p>Hence, <span class="math inline">\(Tsb\)</span> is true, which contradicts the assumption that the premise <span class="math inline">\(\neg
+Tsb\)</span> is true. So, our original intuition that the argument is valid is born out, only now we see that that intuition was grounded in the unstated assumption that ‘… is taller than —’ is an order.</p>
+<p>Exercise:</p>
+<p>Here’s another example of a valid argument that relies on the ordering assumption:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is taller than James}}{\textrm{James is not taller than Sue}}
+\]</span></p>
+<p>Now, consider the following argument:</p>
+<p><span class="math display">\[
+\frac{\textrm{Sue is in the same grade as James\hspace{3mm},\hspace{3mm} Bob
+is in the same grade as James}}{\textrm{Sue is in the same grade as Bob}}
+\]</span></p>
+<p>Again, this is not a valid argument if formulated as follows:</p>
+<p><span class="math display">\[
+Gsj, Gbj\vdash Gsb
+\]</span></p>
+<p>So, it’s validity must turn on some special fact about the relation ‘… is in the same grade as —’. Note, however, that this relation is not an order, since it is reflexive: everyone, after all, is in the same grade as him or herself. Instead it is another kind of special relation, one which relates things by grouping them together in accordance with some shared property. These relations are called equivalence relations, or <em>equivalences</em>, for short.</p>
+<p>The three properties which make the binary predicate <span class="math inline">\(G\)</span> an equivalence relation are as follows:</p>
+<p>Reflexivity: <span class="math inline">\(\forall x(\neg Gxx)\)</span></p>
+<p>Symmetry: <span class="math inline">\(\forall x(\forall y(Gxy\rightarrow Gyx))\)</span></p>
+<p>Transitivity: <span class="math inline">\(\forall x(\forall y(\forall z(Gxy \wedge Gyz \rightarrow Gxz)))\)</span></p>
+<p>If we add these three relations as premises to the argument, then the argument becomes valid. To see why observes that, by symmetry and <span class="math inline">\(Gbj\)</span>, we have <span class="math inline">\(Gjb\)</span>. But by <span class="math inline">\(Gsj\)</span> and <span class="math inline">\(Gjb\)</span>, we have <span class="math inline">\(Gsb\)</span>, by transitivity.</p>
+<p>Exercise:</p>
+<p><span class="math inline">\(P(x)\leftrightarrow P(y)\)</span></p>
+<p>There is one special equivalence relation that is so fundamental to our reasoning, that it is often treated as part of the logical syntax of the language. This is the relation ‘… is identical to —’, or the so-called <em>identity</em> relation. It is the relation that obtains between any object and itself, but fails to obtain between any object and any other. Because it so fundamental, we often give this relation a special name in the language, ‘=’. In the case of this one predicate, it is also standard to use the infix instead of the prefix notation. Thus, we write <span class="math inline">\(x = y\)</span> in place of <span class="math inline">\(=xy\)</span>. Also, for the formula <span class="math inline">\(\neg x
+= y\)</span>, we adopt the shorthand <span class="math inline">\(x\neq y\)</span>.</p>
+<p>When we say that identity is sometimes treated as a logical notion, what we mean is that its meaning is fixed across all interpretations. In particular, we stipulate that, in any interpretation, the extension of the binary predicate ‘<span class="math inline">\(=\)</span>’ is just:</p>
+<p><span class="math display">\[\{(a,a): a\in \Omega\}\]</span></p>
+<p>With the help of the identity relation we can express claims not just about which objects have which properties or stand in which relations to each other, but <em>how many</em> objects have those properties or stand in those relations. For example, suppose we want to say there are exactly two objects that have the property <span class="math inline">\(P\)</span>. One natural idea would be to express this claim as follows:</p>
+<p><span class="math display">\[ \exists x (\exists y (Px\wedge Py))\]</span></p>
+<p>This says that there exists some <span class="math inline">\(x\)</span> and there exists some <span class="math inline">\(y\)</span> such that <span class="math inline">\(x\)</span> has the property <span class="math inline">\(P\)</span> and <span class="math inline">\(y\)</span> has the property <span class="math inline">\(P\)</span>. But this doesn’t do the trick. For simply because we have used two different variables, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, this does not ensure that these variables stand for different things. Hence, the above sentence would still be true if there was only one object in the domain with the property <span class="math inline">\(P\)</span>. What we need to add to the above sentence is the further condition that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are names of distinct objects. We can do this using the identity predicate as follows:</p>
+<p><span class="math display">\[ \exists x (\exists y (Px\wedge Py \wedge x\neq y))\]</span></p>
+<p>There is exactly one object in the universe with property <span class="math inline">\(P\)</span>. There are exactly two objects in the universe with property <span class="math inline">\(P\)</span>. Now this says that some <span class="math inline">\(x\)</span> and there exists some <span class="math inline">\(y\)</span> such that <span class="math inline">\(x\)</span> has the property <span class="math inline">\(P\)</span>, and <span class="math inline">\(y\)</span> has the property <span class="math inline">\(P\)</span>, and <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are not identical. From this it does follow that there are two objects with the property <span class="math inline">\(P\)</span>. But this sentence, by itslef, does not rule out the possibility of there being more than two objects with this property. To rule out this possibility, we have to say, in addition to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> being distinct objects with the property <span class="math inline">\(P\)</span>, any object which has this property is identical to either <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span>. Again, we can say this by means of the identity predicate:</p>
+<p><span class="math display">\[
+\exists x (\exists y ((Px\wedge Py \wedge x\neq y)\wedge \forall
+z(Pz\rightarrow(z=x\vee z=y))))
+\]</span></p>
+<div id="exr-to-the-left" class="exercise theorem">
+<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> be binary predicates that stand for:</p>
+<p><span class="math inline">\(L\)</span>: ‘… is to the left of —’ <span class="math inline">\(R\)</span>: ‘… is to the right of —’</p>
+<p>We will assume that <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> are orders and that:</p>
+<p><span class="math display">\[ \forall x(\forall y((x\neq y)\rightarrow(Lxy\leftrightarrow\neg Rxy)))\]</span></p>
+<p>This means that for any two distinct objects in the domain, either the first is to the left of the second, or the first is to the right of the second but not both. So, every object in the domain is positioned somewhere in a line from left to right.</p>
+<ol type="a">
+<li><p>Define the following propertoes and relations (you may use the identity predicate if need be):</p>
+<p><span class="math inline">\(B^3\)</span>: ‘… is between — and ___’</p>
+<p><span class="math inline">\(R^1\)</span>: ‘… is right-most’</p>
+<p><span class="math inline">\(L^1\)</span>: ‘… is left-most’</p>
+<p><span class="math inline">\(I\)</span>: ‘… is immediately to the right of —’</p></li>
+<li><p>Write down sentences expressing the following claims. You may use the properties and relations that you defined in part (a):</p>
+<p>There is someone two places to the right of John.</p>
+<p>There are exactly two people between John and Amy.</p>
+<p>John is one person away from the left of the line.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="proofs-in-quantificational-logic" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="proofs-in-quantificational-logic"><span class="header-section-number">3.4</span> Proofs in Quantificational Logic</h2>
+<section id="universal-introduction-and-existential-elimination" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="universal-introduction-and-existential-elimination"><span class="header-section-number">3.4.1</span> Universal Introduction and Existential Elimination</h3>
+<p>Now that we have introduced a formal language for quantificational logic and given it a semantics, the next step is to say how we reason and give proofs in the language.</p>
+<p>We will represent proofs in quantificational logic using the same Fitch-style notation for nested sequences that we employed in the context of syllogistic and propositional logic. Many of the rules of our proof system will be rules that we have already seen and used. In fact, our system will inherit all of the rules that we introduced for reasoning in propositional logic. Thus, recall, were the elimination and introduction rules for the propositional connectives:</p>
+<p>Negation:</p>
+<p>(<span class="math inline">\(\neg\)</span>E): From the sentence <span class="math inline">\(\neg\neg\varphi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\)</span>.</p>
+<p>(<span class="math inline">\(\neg\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\neg\psi\)</span>, you may infer the sentence <span class="math inline">\(\neg\varphi\)</span>.</p>
+<p>Conditional:</p>
+<p>(<span class="math inline">\(\rightarrow\)</span>E): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\rightarrow\psi\)</span>, you may infer <span class="math inline">\(\psi\)</span>.</p>
+<p>(<span class="math inline">\(\rightarrow\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\rightarrow\psi\)</span>.</p>
+<p>Conjunction:</p>
+<p>(<span class="math inline">\(\wedge\)</span>E): From <span class="math inline">\(\varphi\wedge\psi\)</span>, you may infer either the sentence <span class="math inline">\(\varphi\)</span> or the sentence <span class="math inline">\(\psi\)</span>.</p>
+<p>(<span class="math inline">\(\wedge\)</span>I): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\wedge\psi\)</span>.</p>
+<p>Disjunction:</p>
+<p>(<span class="math inline">\(\vee\)</span>E): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\chi\)</span> and from the hypothesis <span class="math inline">\(\psi\)</span> you can derive <span class="math inline">\(\chi\)</span>, then from <span class="math inline">\(\varphi\vee\psi\)</span> you may infer the sentence <span class="math inline">\(\chi\)</span>.</p>
+<p>(<span class="math inline">\(\vee\)</span>I): From either <span class="math inline">\(\varphi\)</span> or <span class="math inline">\(\psi\)</span>, you may infer the sentence <span class="math inline">\(\varphi\vee\psi\)</span>.</p>
+<p>Biconditional:</p>
+<p>(<span class="math inline">\(\leftrightarrow\)</span>E): From <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>, you may infer <span class="math inline">\(\psi\)</span>, and from <span class="math inline">\(\psi\)</span> and <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>, you may infer <span class="math inline">\(\varphi\)</span>.</p>
+<p>(<span class="math inline">\(\leftrightarrow\)</span>I): If from the hypothesis <span class="math inline">\(\varphi\)</span> you can derive <span class="math inline">\(\psi\)</span> and from the hypothesis <span class="math inline">\(\psi\)</span> you can derive <span class="math inline">\(\varphi\)</span>, then you may infer <span class="math inline">\(\varphi\leftrightarrow\psi\)</span>.</p>
+<p>In addition these rules we will also add introduction and elimination rules for the universal and existential quantifiers. The simplest of these rules are the rules of universal elimination (<span class="math inline">\(\forall\)</span>E) and existential introduction (<span class="math inline">\(\exists\)</span>I). The rule of universal elimination says that from a sentence of the form <span class="math inline">\(\forall x(\varphi)\)</span>, we may infer any instantiation of the formula that is quantified over, namely, <span class="math inline">\(\varphi(x)\)</span>. Thus, the rule can be stated as follows:</p>
+<p>(<span class="math inline">\(\forall\)</span>E): Let <span class="math inline">\(x\)</span> be any variable and let <span class="math inline">\(\varphi(x)\)</span> any open formula in which <span class="math inline">\(x\)</span> occurs freely. From <span class="math inline">\(\forall x(\varphi)\)</span>, you may infer <span class="math inline">\(\varphi(a)\)</span>, for any constant <span class="math inline">\(a\)</span>.</p>
+<p>Consider the argument:</p>
+<p><span class="math display">\[ Pa, \forall x(Px\rightarrow Qx)\vdash Qa \]</span></p>
+<p>Here is a proof:</p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Px\rightarrow Qx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\rightarrow Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="1,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(1, 3\)</span></span>
+</div>
+</div>
+<p>We apply the rule of universal elimination to get from line 2 in the proof to line 3. In doing so, we instantiate the open formula <span class="math inline">\(Px\rightarrow Qx\)</span> by replacing every free occurrence of <span class="math inline">\(x\)</span> in the formula with the constant <span class="math inline">\(a\)</span>.</p>
+<p>Here is a proof of the first argument introduced at the beginning of this chapter:</p>
+<p><span class="math display">\[
+\forall x(Cx\rightarrow (Fx \vee Sx)),Ca\wedge
+\neg Fa\vdash Sa
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Cx\rightarrow (Fx \vee Sx))\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Ca\rightarrow (Fa\vee Sa)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Ca\wedge \neg Fa\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Ca\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg Fa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="1" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Fa \vee Sa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Sa\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Fa\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="9" data-depth="3">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg Sa\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="10" data-depth="3" data-crossrefs="8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(10\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Fa\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(8\)</span></span>
+</div>
+<div class="proof-line" data-number="11" data-depth="3" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(11\)</span></span>
+<span class="level-marker"></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg Fa\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="12" data-depth="2" data-crossrefs="10,11">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(12\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\neg Sa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(10, 11\)</span></span>
+</div>
+<div class="proof-line" data-number="13" data-depth="2" data-crossrefs="12">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(13\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Sa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>E: <span class="math inline">\(12\)</span></span>
+</div>
+<div class="proof-line" data-number="14" data-depth="1" data-crossrefs="6,7,13">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(14\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Sa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>E: <span class="math inline">\(6, 7, 13\)</span></span>
+</div>
+</div>
+<p>Now for the rule of existential introduction (<span class="math inline">\(\exists\)</span> I). This rule works like the reverse of universal elimination. We infer from an instantiation <span class="math inline">\(\varphi(a)\)</span> of an open formula <span class="math inline">\(\varphi(x)\)</span>, the existentially quantified sentence <span class="math inline">\(\exists x\varphi(x)\)</span>.</p>
+<p>(<span class="math inline">\(\exists\)</span>I): Let <span class="math inline">\(x\)</span> be any variable and let <span class="math inline">\(\varphi(x)\)</span> be any open formula in which <span class="math inline">\(x\)</span> occurs freely. For any constant <span class="math inline">\(a\)</span>, from <span class="math inline">\(\varphi(a)\)</span>, you may infer <span class="math inline">\(\exists x(\varphi)\)</span>.</p>
+<p>The proof of the following argument illustrates how this rule can be applied:</p>
+<p><span class="math display">\[
+Pa\vdash\exists y(Py\vee Qy)
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa \vee Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\vee\)</span>I: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists y(Py\vee Qy)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>I: <span class="math inline">\(2\)</span></span>
+</div>
+</div>
+<p>In the step from line 2 to 3, we use the rule (<span class="math inline">\(\exists\)</span>I) to infer from the formula <span class="math inline">\(\varphi(a)\)</span>, where <span class="math inline">\(\varphi(y)\)</span> is the open formula <span class="math inline">\(Py \vee Qy\)</span>, the existential sentence <span class="math inline">\(\exists y(Py\vee Qy)\)</span>. Now here is a proof of the second argument introduced at the beginning of the chapter:</p>
+<p><span class="math display">\[
+\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx), Paj\vdash Aaj\rightarrow Tj
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(\exists y(Pyx\wedge Ayx)\rightarrow Tx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\exists y(Pyj\wedge Ayj)\rightarrow Tj\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Aaj\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Paj\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="5" data-depth="2" data-crossrefs="3,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Paj \wedge Aaj\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\wedge\)</span>I: <span class="math inline">\(3, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="2" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\exists y(Pyj \wedge Ayj)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>I: <span class="math inline">\(5\)</span></span>
+</div>
+<div class="proof-line" data-number="7" data-depth="2" data-crossrefs="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(7\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\exists y(Pyj\wedge Ayj)\rightarrow Tj\)</span></span>
+<span class="proof-justification">Reiteration: <span class="math inline">\(2\)</span></span>
+</div>
+<div class="proof-line" data-number="8" data-depth="2" data-crossrefs="6,7">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(8\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Tj\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(6, 7\)</span></span>
+</div>
+<div class="proof-line" data-number="9" data-depth="1" data-crossrefs="8">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(9\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Aaj\rightarrow Tj\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>I: <span class="math inline">\(8\)</span></span>
+</div>
+</div>
+<p>Exercise: Proofs</p>
+</section>
+<section id="universal-introduction-and-existential-elimination-1" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="universal-introduction-and-existential-elimination-1"><span class="header-section-number">3.4.2</span> Universal Introduction and Existential Elimination</h3>
+<p>Let’s now turn to the rule of universal introduction (<span class="math inline">\(\forall\)</span>I). At first blush, it might seem difficult to imagine how we can prove a universal statement. After all, universal statements say something about <em>everything</em> in the domain, so to establish a universal claim such as <span class="math inline">\(\forall x(\varphi)\)</span> one instance at a time would require us to first prove all of the infinitely many claims:</p>
+<p><span class="math display">\[ \varphi(a), \varphi(b), \varphi(c), \ldots \]</span></p>
+<p>Who has time for that? The rule universal introduction is based on the idea that we can shortcut this interminable procedure, by instead proving that the claim <span class="math inline">\(\varphi\)</span> holds for just one individual object, but one object which, for all we know, may be anything.</p>
+<p>Here is the idea, suppose that we have proven that <span class="math inline">\(\varphi(a)\)</span>, for some constant <span class="math inline">\(a\)</span>. And now suppose that looking back at the proof, what we find is that the constant <span class="math inline">\(a\)</span> is nowhere mentioned in any of the premises appealed to in the proof. Nor does <span class="math inline">\(a\)</span> occur in any of the undischarged hypotheses that are in effect at the point at which <span class="math inline">\(\varphi(a)\)</span> is established. Then, since none of our substantive assumptions—our premises or hypothesis—put any constraints on what the object the constant <span class="math inline">\(a\)</span> refers to, and yet nonetheless we have still been able to prove that <span class="math inline">\(\varphi(x)\)</span> holds of <span class="math inline">\(a\)</span>, then it must be the case that <span class="math inline">\(\varphi(x)\)</span> would hold for <em>any</em> x, whatsoever; that is, it must be the case that <span class="math inline">\(\forall x(\varphi)\)</span>. Here is the rule that codifies this sort of reasoning:</p>
+<p>(<span class="math inline">\(\forall\)</span>I): Let <span class="math inline">\(x\)</span> be any variable and let <span class="math inline">\(\varphi(x)\)</span> be any open formula in which <span class="math inline">\(x\)</span> occurs freely. From <span class="math inline">\(\varphi(a)\)</span>, where <span class="math inline">\(a\)</span> is any constant that does not occur in any premise or undischarged hypothesis, one may infer <span class="math inline">\(\forall x(\varphi)\)</span>.</p>
+<p>Here is an example of how the rule can be applied:</p>
+<p><span class="math display">\[
+\forall x(Px\rightarrow Qx), \forall x Px\vdash\forall x Qx
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Px\rightarrow Qx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\rightarrow Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Px)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="2,4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(2, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="6" data-depth="1" data-crossrefs="5">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Qx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>I: <span class="math inline">\(5\)</span></span>
+</div>
+</div>
+<p>The rule of universal introduction is appealed to in the final step of the proof in order to infer <span class="math inline">\(\forall x(Qx)\)</span> from <span class="math inline">\(Qa\)</span>. Why is this inference justified? How can we infer that everything has the property <span class="math inline">\(Q\)</span> from the fact that just one thing, <span class="math inline">\(a\)</span>, has it? The answer is that the object named by the constant <span class="math inline">\(a\)</span>, as it appears in line 5, serves the role of an arbitrary object. If you look at the premises appealed to in the argument, they say nothing at all about <span class="math inline">\(a\)</span>. So, as far as the premises are concerned, <span class="math inline">\(a\)</span> could stand for anything. If, despite this indeterminacy of reference, we can still establish that <span class="math inline">\(Qa\)</span>, it can only be because everything has the property <span class="math inline">\(Q\)</span>.</p>
+<p>It may be instructive, at this point, to consider an incorrect application of the rule.</p>
+<p><span class="math display">\[
+\forall x(Px\rightarrow Qx), Pa\vdash\forall x Qx
+\]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Px\rightarrow Qx)\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="1" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\rightarrow Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>E: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(Qa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\rightarrow\)</span>E: <span class="math inline">\(2, 4\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(6\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x(Qx)\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>I: <span class="math inline">\(5 \qquad\color{red}\textrm{No!}\)</span></span>
+</div>
+</div>
+<p>Here, we are not allowed to generalize from <span class="math inline">\(Qa\)</span> to <span class="math inline">\(\forall x(Qx)\)</span>. This is because, as referred to in line 5, <span class="math inline">\(a\)</span> is not just any object. It is a particular object that the second premise tells us possesses the property <span class="math inline">\(P\)</span>. It is this fact about <span class="math inline">\(a\)</span> that allows us to infer that <span class="math inline">\(Qa\)</span> and so it would be wrong to take this result and generalize to all objects in the domain.</p>
+<p>The following argument gives another example of how the rule of universal introduction can be applied:</p>
+<p><span class="math display">\[ \neg \exists Px\vdash\forall x\neg Px \]</span></p>
+<div class="lproof">
+<div class="proof-line" data-number="1" data-depth="2">
+<span class="hypothesis-marker"></span>
+<span class="line-number"><span class="math inline">\(1\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(Pa\)</span></span>
+<span class="proof-justification">Hypothesis</span>
+</div>
+<div class="proof-line" data-number="2" data-depth="2" data-crossrefs="1">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(2\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\exists x Px\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\exists\)</span>I: <span class="math inline">\(1\)</span></span>
+</div>
+<div class="proof-line" data-number="3" data-depth="2">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(3\)</span></span>
+<span class="level-marker"></span>
+<span class="proof-formula"><span class="math inline">\(\neg\exists x Px\)</span></span>
+<span class="proof-justification">Premise</span>
+</div>
+<div class="proof-line" data-number="4" data-depth="1" data-crossrefs="2,3">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(4\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\neg Pa\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\neg\)</span>I: <span class="math inline">\(2, 3\)</span></span>
+</div>
+<div class="proof-line" data-number="5" data-depth="1" data-crossrefs="4">
+<span class="subproof-marker"></span>
+<span class="line-number"><span class="math inline">\(5\)</span></span>
+<span class="proof-formula"><span class="math inline">\(\forall x \neg Px\)</span></span>
+<span class="proof-justification"><span class="math inline">\(\forall\)</span>I: <span class="math inline">\(4\)</span></span>
+</div>
+</div>
+<p>Note here that while the constant <span class="math inline">\(a\)</span> appears in the hypothesis in line 1, at the point at which the rule <span class="math inline">\(\forall I\)</span> is applied to it in line 4, that assumption has been discharged. And so this is a correct application of the rule.</p>
+<p>Now, let’s turn to the last of our rules, existential elimination. This rule is suppose to allow us to infer</p>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<p><span class="math display">\[
+\]</span></p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Another standard name for this system is first-order predicate logic.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../content/body/chapters/02-propositional-logic/propositional-logic.html" class="pagination-link" aria-label="Propositional Logic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Propositional Logic</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

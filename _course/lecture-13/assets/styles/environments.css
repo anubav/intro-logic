@@ -1,0 +1,35 @@
+/***********************************************************************
+ * Custom CSS for styling environments in Quarto documents
+/************************************************************************/
+
+.example {
+  padding: 0.5em 1em 1em 1em;
+  border-radius: 0.5em;
+  border: 1px solid;
+  margin: 2em 0;
+}
+
+.exercise {
+  padding: 1em 1em 0em 1em;
+  margin: 1em 0em 1em 0em;
+  border-radius: 0.5em;
+  border: 1px solid lightgray;
+}
+
+.definition {
+  padding: 1em 1em 0em 1em;
+  margin: 1em 0em 1em 0em;
+  border-radius: 0.5em;
+  border: 1px solid lightgray;
+}
+
+/* Remove styling from links in definitions and exercises */
+.def-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.unstyled-link {
+  color: inherit;
+  text-decoration: none;
+}
