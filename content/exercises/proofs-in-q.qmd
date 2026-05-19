@@ -1,0 +1,11 @@
+Provide proofs to establish the validity of the following arguments:
+
+a. $\forall x(Px\rightarrow \forall y(Rxy)), Pa\proves Rab$
+
+b. $\forall x(\forall y (Rxy))\proves \exists x(Rxb)$
+
+c. $\forall x (\forall y (Rxy \iff \neg Sxy)), \neg Rab\proves Sab$
+
+d. $\neg\exists y(Py\vee Qa)\proves \neg\forall x(Px)$
+
+e. $\forall x(Rxa) \vee \forall x(Rax)\proves \exists x (\exists y(Rxy))$

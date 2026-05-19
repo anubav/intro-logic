@@ -121,10 +121,6 @@ If we add these three relations as premises to the argument, then the argument
 becomes valid. To see why observes that, by symmetry and $Gbj$, we have $Gjb$. But
 by $Gsj$ and $Gjb$, we have $Gsb$, by transitivity.
 
-Exercise:
-
-$P(x)\iff P(y)$
-
 There is one special equivalence relation that is so fundamental to our
 reasoning, that it is often treated as part of the logical syntax of the
 language. This is the relation '... is identical to ---', or the so-called

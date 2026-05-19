@@ -1,0 +1,14 @@
+Provide proofs to establish the validity of the following arguments:
+
+a. $\exists x(\exists y(Rxy))\proves\exists y(\exists x(Rxy))$
+
+b. $\neg\forall x(\exists y(Rxy))\proves \exists x(\forall y(\neg Rxy))$
+
+c. $\exists x(\forall y(Rxy\rightarrow Sxy)), \forall x(\exists y(\neg
+Sxy))\proves\neg \forall x(\forall y(Rxy))$
+
+d. $\forall x (\forall y(Rxy\rightarrow (Px\wedge Qy))), \forall x(\forall
+y((Px\vee Ty)\rightarrow\neg Rxy))\proves \neg\exists x(\exists y(Rxy))$
+
+e. $\forall x(\exists y(Rxy))\rightarrow(\forall x(\exists y(Sxy))), \exists
+x(\forall y(\neg Sxy))\proves\exists x(\forall y(\neg Rxy))$
